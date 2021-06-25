@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="8" MadCap:lastHeight="985" MadCap:lastWidth="865">
+    <head><title>Specify Alert Criteria Windows</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Specify Alert Criteria Windows</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Specify Alert Criteria Windows</h2>
+        <p class="Body">These windows allow you to use words, phrases, and wildcards to further define your alert rule criteria. For example, you can use this window to find and alert on all databases in your environment that use a naming convention such as <code class="Code_1_1">dbname01</code>.</p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Alert on objects whose names match the listed words, phrases, or wildcards</p>
+        <p class="DefinitionListBody">To alert on objects with specific names or naming conventions, click <span class="GUI_Item">listed</span>, and then specify the words, phrases, or wildcards the object names should match. You can add more than one criterion.</p>
+        <p class="DefinitionListTerm">Alert on objects whose names are not listed</p>
+        <p class="DefinitionListBody">To alert on objects whose names are not listed, click <span class="GUI_Item">except those listed</span>, and then specify the words, phrases, or wildcards the object names should not match. You can add more than one criterion.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">Match all &lt;alert criteria&gt;</p>
+        <p class="DefinitionListBody">Allows you to indicate whether the alert rule should generate alerts for objects that match the listed names, phrases, or wildcards.</p>
+        <p class="DefinitionListTerm">Specify &lt;alert criteria&gt; to match</p>
+        <p class="DefinitionListBody">Allows you to define match criteria. Match criteria can include exact names, words, phrases, or wildcards. For each match criterion you want to define, type the appropriate word, phrase, or wildcard in the provided field, and then click <span class="GUI_Item">Add</span>.</p>
+        <p class="DefinitionListBody">Use the following examples to help you define wildcard match criteria. Note that wildcard matches are not case-sensitive.</p>
+        <table style="mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">If you want to match …</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Use …</p>
+                    </th>
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Examples</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">&#160;</th>
+                    <th class="HeadD-Column1-Header1">&#160;</th>
+                </tr>
+            </thead>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">One digit</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">#</p>
+                </td>
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText"><i>You want:</i>
+                    </p>
+                    <p class="TableText">All databases with name of testNN</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText"><i>You specify:</i>
+                    </p>
+                    <p class="TableText">test##</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText"><i>You get:</i>
+                    </p>
+                    <p class="TableText">Test00<br />Test01<br />test#1</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">One character</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">?</p>
+                </td>
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText"><i>You want:</i>
+                    </p>
+                    <p class="TableText">All databases with name of testXX</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText"><i>You specify:</i>
+                    </p>
+                    <p class="TableText">test??</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText"><i>You get:</i>
+                    </p>
+                    <p class="TableText">Test00<br />Test01<br />TEST?h<br />tester</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Any character</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">*</p>
+                </td>
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText"><i>You want:</i>
+                    </p>
+                    <p class="TableText">All databases that start with test</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText"><i>You specify:</i>
+                    </p>
+                    <p class="TableText">test*</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText"><i>You get:</i>
+                    </p>
+                    <p class="TableText">Test00<br />Test01<br />test0101<br />test4me<br />test#1<br />TEST?h<br />test*dev<br />tester<br />test</p>
+                </td>
+            </tr>
+        </table>
+        <p class="DefinitionListTerm">&lt;Alert criteria&gt; to match</p>
+        <p class="DefinitionListBody">Allows to you change the list of match criteria. You can add a new criterion or remove an existing criterion.</p>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="2" MadCap:lastHeight="242" MadCap:lastWidth="1211">
+    <head><title>Grooming Audit Data</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Groom audit data</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Groom audit data</h2>
+        <p class="Body">
+            <MadCap:keyword term="grooming:audit data;archives:maintain;grooming:groom now;grooming:manual">
+            </MadCap:keyword>You can groom audited SQL events from the event databases in the Repository. When you groom audit data, SQL&#160;Compliance&#160;Manager deletes all events that are older than the age (in days) you specify. You can groom audit data collected from all registered SQL Server instances or from selected instances. Grooming ensures the Repository contains only the audit data you need. </p>
+        <p class="Body"><span class="If_Then_Statement">If your auditing needs require long-term storage</span>, consider implementing a maintenance plan. For more information, see <a href="Managing Audit Data.htm" target="_self">Managing Audit Data</a>.</p>
+        <p class="Body">You can groom events using the <a href="Using the Management Consol to Groom Events.htm">Management Console</a> or the <a href="Using the CLI to Groom Events.htm">CLI</a>. Note that SQL&#160;CM does not automatically shrink the Repository databases after a groom is performed. After each groom operation, re-index and shrink the affected Repository databases so that SQL Server can reclaim the space that had been allocated due to the previous growth.</p>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="5" MadCap:lastHeight="313" MadCap:lastWidth="656">
+    <head>
+        <link href="Resources/TableStyles/Tip.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>How Event Filters Work</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">How Event Filters work</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">How Event Filters work</h2>
+        <p class="Body">Event Filters determine which collected SQL events should be kept for processing by the Collection Server. Like your audit settings, the Event Filters should correlate with the SQL events you need to track in order to meet your compliance objectives.</p>
+        <p class="Body">After receiving the trace files from the SQLcompliance Agent, the Collection Server applies your Event Filters. Any matching events are permanently deleted and eliminated from the data stream. All remaining events are processed for alerts and stored in the appropriate Repository database.</p>
+        <table style="width: 100%; mc-table-style: url('Resources/TableStyles/Tip.css'); margin-left: 0; margin-right: auto;" class="TableStyle_Tip" cellspacing="0">
+            <col style="width: 34px;" />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">TIP</td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">When you enable Sensitive Column auditing on a table, the Collection Server preserves all SELECT&#160;events associated with the audited columns even though you may have created an event filter to exclude SELECT events.</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

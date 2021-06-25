@@ -1,0 +1,77 @@
+<idera-cwf-dialog id="specifyAlertMessage" closable="true" border="none"
+	height="600px" width="620px" apply="org.zkoss.bind.BindComposer"
+	style="border-radius: 0"
+	contentSclass="modal-dialog-window margin-all-0 padding-all-0"
+	viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.adddataalertruleswizard.steps.SpecifyAlertMessageViewModel')"
+	title="${idera: getLabel('SQLCM.Labels.message-template')}">
+	<div hflex="1" vflex="1" style="vertical-align:middle;">
+		<vlayout vflex="1">
+			<hlayout>
+				<label value="${idera:getLabel('SQLCM.Labels.title')}"
+					style="margin-left:20px;" width="410px" />
+			</hlayout>
+			<hlayout>
+				<idera-cwf-textbox id="objectNameMatch" type="text"
+					width="410px" rows="1" style="margin-left:20px;"
+					onBlur="@command('getLastFocuesdAttr',id = objectNameMatch)" />
+			</hlayout>
+			<separator height="16px" />
+			<vlayout>
+				<hlayout>
+					<vlayout>
+						<label
+							value="${idera:getLabel('SQLCM.Labels.message')}"
+							style="margin-left:20px;" />
+						<idera-cwf-textbox id="objectbodyMatch"
+							type="text" width="310px" height="310px" rows="15"
+							style="margin-left:20px; resize:none;"
+							onBlur="@command('getLastFocuesdAttr',id=objectbodyMatch)" />
+					</vlayout>
+					<vlayout>
+						<div>
+							<vlayout>
+								<label
+									value="${idera:getLabel('SQLCM.Html.message-template-tag')}"
+									style="margin-left:20px;" />
+								<label
+									value="${idera:getLabel('SQLCM.Html.message-template-tag-rem')}"
+									style="margin-left:20px;" />
+							</vlayout>
+						</div>
+						<idera-cwf-listbox id="ListObjectMatch" height="150px" sclass="idera-grid z-listbox"
+							onClick="@command('onItemClick')" model="@bind(vm.templateList)"
+							style="margin-left:20px ;" width="210px" rows="8">
+							<template name="model" var="mymodel">
+								<listitem>
+									<listcell>
+										<label
+											value="@bind(mymodel.templateName)" />
+									</listcell>
+								</listitem>
+							</template>
+						</idera-cwf-listbox>
+					</vlayout>
+				</hlayout>
+			</vlayout>
+			<separator height="16px" />
+			<vlayout sclass="padding-lr-24 padding-top-10">
+				<hlayout>
+					<div hflex="1"></div>
+					<div width="100px">
+						<idera-cwf-button id="OKButton" width="85px"
+							visible="${sqlcm:canAccess()}"
+							onClick="@command('submitChoice',comp=specifyAlertMessage)"
+							label="${idera:getLabel('SQLCM.Labels.ok')}" />
+
+					</div>
+					<div width="100px">
+						<idera-cwf-button id="cancelButton" width="85px"
+							visible="${sqlcm:canAccess()}"
+							onClick="@command('closeDialog', comp=specifyAlertMessage)"
+							label="${idera:getLabel('Labels.sql-cm.instance-properties-dialog-cancel-button')}" />
+					</div>
+				</hlayout>
+			</vlayout>
+		</vlayout>
+	</div>
+</idera-cwf-dialog>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultTarget
+  Version="1"
+  Comment="SQL CM Help"
+  Type="PDF"
+  Destinations=""
+  GlossaryTermConversion="marked"
+  ConditionTagExpression="include[Default.PrintOnly] exclude[Default.Google or Default.ScreenOnly or Default.SEO] "
+  MasterToc="/Project/TOCs/Master.fltoc"
+  MasterStylesheet="/Content/Resources/Stylesheets/Idera Stylesheet.css"
+  OutputFolder="C:\Users\npollard\Documents\GitHub\SQLcm\documentation\Current\Help\SQL compliance manager Help\Output"
+  OutputFile="SQLcm Help.pdf">
+  <PDF
+    ShowUsedBookmarks="false"
+    Tagged="true" />
+  <DocumentProperties
+    Author="" />
+</CatapultTarget>

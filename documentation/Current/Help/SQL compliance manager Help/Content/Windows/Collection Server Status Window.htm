@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="682" MadCap:lastWidth="917">
+    <head><title>Collection Server Status Window</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Collection Server Properties Window</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Collection Server Properties Window</h2>
+        <p class="Body">This window allows you to review the basic properties and status of the Collection Server. You can review the following items:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Whether the Collection Server is available (up and running)</li>
+            <li class="Bullet">Official status</li>
+            <li class="Bullet">Name of the computer that hosts the Collection Server</li>
+            <li class="Bullet">Port the Collection Server is using to communicate with the Management Console and the SQLcompliance Agent</li>
+            <li class="Bullet">Version of Collection Server software (should be the same as the SQL compliance manager build and version number)</li>
+            <li class="Bullet">Data and time last heartbeat was received from the SQLcompliance Agent</li>
+            <li class="Bullet">Logging levels set at the Collection Server and the SQLcompliance Agent</li>
+            <li class="Bullet">Collection Server heartbeat interval</li>
+            <li class="BulletLast">Location of trace file directory</li>
+        </ul>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Change Collection Server log level</p>
+        <p class="DefinitionListBody">Allows you to select the logging level at which the Collection Server writes events to the Application log on the host computer.</p>
+        <p class="DefinitionListTerm">Change heartbeat interval</p>
+        <p class="DefinitionListBody">Allows you to specify the interval (in minutes) at which the Collection Service  processes any status alerts associated with the Collection Server. These alerts are written to the Repository. It also manages any SQL compliance manager maintenance activities, such as re-indexing the Repository databases. By default, the heartbeat interval is 5 minutes.</p>
+        <p class="DefinitionListTerm">Start Service</p>
+        <p class="DefinitionListBody">Allows you to restart the Collection Service from the Management Console. Use this feature if the Collection Service has stopped running on the Collection Server computer and requires a manual restart.</p>
+        <p class="DefinitionListTerm">Stop Service</p>
+        <p class="DefinitionListBody">Allows you to stop the Collection Service from the Management Console. You can use this feature to stop the Collection Service currently running on the Collection Server computer.</p>
+        <p class="DefinitionListTerm">Refresh Status</p>
+        <p class="DefinitionListBody">Allows you to refresh the status fields with the most recent data from the Collection Server.</p>
+    </body>
+</html>

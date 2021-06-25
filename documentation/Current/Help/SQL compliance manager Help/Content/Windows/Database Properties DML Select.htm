@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="6" MadCap:lastHeight="396" MadCap:lastWidth="1159">
+    <head>
+        <link href="../Resources/TableStyles/Tip.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Audited Database Properties Window DML SELECT Filters</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Audited Database Properties Window</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Audited Database Properties Window &gt; </MadCap:conditionalText>DML/SELECT Filters</h2>
+        <p class="Body">This tab allows you to change which database objects you want to audit for DML and SELECT statements. These settings are available when you choose to audit DML or SELECT statements on the selected databases. You can audit all database objects or specific database objects, such as user tables and stored procedures. </p>
+        <p class="Body">For example, if you chose to audit SELECT statements on user tables, the Collection Server retrieves SQL Server events that comprise of SELECT operations run on user tables in the audited database.</p>
+        <table style="width: 100%; mc-table-style: url('../Resources/TableStyles/Tip.css'); margin-left: 0; margin-right: auto;" class="TableStyle_Tip" cellspacing="0">
+            <col style="width: 35px;" />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">To successfully audit before and after data, ensure you select the target user tables.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Add</p>
+        <p class="DefinitionListBody">Allows you to enable auditing of DML and SELECT events on one or more user tables. </p>
+        <p class="DefinitionListTerm">Remove</p>
+        <p class="DefinitionListBody">Allows you to remove the selected user table from the list of audited user tables. When you remove the user table, the SQLcompliance Agent will no longer collect DML and SELECT events recorded for that user table.</p>
+    </body>
+</html>

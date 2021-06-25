@@ -1,0 +1,39 @@
+<zk>
+    <div hflex="1" vflex="1"
+         style="vertical-align:middle;"
+         apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addserverwizard.steps.TrustedUsersStepViewModel')">
+        <hlayout width="510px" vflex="1">
+            <vlayout width="400px" vflex="1">
+                <label value="${idera:getLabel('SQLCM.Label.add-server-wizard.trusted-users.trusted-users')}" />
+                            <style>
+	        .idera-grid.z-listbox div.z-listbox-body div.z-listcell-cnt{padding:.5rem}
+	        </style>
+                <idera-cwf-listbox id="lbUsers" sclass="idera-grid z-listbox"
+                         model="@load(step_vm.permissionList)" width="398px" vflex="1"
+                         multiple="true" checkmark="false">
+                    <listhead>
+                        <listheader width="30px" />
+                        <listheader />
+                    </listhead>
+                    <template name="model">
+                        <listitem onClick="@command('onItemClick')">
+                            <listcell>
+                                <image src="@load(each) @converter(step_vm.permissionToImagePathConverter)"/>
+                            </listcell>
+                            <listcell label="@load(each.name)"/>
+                        </listitem>
+                    </template>
+                </idera-cwf-listbox>
+            </vlayout>
+            <vlayout width="110px" style="padding-left: 10px; padding-top: 10px;">
+                <idera-cwf-button width="85px" id="addButton" 
+                        label="${idera:getLabel('SQLCM.Label.add-server-wizard.button.add')}"
+                        onClick="@command('addClick')"/>
+                <idera-cwf-button width="85px" id="removeButton" 
+                        label="${idera:getLabel('SQLCM.Label.add-server-wizard.button.remove')}"
+                        onClick="@command('removeClick')" />
+            </vlayout>
+        </hlayout>
+    </div>
+</zk>

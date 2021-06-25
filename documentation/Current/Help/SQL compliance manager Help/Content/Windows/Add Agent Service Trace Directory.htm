@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="2" MadCap:lastHeight="343" MadCap:lastWidth="670">
+    <head><title>Add SQLcompliance Agent Service Wizard SQLcompliance Agent Trace Directory</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Add SQLcompliance Agent Service Wizard</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Add SQLcompliance Agent Service Wizard &gt; </MadCap:conditionalText>SQLcompliance Agent Trace Directory</h2>
+        <p class="Body">This tab lets you specify which folder should be used for the SQLcompliance Agent trace directory. The SQLcompliance Agent stores SQL Server trace files in this directory until the files can be sent to the Collection Server for processing. The specified folder must be located on a shared data disk for the specified virtual SQL Server. Ensure you specify the same directory path for each node in the cluster hosting the virtual SQL Server.</p>
+        <p class="Body">You can specify an existing folder or a new folder that the Cluster Configuration Console will create for you. When the Cluster Configuration Console creates the trace directory, the directory is secured using ACL settings. Only local administrators have read and write access to the new folder. Ensure the SQLcompliance Agent Service account has read and write privileges on that folder. The Cluster Configuration Console does not change the security settings on existing folders.</p>
+        <p class="Body">Specify the folder where the SQLcompliance Agent should store SQL Server trace files, and then click <span class="GUI_Item">Next</span>.</p>
+    </body>
+</html>

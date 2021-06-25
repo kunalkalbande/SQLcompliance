@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Get Started|Installation and deployment">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Hardware Requirements</title>
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1">Hardware requirements</h1>
+        <p class="Body"><a name="kanchor10"></a>The following sections provide the hardware requirements for each SQL&#160;Compliance&#160;Manager component. For more information, see <a href="Architecture and Components.htm" target="_self">Understanding SQL&#160;Compliance&#160;Manager Components</a>.</p>
+        <h2 class="Heading2">Audited SQL&#160;Server</h2>
+        <p class="Body">The audited SQL Server computer is the computer that hosts the SQL Server databases you want to audit. In a clustered environment with virtual SQL Servers, the audited SQL Server is the virtual SQL Server. However, each node (physical computer) in the cluster that hosts the virtual SQL Server must meet or exceed these requirements.</p>
+        <p class="Body">To achieve optimal performance, ensure each SQL Server computer meets or exceeds the following hardware requirements.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Hardware Type</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Requirement</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">CPU</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">1 GHz</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Memory</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">512 MB</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Hard Disk Space</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">2 GB</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Collection Server</h2>
+        <p class="Body">The Collection Server computer is the computer that hosts the Collection Service and processes trace files. This computer also hosts the Repository databases.</p>
+        <p class="Body">To achieve optimal auditing performance and data storage, ensure the Collection Server computer meets or exceeds the following hardware requirements.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Hardware Type</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Requirement</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">CPU</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">2 GHz</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Memory</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">8 GB</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Hard Disk Space</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">20 GB for trace directory</p>
+                        <p class="TableText">75 GB for Repository</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Management Console</h2>
+        <p class="Body">The Console computer is the computer that hosts the SQL&#160;Compliance&#160;Manager Management Console. You can install the console on the Collection Server computer, or any client computer for remote access to your audit data.</p>
+        <p class="Body">Ensure each console computer meets or exceeds the following hardware requirements.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Hardware Type</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Requirement</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">CPU</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">1 GHz</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Memory</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">512 MB</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Hard Disk Space</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">150 MB</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">  <![CDATA[ ]]></p>
+    </body>
+</html>

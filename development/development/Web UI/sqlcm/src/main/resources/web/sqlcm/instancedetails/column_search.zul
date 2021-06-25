@@ -1,0 +1,162 @@
+<idera-cwf-dialog id="columnSearch" height="673px" closable="true"
+	width="900px" apply="org.zkoss.bind.BindComposer" contentSclass="idera-dialog dialog-nopadding"
+	viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.ColumnSearchViewModel')"
+	title="${idera:getLabel('SQLCM.Labels.sensitive-column-search')} ">
+	<style>
+		.idera-dialog .z-window-highlighted-cnt-noborder{padding-left:0px; width:900px;}
+	</style>
+		
+	<div sclass="ccl-section-title" style="margin-left:-13px" ><label value="@load(vm.instanceName)"/>
+	</div>
+		<hlayout style="padding-left:30px">
+
+			<vlayout>
+				<div vflex="min" style="margin-top:30px;">
+					<label value = "Active Search Profile" style = "align:centre; width:120px; height:16px;" />
+				</div>
+			</vlayout>
+			<vlayout>
+				<div vflex="min" style="margin-left:45px; margin-top:30px;">
+					<label id="activeSearchProfile" style="width:120px;"/> 
+				</div>
+			</vlayout>
+		</hlayout>
+
+		<hlayout style="padding-left:30px">
+			<vlayout>
+				<div vflex="min" style="margin-top:21.5px;">
+					<label value = "Database Name" style = "align:centre; width:92px;" />
+				</div>
+			</vlayout>
+			<vlayout>
+				<div style="margin-left:62px;margin-top:12.5px;">
+					<!-- SCM-216: Table Listing for current instance -->
+					<idera-cwf-dropdownlist mold="default" tabindex="8"
+						width="450px"
+						value="${idera:getLabel('SQLCM.Labels.newSelect')}"
+						readonly="true" model="@load(vm.serverList)"
+						onChange="@command('refreshTableNameList')"
+						onSelect="@command('selectDb', id=self.selectedItem.label)">
+						 <template name="model">
+            				<comboitem label="@load(each.name)" tooltiptext="@load(each.name)"/>
+       					 </template>
+					</idera-cwf-dropdownlist>
+				</div>
+			</vlayout>
+		</hlayout>
+
+		<hlayout style="padding-left:30px">
+			<vlayout>
+				<div vflex="min" style="margin-top:9px;">
+					<label value = "Table Name" style = "align:centre; width:70px;"/>
+				</div>
+			</vlayout>
+			<vlayout>
+				<div style="margin-left:83px;margin-top:9px;">
+				<!-- Start - SCM-216: Table Listing for current instance -->
+					<idera-cwf-dropdownlist mold="default" tabindex="9" id="tableNameList"
+						width="450px"
+						value="${idera:getLabel('SQLCM.Labels.newTableSelect')}"
+						readonly="true" model="@load(vm.tableList)"
+						onSelect="@command('selectedTable', id=self.selectedItem.label)">
+						 <template name="model">
+            				    <comboitem label="@load(each)" tooltiptext="@load(each)"/>
+       					  </template>
+					</idera-cwf-dropdownlist>
+				<!-- End - SCM-216: Table Listing for current instance -->
+				</div>
+			</vlayout>
+			<vlayout>
+				<div vflex="min" style="margin-left:20px;">
+					<idera-cwf-button id="configeSearchLink" 
+						label="${idera:getLabel('SQLCM.Labels.administration-manage-sql-server-config-search-link')}"
+						onClick="@command('showConfigeSearch',comp=columnSearch)" width="152px" height="28px"/>
+				</div>
+			</vlayout>
+		</hlayout>
+
+		<hlayout style="padding-left:30px">
+			<vlayout>
+			<style>
+		.idera-dialog .z-window-highlighted-cnt-noborder{padding-left:15px !important;  width:100%;}
+	</style>
+				<div vflex="min" style="width:138px;margin-top:3.5px;margin-left:0px;margin-right:0px;">
+					<idera-cwf-button   id="performSearch" label="Perform Search"
+						disabled="true" onClick="@command('performSearch')" width="138px" style="margin-left:0px;margin-right:0px;"/>
+				</div>
+			</vlayout>
+			<vlayout>
+				<div vflex="min" style="width:128px;margin-left:16px;margin-top:3.5px;">
+					<idera-cwf-button  id="exportReport" label="Export Report" onClick="@command('createCsvFile')" width="128px" style="margin-left:0px;margin-right:0px;"/>
+				</div>
+			</vlayout>
+		</hlayout>
+
+		<hlayout style="padding-left:30px">
+			<vlayout>
+				<div vflex="min" style="margin-top:7px; margin-bottom:8px;">
+					 <label value = "Database and Table Summary" style = "align:left ; font-size:14px; line-height:16px; font-family: Source Sans Pro; font-weight:600;" />
+				</div>
+			</vlayout>
+
+			<vlayout>
+				<div vflex="min" style="margin-left:402px; margin-top:7px; margin-bottom:8px;">
+					<label value = "Column Details" style = "align:left ; font-size:14px; line-height:16px; font-family: Source Sans Pro; font-weight:600;" />	
+				</div>
+			</vlayout>
+		</hlayout>
+		<hlayout style="padding-left:30px">
+			<vlayout>
+				<idera-cwf-listbox sclass="idera-grid z-listbox" height="287px" width="580px" vflex ="true" 
+					id="columnList"
+					model="@load(vm.tableDetails)" onClick="@command('selectedRow', id=self.selectedItem.children)">
+					  <listhead>
+						<extlistheader label="Database" sort="auto(LOWER(databaseName))" width="145px"/>
+						<extlistheader label="Schema.Table" sort="auto(LOWER(schemaTableName))" width="125px"/>
+						<extlistheader label="Size(MB)" sort="auto(Size)" width="70px"/>
+						<extlistheader label="Row Count" sort="auto(rowCount)" width="90px" />
+						<extlistheader label="Column Identified" sort="auto(columnsIdentified)" width="150px"/>
+					  </listhead>
+					<template name="model">
+						<listitem>
+							<listcell label="@load(each.databaseName)"  value="@load(each.schemaTableName)" tooltiptext="@load(each.databaseName)" />
+							<listcell label="@load(each.schemaTableName)" tooltiptext="@load(each.schemaTableName)"/>
+							<listcell label="@load(each.size)" />							
+							<listcell label="@load(each.rowCount)" />
+							<listcell label="@load(each.columnsIdentified)" />
+						</listitem>
+					</template>
+				</idera-cwf-listbox>
+			</vlayout>
+			<vlayout>
+				<idera-cwf-listbox sclass="idera-grid z-listbox" height="286px" vflex ="true" width="250px"
+					model="@load(vm.columnDetails)">
+					<listhead>
+						<extlistheader label="Name" sort="auto(fieldName)" />
+						<extlistheader label="Type" sort="auto(dataType)" />
+						<extlistheader label="Max Value" sort="auto(size)" />
+					</listhead>
+					<template name="model">
+						<listitem>
+							<listcell label="@load(each.fieldName)" tooltiptext="@load(each.fieldName)" />
+							<listcell label="@load(each.dataType)" />
+							<listcell label="@load(each.size)" />
+						</listitem>
+					</template>
+				</idera-cwf-listbox>
+			</vlayout>
+		</hlayout>
+		<hlayout style="padding-left:30px">
+			<timer id="timer" repeats="true" delay="500" onTimer="@command('refreshEvents')"/>
+		</hlayout>
+
+			<div sclass="idera-dialog-action-footer" width="97%" style="padding-right:18px;">
+				<idera-cwf-button id="closeButton" width="66px" height="28px"
+					onClick="@command('closeDialog', comp=columnSearch)"					
+					label="${idera:getLabel('SQLCM.Label.wizard.button.cancel')}" />					
+			</div>
+			<style>
+				.idera-dialog-action-footer{margin-top:30px; width:900px;}
+			</style>
+			
+</idera-cwf-dialog>

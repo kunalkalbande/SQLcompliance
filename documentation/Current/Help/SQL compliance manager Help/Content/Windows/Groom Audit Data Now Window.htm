@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="481" MadCap:lastWidth="945">
+    <head><title>Groom Audit Data Now Window</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Groom Audit Data Now Window</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Groom Audit Data Now Window</h2>
+        <p class="Body">This window allows you to groom audited events currently stored in the Repository databases. Grooming permanently deletes any event that is older than the age limit you specify. To improve the Collection Server performance while maintaining audit data for later analysis, consider archiving your audit data.</p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Generate Script</p>
+        <p class="DefinitionListBody">Creates a CLI command that includes your groom settings. You can save the command to a batch file or copy the command to another application. Use this command to schedule and automate your audit data maintenance through a third-party tool.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">SQL Servers</p>
+        <p class="DefinitionListBody">Allows you to select which SQL Server instance you want to groom. You can groom audit data for all registered SQL Server instances or for a particular SQL Server instance.</p>
+        <p class="DefinitionListTerm">Grooming Options</p>
+        <p class="DefinitionListBody">Allows you to specify the age (in days) at which an audited event should be groomed and choose whether you want to skip the integrity check. </p>
+        <p class="DefinitionListBody">The Collection Server will not groom events that are younger than the specified age.</p>
+        <p class="DefinitionListBody">When you groom audit data, you can choose to check the integrity of the collected events. <span class="If_Then_Statement">If the audit data for the selected SQL Server instance fails this integrity check</span>, SQL Compliance Manager does not groom the data.</p>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+[{
+	"Id":2,
+	"Name":"SampleProduct",
+	"ShortName":"SampleP",
+	"Version":"Alpha",
+	"RegisteringUser":"Administrator",
+	"Location":"WIN-ABB909BSJ",
+	"Status":"Green",
+	"RegistrationDateTime":null,
+	"ConnectionUser":"Administrator",
+	"WebURL":"/sqlbi",
+	"JarFile":"plugins/sqlbi-1.0.jar",
+	"Description":"Sqlbi",
+	"DefaultPage":"index",
+	"InstanceName":"null",
+	"RestURL":"/SQLBI/v1"
+	}
+
+]

@@ -1,0 +1,1449 @@
+<?xml version="1.0"?>
+<project name="SQLcompliance" default="Build.Dev" basedir="..">
+
+	<!-- ***************************************************************************** -->
+	<!--                            Build Targets                                      -->
+	<!-- ***************************************************************************** -->
+	
+	<!-- ********* -->
+	<!-- Build.Dev -->
+	<!-- ********* -->
+	
+	<target name="Build.Dev">
+		<call target="DoBuild"/>
+		<call target="CopyBuildToDevShare" />
+		<call target="CopyBuildToQaShare"/>
+	</target>
+	
+	<!-- ************** -->
+	<!-- Build.Official -->
+	<!-- ************** -->
+	<target name="Build.Official">	
+		<call target="DoBuild"/>
+		<call target="CopyBuildToDevShare" />
+		<call target="CopyBuildToQaShare"/>
+		<call target="Archive" />
+	</target>
+	
+	<!-- ***************** -->
+	<!-- Build.DocOnly -->
+	<!-- ***************** -->
+	<!--
+	<target name="Build.DocOnly">	
+		<call target="BackupInstallerProjects"/>
+		<call target="FetchArchive" />
+		<call target="BuildInstallers" />
+		<call target="BuildDocVersion" />
+		<call target="CopyBuildToDevShare" />
+		<call target="CopyBuildToQaShare"/>
+		<call target="Archive" />
+	</target>
+	-->
+	
+	<!-- ***************** -->
+	<!-- Build.DocInstallOnly -->
+	<!-- ***************** -->
+	<!--
+	<target name="Build.DocInstallOnly">	
+		<call target="BackupInstallerProjects"/>
+		<call target="FetchArchive" />
+		<call target="BuildInstallers" />
+		<call target="BuildDocVersion" />
+		<call target="CopyBuildToDevShare" />
+		<call target="CopyBuildToQaShare"/>
+		<call target="Archive" />
+	</target>
+	-->
+	
+	<!-- ***************************************************************************** -->
+	<!--                            Setup Nant build properties                        -->
+	<!-- ***************************************************************************** -->
+	<!-- Use TStamp to set a proerty to the the current datetime defining the format -->
+	<tstamp property="Build.DateTime" pattern="MM-dd-yyyy.HHmm" verbose="true" />
+	<setenv name="SQLCM_ROOT" value="${project::get-base-directory()}"/>
+	
+	<!--environment-->
+	<property name="env" value="build"/> 
+
+	<!-- Nant Properties -->
+	<property name="Framework.Version" value="v4.0.269"/>
+	<property name="Framework.Install" value="c:/Windows/Microsoft.NET/Framework/${Framework.Version}"/>
+	<property name="nant.settings.currentframework" value="net-4.0"/>
+
+	<property name="Build.Config" value="Release" unless="${property::exists('Build.Config')}" />
+	<property name="Build.Obfuscate" value="false" unless="${property::exists('Build.Obfuscate')}" />
+
+	<!-- Project Directories -->
+	<property name="RepoRoot" value="c:/Github/SQLcm" />
+	<property name="SignRepoRoot" value="\\10.220.200.51\Github\SQLcm" />
+	<property name="SQLcm.Base" value="c:/Github/SQLcm/development" />
+	<property name="SQLcm.Root" value="c:/Github/SQLcm/development/Idera/SQLcompliance"/>
+	<property name="SQLcm.Core.ProjectDir" value="${SQLcm.Root}/Core"/>
+	<property name="SQLcm.GUI.ProjectDir" value="${SQLcm.Root}/Application/GUI"/>
+	<property name="SQLcm.CLI.ProjectDir" value="${SQLcm.Root}/Application/CLI"/>
+	<property name="SQLcm.ClusterGUI.ProjectDir" value="${SQLcm.Root}/Cluster"/>
+	<property name="SQLcm.CollectionService.ProjectDir" value="${SQLcm.Root}/CollectionService"/>
+	<property name="SQLcm.AgentService.ProjectDir" value="${SQLcm.Root}/AgentService"/>
+	<property name="SQLcm.AlertsService.ProjectDir" value="${SQLcm.Base}/SQLComplianceAlertsService"/>
+	<property name="SQLcm.TriggerCore.ProjectDir" value="${SQLcm.Root}/TriggerCore"/>
+	<property name="SQLcm.TraceManager.ProjectDir" value="${SQLcm.Root}/Utility/TraceManager"/>
+	<property name="SQLcm.TraceRegister.ProjectDir" value="${SQLcm.Root}/Utility/TraceRegister"/>
+	<property name="SQLcm.ReportsInstaller.ProjectDir" value="development/Idera/Common/ReportsInstaller"/>
+	<property name="SQLcm.ReportsImages.Dir" value="${SQLcm.Root}/Report"/>
+	<property name="SQLcm.SupportedRDL.Dir" value="${SQLcm.Root}/Report/Reports/Supported"/>
+	<property name="SQLcm.InstallUtilLib.ProjectDir" value="${SQLcm.Root}/Unmanaged"/>
+	<property name="SQLcm.Build.Root" value="C:\GitHub\SQLcm\Build"/>
+	<property name="SQLcm.SignBuild.Root" value="\\10.220.200.51\Github\SQLcm\Build"/>
+	<property name="SQLcm.Build.Output" value="${SQLcm.Build.Root}/Output" />
+	<property name="SQLcm.Build.Temp" value="${SQLcm.Build.Root}/Temp" />
+	<property name="SQLcm.SignBuild.Temp" value="${SQLcm.SignBuild.Root}\Temp" />
+	<property name="SQLcm.Build.Final.Bin.x86" value="${RepoRoot}/Bin/final" />
+	<property name="SQLcm.Build.Final.Bin.x64" value="${RepoRoot}/Bin/x64/final" />
+	<property name="SQLcm.Install.ProjectDir" value="install"/>
+	<property name="SQLcm.Documentation.ProjectDir" value="documentation/ForBuild"/>
+	<property name="SQLcm.ThirdParty" value="lib"/>
+	<property name="SQLcm.version.final" value="${SQLcm.version}"  if="${property::exists('SQLcm.version')}"/>
+	<property name="SQLcm.SqlScripts" value="install/Script Files"/>
+	
+	<!--Path for Register a product service exe-->
+	<property name="SQLcm.SQLcomplianceRegistrationService.ProjectDir" value="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService"/>
+	
+	<property name="SQLcm.CwfAddin.ProjectDir" value="${SQLcm.Base}/SQLcomplianceCwfAddin"/>
+	<property name="SQLcm.NewInstaller.ProjectDir" value="${SQLcm.Base}/CwfAddinInstaller"/>
+	<property name="SQLcm.SetupCustomAction.ProjectDir" value="${SQLcm.Base}/SQLcomplianceInstallerCustomAction"/>
+	<property name="WebUiProjectDirectory" value="${SQLcm.Base}/Web UI/sqlcm"/>
+	<property name="WebWidgetProjectDirectory" value="${SQLcm.Base}/Web UI/sqlcm-widgets"/>
+	<property name="WebWarProjectDirectory" value="${SQLcm.Base}/Web UI/sqlcm-war"/>
+	<property name="WebUiJarDirectory" value="${SQLcm.Base}/Web UI/sqlcm/target"/>
+	<property name="WebWidgetJarDirectory" value="${SQLcm.Base}/Web UI/sqlcm-widgets/target"/>
+	<property name="WebUiWarDirectory" value="${SQLcm.Base}/Web UI/sqlcm-war"/>
+	
+	<!-- Index Upgrade project directory -->
+	<property name="SQLcm.SQLcomplianceIndexUpgrade.ProjectDir" value="${SQLcm.Base}/SQLcomplianceIndexUpgrade"/>
+	
+	<!--load properties-->
+	<loadproperties file="${SQLcm.Build.Root}\${env}.properties" />
+	
+	<!--Idera CWF-->
+	<property name="CwfRoot" value="\\iderafs.redhouse.hq\Development\Development\Idera Dashboard\Builds\Core-4.2"/>
+	<property name="CwfVersion" value="4.2.0.29"/>
+	<property name="PluginAddInViewDll_File" value="PluginAddInView.dll"/>
+	<property name="PluginAddInViewDll" value="${CwfRoot}\${CwfVersion}\IderaDashboardLibs\CSharp\lib\${PluginAddInViewDll_File}"/>
+	<property name="PluginCommonDll_File" value="PluginCommon.dll"/>
+	<property name="PluginCommonDll" value="${CwfRoot}\${CwfVersion}\IderaDashboardLibs\CSharp\lib\${PluginCommonDll_File}"/>
+	<property name="CwfInstaller_x86_File" value="IderaDashboard_x86.msi"/>
+	<property name="CwfInstaller_x86" value="${CwfRoot}\${CwfVersion}\${CwfInstaller_x86_File}"/>
+	<property name="CwfInstaller_x64_File" value="IderaDashboard.msi"/>
+	<property name="CwfInstaller_x64" value="${CwfRoot}\${CwfVersion}\${CwfInstaller_x64_File}"/>
+	<property name="IderaJavaLib" value="${CwfRoot}\${CwfVersion}\IderaDashboardLibs\Java\idera-lib-lib"/>
+	<property name="IderaJavaWebLib" value="${CwfRoot}\${CwfVersion}\IderaDashboardLibs\Java\web-inf-lib"/>
+
+	<!-- Common Assembly Info -->
+	<property name="AssemblyInfo.Company" value="IDERA, Inc." />
+	<property name="AssemblyInfo.Product" value="SQL Compliance Manager" />
+	<property name="AssemblyInfo.Copyright" value="Copyright (C) 2004-2021 IDERA, Inc., All Rights Reserved." />
+	
+	<!-- File Names -->
+	<property name="File.Core" value="SQLcomplianceCore.dll"/>
+	<property name="File.GUI" value="SQLcompliance.exe"/>
+	<property name="File.GUI.config" value="SQLcompliance.exe.config"/>
+	<property name="File.CLI" value="SQLcmCmd.exe"/>
+	<property name="File.ClusterGUI" value="SQLcomplianceClusterGUI.exe"/>
+	<property name="File.CollectionService" value="SQLcomplianceCollectionService.exe"/>
+	<property name="File.CollectionService.config" value="SQLcomplianceCollectionService.exe.config"/>
+	<property name="File.AgentService" value="SQLcomplianceAgent.exe"/>
+	<property name="File.AgentService.config" value="SQLcomplianceAgent.exe.config"/>
+	<property name="File.AlertsService" value="SQLComplianceAlertsService.exe"/>
+	<property name="File.AlertsService.config" value="SQLComplianceAlertsService.exe.config"/>
+	<property name="File.TriggerCore" value="SQLcomplianceTriggerCore_1.dll"/>
+	<property name="File.TraceManager" value="TraceManager.exe"/>
+	<property name="File.TraceRegister" value="TraceRegister.exe"/>
+	<property name="File.CwfAddinDll" value="SQLcomplianceCwfAddin.dll"/>
+	<property name="File.CwfAddinDll.config" value="SQLcomplianceCwfAddin.dll.config"/>
+	<property name="File.NewInstaller" value="AddInInstaller.exe"/>
+	<property name="File.WebUI.POM" value="pom.xml"/>
+	<property name="File.WebUI.BUILD" value="build.xml"/>
+	<property name="File.SetupCustomAction" value="SQLcomplianceInstallerCustomAction.CA.dll"/>
+	<property name="File.Install.SQLNCLI" value="sqlncli.msi"/>
+	<property name="File.Install.SQLNCLI.x64" value="sqlncli-x64.msi"/>
+	
+	<property name="File.SQLcomplianceRegistrationService" value="SQLcomplianceRegistrationService.exe"/>
+	<property name="File.SQLcomplianceRegistrationService.config" value="SQLcomplianceRegistrationService.exe.config"/>
+	
+	<!-- Index Upgrade executalble and config file-->
+	<property name="File.SQLcomplianceIndexUpgrade" value="SQLcomplianceIndexUpgrade.exe"/>	
+	<property name="File.SQLcomplianceIndexUpgrade.config" value="SQLcomplianceIndexUpgrade.exe.config"/>
+	
+	<!-- SQLCM-5988 -->
+	<property name="FullPath.Install.SQLNCLI" value="${SQLcm.Install.ProjectDir}/SQLCM Installer/library/sqlncli.msi"/>
+	<property name="FullPath.Install.SQLNCLI.x64" value="${SQLcm.Install.ProjectDir}/SQLCM Installer/library/sqlncli-x64.msi"/>
+	
+	<property name="FullPath.Install.Agent" value="${SQLcm.Install.ProjectDir}/x86/SQLcomplianceAgentMSI/Release 1/DiskImages/DISK1/SQLcomplianceAgent.msi"/>
+	<property name="FullPath.Install.Agent.x64" value="${SQLcm.Install.ProjectDir}/x64/SQLcomplianceAgent-x64/Release 1/DiskImages/DISK1/SQLcomplianceAgent-x64.msi"/>
+	<property name="SignFullPath.Install.Agent.x64" value="\\10.220.200.51\Github\SQLcm\${SQLcm.Install.ProjectDir}\x64\SQLcomplianceAgent-x64\Release 1\DiskImages\DISK1\SQLcomplianceAgent-x64.msi"/>
+	<property name="FullPath.Install.Full" value="${SQLcm.Install.ProjectDir}/x86/SQLcompliance/Release 1/DiskImages/DISK1/SQLcompliance.exe"/>
+	<property name="SignFullPath.Install.Full" value="\\10.220.200.51\Github\SQLcm\${SQLcm.Install.ProjectDir}\x86\SQLcompliance/Release 1\DiskImages\DISK1\SQLcompliance.exe"/>
+	<property name="FullPath.Install.Full.x64" value="${SQLcm.Install.ProjectDir}/x64/SQLcompliance-x64/Release 1/DiskImages/DISK1/SQLcompliance-x64.exe"/>
+	<property name="SignFullPath.Install.Full.x64" value="\\10.220.200.51\Github\SQLcm\${SQLcm.Install.ProjectDir}\x64\SQLcompliance-x64\Release 1\DiskImages\DISK1\SQLcompliance-x64.exe"/>
+	<property name="FullPath.Install.Cluster" value="${SQLcm.Install.ProjectDir}/x86/SQLcomplianceCluster/SQL compliance manager Cluster Support/Release 1/DiskImages/DISK1/SQLcomplianceClusterSetup.exe"/>
+	<property name="SignFullPath.Install.Cluster" value="\\10.220.200.51\Github\SQLcm\${SQLcm.Install.ProjectDir}\x86\SQLcomplianceCluster\SQL compliance manager Cluster Support\Release 1\DiskImages\DISK1\SQLcomplianceClusterSetup.exe"/>
+	<property name="FullPath.Install.Cluster.x64" value="${SQLcm.Install.ProjectDir}/x64/SQLcomplianceCluster-x64/SQL compliance manager Cluster Support/Release 1/DiskImages/DISK1/SQLcomplianceClusterSetup-x64.exe"/>
+	<property name="SignFullPath.Install.Cluster.x64" value="\\10.220.200.51\Github\SQLcm\${SQLcm.Install.ProjectDir}\x64\SQLcomplianceCluster-x64\SQL compliance manager Cluster Support\Release 1\DiskImages\DISK1\SQLcomplianceClusterSetup-x64.exe"/>
+	<property name="FullPath.Install.Reports" value="${SQLcm.Install.ProjectDir}/x86/SQLcomplianceReports/SQL compliance manager Reports/Release 1/DiskImages/DISK1/SQLcomplianceReports.exe"/>
+	<property name="FullPath.Install.Web" value="${SQLcm.Install.ProjectDir}/x86/SQLcomplianceInstallationKit/Release 1/DiskImages/DISK1/IderaSQLcomplianceInstallationKit.exe"/>
+
+	<!-- Custom MergeModule needs to be in this location on the build machine -->
+	<property name="Environment.MergeModule.Source" value="${SQLcm.Install.ProjectDir}/MergeModules/WSH56.msm"/>
+	<property name="Environment.MergeModule.Target" value="C:\Program Files (x86)\Common Files\Merge Modules\"/>
+
+	<!-- Redistributables -->
+	<property name="SQLdm.Redist" value="Redist"/>
+	
+	<!-- Output Directories -->
+	<!-- x86 -->
+	<property name="SQLcm.Compile.Output" value="bin/${Build.Config}"/>
+	<property name="SQLcm.Obfuscate.Output" value="${SQLcm.Compile.Output}/obfuscated"/>
+	<property name="SQLcm.Final.Output" value="bin/final"/>
+
+	<!-- x64 -->
+	<property name="SQLcm.Compile.Output.x64" value="bin/x64/${Build.Config}"/>
+	<property name="SQLcm.Obfuscate.Output.x64" value="${SQLcm.Compile.Output.x64}/obfuscated"/>
+	<property name="SQLcm.Final.Output.x64" value="bin/x64/final"/>
+
+	<!-- Final Output -->
+	<property name="SQLcm.DevShare" value="\\iderafs\Development\Development\SQLcompliance" />
+	<property name="SQLcm.QaShare" value="\\iderafs\QABuilds\QABuilds\SQLcompliance"/>
+	<property name="SQLcm.DevShare.Builds" value="${SQLcm.DevShare}\Builds" />
+	<property name="SQLcm.QaShare.Builds" value="${SQLcm.QaShare}\Builds" />
+	<property name="SQLCm.ThirdPartyTools" value="\\iderafs\Development\Development\SQLcompliance\ThirdPartyTools" />
+
+	<property name="Reports.Binary.Output" value="bin/reports"/>
+	<property name="Reports.RDL.Output" value="bin/reports/rdl"/>
+	
+	<property name="SQLcm.Development.Builds" value="${SQLcm.DevShare}\Builds"/> <!--//redhousefs-02/Development/SQLcompliance/Builds/-->
+	<property name="SQLcm.Development.Archives" value="${SQLcm.DevShare}\Archives"/><!--//redhousefs-02/Development/SQLcompliance/Archives/-->
+	
+	<!-- Obfuscator information -->
+	<property name="RemoteSoft.Obfuscator" value="C:/Program Files (x86)/Remotesoft/Obfuscator/bin/obfuscator.exe"/>
+
+	<property name="Obfuscate.Core.Target" value="SQLcomplianceCoreObfuscateConfig.xml"/>
+	<property name="Obfuscate.GUI.Target" value="${File.GUI}"/>
+	<property name="Obfuscate.CLI.Target" value="${File.CLI}"/>
+	<property name="Obfuscate.ClusterGUI.Target" value="${File.ClusterGUI}"/>
+	<property name="Obfuscate.CollectionService.Target" value="${File.CollectionService}"/>
+	<property name="Obfuscate.AgentService.Target" value="${File.AgentService}"/>
+	<property name="Obfuscate.AlertsService.Target" value="${File.AlertsService}"/>
+	<property name="Obfuscate.TraceManager.Target" value="${File.TraceManager}"/>
+	
+	<!-- InstallShield Information -->
+	<property name="InstallShield.Builder" value="C:/Program Files (x86)/InstallShield/2014 SAB/System/IsCmdBld.exe"/>
+	<property name="installshield.mergemodules" value="C:\Program Files (x86)\InstallShield\2014 SAB\Objects"/>
+	<property name="InstallShield.Agent.Project" value="SQLcomplianceAgent.ism"/>
+	<property name="InstallShield.Agent.x64.Project" value="SQLcomplianceAgent-x64.ism"/>
+	<property name="InstallShield.Full.Project" value="SQLcompliance.ism"/>
+	<property name="InstallShield.Full.x64.Project" value="SQLcompliance-x64.ism"/>
+	<property name="InstallShield.Reports.Project" value="SQLcomplianceReports.ism"/>
+	<property name="InstallShield.Cluster.Project" value="SQLcomplianceCluster.ism"/>
+	<property name="InstallShield.Cluster.Project.x64" value="SQLcomplianceCluster-x64.ism"/>
+	<property name="InstallShield.Web.Project" value="SQLcomplianceInstallationKit.ism"/>
+	<property name="BuildNumberPlaceholder" value="5.9.0.0" />
+	<property name="InstallerBuildNumberPlaceholder" value="9.88.777.666" />
+	<property name="CombineScripts.Batch" value="${SQLcm.SqlScripts}/CombineSPScripts.bat"/>
+	
+	<property name="UpgradeNotAllowedPlaceholder" value="**NTALOWD**" />
+	<property name="UpgradeNotAllowed" value="0" overwrite="true" />
+	<property name="InstallerType" value="Full" overwrite="true"/>
+	<property name="TrialLicenseAgreement" value="Idera - Trial Software License Agreement.rtf" overwrite="false" />
+	<property name="LicenseAgreement" value="Idera - Trial Software License Agreement.rtf" overwrite="true"/>
+
+	<!-- Autorun Information -->
+	<property name="SQLcm.Install.Autorun" value="${SQLcm.Install.ProjectDir}/Autorun"/>
+
+	<!-- Code-signing information -->
+	<property name="Signing.Dir" value="${SQLcm.Install.ProjectDir}/CodeSigning"/>
+	<property name="Signing.Application" value="${Signing.Dir}/signtool.exe"/>
+	<property name="Signing.Key" value="${Signing.Dir}/ideracredentials.pfx"/>
+	<!--property name="Signing.TimeStamp" value="http://timestamp.verisign.com/scripts/timstamp.dll"/-->
+	<property name="Signing.TimeStamp" value="http://timestamp.digicert.com"/>
+	<property name="Signing.Password" value="$ik}7m@`C=R)"/>
+	<property name="Signing.Url" value="http://www.idera.com/"/>
+	<property name="Signing.Name" value=""/>
+	<property name="Signing.Target" value=""/>
+	
+		<!-- Email Properties -->
+	<property name="Email.Server" value="mx.bbstek.com" />
+	<property name="Email.BuildMaster" value="SQLcomplianceBuild@idera.com" />
+	<property name="Email.Developers" value="robert.wilkinson@idera.com" />
+	<property name="Email.From" value="${Email.BuildMaster}" />
+	<property name="Email.Success.To" value="${Email.Developers}" />
+	<property name="Email.Failure.To" value="${Email.Developers}" />
+	<property name="MailLogger.mailhost" value="${Email.Server}" />
+	<property name="MailLogger.from" value="${Email.From}" />
+	<property name="MailLogger.success.to" value="${Email.Success.To}" />
+	<property name="MailLogger.failure.to" value="${Email.Failure.To}" />
+	<property name="MailLogger.success.subject" value="SQL Compliance Manager  Build ${SQLcm.version.final} Available" dynamic="true" />
+	<property name="MailLogger.failure.subject" value="SQL Compliance Manager Build ${SQLcm.version.final} Failed on ${Build.DateTime}"  dynamic="true" />
+	<property name="MailLogger.success.notify" value="true" />
+	<property name="MailLogger.failure.notify" value="true" />
+	
+	<!-- Utility -->	
+	<property name="Utility.Sed" value="build/sed.exe"/>
+	<property name="Utility.7Zip" value="C:/Program Files/7-Zip/7z.exe"/>
+
+	<!-- ***************************************************************************** -->
+	<!--                            Build Steps                                        -->
+	<!-- ***************************************************************************** -->
+
+	<target name="DoBuild">
+		<call target="UpdateVersion" />
+		<call target="BackupInstallerProjects"/>
+		<call target="GenerateCommonAssemblyInfo" />
+		<call target="Combine.StoredProcs"/>
+		<call target="ApplyVersionToInstallers" />
+		<call target="BuildProduction"/>
+		<call target="BuildTrial"/>
+	</target>
+
+	<!--build production installer-->
+	<target name="BuildProduction">
+		<call target="MarkProductionBuild"/>
+		<call target="BuildBinaries"/>
+		<call target="BuildInstallers"/>
+	</target>
+	
+	<!--build trial installer-->
+	<target name="BuildTrial">
+		<call target="MarkTrialBuild"/>
+		<call target="BuildBinaries"/>
+		<call target="BuildInstallers"/>
+	</target>
+	
+	<!-- ************* -->
+	<!-- BuildBinaries -->
+	<!-- ************* -->
+	<target name="BuildBinaries">
+		<call target="CompileBinaries" />
+		<call target="Obfuscate" />
+		<call target="CopyFiles" />
+		<call target="SignExecutables" />
+	</target>
+	
+	<!-- *************** -->
+	<!-- BuildInstallers -->
+	<!-- *************** -->
+	<target name="BuildInstallers">
+		<call target="CreateInstallers" />
+		<call target="CreateCDImage" />
+		<call target="CreateWebInstallerPackage" />
+	</target>
+	
+	<!-- ************* -->
+	<!-- UpdateVersion -->
+	<!-- ************* -->
+	<target name="UpdateVersion">
+		<loadfile file="C:/Github/SQLcm/build/build.number" property="SQLcm.version" />		
+		<property name="SQLcm.version.final" value="${SQLcm.version}.${SQLcm.buildnumber}" />
+	</target>
+	
+	<!--create a backup of original files for making separate trial and production installers-->
+	<!--we are also updating the build number in installers-->
+	<target name="BackupInstallerProjects">
+		<copy file="${SQLcm.Base}/SQLcomplianceCwfAddin/RestService/RestServiceConstants.cs" tofile="${SQLcm.Base}/SQLcomplianceCwfAddin/RestService/RestServiceConstants.cs.original" overwrite="true"/>
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Full.Project}"/>
+			<arg value="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Full.Project}.original"/>
+			<arg value="${InstallerBuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Full.x64.Project}"/>
+			<arg value="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Full.x64.Project}.original"/>
+			<arg value="${InstallerBuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+	</target>
+	
+	<!-- Indicate that it is a production installer -->
+	<target name="MarkProductionBuild">
+		<property name="UpgradeNotAllowed" value="0" overwrite="true" />
+		<property name="InstallerType" value="Production" overwrite="true"/>
+		<property name="LicenseAgreement" value="Idera - Software License Agreement.rtf" overwrite="true"/>
+	</target>
+	
+	<!-- Indicate that it is a trial installer -->
+	<target name="MarkTrialBuild">
+		<property name="UpgradeNotAllowed" value="1" overwrite="true" />
+		<property name="InstallerType" value="Trial" overwrite="true"/>
+		<property name="LicenseAgreement" value="Idera - Trial Software License Agreement.rtf" overwrite="true"/>
+	</target>
+	
+	<!-- ************************** -->
+	<!-- GenerateCommonAssemblyInfo -->
+	<!-- ************************** -->
+	<target name="GenerateCommonAssemblyInfo">
+		<property name="CommonAssemblyInfo" value="${SQLcm.Root}/CommonAssemblyInfo.cs" />
+	
+		<!-- Set the common assembly info file to read-write -->
+		<attrib file="${CommonAssemblyInfo}" readonly="false" />
+		
+		<!-- Generate common assembly info -->
+		<asminfo output="${CommonAssemblyInfo}" language="CSharp">
+			<imports>
+				<import namespace="System.Reflection" />
+			</imports>
+			<attributes>
+				<attribute type="AssemblyCompanyAttribute" value="${AssemblyInfo.Company}" />
+				<attribute type="AssemblyProductAttribute" value="${AssemblyInfo.Product}" />
+				<attribute type="AssemblyCopyrightAttribute" value="${AssemblyInfo.Copyright}" />
+				<attribute type="AssemblyVersionAttribute" value="${SQLcm.version.final}" />		
+			</attributes>
+		</asminfo>
+		
+		<!-- Set the common assembly info file to read-only -->
+		<attrib file="${CommonAssemblyInfo}" readonly="true" />
+	</target>
+	
+	<!-- ************************** -->
+	<!-- CompileBinaries            -->
+	<!-- ************************** -->
+	<target name="CompileBinaries">
+		<!--update constants in REST RestServiceConstants.cs-->
+		<copy file="${SQLcm.Base}/SQLcomplianceCwfAddin/RestService/RestServiceConstants.cs.original" tofile="${SQLcm.Base}/SQLcomplianceCwfAddin/RestService/RestServiceConstants.cs" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Base}/SQLcomplianceCwfAddin/RestService/RestServiceConstants.cs"/>
+			<arg value="${SQLcm.Base}/SQLcomplianceCwfAddin/RestService/RestServiceConstants.cs.changed"/>
+			<arg value="**InstallerType**"/>
+			<arg value="${InstallerType}"/>
+		</exec>
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Base}/SQLcomplianceCwfAddin/RestService/RestServiceConstants.cs.changed"/>
+			<arg value="${SQLcm.Base}/SQLcomplianceCwfAddin/RestService/RestServiceConstants.cs"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		<attrib file="${SQLcm.Base}/SQLcomplianceCwfAddin/RestService/RestServiceConstants.cs" readonly="false" />
+		
+		<!-- Version Update for  -->
+		<move file="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/App.config" tofile="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/App.config.changed" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/App.config.changed"/>
+			<arg value="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/App.config"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		
+		<!-- Version Update for  -->
+		<move file="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Constants.cs" tofile="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Constants.cs.changed" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Constants.cs.changed"/>
+			<arg value="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Constants.cs"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		
+		<!-- Version Update for  -->
+		<move file="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Properties/AssemblyInfo.cs" tofile="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Properties/AssemblyInfo.cs.changed" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Properties/AssemblyInfo.cs.changed"/>
+			<arg value="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Properties/AssemblyInfo.cs"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		
+		<!-- Version Update for  -->
+		<move file="${SQLcm.Base}/SQLcomplianceIndexUpgrade/Properties/AssemblyInfo.cs" tofile="${SQLcm.Base}/SQLcomplianceIndexUpgrade/Properties/AssemblyInfo.cs.changed" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Base}/SQLcomplianceIndexUpgrade/Properties/AssemblyInfo.cs.changed"/>
+			<arg value="${SQLcm.Base}/SQLcomplianceIndexUpgrade/Properties/AssemblyInfo.cs"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		
+		<!-- Version Update for  -->
+		<move file="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Properties/Settings.Designer.cs" tofile="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Properties/Settings.Designer.cs.changed" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Properties/Settings.Designer.cs.changed"/>
+			<arg value="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Properties/Settings.Designer.cs"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		
+		<!-- Version Update for  -->
+		<move file="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Properties/Settings.settings" tofile="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Properties/Settings.settings.changed" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Properties/Settings.settings.changed"/>
+			<arg value="${SQLcm.Base}/SQLcomplianceRegistrationService/SQLcomplianceRegistrationService/Properties/Settings.settings"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		<!--Silent Installer-->
+		<!-- Version Update for  -->
+		<move file="C:\GitHub\SQLCm\install\Installer form application\Installer form application\Properties\AssemblyInfo.cs" tofile="C:\GitHub\SQLCm\install\Installer form application\Installer form application\Properties\AssemblyInfo.cs.changed" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="C:\GitHub\SQLCm\install\Installer form application\Installer form application\Properties\AssemblyInfo.cs.changed"/>
+			<arg value="C:\GitHub\SQLCm\install\Installer form application\Installer form application\Properties\AssemblyInfo.cs"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		
+		<!-- Version Update for  -->
+		<move file="C:\GitHub\SQLCm\install\Installer form application\SQLcomplianceInstallerCustomAction\CommonAssemblyInfo.cs" tofile="C:\GitHub\SQLCm\install\Installer form application\SQLcomplianceInstallerCustomAction\CommonAssemblyInfo.cs.changed" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="C:\GitHub\SQLCm\install\Installer form application\SQLcomplianceInstallerCustomAction\CommonAssemblyInfo.cs.changed"/>
+			<arg value="C:\GitHub\SQLCm\install\Installer form application\SQLcomplianceInstallerCustomAction\CommonAssemblyInfo.cs"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		
+		<!-- Version Update for  -->
+		<move file="${SQLcm.Base}/UnitTest/SqlComplianceManagerRestTest.cs" tofile="${SQLcm.Base}/UnitTest/SqlComplianceManagerRestTest.cs.changed" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Base}/UnitTest/SqlComplianceManagerRestTest.cs.changed"/>
+			<arg value="${SQLcm.Base}/UnitTest/SqlComplianceManagerRestTest.cs"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		
+		<!--copy new CWF dlls in lib directory-->
+		<copy file="${PluginAddInViewDll}" tofile="${RepoRoot}/${SQLcm.ThirdParty}/CoreServicesLibrary/${PluginAddInViewDll_File}" overwrite="true"/>
+		<copy file="${PluginCommonDll}" tofile="${RepoRoot}/${SQLcm.ThirdParty}/CoreServicesLibrary/${PluginCommonDll_File}" overwrite="true"/>
+		
+		<!-- Build the Primary C# solution -->
+		<msbuild project="development/SQLcompliance.sln">
+			<property name="Configuration" value="${Build.Config}"/>
+			<property name="Platform" value = "Any CPU"/>
+		</msbuild>
+
+		<!-- Build the Cluster solution -->
+		<msbuild project="development/SQLcomplianceCluster.sln">
+			<property name="Configuration" value="${Build.Config}"/>
+			<property name="Platform" value = "Any CPU"/>
+		</msbuild>
+
+		<!-- Build the Utilities solution -->
+		<msbuild project="development/SQLcomplianceUtilities.sln">
+			<property name="Configuration" value="${Build.Config}"/>
+			<property name="Platform" value = "Any CPU"/>
+		</msbuild>
+
+		<!-- Build the Reporting Services Project -->
+		<msbuild project="development/SQLcomplianceReports.sln">
+			<property name="Configuration" value="${Build.Config}"/>
+			<property name="Platform" value = "Any CPU"/>
+		</msbuild>	
+		
+		<call target="BuildWebUi" />
+		<call target="CreateCwfAddin" />
+	</target>	
+	
+	<!--Build Web UI-->
+	<target name="BuildWebUi">
+		<property name="WebUiJar" value="sqlcm-${SQLcm.version.final}.jar"/>
+		
+		<!--update version and paths POM file-->
+		<exec program="${Utility.Sed}">
+			<arg value="${WebUiProjectDirectory}/${File.WebUI.POM}"/>
+			<arg value="${WebUiProjectDirectory}/${File.WebUI.POM}.updated"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		<exec program="${Utility.Sed}">
+			<arg value="${WebUiProjectDirectory}/${File.WebUI.POM}.updated"/>
+			<arg value="${WebUiProjectDirectory}/${File.WebUI.POM}.updated1"/>
+			<arg value="[IderaLib]"/>
+			<arg value="${IderaJavaLib}"/>
+		</exec>
+		<exec program="${Utility.Sed}">
+			<arg value="${WebUiProjectDirectory}/${File.WebUI.POM}.updated1"/>
+			<arg value="${WebUiProjectDirectory}/${File.WebUI.POM}.updated2"/>
+			<arg value="[IderaWebLib]"/>
+			<arg value="${IderaJavaWebLib}"/>
+		</exec>
+		<delete file="${WebUiProjectDirectory}/${File.WebUI.POM}.updated"/>
+		<delete file="${WebUiProjectDirectory}/${File.WebUI.POM}.updated1"/>
+		<move file="${WebUiProjectDirectory}/${File.WebUI.POM}.updated2" tofile="${WebUiProjectDirectory}/${File.WebUI.POM}" overwrite="true" />
+				
+		<!--update version and paths SQLCM-WIDGETS POM file-->
+		<move file="${WebWidgetProjectDirectory}/${File.WebUI.POM}" tofile="${WebWidgetProjectDirectory}/${File.WebUI.POM}.updated" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${WebWidgetProjectDirectory}/${File.WebUI.POM}.updated"/>
+			<arg value="${WebWidgetProjectDirectory}/${File.WebUI.POM}"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+
+		<!--update version and paths SQLCM-WAR build.xml file-->
+		<move file="${WebWarProjectDirectory}/${File.WebUI.BUILD}" tofile="${WebWarProjectDirectory}/${File.WebUI.BUILD}.updated" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${WebWarProjectDirectory}/${File.WebUI.BUILD}.updated"/>
+			<arg value="${WebWarProjectDirectory}/${File.WebUI.BUILD}"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		
+		<!--build JAR-->
+		<exec program="${Build.MVN}" workingdir="${WebUiProjectDirectory}">
+			<arg value="-Denv=build"/>
+			<arg value="-Dhttps.protocols=TLSv1.2"/>
+			<arg value="clean"/>
+			<arg value="package"/>
+		</exec>
+		<exec program="${Build.MVN}" workingdir="${WebWidgetProjectDirectory}">
+			<arg value="-Denv=build"/>
+			<arg value="-Dhttps.protocols=TLSv1.2"/>
+			<arg value="clean"/>
+			<arg value="package"/>			
+		</exec>
+		
+		<exec program="${Build.Ant}" workingdir="${WebWarProjectDirectory}" commandline="war"/>
+		
+	</target>
+	
+	<!--Create CWF AddIn Zip-->
+	<property name="x86AddinDirectory" value="${SQLcm.Build.Temp}/x86" />
+	<property name="x64AddinDirectory" value="${SQLcm.Build.Temp}/x64" />
+		
+	<target name="CreateCwfAddin">
+		<property name="WebUiJar" value="sqlcm-${SQLcm.version.final}.jar"/>
+		<property name="WebWidgetJar" value="sqlcm-widgets-${SQLcm.version.final}.jar"/>
+		<property name="WebUiWar" value="sqlcm-war-${SQLcm.version.final}.war"/>
+		
+		<!--x86 addin-->
+		<property name="AddinDllDirectory" value="${x86AddinDirectory}/SqlCompliancemanager/AddIns/SQLCM-${SQLcm.version.final}"/>
+		<property name="AddinJarDirectory" value="${x86AddinDirectory}/SqlCompliancemanager/Jars"/>
+		<property name="AddinWarDirectory" value="${x86AddinDirectory}/SqlCompliancemanager/War"/>
+	
+		<!--make addin directory and move files to it-->
+		<mkdir dir="${AddinDllDirectory}"/>
+		<copy file="${RepoRoot}/${SQLcm.ThirdParty}/TracerX/TracerX.exe" tofile="${AddinDllDirectory}/TracerX.exe"/>
+		<copy file="${RepoRoot}/${SQLcm.ThirdParty}/TracerX/TracerX.xml" tofile="${AddinDllDirectory}/TracerX.xml"/>
+		<copy file="${RepoRoot}/${SQLcm.ThirdParty}/License/Win32/License4Net.dll" tofile="${AddinDllDirectory}/License4Net.dll"/>
+		<copy file="${RepoRoot}/${SQLcm.ThirdParty}/InstallUtil/x86/InstallUtilLib.dll" tofile="${AddinDllDirectory}/InstallUtilLib.dll"/>
+		<copy todir="${AddinDllDirectory}" >
+			<fileset basedir="${SQLcm.CwfAddin.ProjectDir}/${SQLcm.Compile.Output}">
+				<include name="*.dll" />
+				<exclude name="*License4Net.dll"/>
+			</fileset> 
+		</copy>
+		<copy file="${SQLcm.CwfAddin.ProjectDir}/${SQLcm.Compile.Output}/${File.CwfAddinDll.config}" tofile="${AddinDllDirectory}/${File.CwfAddinDll.config}" />
+		<mkdir dir="${AddinJarDirectory}"/>
+		<copy file="${WebWidgetJarDirectory}/${WebWidgetJar}" tofile="${AddinJarDirectory}/${WebWidgetJar}"/>
+		<mkdir dir="${AddinWarDirectory}"/>
+		<copy file="${WebUiWarDirectory}/${WebUiWar}" tofile="${AddinWarDirectory}/${WebUiWar}"/>
+		
+		<!-- Delete the existing zip file -->
+		<delete file="${SQLcm.Build.Temp}/x86/SqlCompliancemanager.zip"/>
+		
+		<!--compress addin directory to make zip-->
+		<exec program="${Utility.7Zip}">
+			<arg value="a"/>
+			<arg value="-tzip"/>
+			<arg value="${SQLcm.Build.Temp}/x86/SqlCompliancemanager.zip"/>
+			<arg value="${SQLcm.Build.Temp}/x86/*.*"/>
+			<arg value="-r"/>
+		</exec>
+		
+		<!--x64 addin-->
+		<property name="AddinDllDirectory" value="${x64AddinDirectory}/SqlCompliancemanager/AddIns/SQLCM-${SQLcm.version.final}"/>
+		<property name="AddinJarDirectory" value="${x64AddinDirectory}/SqlCompliancemanager/Jars"/>
+		<property name="AddinWarDirectory" value="${x64AddinDirectory}/SqlCompliancemanager/War"/>
+	
+		<!--make addin directory and move files to it-->
+		<mkdir dir="${AddinDllDirectory}"/>
+		<copy file="${RepoRoot}/${SQLcm.ThirdParty}/TracerX/TracerX.exe" tofile="${AddinDllDirectory}/TracerX.exe"/>
+		<copy file="${RepoRoot}/${SQLcm.ThirdParty}/TracerX/TracerX.xml" tofile="${AddinDllDirectory}/TracerX.xml"/>
+		<copy file="${RepoRoot}/${SQLcm.ThirdParty}/License/x64/License4Net.dll" tofile="${AddinDllDirectory}/License4Net.dll"/>
+		<copy file="${RepoRoot}/${SQLcm.ThirdParty}/InstallUtil/x64/InstallUtilLib.dll" tofile="${AddinDllDirectory}/InstallUtilLib.dll"/>
+		<copy todir="${AddinDllDirectory}" >
+			<fileset basedir="${SQLcm.CwfAddin.ProjectDir}/${SQLcm.Compile.Output}">
+				<include name="*.dll" />
+				<exclude name="*License4Net.dll"/>
+			</fileset> 
+		</copy>
+		<copy file="${SQLcm.CwfAddin.ProjectDir}/${SQLcm.Compile.Output}/${File.CwfAddinDll.config}" tofile="${AddinDllDirectory}/${File.CwfAddinDll.config}" />
+		<mkdir dir="${AddinJarDirectory}"/>
+		<copy file="${WebWidgetJarDirectory}/${WebWidgetJar}" tofile="${AddinJarDirectory}/${WebWidgetJar}"/>
+		<mkdir dir="${AddinWarDirectory}"/>
+		<copy file="${WebUiWarDirectory}/${WebUiWar}" tofile="${AddinWarDirectory}/${WebUiWar}"/>
+		
+		<!-- Delete the existing zip file -->
+		<delete file="${SQLcm.Build.Temp}/x64/SqlCompliancemanager.zip"/>
+		
+		<!--compress addin directory to make zip-->
+		<exec program="${Utility.7Zip}">
+			<arg value="a"/>
+			<arg value="-tzip"/>
+			<arg value="${SQLcm.Build.Temp}/x64/SqlCompliancemanager.zip"/>
+			<arg value="${SQLcm.Build.Temp}/x64/*.*"/>
+			<arg value="-r"/>
+		</exec>
+	</target>
+	
+	<!-- ************************** -->
+	<!-- Obfuscate                  -->
+	<!-- ************************** -->
+	<target name="Obfuscate" if="${Build.Obfuscate}" unless="${Build.Config == 'Debug'}">
+		<!-- Execute obfuscation for each subproject -->
+		<exec program="${RemoteSoft.Obfuscator}" workingdir="${SQLcm.Core.ProjectDir}">
+			<arg value="-d"/>
+			<arg value="${SQLcm.Obfuscate.Output}"/>
+			<arg value="-nc"/>
+			<arg value="nondisplayable"/>
+			<arg value="SQLcomplianceCoreObfuscateConfig.xml"/>
+		</exec>   
+	</target>
+	
+	<!-- ************************** -->
+	<!-- CopyFiles                  -->
+	<!-- ************************** -->
+	<target name="CopyFiles">
+		<mkdir dir="${SQLcm.Final.Output}"/>
+		<mkdir dir="${SQLcm.Final.Output.x64}"/>
+	
+		<!-- Determine where to copy from -->
+		<property name="Temp.SourceDir" value="${SQLcm.Compile.Output}"/>
+		<property name="Temp.SourceDir.x64" value="${SQLcm.Compile.Output.x64}"/>
+		<if test="${property::get-value('Build.Obfuscate') == 'true'}" unless="${Build.Config == 'Debug'}">
+			<property name="Temp.SourceDir" value="${SQLcm.Obfuscate.Output}"/>
+			<property name="Temp.SourceDir.x64" value="${SQLcm.Obfuscate.Output.x64}"/>
+		</if>
+		
+		<property name="x86AddinZip" value="${SQLcm.Build.Temp}/x86/SqlCompliancemanager.zip" />
+	    <property name="x64AddinZip" value="${SQLcm.Build.Temp}/x64/SqlCompliancemanager.zip" />
+		
+		<!-- x86 -->
+		<copy todir="${SQLcm.Final.Output}" flatten="true">
+			<fileset>
+				<!-- Copy Built files -->
+				<include name="${SQLcm.Core.ProjectDir}/${Temp.SourceDir}/${File.Core}"/>
+				<include name="${SQLcm.GUI.ProjectDir}/${SQLcm.Compile.Output}/${File.GUI}"/>
+				<include name="${SQLcm.GUI.ProjectDir}/${SQLcm.Compile.Output}/${File.GUI.config}"/>
+				<include name="${SQLcm.CLI.ProjectDir}/${SQLcm.Compile.Output}/${File.CLI}"/>
+				<include name="${SQLcm.ClusterGUI.ProjectDir}/${SQLcm.Compile.Output}/${File.ClusterGUI}"/>
+				<include name="${SQLcm.CollectionService.ProjectDir}/${SQLcm.Compile.Output}/${File.CollectionService}"/>
+				<include name="${SQLcm.CollectionService.ProjectDir}/${SQLcm.Compile.Output}/${File.CollectionService.config}"/>
+				<include name="${SQLcm.AgentService.ProjectDir}/${SQLcm.Compile.Output}/${File.AgentService}"/>
+				<include name="${SQLcm.AgentService.ProjectDir}/${SQLcm.Compile.Output}/${File.AgentService.config}"/>
+				<include name="${SQLcm.AlertsService.ProjectDir}/${SQLcm.Compile.Output}/${File.AlertsService}"/>
+				<include name="${SQLcm.AlertsService.ProjectDir}/${SQLcm.Compile.Output}/${File.AlertsService.config}"/>
+				<include name="${SQLcm.TriggerCore.ProjectDir}/${SQLcm.Compile.Output}/${File.TriggerCore}"/>
+				<include name="${SQLcm.TraceManager.ProjectDir}/${SQLcm.Compile.Output}/${File.TraceManager}"/>
+				<include name="${x86AddinZip}" />
+				<include name="${SQLcm.NewInstaller.ProjectDir}/${SQLcm.Compile.Output}/${File.NewInstaller}" />
+				<include name="${SQLcm.SetupCustomAction.ProjectDir}/${SQLcm.Compile.Output}/${File.SetupCustomAction}" />
+				<include name="${SQLcm.SQLcomplianceRegistrationService.ProjectDir}/${SQLcm.Compile.Output}/${File.SQLcomplianceRegistrationService}"/>
+				<include name="${SQLcm.SQLcomplianceRegistrationService.ProjectDir}/${SQLcm.Compile.Output}/${File.SQLcomplianceRegistrationService.config}"/>
+				<include name="${SQLcm.SQLcomplianceIndexUpgrade.ProjectDir}/${SQLcm.Compile.Output}/${File.SQLcomplianceIndexUpgrade}"/>
+				<include name="${SQLcm.SQLcomplianceIndexUpgrade.ProjectDir}/${SQLcm.Compile.Output}/${File.SQLcomplianceIndexUpgrade.config}"/>
+			</fileset>
+		</copy>
+
+		<!-- x64 -->
+		<copy todir="${SQLcm.Final.Output.x64}" flatten="true">
+			<fileset>
+				<!-- Copy Built files -->
+				<include name="${SQLcm.Core.ProjectDir}/${Temp.SourceDir}/${File.Core}"/>
+				<include name="${SQLcm.GUI.ProjectDir}/${SQLcm.Compile.Output}/${File.GUI}"/>
+				<include name="${SQLcm.GUI.ProjectDir}/${SQLcm.Compile.Output}/${File.GUI.config}"/>
+				<include name="${SQLcm.CLI.ProjectDir}/${SQLcm.Compile.Output}/${File.CLI}"/>
+				<include name="${SQLcm.ClusterGUI.ProjectDir}/${SQLcm.Compile.Output}/${File.ClusterGUI}"/>
+				<include name="${SQLcm.CollectionService.ProjectDir}/${SQLcm.Compile.Output}/${File.CollectionService}"/>
+				<include name="${SQLcm.CollectionService.ProjectDir}/${SQLcm.Compile.Output}/${File.CollectionService.config}"/>
+				<include name="${SQLcm.AgentService.ProjectDir}/${SQLcm.Compile.Output}/${File.AgentService}"/>
+				<include name="${SQLcm.AgentService.ProjectDir}/${SQLcm.Compile.Output}/${File.AgentService.config}"/>
+				<include name="${SQLcm.AlertsService.ProjectDir}/${SQLcm.Compile.Output}/${File.AlertsService}"/>
+				<include name="${SQLcm.AlertsService.ProjectDir}/${SQLcm.Compile.Output}/${File.AlertsService.config}"/>
+				<include name="${SQLcm.TriggerCore.ProjectDir}/${SQLcm.Compile.Output}/${File.TriggerCore}"/>
+				<include name="${SQLcm.TraceManager.ProjectDir}/${SQLcm.Compile.Output}/${File.TraceManager}"/>
+				<include name="${x64AddinZip}" />
+				<include name="${SQLcm.NewInstaller.ProjectDir}/${SQLcm.Compile.Output}/${File.NewInstaller}" />
+				<include name="${SQLcm.SetupCustomAction.ProjectDir}/${SQLcm.Compile.Output}/${File.SetupCustomAction}" />
+				<include name="${SQLcm.SQLcomplianceRegistrationService.ProjectDir}/${SQLcm.Compile.Output}/${File.SQLcomplianceRegistrationService}"/>
+				<include name="${SQLcm.SQLcomplianceRegistrationService.ProjectDir}/${SQLcm.Compile.Output}/${File.SQLcomplianceRegistrationService.config}"/>
+				<include name="${SQLcm.SQLcomplianceIndexUpgrade.ProjectDir}/${SQLcm.Compile.Output}/${File.SQLcomplianceIndexUpgrade}"/>
+				<include name="${SQLcm.SQLcomplianceIndexUpgrade.ProjectDir}/${SQLcm.Compile.Output}/${File.SQLcomplianceIndexUpgrade.config}"/>
+			</fileset>
+		</copy>
+
+		<!-- Copy Report Files -->
+		<copy todir="${Reports.Binary.Output}" flatten="true">
+			<fileset>
+				<include name="${SQLcm.ReportsInstaller.ProjectDir}/${SQLcm.Compile.Output}/ReportsInstaller.exe"/>
+				<include name="${SQLcm.ReportsInstaller.ProjectDir}/${SQLcm.Compile.Output}/ReportsInstaller.exe.config"/>
+				<include name="${SQLcm.ReportsImages.Dir}/introSplash.png"/>
+				<include name="${SQLcm.ReportsImages.Dir}/SQLcm.ico"/>
+				<include name="${SQLcm.ReportsImages.Dir}/about.png"/>
+				<include name="${SQLcm.ReportsImages.Dir}/Warning_48.ico"/>
+				<include name="${SQLcm.ReportsImages.Dir}/scroll_48.ico"/>
+			</fileset>
+		</copy>
+		<copy todir="${Reports.RDL.Output}" flatten="true">
+			<fileset>
+				<include name="${SQLcm.SupportedRDL.Dir}/*.rdl"/>
+				<include name="${SQLcm.SupportedRDL.Dir}/rdl.xml"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ************************** -->
+	<!-- CreateInstallers           -->
+	<!-- ************************** -->
+	<target name="CreateInstallers" >
+		<copy todir="${Environment.MergeModule.Target}" file="${Environment.MergeModule.Source}"/>
+
+		<!-- note: have to build agent msi first since  -->
+		<!--       it is included in full install       -->
+
+		<!-- x86  agent -->		
+		<exec program="${InstallShield.Builder}" workingdir="${SQLcm.Install.ProjectDir}/x86">
+			<arg value="-c"/>
+			<arg value="COMP"/>
+			<arg value="-p"/>
+			<arg value="${InstallShield.Agent.Project}"/>
+			<arg value="-o"/>
+			<arg value="${installshield.mergemodules}"/>
+		</exec>
+		<property name="Signing.Name" value="SQL Compliance Agent"/>
+		<property name="Signing.Target" value="${FullPath.Install.Agent}"/>
+
+		<!-- x64  agent -->
+		<exec program="${InstallShield.Builder}" workingdir="${SQLcm.Install.ProjectDir}/x64">
+			<arg value="-c"/>
+			<arg value="COMP"/>
+			<arg value="-p"/>
+			<arg value="${InstallShield.Agent.x64.Project}"/>
+			<arg value="-o"/>
+			<arg value="${installshield.mergemodules}"/>
+		</exec>
+		<property name="Signing.Name" value="SQL Compliance Agent x64"/>
+		<property name="Signing.Target" value="${SignFullPath.Install.Agent.x64}"/>
+		<call target="SignCode"/>
+		
+		<!-- Full Install -->
+		<!-- x86 -->
+		<copy file="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Full.Project}.original" tofile="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Full.Project}.temp" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Full.Project}.temp"/>
+			<arg value="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Full.Project}"/>
+			<arg value="${UpgradeNotAllowedPlaceholder}"/>
+			<arg value="${UpgradeNotAllowed}"/>
+		</exec>
+		<copy file="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Full.Project}" tofile="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Full.Project}.temp" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Full.Project}.temp"/>
+			<arg value="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Full.Project}"/>
+			<arg value="${TrialLicenseAgreement}"/>
+			<arg value="${LicenseAgreement}"/>
+		</exec>
+		<exec program="${InstallShield.Builder}" workingdir="${SQLcm.Install.ProjectDir}/x86">
+			<arg value="-c"/>
+			<arg value="COMP"/>
+			<arg value="-p"/>
+			<arg value="${InstallShield.Full.Project}"/>
+			<arg value="-o"/>
+			<arg value="${installshield.mergemodules}"/>
+			<arg value="-e"/>
+			<arg value="Y"/>
+		</exec>
+		<property name="Signing.Name" value="SQL Compliance Manager"/>
+		<property name="Signing.Target" value="${SignFullPath.Install.Full}"/>
+		<call target="SignCode"/>
+
+		<!-- x64 -->
+		<copy file="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Full.x64.Project}.original" tofile="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Full.x64.Project}.temp" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Full.x64.Project}.temp"/>
+			<arg value="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Full.x64.Project}"/>
+			<arg value="${UpgradeNotAllowedPlaceholder}"/>
+			<arg value="${UpgradeNotAllowed}"/>
+		</exec>
+		<copy file="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Full.x64.Project}" tofile="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Full.x64.Project}.temp" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Full.x64.Project}.temp"/>
+			<arg value="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Full.x64.Project}"/>
+			<arg value="${TrialLicenseAgreement}"/>
+			<arg value="${LicenseAgreement}"/>
+		</exec>
+		<exec program="${InstallShield.Builder}" workingdir="${SQLcm.Install.ProjectDir}/x64">
+			<arg value="-c"/>
+			<arg value="COMP"/>
+			<arg value="-p"/>
+			<arg value="${InstallShield.Full.x64.Project}"/>
+			<arg value="-o"/>
+			<arg value="${installshield.mergemodules}"/>
+			<arg value="-e"/>
+			<arg value="Y"/>
+		</exec>
+		<property name="Signing.Name" value="SQL Compliance Manager x64"/>
+		<property name="Signing.Target" value="${SignFullPath.Install.Full.x64}"/>
+		<call target="SignCode"/>
+
+		<!-- Cluster Installer -->
+		<copy file="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Cluster.Project}" tofile="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Cluster.Project}.temp" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Cluster.Project}.temp"/>
+			<arg value="${SQLcm.Install.ProjectDir}/x86/${InstallShield.Cluster.Project}"/>
+			<arg value="${TrialLicenseAgreement}"/>
+			<arg value="${LicenseAgreement}"/>
+		</exec>
+		<exec program="${InstallShield.Builder}" workingdir="${SQLcm.Install.ProjectDir}/x86">
+			<arg value="-p"/>
+			<arg value="${InstallShield.Cluster.Project}"/>
+			<arg value="-e"/>
+			<arg value="Y"/>
+		</exec>
+		<property name="Signing.Name" value="SQL Compliance Cluster Manager"/>
+		<property name="Signing.Target" value="${SignFullPath.Install.Cluster}"/>
+		<call target="SignCode"/>
+
+		<!-- Cluster Installer x64 -->
+		<copy file="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Cluster.Project.x64}" tofile="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Cluster.Project.x64}.temp" overwrite="true" />
+		<exec program="${Utility.Sed}">
+			<arg value="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Cluster.Project.x64}.temp"/>
+			<arg value="${SQLcm.Install.ProjectDir}/x64/${InstallShield.Cluster.Project.x64}"/>
+			<arg value="${TrialLicenseAgreement}"/>
+			<arg value="${LicenseAgreement}"/>
+		</exec>
+		<exec program="${InstallShield.Builder}" workingdir="${SQLcm.Install.ProjectDir}/x64">
+			<arg value="-p"/>
+			<arg value="${InstallShield.Cluster.Project.x64}"/>
+			<arg value="-e"/>
+			<arg value="Y"/>
+		</exec>
+		<property name="Signing.Name" value="SQL Compliance Cluster Manager"/>
+		<property name="Signing.Target" value="${SignFullPath.Install.Cluster.x64}"/>
+		<call target="SignCode"/>		
+	</target>
+	
+	
+	<!-- ************* -->
+	<!-- CreateCDImage -->
+	<!-- ************* -->
+	<target name="CreateCDImage">
+			<!-- get the SQLsecure help values from the webhelp.ini file-->
+		<foreach item="Line" in="${SQLcm.ThirdParty}/webhelp.ini" delim="=" property="setting,setting.val" trim="Both">
+			<if test="${string::starts-with(setting, 'Version')}">
+				<property name="help.version" value="${setting.val}"/>
+			</if>
+			<if test="${string::starts-with(setting, 'Online')}">
+				<property name="help.url" value="${setting.val}"/>
+			</if>
+		</foreach>
+		
+		<!-- x86 -->
+		<!-- Copy Installers -->
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Full/x86" flatten="true">
+			<fileset>
+				<include name="${FullPath.Install.Full}" />
+				<include name="${FullPath.Install.Agent}"/>
+				<include name="${FullPath.Install.SQLNCLI}"/>
+				<include name="${FullPath.Install.Cluster}" />
+				<include name="${SQLcm.Final.Output}/${File.NewInstaller}" />
+				<include name="${SQLcm.Final.Output}/SqlCompliancemanager.zip" />
+				<include name="${CwfInstaller_x86}"/> 
+			</fileset>
+		</copy>
+		<move file="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Full/x86/${CwfInstaller_x86_File}" tofile="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Full/x86/${CwfInstaller_x64_File}" overwrite="true"/> <!--rename CWF installer-->
+		
+		<!-- Copy Autorun -->
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Full" flatten="true"
+		  file="${SQLcm.Install.Autorun}/setup.hta" >
+		  <filterchain>
+			<replacestring from="{platform}" to="x86" ignorecase="true" />
+			<replacestring from="{copyright}" to="${AssemblyInfo.Copyright}" ignorecase="true" />
+			<replacestring from="{appversion}" to="${SQLcm.version.final}" ignorecase="true" />
+			<replacestring from="{helpversion}" to="${help.version}" ignorecase="true" />
+			<replacestring from="{helpurl}" to="${help.url}" ignorecase="true" />
+		  </filterchain>
+		</copy>
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Full/Images" flatten="true">
+		  <fileset>
+			<include name="${SQLcm.Install.Autorun}/Images/*"/>
+		  </fileset>
+		</copy>		
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Full" flatten="true">
+			<fileset>
+				<include name="${SQLcm.Install.Autorun}/autorun.inf"/>
+				<include name="${SQLcm.Install.Autorun}/setup.exe"/>
+			</fileset>
+		</copy>
+		<!-- Copy Redist -->
+		<!-- Windows Installer is only needed for x86, 64 bit comes with 3.0 or 3.1 -->
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Full/Redist/Windows Installer 3.1" flatten="true">
+			<fileset>
+				<include name="${SQLdm.Redist}/Windows Installer 3.1/*"/>
+			</fileset>
+		</copy>
+		
+		<!-- x64 -->
+		<!-- Copy Installers -->
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x64/Full/x64" flatten="true">
+			<fileset>
+				<include name="${FullPath.Install.Full.x64}" />
+				<include name="${FullPath.Install.Agent.x64}"/>
+				<include name="${FullPath.Install.SQLNCLI.x64}"/>
+				<include name="${FullPath.Install.Cluster.x64}" />
+				<include name="${SQLcm.Final.Output.x64}/${File.NewInstaller}" />
+				<include name="${CwfInstaller_x64}"/>
+				<include name="${SQLcm.Final.Output.x64}/SqlCompliancemanager.zip" />
+			</fileset>
+		</copy>
+		
+		<!-- Copy Autorun -->
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x64/Full" flatten="true"
+		  file="${SQLcm.Install.Autorun}/setup.hta" >
+		  <filterchain>
+			<replacestring from="{platform}" to="x64" ignorecase="true" />
+			<replacestring from="{copyright}" to="${AssemblyInfo.Copyright}" ignorecase="true" />
+			<replacestring from="{appversion}" to="${SQLcm.version.final}" ignorecase="true" />
+			<replacestring from="{helpversion}" to="${help.version}" ignorecase="true" />
+			<replacestring from="{helpurl}" to="${help.url}" ignorecase="true" />
+		  </filterchain>
+		</copy>
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x64/Full/Images" flatten="true">
+		  <fileset>
+			<include name="${SQLcm.Install.Autorun}/Images/*"/>
+		  </fileset>
+		</copy>		
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x64/Full" flatten="true">
+			<fileset>
+				<include name="${SQLcm.Install.Autorun}/autorun.inf"/>
+				<include name="${SQLcm.Install.Autorun}/setup.exe"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ******************************** -->
+	<!-- Create New Web Installer Package -->
+	<!-- ******************************** -->
+	<target name="CreateWebInstallerPackage">
+		
+		<!-- Update version information -->
+		<move file="${RepoRoot}/install/SQLCM Installer/SQLCM Installer/Properties/AssemblyInfo.cs" tofile="${RepoRoot}/install/SQLCM Installer/SQLCM Installer/Properties/AssemblyInfo.cs.changed" overwrite="true" />
+		
+		<exec program="${Utility.Sed}">
+			<arg value="${RepoRoot}/install/SQLCM Installer/SQLCM Installer/Properties/AssemblyInfo.cs.changed"/>
+			<arg value="${RepoRoot}/install/SQLCM Installer/SQLCM Installer/Properties/AssemblyInfo.cs"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		
+		<move file="${RepoRoot}/install/SQLCM Installer/SQLCM Installer/Constants.cs" tofile="${RepoRoot}/install/SQLCM Installer/SQLCM Installer/Constants.cs.changed" overwrite="true" />
+		
+		<exec program="${Utility.Sed}">
+			<arg value="${RepoRoot}/install/SQLCM Installer/SQLCM Installer/Constants.cs.changed"/>
+			<arg value="${RepoRoot}/install/SQLCM Installer/SQLCM Installer/Constants.cs"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version.final}"/>
+		</exec>
+		<call target="CompileInstallerProject" />
+		
+		<!-- Sign the Final package exes -->
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager"/>
+		<property name="Signing.Target" value="${SignRepoRoot}\install\SQLCM Installer\SQLCM Installer\bin\${Build.Config}\SQLCMInstall.exe"/>
+		<call target="SignCode"/>
+		
+		<!-- Copying required files -->
+		<copy todir="install/SQLCMInstall-32bit/SQLCMInstall-32bit/MSI Packages">
+			<fileset basedir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Full/x86">
+				<exclude name="AddInInstaller.exe"/>
+				<include name="**"/>
+			</fileset>
+		</copy>
+		<copy todir="install/SQLCMInstall-32bit/SQLCMInstall-32bit/MSI Packages" flatten="true">
+			<fileset>
+				<include name="install/SQLCM Installer/SQLCM Installer/bin/${Build.Config}/SQLCMInstall.exe"/>
+				<include name="install/SQLCM Installer/SQLCM Installer/bin/${Build.Config}/CWFInstallerService.dll"/>
+				<include name="install/SQLCM Installer/library/sqlncli.msi"/>
+			</fileset>
+		</copy>
+		
+		<!-- x86 Installer Package -->
+		<move file="${RepoRoot}/install/SQLCMInstall-32bit/SQLCMInstall-32bit/Properties/AssemblyInfo.cs" tofile="${RepoRoot}/install/SQLCMInstall-32bit/SQLCMInstall-32bit/Properties/AssemblyInfo.cs.changed" overwrite="true" />
+		
+		<exec program="${Utility.Sed}">
+			<arg value="${RepoRoot}/install/SQLCMInstall-32bit/SQLCMInstall-32bit/Properties/AssemblyInfo.cs.changed"/>
+			<arg value="${RepoRoot}/install/SQLCMInstall-32bit/SQLCMInstall-32bit/Properties/AssemblyInfo.cs"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version}"/>
+		</exec>
+
+		<call target="CompileInstallerPackageX86" />
+		
+		<!-- Copying required files -->
+		<copy todir="install/SQLCMInstall-64bit/SQLCMInstall-64bit/MSI Packages">
+			<fileset basedir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x64/Full/x64">
+				<exclude name="AddInInstaller.exe"/>
+				<include name="**"/>
+			</fileset>
+		</copy>
+		<copy todir="install/SQLCMInstall-64bit/SQLCMInstall-64bit/MSI Packages" flatten="true">
+			<fileset>
+				<include name="install/SQLCM Installer/SQLCM Installer/bin/${Build.Config}/SQLCMInstall.exe"/>
+				<include name="install/SQLCM Installer/SQLCM Installer/bin/${Build.Config}/CWFInstallerService.dll"/>
+				<include name="install/SQLCM Installer/library/sqlncli-x64.msi"/>
+			</fileset>
+		</copy>
+		
+		<!-- x64 Installer Package -->
+		<move file="${RepoRoot}/install/SQLCMInstall-64bit/SQLCMInstall-64bit/Properties/AssemblyInfo.cs" tofile="${RepoRoot}/install/SQLCMInstall-64bit/SQLCMInstall-64bit/Properties/AssemblyInfo.cs.changed" overwrite="true" />
+		
+		<exec program="${Utility.Sed}">
+			<arg value="${RepoRoot}/install/SQLCMInstall-64bit/SQLCMInstall-64bit/Properties/AssemblyInfo.cs.changed"/>
+			<arg value="${RepoRoot}/install/SQLCMInstall-64bit/SQLCMInstall-64bit/Properties/AssemblyInfo.cs"/>
+			<arg value="${BuildNumberPlaceholder}"/>
+			<arg value="${SQLcm.version}"/>
+		</exec>
+
+		<call target="CompileInstallerPackageX64" />
+		
+		<!-- Moving installer package to final location -->
+		<move file="install/SQLCMInstall-32bit/SQLCMInstall-32bit/bin/${Build.Config}/SQLCMInstall-32bit.exe" tofile="${SQLcm.Build.Temp}\SQLCMInstall-32bit-v${SQLcm.version}.exe" overwrite="true" />
+		
+		<move file="install/SQLCMInstall-64bit/SQLCMInstall-64bit/bin/${Build.Config}/SQLCMInstall-64bit.exe" tofile="${SQLcm.Build.Temp}\SQLCMInstall-64bit-v${SQLcm.version}.exe" overwrite="true" />
+		
+		<!-- Sign the Final package exes -->
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager"/>
+		<property name="Signing.Target" value="${SQLcm.SignBuild.Temp}\SQLCMInstall-32bit-v${SQLcm.version}.exe"/>
+		<call target="SignCode"/>
+		
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager"/>
+		<property name="Signing.Target" value="${SQLcm.SignBuild.Temp}\SQLCMInstall-64bit-v${SQLcm.version}.exe"/>
+		<call target="SignCode"/>
+		
+		<!-- Copy files to the output folder -->
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Web" flatten="true">
+			<fileset>
+				<include name="${SQLcm.Build.Temp}\SQLCMInstall-32bit-v${SQLcm.version}.exe"/>
+			</fileset>
+		</copy>
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x64/Web" flatten="true">
+			<fileset>
+				<include name="${SQLcm.Build.Temp}\SQLCMInstall-64bit-v${SQLcm.version}.exe"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="CompileInstallerProject">
+		<msbuild project="install/SQLCM Installer/SQLCM Installer.sln">
+			<property name="Configuration" value="${Build.Config}"/>
+			<property name="Platform" value = "Any CPU"/>
+		</msbuild>
+	</target>
+	
+	<target name="CompileInstallerPackageX86">
+		<msbuild project="install/SQLCMInstall-32bit/SQLCMInstall-32bit.sln">
+			<property name="Configuration" value="${Build.Config}"/>
+			<property name="Platform" value = "Any CPU"/>
+		</msbuild>
+	</target>
+	
+	<target name="CompileInstallerPackageX64">
+		<msbuild project="install/SQLCMInstall-64bit/SQLCMInstall-64bit.sln">
+			<property name="Configuration" value="${Build.Config}"/>
+			<property name="Platform" value = "Any CPU"/>
+		</msbuild>
+	</target>
+	
+	<!-- ****************** -->
+	<!-- CreateWebInstaller -->
+	<!-- ****************** -->
+	<target name="CreateWebInstaller">
+		<mkdir dir="${SQLcm.Build.Temp}"/>
+		<!-- Zip the full solutions-->
+		<exec program="${Utility.7Zip}">
+			<arg value="a"/>
+			<arg value="-tzip"/>
+			<arg value="${SQLcm.Build.Temp}\SQLcm.zip"/>
+			<arg value="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/*.*"/>
+			<arg value="-r"/>
+		</exec>
+		<exec program="${Utility.7Zip}">
+			<arg value="a"/>
+			<arg value="-tzip"/>
+			<arg value="${SQLcm.Build.Temp}\SQLcm-x64.zip"/>
+			<arg value="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x64/*.*"/>
+			<arg value="-r"/>
+		</exec>
+		
+		<!-- Build absolute packager -->
+		<exec program="${SQLcm.Build.Root}/InstallationKit.bat" workingdir="${SQLcm.Build.Root}">
+			<arg value = "${SQLcm.version.final}"/>
+		</exec>
+		<exec program="${SQLcm.Build.Root}/InstallationKit-x64.bat" workingdir="${SQLcm.Build.Root}">
+			<arg value = "${SQLcm.version.final}"/>
+		</exec>
+		
+		<!-- Sign the absolute packager exes -->
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager"/>
+		<property name="Signing.Target" value="${SQLcm.SignBuild.Temp}\SQLCMInstall-32bit-v${SQLcm.version.final}.exe"/>
+		<call target="SignCode"/>
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager"/>
+		<property name="Signing.Target" value="${SQLcm.SignBuild.Temp}\SQLCMInstall-64bit-v${SQLcm.version.final}.exe"/>
+		<call target="SignCode"/>
+		
+		<!-- Copy files to the output folder -->
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Web" flatten="true">
+			<fileset>
+				<include name="${SQLcm.Build.Temp}\SQLCMInstall-32bit-v${SQLcm.version.final}.exe"/>
+			</fileset>
+		</copy>
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x64/Web" flatten="true">
+			<fileset>
+				<include name="${SQLcm.Build.Temp}\SQLCMInstall-64bit-v${SQLcm.version.final}.exe"/>
+			</fileset>
+		</copy>
+		
+		<!-- *********************************************************** -->
+		<!-- Create Web download zip file containing self-extracting EXE -->
+		<!-- *********************************************************** -->
+		<exec program="${Utility.7Zip}">
+			<arg value="a"/>
+			<arg value="-tzip"/>
+			<arg value="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Web/IderaSQLcmInstallationKit.zip"/>
+			<arg value="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Web/*.*"/>
+		</exec>
+		<exec program="${Utility.7Zip}">
+			<arg value="a"/>
+			<arg value="-tzip"/>
+			<arg value="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x64/Web/IderaSQLcmInstallationKit-x64.zip"/>
+			<arg value="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x64/Web/*.*"/>
+		</exec>
+	</target>
+	
+	<!-- ******************* -->
+	<!-- CopyThirdPartyToolsTox64Folder -->
+	<!-- ******************* -->
+	<target name="CopyThirdPartyToolsTox64Folder">
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x64/Web" flatten="true">
+			<fileset>
+				<include name="${SQLCm.ThirdPartyTools}\x64\*.*"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- ******************* -->
+	<!-- CopyThirdPartyToolsTox86Folder -->
+	<!-- ******************* -->
+	<target name="CopyThirdPartyToolsTox86Folder">
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Web" flatten="true">
+			<fileset>
+				<include name="${SQLCm.ThirdPartyTools}\x86\*.*"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ******************* -->
+	<!-- CopyReadMeToBothFolders -->
+	<!-- ******************* -->
+	<target name="CopyReadMe">
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x64/Web" flatten="true">
+			<fileset>
+				<include name="${RepoRoot}/documentation/ReadMe.txt"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version.final}/${InstallerType}/x86/Web" flatten="true">
+			<fileset>
+				<include name="${RepoRoot}/documentation/ReadMe.txt"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- ******************* -->
+	<!-- CopyBuildToDevShare -->
+	<!-- ******************* -->
+	<target name="CopyBuildToDevShare">
+		<copy todir="${SQLcm.DevShare.Builds}/${SQLcm.version.final}" flatten="false">
+			<fileset basedir="${SQLcm.Build.Output}/${SQLcm.version.final}">
+				<include name="**"/>
+				<exclude name="**/Full/**"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<!--Copy build to QA share-->
+	<target name="CopyBuildToQaShare">
+		<copy todir="${SQLcm.QaShare.Builds}/${SQLcm.version.final}" flatten="false">
+			<fileset basedir="${SQLcm.Build.Output}/${SQLcm.version.final}">
+				<include name="**"/>
+				<exclude name="**/Full/**"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ******************* -->
+	<!-- SignCode            -->
+	<!-- ******************* -->
+	<target name="SignCode">
+	
+	    <exec program="curl">
+            <arg line=" --get http://10.220.2.16:8080/sign --data-urlencode filePath=&quot;${Signing.Target}&quot;"/>
+	    </exec> 
+		<!-- Sign web installation kit -->
+		<!--exec program="${Signing.Application}">
+			<arg value="sign"/>
+			<arg value="-d"/>
+			<arg value="${Signing.Name}"/>
+			<arg value="-du"/>
+			<arg value="${Signing.Url}"/>
+			<arg value="-f"/>
+			<arg value="${Signing.Key}"/>
+			<arg value="-p"/>
+			<arg value="${Signing.Password}"/>
+			<arg value="-t"/>
+			<arg value="${Signing.TimeStamp}"/>
+			<arg value="${Signing.Target}"/>
+		</exec-->
+	</target>
+
+	<!-- ******************* -->
+	<!-- Combine.StoredProcs -->
+	<!-- ******************* -->
+	<target name="Combine.StoredProcs">
+		<exec workingdir="${SQLcm.SqlScripts}" program="${CombineScripts.Batch}"/>
+	</target>
+	
+	<!-- ************************** -->
+	<!-- ApplyVersionToInstallers   -->
+	<!-- ************************** -->
+	<target name="ApplyVersionToInstallers">
+		<!-- Replaces build number placeholder with real build number in ISM files -->
+		<!-- x86 -->
+		<foreach item="File" property="filename">
+			<in>
+				<items basedir="${SQLcm.Install.ProjectDir}/x86">
+					<include name="*.ism" />
+				</items>
+			</in>
+				<do>
+					<attrib file="${filename}" readonly="false"/>
+					<move file="${filename}" tofile="${filename}.old"   overwrite="true" />
+					<exec program="${Utility.Sed}">
+						<arg value="${filename}.old"/>
+						<arg value="${filename}"/>
+						<arg value="${InstallerBuildNumberPlaceholder}"/>
+						<arg value="${SQLcm.version.final}"/>
+					</exec>
+				</do>
+		</foreach>
+		
+		<!-- x64 -->
+		<foreach item="File" property="filename">
+			<in>
+				<items basedir="${SQLcm.Install.ProjectDir}/x64">
+					<include name="*.ism" />
+				</items>
+			</in>
+				<do>
+					<attrib file="${filename}" readonly="false"/>
+					<move file="${filename}" tofile="${filename}.old"   overwrite="true" />
+					<exec program="${Utility.Sed}">
+						<arg value="${filename}.old"/>
+						<arg value="${filename}"/>
+						<arg value="${InstallerBuildNumberPlaceholder}"/>
+						<arg value="${SQLcm.version.final}"/>
+					</exec>
+				</do>
+		</foreach>
+	</target>
+	
+	<!-- ******************* -->
+	<!-- Archive             -->
+	<!-- ******************* -->
+	<target name="Archive">
+		<!-- Zip up the SQLcm folder -->
+		<exec program="${Utility.7Zip}">
+			<arg value="a"/>
+			<arg value="-tzip"/>
+			<arg value="-x*.ncb"/>
+			<arg value="-xbuild/*.*"/>
+			<arg value="-r"/>
+			<arg value="../SQLcm_${SQLcm.version.final}.zip"/>
+			<arg value="*.*"/>
+		</exec>
+		<move file="../SQLcm_${SQLcm.version.final}.zip" tofile="${SQLcm.Development.Archives}/SQLcm_${SQLcm.version.final}.zip"/>
+	</target>
+	
+	<!-- ******************* -->
+	<!-- FetchArchive        -->
+	<!-- ******************* -->
+	<target name="FetchArchive">
+		<copy todir="." overwrite="true">
+			<fileset basedir="${SQLcm.Development.Archives}/SQLcm-${SQLcm.version.final}">
+				<exclude name="SQLcompliance.build"/>
+				<exclude name="DoBuild.bat"/>
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- ******************* -->
+	<!-- BuildDocVersion     -->
+	<!-- ******************* -->
+	<target name="BuildDocVersion">
+		<property name="FriendlyDate" value="${datetime::get-month(datetime::now())}-${datetime::get-day(datetime::now())}-${datetime::get-year(datetime::now())}"/>
+		<property name="FriendlyTime" value="${datetime::get-hour(datetime::now())}.${datetime::get-minute(datetime::now())}.${datetime::get-second(datetime::now())}"/>
+		<property name="SQLcm.version.final" value="${SQLcm.version.final}_${FriendlyDate}_${FriendlyTime}"/>
+	</target>
+	
+	<!-- - - - -->
+	<!-- CLEAN -->
+	<!-- - - - -->
+	<!-- Clean the build directories -->
+	<target name="Build.Clean">
+		<delete failonerror="false">
+	 		<fileset basedir="${SQLcm.Root}">
+	  		<include name="**/bin/**/*" />
+	  		<include name="**/obj/**/*" />
+	 		</fileset>
+		</delete>
+	</target>
+	
+	<target name="CallNewInstaller">
+		<exec program="DoIderaDashboardSampleProductBuild.cmd" basedir="C:\GitHub\SQLCm\build\">
+		<arg value="${SQLcm.buildnumber}" />
+		<arg value="branch"/>
+		<arg value="official"/>
+		<arg value="C:\GitHub\SQLCm"/>
+		</exec>
+	</target>
+	<target name="SignExecutables">
+		<!-- Sign x86 -->
+		<property name="SQLcm.SignBuild.Final.Bin.Current" value="\\10.220.200.51\Github\SQLcm\Bin\final" />
+		<call target="SignExecutablesForCurrentPlatform"/>
+		<!-- Sign x64 -->
+		<property name="SQLcm.SignBuild.Final.Bin.Current" value="\\10.220.200.51\Github\SQLcm\Bin\x64\final" />
+		<call target="SignExecutablesForCurrentPlatform"/>
+	</target>
+	
+	<target name="SignExecutablesForCurrentPlatform">
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager" />
+		<property name="Signing.Target" value="${SQLcm.SignBuild.Final.Bin.Current}\AddInInstaller.exe" />
+		<call target="SignCode" />
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager" />
+		<property name="Signing.Target" value="${SQLcm.SignBuild.Final.Bin.Current}\SQLcmCmd.exe" />
+		<call target="SignCode" />
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager" />
+		<property name="Signing.Target" value="${SQLcm.SignBuild.Final.Bin.Current}\SQLcompliance.exe" />
+		<call target="SignCode" />
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager" />
+		<property name="Signing.Target" value="${SQLcm.SignBuild.Final.Bin.Current}\SQLcomplianceAgent.exe" />
+		<call target="SignCode" />
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager" />
+		<property name="Signing.Target" value="${SQLcm.SignBuild.Final.Bin.Current}\SQLComplianceAlertsService.exe" />
+		<call target="SignCode" />
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager" />
+		<property name="Signing.Target" value="${SQLcm.SignBuild.Final.Bin.Current}\SQLcomplianceClusterGUI.exe" />
+		<call target="SignCode" />
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager" />
+		<property name="Signing.Target" value="${SQLcm.SignBuild.Final.Bin.Current}\SQLcomplianceCollectionService.exe" />
+		<call target="SignCode" />
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager" />
+		<property name="Signing.Target" value="${SQLcm.SignBuild.Final.Bin.Current}\SQLcomplianceRegistrationService.exe" />
+		<call target="SignCode" />
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager" />
+		<property name="Signing.Target" value="${SQLcm.SignBuild.Final.Bin.Current}\SQLcomplianceIndexUpgrade.exe" />
+		<call target="SignCode" />
+	</target>
+</project>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="7" MadCap:lastHeight="1109" MadCap:lastWidth="906">
+    <head><title>Registered SQL Server Properties Window General</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Registered SQL Server Properties Window</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Registered SQL Server Properties Window &gt; </MadCap:conditionalText>General</h2>
+        <p class="Body">This tab allows you to change the description of this registered SQL Server instance, and view general properties such as audit settings.</p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Update now</p>
+        <p class="DefinitionListBody">Allows you to send audit setting updates to the SQLcompliance Agent running on this SQL Server instance. This action is available when you update audit settings between heartbeats, and the Collection Server has not yet sent your changes to the SQLcompliance Agent. </p>
+        <p class="DefinitionListBody">To diagnose SQLcompliance Agent issues, check the SQLcompliance Agent status and review the SQLcompliance Agent properties.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">SQL Server instance</p>
+        <p class="DefinitionListBody">Provides the name of the selected SQL Server instance. <span class="If_Then_Statement">If you are auditing a local instance</span>, the SQL Server instance name is the name of the physical computer hosting this instance.</p>
+        <p class="DefinitionListTerm">Version</p>
+        <p class="DefinitionListBody">Provides the version number of SQL Server running on this registered instance.</p>
+        <p class="DefinitionListTerm">Description</p>
+        <p class="DefinitionListBody">Allows you to specify a description for this instance. The Management Console uses this description when you view SQL Server properties or report on audit data. Consider including information about the databases hosted on this instance, or the organization to which this instance belongs. </p>
+        <p class="DefinitionListTerm">Status</p>
+        <p class="DefinitionListBody">Provides the current status of this instance. The current status indicates whether SQL Server is available and the SQLcompliance Agent Service and Collection Service are running. Use the Registered SQL Servers tab to see an overview of the status of all registered SQL Server instances.</p>
+        <p class="DefinitionListTerm">Date created</p>
+        <p class="DefinitionListBody">Provides the date and time when this instance was registered. By default, auditing is enabled when the instance is registered with SQL Compliance Manager.</p>
+        <p class="DefinitionListTerm">Last modified</p>
+        <p class="DefinitionListBody">Provides the date and time when audit settings were last modified on this instance.</p>
+        <p class="DefinitionListTerm">Last heartbeat</p>
+        <p class="DefinitionListBody">Provides the date and time when the SQLcompliance Agent auditing this instance contacted the Collect Server. This communication is called a heartbeat. Typically, the SQLcompliance Agent receives audit setting updates during a heartbeat.</p>
+        <p class="DefinitionListTerm">Events received</p>
+        <p class="DefinitionListBody">Provides the date and time when the Collection Server last received audited events (SQL trace files) from the SQLcompliance Agent.</p>
+        <p class="DefinitionListTerm">Audit Settings</p>
+        <p class="DefinitionListBody">Provides the following information about the status of your audit settings:<ul style="list-style-type: circle;"><li class="Bullet-Def-Body">Whether auditing is enabled on this instance</li><li class="Bullet-Def-Body">When the SQLcompliance Agent auditing this instance received the last audit setting updates</li><li class="Bullet-Def-Body-Last">Whether the audit settings are current</li></ul></p>
+        <p class="DefinitionListBody"><span class="If_Then_Statement">If the audit settings are not current</span>, you can send your updates to the SQLcompliance Agent by clicking <span class="GUI_Item">Update now</span>.</p>
+        <p class="DefinitionListTerm">Event Database Information</p>
+        <p class="DefinitionListBody">Provides the following information about audited events collected on this instance:<ul style="list-style-type: circle;"><li class="Bullet-Def-Body">Name of the database where audited events processed by the Collection Server are stored</li><li class="Bullet-Def-Body">Whether the Repository databases passed the last audit data integrity check</li><li class="Bullet-Def-Body-Last">When the last audit data integrity check was performed</li></ul></p>
+        <p class="DefinitionListTerm">Time of Last Archive</p>
+        <p class="DefinitionListBody">Provides the date and time when audited events collected for this SQL Server instance were last archived.</p>
+        <p class="DefinitionListTerm">Last Archive Results</p>
+        <p class="DefinitionListBody">Provides the results of the data integrity check. SQL CM automatically performs a data integrity check each time you archive audited events from the Repository databases.</p>
+    </body>
+</html>

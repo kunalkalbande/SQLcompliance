@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="430" MadCap:lastWidth="1159">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Reducing audit data to optimize performance</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Reducing audit data to optimize performance</h2>
+        <p class="Body">Use the following checklist to help you optimize SQL&#160;Compliance Manager performance by fine tuning your auditing settings to prevent excess data collection.</p>
+        <p class="Body">As SQL Compliance Manager collects audit data and stores this information in the Repository, the event databases grow. When SQL CM is configured to audit  all SQL&#160;Server events, the event databases can grow very large (up to several gigabytes) in a single 24-hour period, especially in larger environments or environments with high-volume traffic. For more information about event databases in the Repository, see <a href="Architecture and Components.htm" target="_self">Understanding the product components</a>.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <img src="Resources/Images/ChklistBoxChecked.png" />
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Follow these steps ...</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td style="text-align: center;" class="BodyE-Column1-Body1">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Archive or groom stale audit data from the event databases on a regular basis. Archiving allows you to move older events whereas grooming allows you to delete older events. For more information, see <a href="How Archives Work.htm" target="_self">How archives work</a> and <a href="How Grooming Works.htm" target="_self">How grooming works</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Re-index and shrink each event database from which you have archived or groomed data. You can use native Microsoft SQL&#160;Server tools or other third-party tools such as Idera SQL&#160;Defrag Manager.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Carefully choose the events you need to audit.  The growth and overall size of the event databases is a direct result of the auditing configuration you define. For more information, see <a href="Fine Tuning Your Audit Settings.htm" target="_self">Fine tuning your audit settings</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Consider configuring Event Filters. Event filters prevent unwanted events from being collected and stored. For example, you can use Event Filters to exclude specific applications and operations that perform benign activities, and therefore do not require auditing, from your audit trial. For more information, see <a href="Using Event Filters.htm">Using Event Filters</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Consider configuring trusted user filters. Trusted user filters sift out events initiated by specific user accounts on an individual database. In general, a trusted user filter will be more resource-efficient than an event filter when excluding non-useful or benign events from your audit data collection.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

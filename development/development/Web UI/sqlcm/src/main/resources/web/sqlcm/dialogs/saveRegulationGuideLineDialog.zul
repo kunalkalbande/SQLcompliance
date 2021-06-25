@@ -1,0 +1,43 @@
+<zk>	
+    <idera-cwf-dialog id="titleMessage" apply="com.idera.sqlcm.ui.prompt.RegulationGuidelineDialog" width = "535px"
+        title="Save File Option">  
+      <caption image="~./sqlcm/images/sql-cm-icon.png" visible="true" sclass="dialog-icon"/>
+
+      <vlayout>      	
+      	<radiogroup id="rgRegulationGuideline" orient="vertical"
+      		visible="true">
+      	</radiogroup>
+      	<grid id="messageGrid" sclass="idera-invisible-grid"
+                     vflex="min">
+                    <columns>
+                        <column align="left" />
+                    </columns>
+                    <rows>
+                        <row>
+                            <idera-cwf-radio id = "applyRegulationRadio" label="Apply Regulation" checked = "true"
+      		radiogroup="rgRegulationGuideline" />
+                        </row>
+                        <row>
+                            <idera-cwf-radio id = "applyCustomRegulationRadio" label="Apply Regulation with Custom Name."
+      		radiogroup="rgRegulationGuideline" />
+                        </row>
+                    </rows>
+                </grid>
+      	<label value="Regulation Guidlines Template Name:"
+      		style="margin-left: 42px" />
+      	<separator height="10px" />
+      	<idera-cwf-textbox id="txtBox" width="425px" constraint="no empty" disabled = "true"
+      		style="margin-left: 42px">
+      	</idera-cwf-textbox>
+      </vlayout>
+      <toolbar align="end" sclass="action-btns-container">
+            <idera-cwf-button
+                id="okButton" label="${idera:getLabel('Messages.ok')}"
+                visible="true" />
+            <idera-cwf-button 
+                id="cancelButton"
+                label="${idera:getLabel('Messages.cancel')}"
+                visible="true" />
+        </toolbar>
+    </idera-cwf-dialog>
+</zk>

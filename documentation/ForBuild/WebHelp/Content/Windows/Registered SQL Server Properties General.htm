@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Management Console User Interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Registered SQL Server Properties Window General</title>
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">Registered SQL Server Properties Window</h1>
+        <h2 class="Heading2">General</h2>
+        <p class="Body">This tab allows you to change the description of this registered SQL Server instance, and view general properties such as audit settings.</p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Update now</p>
+        <p class="DefinitionListBody">Allows you to send audit setting updates to the SQLcompliance Agent running on this SQL Server instance. This action is available when you update audit settings between heartbeats, and the Collection Server has not yet sent your changes to the SQLcompliance Agent. </p>
+        <p class="DefinitionListBody">To diagnose SQLcompliance Agent issues, check the SQLcompliance Agent status and review the SQLcompliance Agent properties.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">SQL Server instance</p>
+        <p class="DefinitionListBody">Provides the name of the selected SQL Server instance. <span class="If_Then_Statement">If you are auditing a local instance</span>, the SQL Server instance name is the name of the physical computer hosting this instance.</p>
+        <p class="DefinitionListTerm">Version</p>
+        <p class="DefinitionListBody">Provides the version number of SQL Server running on this registered instance.</p>
+        <p class="DefinitionListTerm">Description</p>
+        <p class="DefinitionListBody">Allows you to specify a description for this instance. The Management Console uses this description when you view SQL Server properties or report on audit data. Consider including information about the databases hosted on this instance, or the organization to which this instance belongs. </p>
+        <p class="DefinitionListTerm">Status</p>
+        <p class="DefinitionListBody">Provides the current status of this instance. The current status indicates whether SQL Server is available and the SQLcompliance Agent Service and Collection Service are running. Use the Registered SQL Servers tab to see an overview of the status of all registered SQL Server instances.</p>
+        <p class="DefinitionListTerm">Date created</p>
+        <p class="DefinitionListBody">Provides the date and time when this instance was registered. By default, auditing is enabled when the instance is registered with SQL Compliance Manager.</p>
+        <p class="DefinitionListTerm">Last modified</p>
+        <p class="DefinitionListBody">Provides the date and time when audit settings were last modified on this instance.</p>
+        <p class="DefinitionListTerm">Last heartbeat</p>
+        <p class="DefinitionListBody">Provides the date and time when the SQLcompliance Agent auditing this instance contacted the Collect Server. This communication is called a heartbeat. Typically, the SQLcompliance Agent receives audit setting updates during a heartbeat.</p>
+        <p class="DefinitionListTerm">Events received</p>
+        <p class="DefinitionListBody">Provides the date and time when the Collection Server last received audited events (SQL trace files) from the SQLcompliance Agent.</p>
+        <p class="DefinitionListTerm">Audit Settings</p>
+        <p class="DefinitionListBody">Provides the following information about the status of your audit settings:<ul style="list-style-type: circle;"><li class="Bullet-Def-Body" value="1">Whether auditing is enabled on this instance</li><li class="Bullet-Def-Body" value="2">When the SQLcompliance Agent auditing this instance received the last audit setting updates</li><li class="Bullet-Def-Body-Last" value="3">Whether the audit settings are current</li></ul></p>
+        <p class="DefinitionListBody"><span class="If_Then_Statement">If the audit settings are not current</span>, you can send your updates to the SQLcompliance Agent by clicking <span class="GUI_Item">Update now</span>.</p>
+        <p class="DefinitionListTerm">Event Database Information</p>
+        <p class="DefinitionListBody">Provides the following information about audited events collected on this instance:<ul style="list-style-type: circle;"><li class="Bullet-Def-Body" value="1">Name of the database where audited events processed by the Collection Server are stored</li><li class="Bullet-Def-Body" value="2">Whether the Repository databases passed the last audit data integrity check</li><li class="Bullet-Def-Body-Last" value="3">When the last audit data integrity check was performed</li></ul></p>
+        <p class="DefinitionListTerm">Time of Last Archive</p>
+        <p class="DefinitionListBody">Provides the date and time when audited events collected for this SQL Server instance were last archived.</p>
+        <p class="DefinitionListTerm">Last Archive Results</p>
+        <p class="DefinitionListBody">Provides the results of the data integrity check. SQL CM automatically performs a data integrity check each time you archive audited events from the Repository databases.</p>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="../Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> </p>
+    </body>
+</html>

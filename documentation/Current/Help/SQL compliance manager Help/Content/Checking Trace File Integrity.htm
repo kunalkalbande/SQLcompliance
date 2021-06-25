@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="6" MadCap:lastHeight="411" MadCap:lastWidth="919">
+    <head><title>Checking Trace File Integrity</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Check trace file integrity</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Check trace file integrity</h2>
+        <p class="Body">
+            <MadCap:keyword term="diagnostics;troubleshooting;trace files:check integrity;SQLcompliance Agent:checking trace files;integrity check:SQLcompliance Agent;integrity check:trace files;integrity check:audit data" />The SQLcompliance Agent manages the SQL trace that collects audit data.<span class="If_Then_Statement"> If the SQL trace is stopped, modified, paused, or deleted by another application</span>, the SQLcompliance Agent restarts the trace and checks the trace status. The Collection Server then logs an event indicating the current trace status. </p>
+        <p class="Body">You can set the trace tamper detection interval from the SQLcompliance Agent Properties window. For more information, see <a href="Configuring How the SQLcompliance.htm" target="_self">Configuring how the SQLcompliance Agent manages trace files</a>.</p>
+        <p class="Body"><span class="If_Then_Statement">If an issue has occurred</span>, one of the following events will display on the Agent Events tab of the SQL&#160;Compliance&#160;Manager Activities tab.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">This Agent Event …</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Means …</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Trace stopped</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">The SQL trace was stopped but still exists on the audited SQL Server instance.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Trace missing</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">The SQL trace that was running no longer exists on the audited SQL Server instance. The SQLcompliance Agent started a new trace.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Trace altered</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">A SQL trace setting was altered.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

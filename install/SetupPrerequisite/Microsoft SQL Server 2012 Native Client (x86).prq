@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SetupPrereq>
+	<conditions>
+		<condition Type="16" Comparison="2" Path="[SystemFolder]" FileName="SQLNCLI11.DLL" ReturnValue="2011.110.7001.0"></condition>
+	</conditions>
+	<files>
+		<file LocalFile="&lt;ISProductFolder&gt;\SetupPrerequisites\SQLFeaturePack\2012\x86\sqlncli.msi" URL="https://www.microsoft.com/en-us/download/details.aspx?id=50402" CheckSum="2400E61D1C124F9212BD44D83FB36FCA" FileSize="0,3133440"></file>
+	</files>
+	<execute file="sqlncli.msi" cmdline="/qn IACCEPTSQLNCLILICENSETERMS=YES REBOOT=ReallySuppress" cmdlinesilent="/qn IACCEPTSQLNCLILICENSETERMS=YES REBOOT=ReallySuppress" requiresmsiengine="1"></execute>
+	<properties Id="Microsoft SQL Server 2012 Native Client (x86)" Description="This installs Microsoft SQL Server 2012 Native Client (x86) package." AltPrqURL="http://saturn.installshield.com/devstudio/setuprequirements/sqlexpress/Microsoft SQL Server 2012 Native Client (x86).prq"></properties>
+	<behavior Hidden="1" Reboot="4"></behavior>
+</SetupPrereq>

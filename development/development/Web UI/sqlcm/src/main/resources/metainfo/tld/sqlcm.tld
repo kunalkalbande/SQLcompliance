@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib>
+
+  <description>A taglib to define some EL accessible functions.
+  </description>
+  <short-name>sqlcmiderataglib</short-name>
+  <uri>http://www.idera.com/zk</uri>
+
+    <function>
+        <description>Returns the image URL associated with the image type and size</description>
+        <name>getImageURLWithoutSize</name>
+        <function-class>com.idera.sqlcm.server.web.ELFunctions</function-class>
+        <function-signature>java.lang.String getImageURLWithoutSize(java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <description>Returns true if current user - can access</description>
+        <name>canAccess</name>
+        <function-class>com.idera.sqlcm.server.web.session.SessionUtil</function-class>
+        <function-signature>boolean canAccess()</function-signature>
+    </function>
+    
+      <function>
+        <description>Returns true if widget is configured true to show or hide for a page</description>
+        <name>getConfigValue</name>
+        <function-class>com.idera.sqlcm.server.web.session.SessionUtil</function-class>
+        <function-signature>boolean getConfigValue(java.lang.String, java.lang.String)</function-signature>
+    </function>
+    
+     <function>
+        <description>Returns true if widget is configured true to show or hide for a page and user is admin</description>
+        <name>getConfigValueForAdmin</name>
+        <function-class>com.idera.sqlcm.server.web.session.SessionUtil</function-class>
+        <function-signature>boolean getConfigValueForAdmin(java.lang.String, java.lang.String)</function-signature>
+    </function>
+     <function>
+        <description>Returns true if widget is configured true to show or hide for a page and user is access permission</description>
+        <name>getConfigValueForAccessPermittedUsers</name>
+        <function-class>com.idera.sqlcm.server.web.session.SessionUtil</function-class>
+        <function-signature>boolean getConfigValueForAccessPermittedUsers(java.lang.String, java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <description>Returns true if current user - cannot access</description>
+        <name>canNotAccess</name>
+        <function-class>com.idera.sqlcm.server.web.session.SessionUtil</function-class>
+        <function-signature>boolean canNotAccess()</function-signature>
+    </function>
+
+    <function>
+        <description>Returns true if current user - can access to page</description>
+        <name>hasPageAccess</name>
+        <function-class>com.idera.sqlcm.server.web.session.SessionUtil</function-class>
+        <function-signature>boolean hasPageAccess()</function-signature>
+    </function>
+    
+    <function>
+        <description>Convert list of Strings to delimited String</description>
+        <name>listToStringWithDelim</name>
+        <function-class>com.idera.sqlcm.server.web.ELFunctions</function-class>
+        <function-signature>java.lang.String listToString( java.util.Collection, java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <description>Convert list of Strings to delimited String</description>
+        <name>listToString</name>
+        <function-class>com.idera.sqlcm.server.web.ELFunctions</function-class>
+        <function-signature>java.lang.String listToString( java.util.Collection )</function-signature>
+    </function>
+
+    <function>
+        <description>Get property label</description>
+        <name>getPropertyLabel</name>
+        <function-class>com.idera.sqlcm.server.web.ELFunctions</function-class>
+        <function-signature>java.lang.String getPropertyLabel(java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <description>Returns true if current user is administrator</description>
+        <name>isAdmin</name>
+        <function-class>com.idera.sqlcm.server.web.session.SessionUtil</function-class>
+        <function-signature>boolean isAdmin()</function-signature>
+    </function>
+
+</taglib>

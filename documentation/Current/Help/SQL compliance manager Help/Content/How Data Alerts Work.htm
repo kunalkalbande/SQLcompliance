@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="2" MadCap:lastHeight="234" MadCap:lastWidth="1211">
+    <head><title>How Data Alerts work</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">How Data Alerts work</h1>
+        <p class="Body">
+            <MadCap:keyword term="alerts:alert rule;alerts:how they work;alerting:alert rule;alerting:how Data Alerts work;Data Alerts:how they work" />SQL&#160;Compliance&#160;Manager can generate a Data Alert when it finds a suspicious data manipulation in your audit trail. Alert rules define what a suspicious data manipulation is and how SQL&#160;CM should respond. For example, you can create a rule to alert you when data in sensitive columns has been accessed. You can configure SQL&#160;CM to write a custom alert message to the application event log and send an alert email notification to your corporate and personal SMTP accounts when the alert is triggered. For more information, see <a href="Use Status Alerts.htm" target="_self">Use Data Alerts to perform forensics</a>.</p>
+        <p class="Body">SQL&#160;Compliance&#160;Manager only alerts on the data you select for an audited SQL Server instance and database. After the Collection Server processes the raw event data sent by the SQLcompliance Agent, the Collection Server uses the criteria defined by your alert rules to search for suspicious manipulations. When a matching event is found, the alert is triggered. <span class="If_Then_Statement">If you specified a message for this alert</span>, SQL&#160;CM saves the alert message in the SQLcompliance Repository database. You can view alert messages and the corresponding events using the Data Alerts tab on the Select SQL Server Instance view. </p>
+        <p class="Body">Depending on the amount of alert activity your environment generates, you may want to groom alert messages on a routine basis. For more information, see <a href="Grooming Alerts Task.htm" target="_self">Grooming Alerts</a>.</p>
+    </body>
+</html>

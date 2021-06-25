@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="382" MadCap:lastWidth="1185">
+    <head><title>Using the Management Console to Archive Events</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Use the Management Console to archive events</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Use the Management Console to archive events</h2>
+        <p class="Body" MadCap:conditions="">
+            <MadCap:keyword term="archives:Management Console">
+            </MadCap:keyword>When you archive events using the Management Console, SQL&#160;Compliance&#160;Manager can also perform the following actions:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:keyword term="archives:check integrity" />Check the integrity of the collected events to ensure you are archiving uncompromised data. <span class="If_Then_Statement">If the audit data for the selected SQL Server instance fails this integrity check</span>, SQL&#160;CM does not archive the data.</li>
+            <li class="BulletLast">
+                <MadCap:keyword term="archives:Change Log;Change Log:archives" />Log the event in the Change Log.</li>
+        </ul>
+        <p class="Body">You can also perform an integrity check using the command line interface (CLI), allowing you to schedule and automate your archive workflow.</p>
+        <p class="StepIntro">To archive events using the Management Console:</p>
+        <ol>
+            <li class="NumberedList">Set your archive preferences. To set archive preferences, click <span class="GUI_Item">Auditing</span> on the menu bar, and then selec<span class="GUI_Item">t Archive and Retention &gt; Archive Preferences</span>.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Auditing </span>on the menu bar, and then select <span class="GUI_Item">Archive and Retention &gt; Archive Audit Data Now</span>.</li>
+            <li class="NumberedList">Choose whether you want to archive events for all registered instances. You can select a specific SQL Server instance.</li>
+            <li class="NumberedList">To generate a CLI command that uses your archival preferences, click <span class="GUI_Item">Generate Script</span>. From the View Script window, you can save the command as a batch file or copy the command to another application.</li>
+            <li class="NumberedList">To archive your audit data now, click <span class="GUI_Item">OK</span>. </li>
+        </ol>
+    </body>
+</html>

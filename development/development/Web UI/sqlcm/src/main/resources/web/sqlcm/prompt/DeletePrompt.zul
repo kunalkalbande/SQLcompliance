@@ -1,0 +1,31 @@
+<idera-cwf-dialog closable="true" border="none" height="220px"
+	width="600px" apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('com.idera.sqlcm.ui.prompt.PromptHandler')"
+	style="border-radius: 0;font-size : 20px;" position="center,middle"
+	contentSclass="modal-dialog-window customize-dba-modal"
+	id="promptDelete" title="@bind(vm.deleteMessage)">
+
+	<vlayout>
+		<separator width="10px" />
+		<hlayout>
+			<idera-cwf-checkbox id="futureconfirm" height="14px"
+				width="14px"
+				label="${idera:getLabel('SQLCM.Label.future-confirm')}">
+			</idera-cwf-checkbox>
+		</hlayout>
+		<separator width="18px" />
+		<hlayout>
+			<div hflex="1" align="right">
+				<separator width="8px" />
+				<idera-cwf-button id="ok" height="36px" width="85px"
+					style="font-weight :bold" visible="${sqlcm:canAccess()}"
+					label="${idera:getLabel('SQLCM.Labels.ok')}"
+					onClick="@command('delete',  comp=promptDelete,  futureconfirm=futureconfirm)" />
+				<idera-cwf-button id="cancel" style="font-weight:bold"
+					visible="${sqlcm:canAccess()}" height="36px" width="85px"
+					label="${idera:getLabel('Labels.sql-cm.instance-properties-dialog-cancel-button')}"
+					onClick="@command('closeDialog', comp=promptDelete,  futureconfirm=futureconfirm)" />
+			</div>
+		</hlayout>
+	</vlayout>
+</idera-cwf-dialog>

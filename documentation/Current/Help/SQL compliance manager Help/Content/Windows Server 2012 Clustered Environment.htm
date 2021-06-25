@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="8" MadCap:lastHeight="1212" MadCap:lastWidth="1133">
+    <head>
+        <link href="Resources/TableStyles/Tip.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Deploy SQL CM in a Windows Server 2012 clustered environment</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Deploy SQL CM in a Windows Server 2012 clustered environment</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Deploy SQL CM in a Windows Server 2012 clustered environment</h2>
+        <p class="Body">The following instructions guide you through the installation of SQL Compliance Manager in a Windows Server 2012-based clustered environment. Be sure to have the following information available before creating the generic service:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Name of the disk containing the folder</li>
+            <li class="Bullet">SQL&#160;IP&#160;address</li>
+            <li class="Bullet">SQL&#160;network name</li>
+            <li class="BulletLast">SQL&#160;Server service</li>
+        </ul>
+        <h2 class="Heading2">Install the SQL CM Collection Service on Cluster Nodes</h2>
+        <p class="Body">You must install the SQL Compliance Manager Collection Service on each cluster node for the service to work correctly when a failure occurs on the primary cluster node hosting the Collection Service.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Tip.css');margin-left: 0;margin-right: auto;caption-side: top;" class="TableStyle_Tip" cellspacing="0">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p class="TableHeadRow">TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">Before upgrading, changing, or uninstalling SQL CM on the passive node, you must delete the following registry entry:<br /> HKEY_LOCAL_MACHINE\Software\Idera\SQLcompliance\CollectionService\TraceDirectory.<br />This step in unnecessary for new installations.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="StepIntro">To install SQL CM services on cluster nodes:</p>
+        <ol>
+            <li class="NumberedList">Log on with an administrator account to the computer on which you want to install SQL Compliance Manager.</li>
+            <li class="NumberedList">Run <span class="Code">Setup.exe</span> in the root of the SQL CM installation kit on the first cluster node.</li>
+            <li class="NumberedList">Under <span class="GUI_Item">Install</span>, click <span class="GUI_Item">SQL Compliance Manager</span>.</li>
+            <li class="NumberedList">Read the Welcome window, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Review and accept the license agreement by clicking <span class="GUI_Item">I accept the terms in the license agreement</span>, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Accept the default installation folder, or click <span class="GUI_Item">Browse</span> to specify a different folder, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Select the <span class="GUI_Item">Clustered Collection Server</span> setup type, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Check the <span class="GUI_Item">Install the Collection Server in a Windows Cluster</span> check box to note that you are installing the SQL CM components in a cluster.<span class="If_Then_Statement"> If you leave this box unchecked</span>, the installer performs a <span class="GUI_Item">Typical </span>installation.</li>
+            <li class="NumberedList">Select whether you are installing the Collection Service on the <span class="GUI_Item">Currently Active Node</span> or <span class="GUI_Item">A Passive Node</span>, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you install on the currently active node</span>, specify a trace directory on a shared disk, and then click <span class="GUI_Item">Next</span>. <span class="If_Then_Statement">If you install on a passive node</span>, continue with the next step.</li>
+            <li class="NumberedList">Type the service account information, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Accept the default SQL Server hosting the Repository, or click <span class="GUI_Item">Browse </span>to specify a different server.</li>
+            <li class="NumberedList">Select the authentication method used to install the Repository database and include credentials, if required, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Install</span>.</li>
+            <li class="NumberedList">In Windows Services, stop the SQL CM Collection service and set the Startup type to <span class="GUI_Item">Manual</span>. After installing the Collection Service on each node, you must create the clustered service resource to allow SQL&#160;CM to recognize the cluster nodes.</li>
+        </ol>
+        <p class="Body">Repeat the previous steps on each cluster node. Point to the SQL CM Repository installed on the first node.</p>
+        <table style="margin-left: 0;margin-right: auto;caption-side: top;mc-table-style: url('Resources/TableStyles/Tip.css');" class="TableStyle_Tip" cellspacing="0">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p class="TableHeadRow">TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">You cannot perform the installations concurrently, as the installers collide when checking the repository. You must perform the installations sequentially.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Create the clustered service resource</h2>
+        <p class="Body">After installing the SQL Compliance Manager Collection Service on your cluster nodes, create the clustered service resource to allow SQL CM to recognize the cluster nodes.</p>
+        <p class="StepIntro">To create the clustered service resource:</p>
+        <ol>
+            <li class="NumberedList">Log onto the currently active cluster node using an administrator account, and then start the Microsoft Failover Cluster Management Console.</li>
+            <li class="NumberedList">Under Service and Applications, select the application for the SQL&#160;Server instance hosting the Repository, and then add a resource as a Generic Service.</li>
+            <li class="NumberedList">Select SQL Compliance Manager Collection Service, and then complete the wizard to create the service.</li>
+            <li class="NumberedList">Right-click the SQL Compliance Manager Collection Service in the Other Resources list, and then select <span class="GUI_Item">Properties</span>.</li>
+            <li class="NumberedList">Type the Network Name for the SQL&#160;Server, and then click <span class="GUI_Item">Apply</span>.</li>
+            <li class="NumberedList">On the Dependencies tab, complete the following fields:<ol style="list-style-type: lower-alpha;"><li class="NumberedList">Name of the disk containing the folder</li><li class="NumberedList">SQL&#160;IP&#160;Address</li><li class="NumberedList">SQL&#160;Network Name</li><li class="NumberedList">SQL&#160;Server service</li></ol></li>
+            <li class="NumberedList">On the General tab, check the <span class="GUI_Item">Use Network Name for computer name</span> check box.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Add </span>to add a new root registry key.</li>
+            <li class="NumberedList">Type <code>Software\Idera\SQLcompliance</code>, and then click <span class="GUI_Item">OK</span>.</li>
+            <li class="NumberedList">Start the new generic service by bringing the resource online.</li>
+        </ol>
+    </body>
+</html>

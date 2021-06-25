@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="8" MadCap:lastHeight="1779" MadCap:lastWidth="893">
+    <head>
+        <link href="Resources/TableStyles/Tip.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Enabling Auditing on a Database</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Enable auditing on a database</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Enable auditing on a database</h2>
+        <p class="Body">
+            <MadCap:keyword term="auditing:enable through CLI;CLI:enable auditing;CLI:apply FERPA regulation;CLI:apply SOX regulation;CLI:apply PCI regulation;CLI:apply HIPAA regulation" />Enabling auditing on the database allows you to capture SQL events at the database level. You can enable database-level auditing when you register the SQL Server instance. For more information, see <a href="Registering Your SQL Servers.htm" target="_self">Registering your SQL Servers</a>.</p>
+        <p class="Body">When you enable auditing on a database, you can control the <a href="Understanding Audit Collection.htm">audit collection level</a> per each database, choosing whether to apply the built-in default audit settings, <a href="Comply with specific regulations.htm">enforce a regulatory guideline</a>, or define custom audit settings. </p>
+        <table style="width: 100%; mc-table-style: url('Resources/TableStyles/Tip.css'); margin-left: 0; margin-right: auto;" class="TableStyle_Tip" cellspacing="0">
+            <col style="width: 32px;" />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">After you enable auditing on your databases, set up the audited database properties to enable more advanced auditing, such as <a href="Windows/Database Properties Sensitive Columns.htm">sensitive columns</a> and <a href="Windows/Database Properties BAD.htm">before and after data</a> in tables.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="Body"><span class="If_Then_Statement">If you disable auditing for any reason</span>, you can easily re-enable database-level auditing. On the <span class="GUI_Item">Explore Activity</span> tree, expand the SQL&#160;Server instance on which the database resides.  Right-click the name of the database on which you want to enable auditing, and then select <span class="GUI_Item">Enable Auditing</span>. This action enables auditing at the server and database levels.</p>
+        <h2 class="Heading2">Use the SQL CM Configuration wizard to enable auditing on a database</h2>
+        <p class="Body">You can use the SQL Compliance Manager Configuration wizard to add a database and apply one of the following audit settings:</p>
+        <p class="StepIntro">To enable database auditing through the Configuration wizard: </p>
+        <ol>
+            <li class="NumberedList">In the <span class="GUI_Item">Explore Activity</span>tree, select the SQL Server instance that hosts the new database.</li>
+            <li class="NumberedList">Select <span class="GUI_Item">Audited Database</span> from the <span class="GUI_Item">New</span> drop-down.</li>
+            <li class="NumberedList">Select the user databases you want to audit, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Select which audit collection level you want to use, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you chose to use the Custom audit collection level</span>, select the appropriate audit settings for these databases, and then click <span class="GUI_Item">Next</span>. SQL&#160;CM audits only the activities and results you select. For information, see <a href="Understanding Database Audit.htm" target="_self">Database-level audit settings</a>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you chose to use the Custom audit collection level and you are auditing DML and SELECT events</span>, select the objects SQL&#160;CM should audit for these events, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you chose to use the Custom audit collection level</span>, select any trusted users you do not want to audit, and then click <span class="GUI_Item">Next</span>.<ul style="list-style-type: circle;"><li class="NumberedList">Trusted users are database users, SQL Server logins, or members of SQL Server roles that you trust to read, update, or manage a particular audited database. SQL CM does not audit trusted users. Trusted users are designated on the Add Trusted Users window of the New Audited Database wizard.</li><li class="NumberedList"><span class="If_Then_Statement">If you are auditing privileged user activity and the trusted user is also a privileged user</span>, SQL CM continues to audit this user because of its elevated privileges. For example, a service account that is a member of the <span class="Code">sysadmin</span> fixed SQL Server role will continue to be audited even though the account is designated as trusted.</li></ul></li>
+            <li class="NumberedList">Click <span class="GUI_Item">Finish</span>.&#160;</li>
+        </ol>
+        <h2 class="Heading2">Use the import audit settings feature to apply audit settings to a database</h2>
+        <p class="Body">You can use the <a href="Importing Your Audit Settings.htm">import audit settings feature</a> to apply an audit template you <a href="Exporting Your Audit Settings.htm">previously exported</a> from an audited database. To successfully apply the template, first add the database to SQL Compliance Manager.</p>
+        <h2 class="Heading2">Use the CLI to enable auditing on a database</h2>
+        <p class="Body">You can use the command line interface to enable auditing on a new database and apply audit settings. The audit settings can be configured using a <a href="Comply with specific regulations.htm">supported regulation guideline</a> or an audit template (audit settings you exported to an XML file). </p>
+        <p class="Body">Keep in mind the following requirements and limitations:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">This process requires manually deploying the SQLcompliance Agent to the instance that hosts this database.</li>
+            <li class="Bullet">The <code>auditdatabase</code> command does not support enabling auditing of a database that belongs to a virtual SQL&#160;Server instance hosted on a Windows cluster.</li>
+            <li class="Bullet">The <code>auditdatabase</code> command supports case-sensitive named instances. Ensure you are using the appropriate case when you cite the instance and database names.</li>
+            <li class="Bullet">The CLI does not support configuring Before-After data auditing.</li>
+            <li class="BulletLast">You can apply either a built-in regulation guideline or an XML template file.</li>
+        </ul>
+        <p class="Body">SQL Compliance Manager includes sample  database audit settings templates (Sample_Database_AuditSettings.xml)&#160;for your convenience. Use this sample template to familiarize yourself with how specific audit settings are defined. By default, the sample template is located under <span class="Code">C:\Program Files\Idera\SQLcompliance</span>.</p>
+        <p class="StepIntro">To enable database auditing and apply the Typical (default) audit settings:</p>
+        <ol>
+            <li class="Bullet">Use the SQL CM setup program to <a href="Deploying Agent Manually.htm">manually deploy the SQLcompliance Agent</a> to the instance that hosts the target database.</li>
+            <li class="BulletLast">In Windows Command Prompt, use the following syntax: <code>SQLcmCmd [-host CollectionServer] [-port number] auditdatabase instance database</code>.</li>
+        </ol>
+        <p class="StepIntro">To enable database auditing and apply a HIPAA or PCI regulation guideline:</p>
+        <ol>
+            <li class="Bullet">Use the SQL CM setup program to <a href="Deploying Agent Manually.htm">manually deploy the SQLcompliance Agent</a> to the instance that hosts the target database.</li>
+            <li class="BulletLast">In Windows Command Prompt, use the following syntax: <code>SQLcmCmd [-host CollectionServer] [-port number] auditdatabase instance database -Regulation {PCI | HIPAA | PCI, HIPAA}</code>.</li>
+        </ol>
+        <p class="StepIntro">To enable database auditing and apply a FERPA regulation guideline:</p>
+        <table style="width: 100%;mc-table-style: url('Resources/TableStyles/Tip.css');" class="TableStyle_Tip" cellspacing="0">
+            <col style="width: 30px;" />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">The FERPA regulation guideline is provided as an XML templates (<code>FERPA_Database_Regulation_Guideline.xml</code>) stored in the SQL&#160;Compliance Manager installation directory (<code>C:\Program Files\Idera\SQLcompliance</code>). Ensure the path you cite for the FERPA template reflects the directory you chose during installation. </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ol>
+            <li class="NumberedList">Use the SQL CM setup program to <a href="Deploying Agent Manually.htm">manually deploy the SQLcompliance Agent</a> to the instance that hosts the target database.</li>
+            <li class="BulletLast">In Windows Command Prompt, use the following syntax: <code>SQLcmCmd [-host CollectionServer] [-port number] auditdatabase instance database -config "FERPA regulation guideline file path"</code>.</li>
+        </ol>
+        <h2 class="Heading2">Use the CLI&#160;to enable auditing on a database</h2>
+        <p class="StepIntro">To enable database auditing and apply a SOX regulation guideline:</p>
+        <table style="width: 100%;mc-table-style: url('Resources/TableStyles/Tip.css');" class="TableStyle_Tip" cellspacing="0">
+            <col style="width: 30px;">
+            </col>
+            <col>
+            </col>
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">The SOX regulation guidelines is provided as an XML template (<code>SOX_Database_Regulation_Guideline.xml</code>) stored in the SQL&#160;Compliance Manager installation directory (<code>C:\Program Files\Idera\SQLcompliance</code>). Ensure the path you cite for the SOX template reflects the directory you chose during installation. </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ol>
+            <li class="NumberedList">Use the SQL CM setup program to <a href="Deploying Agent Manually.htm">manually deploy the SQLcompliance Agent</a> to the instance that hosts the target database.</li>
+            <li class="BulletLast">In Windows Command Prompt, use the following syntax: <code>SQLcmCmd [-host CollectionServer] [-port number] auditdatabase instance database -config "SOX regulation guideline file path"</code>.</li>
+        </ol>
+        <p class="StepIntro">To enable database auditing and apply a custom audit template:</p>
+        <ol>
+            <li class="NumberedList">Determine which currently audited database has the audit settings you want to apply to the new database.</li>
+            <li class="NumberedList"><a href="Exporting Your Audit Settings.htm">Export the audit settings</a> from the source database.</li>
+            <li class="NumberedList">Use the SQL CM setup program to <a href="Deploying Agent Manually.htm">manually deploy the SQLcompliance Agent</a> to the instance that hosts the target database.</li>
+            <li class="NumberedList">In Windows Command Prompt, use the following syntax: <code>SQLcmCmd [-host CollectionServer] [-port number] auditdatabase instance database -config "exported audit settings file path"</code>.</li>
+        </ol>
+    </body>
+</html>

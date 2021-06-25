@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="2" MadCap:lastHeight="442" MadCap:lastWidth="849">
+    <head><title>Understanding the Audit Process</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Audit process</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Audit process</h2>
+        <p class="Body">
+            <MadCap:keyword term="auditing:how it works" />SQL&#160;compliance&#160;manager audits only the SQL Server instances and associated databases that you specify to audit. For example, you can register a SQL Server instance for auditing but not audit the hosted databases. Likewise, you can audit a single database on a registered SQL Server instance that hosts multiple databases.</p>
+        <p class="Body">On each registered SQL Server instance, the SQLcompliance Agent starts a SQL Server trace to copy SQL event log entries, called audit events, to trace files. Trace files are temporary files that store audit events until these events can be sent to the Collection Server. Trace files are located in a trace file directory on the audited SQL Server computer. For more information, see <MadCap:xref href="How Agent Works.htm" mc-format="{para}" target="" title="" alt="">How the SQLcompliance Agent Works</MadCap:xref>.</p>
+        <p class="Body">The Collection Server stores the compressed trace files in the CollectionServerTraceFiles folder until the files can be processed. This folder is located under the install directory (<code>C:\Program Files\Idera\SQLcompliance</code>) on the computer that hosts the Collection Server. The CollectionServerTraceFiles folder is also called a trace file directory, and is secured using ACL settings. You can specify a different location for the trace directory.</p>
+        <p class="Body">The Collection Server processes the raw audit events according to your settings and then sends the results to the appropriate event database in the Repository. The Collection Server creates an event database for each registered SQL Server instance. You can specify which audit events you want to track. You can also configure how the Collection Server and SQLcompliance Agent manage the trace files.</p>
+        <p class="Body">For optimal data management, SQL&#160;compliance&#160;manager supports archiving and grooming of event data. Depending on the size of your environment, the amount of event data you audit, and your reporting cycles, you may want to archive and groom event data on a routine basis. For more information, see <MadCap:xref href="Managing Audit Data.htm" mc-format="{para}" target="" title="" alt="">Managing Audit Data</MadCap:xref>.</p>
+    </body>
+</html>

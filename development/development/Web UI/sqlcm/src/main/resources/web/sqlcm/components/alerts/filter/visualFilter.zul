@@ -1,0 +1,9 @@
+<zk>
+  <div id="filterDiv" sclass="padding-r-20 padding-tb-4">
+    <hlayout spacing="2px" valign="middle">
+      <image id="filterTypeImage"/>
+      <label id="filterValueLabel" sclass="H5"/>
+      <image id="filterRemoveImage" src="${idera:getImageURLWithoutSize('x-gray-10x10')}"/>
+    </hlayout>
+  </div>
+</zk>

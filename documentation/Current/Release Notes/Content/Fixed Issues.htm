@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="2467" MadCap:lastWidth="919">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Previous features and fixed issues</h1>
+        <p class="Body">
+            <MadCap:keyword term="Release Notes:fixed issues;fixed issues in this release;product:fixed issues" />This build includes many fixed issues, including the following updates.</p>
+        <h2 class="Heading2">4.3 new features</h2>
+        <p class="DefinitionListTerm">SQL CM 4.3 now offers a Collection Server only install</p>
+        <p class="DefinitionListBody">SQL Compliance Manager 4.3 now allows you to install the Collection Server and Repository only to support installing SQL CM on a cluster.</p>
+        <h2 class="Heading2">4.3 fixed issues</h2>
+        <p class="DefinitionListBody">There are no fixed issues in this release.</p>
+        <h2 class="Heading2">4.2 new features</h2>
+        <p class="DefinitionListTerm">New Family Educational Rights and Privacy Act (FERPA) guideline</p>
+        <p class="DefinitionListBody">Apply the new FERPA regulatory guideline to ensure your audited databases meet the requirements of this legislation. You can apply this guideline through the <a href="http://www.idera.com/Help/SQLcm/4-3/Web/Default_CSH.htm#/Enabling Auditing on a Database.htm|WebHelpSkinSilver" target="_blank">CLI</a> or through the <a href="http://www.idera.com/Help/SQLcm/4-3/Web/Default_CSH.htm#/Importing Your Audit Settings.htm|WebHelpSkinSilver" target="_blank">Import Audit Settings feature</a> in the Console.</p>
+        <p class="DefinitionListBody">FERPA was introduced in 1974. This federal law mandates the confidentiality and protection of student information in any educational institution that receives funding from the Federal Government from kindergarten through the university level. FERPA generally prevents an education agency or institution from sharing student records or personally identifiable information in those records with individuals who are not authorized to view that information. In some cases authorized individuals need to be monitored to deter insider theft and unauthorized dissemination of information.</p>
+        <p class="DefinitionListTerm">New Sarbanes Oxley (SOX) guideline</p>
+        <p class="DefinitionListBody">Apply the new SOX regulatory guideline to immediately enforce the right auditing settings for sensitive financial data. Collect a detailed audit trail of all access to that data and then deliver reports  that prove your compliance to auditors. You can apply this guideline through the <a href="http://www.idera.com/Help/SQLcm/4-3/Web/Default_CSH.htm#/Enabling Auditing on a Database.htm|WebHelpSkinSilver" target="_blank">CLI</a> or through the <a href="http://www.idera.com/Help/SQLcm/4-3/Web/Default_CSH.htm#/Importing Your Audit Settings.htm|WebHelpSkinSilver" target="_blank">Import Audit Settings feature</a> in the Console.</p>
+        <p class="DefinitionListBody">SOX,  also known as the Corporate and Auditing Accountability and Responsibility Act, was first introduced in 2002. This legislation was put in place as a response to the corporate and accounting scandals which cost investors billions of dollars. From an information technology standpoint, security professionals and database administrators must collectively implement policies and processes that audit permissions on, and access to, financial data as well data changes such as before and after values.</p>
+        <p class="DefinitionListTerm">New CLI actions register instances and apply audit settings</p>
+        <p class="DefinitionListBody">Use the new command line interface (CLI)&#160;actions to quickly and easily <a href="http://www.idera.com/Help/SQLcm/4-3/Web/Default_CSH.htm#/Registering Your SQL Servers.htm|WebHelpSkinSilver" target="_blank">register large numbers of SQL Server instances</a> and immediately <a href="http://www.idera.com/Help/SQLcm/4-3/Web/Default_CSH.htm#/Enabling Auditing on a Database.htm|WebHelpSkinSilver" target="_blank">apply audit settings to the hosted databases</a>. You can choose to apply the default audit settings, custom audit settings you have exported from another audited instance, or a regulation guideline.</p>
+        <h2 class="Heading2">4.2 fixed issues</h2>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">PR3011720</MadCap:conditionalText>When the T-SQL query associated with an event cannot be parsed, SQL Compliance Manager now captures the SQL statement and indicates that it could not be parsed. This issue was mostly likely to occur when auditing sensitive column access.</li>
+            <li class="BulletLast">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">PR3011659</MadCap:conditionalText>The Details tab of the Event Properties window now displays the SQL statement that is issued to SQL Server before SQL Server performs its query parameterization. This code represents the initial T-SQL query executed by the user.</li>
+        </ul>
+        <h2 class="Heading2">4.0 new features</h2>
+        <p class="DefinitionListTerm">Offers HIPAA compliance guideline support</p>
+        <p class="DefinitionListBody">Collect data that helps you align with nine Health Insurance Portability Accountability Act (HIPAA) citations and one HITECH requirement via an out-of-the-box, customizable template.</p>
+        <p class="DefinitionListTerm">Includes PCI compliance templates</p>
+        <p class="DefinitionListBody">Use the new, customizable auditing templates to help you comply with eight Payment Card Industry Data Security Standards (PCI DSS) requirement guidelines.</p>
+        <p class="DefinitionListTerm">Provides Regulation Guideline reporting</p>
+        <p class="DefinitionListBody">The Regulation Guidelines report includes details for all of the guidelines applied to the databases on the selected SQL&#160;Server instance.</p>
+        <p class="DefinitionListTerm">Features a new SQL CM Configuration Wizard for ease of use</p>
+        <p class="DefinitionListBody">The new SQL CM Configuration Wizard allows you to use a single wizard to register SQL&#160;Server instances, deploy the SQLcompliance Agent, add databases for audit, configure your audit settings for selected regulatory guidelines, and more.</p>
+        <h2 class="Heading2">4.0 fixed issues</h2>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">PR3010418</MadCap:conditionalText>SQL Compliance Manager now properly processes Grant statements.</li>
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">PR3010916</MadCap:conditionalText>An issue causing SQL CM to record Create and Drop Index events as Alter User Table events no longer occurs.</li>
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">PR3011018</MadCap:conditionalText>SQL CM now loads custom reports on the Archived Events page without requiring the user to select a filter.</li>
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">PR3011480</MadCap:conditionalText>SQL CM now honors the DML/SELECT filters if you enable both Select auditing and Sensitive Column Auditing.</li>
+            <li class="BulletLast">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">PR3011524</MadCap:conditionalText>SQL Compliance Manager now properly applies event filters for instances using non-standard ports.</li>
+        </ul>
+        <h2 class="Heading2">3.7 new features</h2>
+        <p class="DefinitionListTerm">SQL Server 2012 compatible with experimental support</p>
+        <p class="DefinitionListBody">SQL Compliance Manager 3.7 is SQL Server 2012 RTM compatible. This version of SQL Compliance Manager is not certified against newer builds of SQL Server and should not be used with these builds in a production environment. Idera provides experimental support while you use your installation in a testing environment to ensure the features you rely on most are working as, or better than, expected.</p>
+        <h2 class="Heading2">3.7 fixed issues</h2>
+        <p class="DefinitionListBody">There are no fixed issues in this release.</p>
+        <h2 class="Heading2">3.6 new features</h2>
+        <p class="DefinitionListTerm">New sensitive column alerting</p>
+        <p class="DefinitionListBody">You can now receive alert notifications when someone accesses a sensitive column in your audited databases.</p>
+        <p class="DefinitionListTerm">Improved integrity check user interface</p>
+        <p class="DefinitionListBody">The <a href="http://www.idera.com/Help/SQLcm/4-3/Web/Default_CSH.htm#/Windows/Integrity Check Results Window.htm|WebHelpSkin" target="_blank">Integrity Check Results window</a> now indicates when before-after data associated with <code>DML&#160;</code>events and sensitive column access data associated with <code>SELECT&#160;</code>events have been modified or deleted.</p>
+        <h2 class="Heading2">3.6 fixed issues</h2>
+        <p class="Body">The following reports now include the option to view related data from all audited SQL&#160;Server instances in your environment:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Database Schema Change History</li>
+            <li class="Bullet">Object Activity</li>
+            <li class="BulletLast">User Login History</li>
+        </ul>
+        <h2 class="Heading2">3.5 new features</h2>
+        <p class="DefinitionListTerm">Sensitive column auditing</p>
+        <p class="DefinitionListBody">Track who has "selected" data from any number of columns in your audited tables and proactively identify malicious intent.</p>
+        <p class="DefinitionListTerm">Transaction status auditing</p>
+        <p class="DefinitionListBody">Audit the status of any transaction that executes DML&#160;activity on your audited database. This audit data enhancement includes rollbacks and savepoints, allowing you to recognize suspicious activity.</p>
+        <h2 class="Heading2">3.5 fixed issues</h2>
+        <p class="DefinitionListBody">The Management Console now correctly imports alert rules exported from version 3.3 or earlier.</p>
+        <h2 class="Heading2">3.3 fixed issues</h2>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">SQL Compliance Manager now supports auditing SQL&#160;Server instances located in environments that require <a href="http://www.idera.com/Help/SQLcm/4-3/Web/Default_CSH.htm#/FIPS Compliance.htm|WebHelpSkinSilver" target="_blank">FIPS compliance</a>.</li>
+            <li class="Bullet">The Collection Server now no longer performs duplicate processing of events collected in high-traffic environments. When this issue occurred, SQL&#160;Compliance Manager would write error and warning messages to the application event log, stating that it was either unable to read a trace file due to insufficient privileges or unable to delete the trace file due to a SQL&#160;Server lock.</li>
+            <li class="Bullet">You can now <a href="http://www.idera.com/Help/SQLcm/4-3/Web/Default_CSH.htm#/Windows/Add Agent Service CLR Directory.htm|WebHelpSkinSilver" target="_blank">successfully audit before-after data</a> for DML events that occur on SQL Server databases hosted by a Windows Server Cluster.                   </li>
+            <li class="BulletLast">The <a href="http://www.idera.com/Help/SQLcm/4-3/Web/Default_CSH.htm#/Windows/Database Properties BAD.htm|WebHelpSkinSilver" target="_blank">DML/SELECT Filters tab</a> of the Audited Database Properties window now allows you to successfully enable before-after auditing for DML&#160;events on specific database tables.</li>
+        </ul>
+        <h2 class="Heading2">3.2 Hotfix 1 fixed issues</h2>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">The SQLcompliance Agent now correctly handles a fail over that occurs on an active-active Windows cluster.</li>
+            <li class="BulletLast">When storing DML events collected for Before-After auditing, event processing now correctly stores each event only one time for statements that insert more than 1000 rows.</li>
+        </ul>
+        <h2 class="Heading2">3.2 fixed issues</h2>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">The SQLcompliance Agent now refreshes its list of DBID (database identifier) properties at each heartbeat. This fix ensures that SQL Compliance Manager can continue collecting audit data for a database after its ID number changes. For example, database ID numbers can change when a database is dropped, backed up, re-attached, or restored.</li>
+            <li class="Bullet">The groom job now correctly deletes all events older than the specified age.</li>
+            <li class="Bullet">The groom job now correctly identifies the SQL Server version, ensuring it grooms before and after data generated by DML events in SQL Server 2005 or later only. The ability to collect before and after data is not supported on SQL Server 2000 instances.&#160;</li>
+            <li class="BulletLast">Event Filters now support blank, empty, or null values when specifying application and host names.</li>
+        </ul>
+        <h2 class="Heading2">3.1 Hotfix 1 fixed issues</h2>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">When attempting to audit DML activity on specific databases, the SQLcompliance Agent would sometimes fail to collect the DML events according to your audit settings. With this hotfix, the SQLcompliance Agent correctly audits the specified databases for DML activity.</li>
+            <li class="Bullet">After enabling the ability to audit Before-After data on database tables, SQL Compliance Manager would require accounts to have administrator privileges to the tables created by SQL CM in order to modify data in the audited table, potentially preventing third-party applications and other accounts from writing to these tables. This hotfix allows SQL Server logins to read and write to the audited tables per the assigned privileges.</li>
+            <li class="Bullet">When attempting to groom audit data from a SQL Compliance Manager Repository hosted on a SQL Server 2000 instance, the grooming process would fail, returning the error “incorrect syntax near the keyword 'TOP'”. With this hotfix, you can successfully groom the Repository.</li>
+            <li class="Bullet">When you attempt to update the archive database indexes using the command-line interface or the Management Console, the update process would fail. With this hotfix, you can successfully update all archive databases to the new Repository schema.</li>
+            <li class="Bullet">The Management Console did not correctly format statistics with large values, resulting in an incorrect Processed Events statistic on the Explore Activity views. This hotfix resolves these formatting issues.</li>
+        </ul>
+    </body>
+</html>

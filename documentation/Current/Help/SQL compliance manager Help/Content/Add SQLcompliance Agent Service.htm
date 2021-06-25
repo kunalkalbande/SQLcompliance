@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="559" MadCap:lastWidth="456">
+    <head>		<link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Add SQLcompliance Agent Service</h1>
+        <p class="Body">Adding the SQLcompliance Agent Service allows the SQLcompliance Agent to communicate with the virtual SQL Server instance and the Collection Server. Complete the following procedure on each cluster node that hosts the virtual SQL Server instance, including the currently active node as well as any passive nodes in the same cluster.</p>
+        <p class="Body">By default, the SQLcompliance Agent Service is named Idera <code>SQLcompliance Agent$<i>VirtualServerName</i></code>.</p>
+        <p class="StepIntro">To add the SQLcompliance Agent Service:</p>
+        <ol>
+            <li class="NumberedList">Log on to the cluster node using an administrator account.</li>
+            <li class="NumberedList">Start the Cluster Configuration Console.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Add Service</span>.</li>
+            <li class="NumberedList">Specify or browse to the virtual SQL Server instance you want to audit, and then click <span class="GUI_Item">Next</span>. This instance must be hosted by the current cluster node.</li>
+            <li class="NumberedList">Specify the name of the computer where you installed the Collection Server, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Specify the credentials of the Windows account under which the SQLcompliance Agent Service should run, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Specify the directory path you want to use for the default trace directory location, and then click <span class="GUI_Item">Next</span>. The trace directory must be located on a shared data disk for the specified virtual SQL Server instance. Specify the same directory path for each node in the cluster hosting the virtual SQL Server instance.</li>
+            <li class="NumberedList">Review the summary, and then click <span class="GUI_Item">Finish</span>.</li>
+        </ol>
+        <p class="Body">&#160;</p>
+        <p class="Body">&#160;</p>
+    </body>
+</html>

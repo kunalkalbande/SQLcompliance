@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="327" MadCap:lastWidth="1159">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Prepare for your migration </h1>
+        <p class="Body">A migration strategy moves the Collection Server components to another SQL Server instance, thereby replacing the original Collection Server. You can use a migration strategy to respond to an immediate maintenance need. Use the following procedures and guidelines to implement a new migration strategy or modify an existing migration strategy.</p>
+        <h2 class="Heading2">Verify the configuration of the target SQL Server</h2>
+        <p class="Body">When identifying the new SQL Server instance that will host the Collection Server, ensure this instance meets or exceeds the product <a href="Hardware Requirements.htm" target="_self">hardware</a>, <a href="Software Requirements.htm" target="_self">software</a>, and <a href="Permissions Requirements.htm" target="_self">permissions</a> requirements, as well as these specific requirements:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">The target instance is running the same version or higher of the SQL Server software that is currently running on the existing Collection Server computer</li>
+            <li class="BulletLast">The current Collection Service account can access the target instance and has the correct permissions on the target instance</li>
+        </ul>
+        <h2 class="Heading2">Back up the Repository databases</h2>
+        <p class="Body">Use a tool such as Idera SQL Safe to perform a full backup of the Repository databases, including transaction logs. You can back up event and archive databases separately from the SQLcompliance databases. However, for best results during a disaster recovery, fully restore all Repository databases at the same time.</p>
+    </body>
+</html>

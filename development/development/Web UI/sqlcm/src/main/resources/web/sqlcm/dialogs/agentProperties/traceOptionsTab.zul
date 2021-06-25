@@ -1,0 +1,100 @@
+<zk>
+    <vlayout spacing="10px">
+        <groupbox width="710px">
+            <caption label="${idera:getLabel('SQLCM.agent-properties-d.trace-options-tab.directory')}"/>
+            <hlayout valign="bottom" sclass="padding-lr-5">
+                <label value="${idera:getLabel('SQLCM.agent-properties-d.trace-options-tab.trace-directory')}"/>
+                <idera-cwf-textbox type="text" readonly="true" width="570px"
+                         value="@load(vm.agentProperties.traceOptions.agentTraceDirectory)" />
+            </hlayout>
+            <separator height="5px"/>
+        </groupbox>
+        <groupbox width="710px">
+            <caption label="${idera:getLabel('SQLCM.agent-properties-d.trace-options-tab.trace-collection-options')}"/>
+            <grid width="680px" sclass="idera-invisible-grid padding-lr-5">
+                <columns visible="false">
+                    <column width="200px"/>
+                    <column width="110px"/>
+                </columns>
+                <rows>
+                    <row>
+                        <label value="${idera:getLabel('SQLCM.agent-properties-d.trace-options-tab.file-rollover-size')}"/>
+                        <spinner readonly="${!sqlcm:canAccess()}" hflex="1" constraint="min 2 max 50"
+                                 value="@bind(vm.agentProperties.traceOptions.traceFileRolloverSize)"
+                                 style="background-color: #FFFFFF"/>
+                    </row>
+                    <row>
+                        <label value="${idera:getLabel('SQLCM.agent-properties-d.trace-options-tab.collection-interval')}"/>
+                        <spinner readonly="${!sqlcm:canAccess()}" hflex="1" constraint="min 1 max 9999"
+                                 value="@bind(vm.agentProperties.traceOptions.collectionInterval)"
+                                 style="background-color: #FFFFFF"/>
+                    </row>
+                    <row>
+                        <label value="${idera:getLabel('SQLCM.agent-properties-d.trace-options-tab.force-collection-interval')}"/>
+                        <spinner readonly="${!sqlcm:canAccess()}" hflex="1" constraint="min 1 max 9999"
+                                 value="@bind(vm.agentProperties.traceOptions.forceCollectionInterval)"
+                                 style="background-color: #FFFFFF"/>
+                    </row>
+                    <row>
+                        <label value="${idera:getLabel('SQLCM.agent-properties-d.trace-options-tab.trace-start-timeout')}"/>
+                        <spinner readonly="${!sqlcm:canAccess()}" hflex="1" constraint="min 1 max 9999"
+                                 disabled="@load(!vm.agentProperties.traceOptions.traceStartTimeoutEnabled)"
+                                 value="@bind(vm.agentProperties.traceOptions.traceStartTimeout)"
+                                 style="background-color: #FFFFFF"/>
+                    </row>
+                </rows>
+            </grid>
+        </groupbox>
+        <groupbox width="710px">
+            <caption label="${idera:getLabel('SQLCM.agent-properties-d.trace-options-tab.trace-tamper-detection-options')}"/>
+            <hlayout valign="bottom" sclass="padding-lr-5">
+                <label value="${idera:getLabel('SQLCM.agent-properties-d.trace-options-tab.trace-tamper-detection-interval')}"/>
+                <spinner readonly="${!sqlcm:canAccess()}" width="100px" constraint="min 1 max 9999"
+                         disabled="@load(!vm.agentProperties.traceOptions.temperDetectionIntervalEnabled)"
+                         value="@bind(vm.agentProperties.traceOptions.temperDetectionInterval)"
+                         style="background-color: #FFFFFF"/>
+            </hlayout>
+            <separator height="5px"/>
+        </groupbox>
+        <hlayout >
+            <groupbox width="340px" height="140px">
+                <caption label="${idera:getLabel('SQLCM.agent-properties-d.trace-options-tab.trace-directory-size-limit')}"/>
+                <radiogroup orient="vertical">
+                    <idera-cwf-radio onCheck="@command('enableTraceLimit', noLimit=true)" selected="@load(!vm.enableTraceLimit)"
+                           label="${idera:getLabel('SQLCM.label.unlimited')}" disabled="${!sqlcm:canAccess()}"/>
+                    <hlayout>
+                        <idera-cwf-radio label="${idera:getLabel('SQLCM.agent-properties-d.trace-options-tab.trace-limit')}"
+                               selected="@load(vm.enableTraceLimit)" disabled="${!sqlcm:canAccess()}"
+                               onCheck="@command('enableTraceLimit', noLimit=false)"/>
+                         
+                        <spinner readonly="${!sqlcm:canAccess()}" width="70px" constraint="min 1 max 9999"
+                                 value="@bind(vm.traceLimit)" disabled="@load(!vm.enableTraceLimit)"
+                                 style="background-color: #FFFFFF; padding-top: 0.8em;"/>
+                        <div style="padding-top: 0.8em;">
+                            <label value="${idera:getLabel('SQLCM.label.gb')}" />
+                        </div>
+                    </hlayout>
+                </radiogroup>
+            </groupbox>
+            <groupbox width="370px" height="140px">
+                <caption label="${idera:getLabel('SQLCM.agent-properties-d.trace-options-tab.unattended-auditing-time-limit')}"/>
+                <radiogroup orient="vertical">
+                    <idera-cwf-radio onCheck="@command('enableUnattendedTimeLimit', noLimit=true)" selected="@load(!vm.enableUnattendedTimeLimit)"
+                           label="${idera:getLabel('SQLCM.label.unlimited')}" disabled="${!sqlcm:canAccess()}"/>
+                    <hlayout>
+                        <idera-cwf-radio label="${idera:getLabel('SQLCM.agent-properties-d.trace-options-tab.unattended-auditing-limit')}"
+                               selected="@load(vm.enableUnattendedTimeLimit)" disabled="${!sqlcm:canAccess()}"
+                               onCheck="@command('enableUnattendedTimeLimit', noLimit=false)"/>
+                        
+                        <spinner readonly="${!sqlcm:canAccess()}" width="70px" constraint="min 1 max 999"
+                                 value="@bind(vm.unattendedTimeLimit)" disabled="@load(!vm.enableUnattendedTimeLimit)"
+                                 style="background-color: #FFFFFF; padding-top: 0.8em;"/>
+                        <div style="padding-top: 0.8em;">
+                            <label value="${idera:getLabel('SQLCM.label.days')}" />
+                        </div>
+                    </hlayout>
+                </radiogroup>
+            </groupbox>
+        </hlayout>
+    </vlayout>
+</zk>

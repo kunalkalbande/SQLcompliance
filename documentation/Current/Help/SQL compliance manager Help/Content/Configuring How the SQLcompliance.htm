@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="7" MadCap:lastHeight="781" MadCap:lastWidth="906">
+    <head><title>Configuring How the SQLcompliance Agent Manages Trace Files</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Configure how the SQLcompliance Agent manages trace files</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Configure how the SQLcompliance Agent manages trace files</h2>
+        <p class="Body">You can configure how the SQLcompliance Agent manages trace files. These settings include file size thresholds and how often the SQLcompliance Agent calls the Collection Server with a heartbeat.</p>
+        <p class="Body"><span class="If_Then_Statement">If you specify a different location for the trace directory</span>, ensure the SQLcompliance Agent Service account has read and write privileges on that folder. SQL&#160;Compliance&#160;Manager does not change the security settings on existing folders.</p>
+        <p class="Body"><span class="If_Then_Statement">If you are auditing a virtual SQL Server</span>, ensure the specified folder is located on a shared data disk for the specified virtual SQL Server. SQL&#160;CM applies this change to the active node in the cluster hosting the virtual SQL Server. SQLcompliance Agent properties are later replicated from the active node to the passive nodes.</p>
+        <p class="StepIntro">To configure how the SQLcompliance Agent manages trace files:</p>
+        <ol>
+            <li class="NumberedList">Navigate to <span class="GUI_Item">Registered SQL Servers</span> in the <span class="GUI_Item">Administration </span>tree.</li>
+            <li class="NumberedList">Select the SQL Server instance that hosts the SQLcompliance Agent you want to check. </li>
+            <li class="NumberedList">On the <span class="GUI_Item">Agent </span>menu, click <span class="GUI_Item">Agent Properties</span>. </li>
+            <table class="TableStyle-Idera_Table_Stylesheet" style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" cellspacing="0">
+                <col class="Column-Column1" />
+                <col class="Column-Column2" />
+                <thead>
+                    <tr class="Head-Header1">
+                        <th class="HeadE-Column1-Header1">
+                            <p class="TableHeadRow">If you want to …</p>
+                        </th>
+                        <th class="HeadD-Column2-Header1">
+                            <p class="TableHeadRow">Use this tab …</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Change heartbeat interval</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">General</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Change logging level</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">General</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Configure trace collection settings</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">Trace Options</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Limit trace directory size</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">Trace Options</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Review agent status, version, and last heartbeat time</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">General</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Review current trace directory path</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">Trace Options</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Review how the agent was deployed on this SQL Server instance</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">Deployment</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Review which SQL Server instances the agent audits</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">SQL Servers</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Set how long the agent can run unattended</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">Trace Options</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Set how long the agent waits before restarting a SQL trace that has been stopped, modified, paused, or deleted</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">Trace Options</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyB-Column1-Body1">
+                            <p class="TableText">Verify agent service account</p>
+                        </td>
+                        <td class="BodyA-Column2-Body1">
+                            <p class="TableText">Deployment</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to designate a different folder for the SQLcompliance Agent trace directory</span>, complete the following steps:</li>
+            <ol style="list-style-type: lower-alpha;">
+                <li class="NumberedList">On the <span class="GUI_Item">Agent </span>menu, click <span class="GUI_Item">Change Trace Directory</span>.</li>
+                <li class="NumberedList">Specify the path for the new agent trace directory location. </li>
+            </ol>
+            <li class="NumberedList">Click <span class="GUI_Item">OK</span>. </li>
+        </ol>
+    </body>
+</html>

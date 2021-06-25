@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Report on Audit Data|Generate Reports with Reporting Services">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Deploying Reports to Microsoft Reporting Services</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">Deploy Reports to Reporting Services</h1>
+        <p class="Body">The Deploy Reports wizard allows you to integrate SQL Compliance Manager reports into Microsoft Report Services. Perform this deployment for each Repository that contains data you want to audit using Microsoft Reporting Services. The following procedure guides you through a remote install.</p>
+        <p class="Body"><span class="If_Then_Statement">If the Repository databases are located in a non-trusted domain</span>, deploy the reports to the same physical computer that is hosting the Repository databases (by default, this computer is also the Collection Server). To ensure successful authentication, ensure the target computer is running a local install of Microsoft Reporting Services. </p>
+        <p class="StepIntro">To install reports:</p>
+        <ol>
+            <li class="NumberedList" value="1">Ensure your environment includes supported installations of Microsoft Report Services, and note the configuration settings. For more information, see <a href="Reporting Services Requirements.htm" target="_self">Reporting Services Requirements</a>.</li>
+            <li class="NumberedList" value="2">Start the Management Console and navigate to the <span class="GUI_Item">Audit Reports</span> view.</li>
+            <li class="NumberedList" value="3">Under <span class="GUI_Item">Reporting Services</span>, click<span class="GUI_Item"> Deploy Reports</span>.</li>
+            <li class="NumberedList" value="4">On the Welcome window, click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList" value="5">Specify the name of the Report Server computer hosting Microsoft Reporting Services and any advanced configuration settings, such as a dedicated port, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList" value="6">Specify the following Repository connection settings, and then click <span class="GUI_Item">Next</span>.<ul style="list-style-type: circle;"><li class="Bullet" value="1">Name of the SQL Server instance that is hosting the target Repository</li><li class="Bullet" value="2">Credentials of the Windows account the Report Server should use to connect to the Repository databases</li></ul></li>
+            <li class="NumberedList" value="7">Specify the name of the virtual folder Reporting Services will use to store the reports (RDL files) and choose whether to overwrite any previously deployed reports, and then click <span class="GUIItem_1"><span class="GUI_Item">Next</span>.</span> <![CDATA[ ]]></li>
+            <ul style="list-style-type: circle;">
+                <li class="NumberedList" value="1"><span class="If_Then_Statement">If you choose to not overwrite reports</span>, the wizard deploys only the new reports included in this release. The wizard will not deploy updated reports.</li>
+            </ul>
+            <li class="NumberedList" value="8">On the Summary window, click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList" value="9">Review the progress. When deployment is complete, click <span class="GUI_Item">OK</span>.</li>
+            <li class="NumberedList" value="10">To start using the deployed reports, click <span class="GUI_Item">View Deployed Reports</span> under <span class="GUIItem_1">Reporting Services</span> on the Audit Reports view. This link opens the Report Manager interface on the Report Server.</li>
+        </ol>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> </p>
+    </body>
+</html>

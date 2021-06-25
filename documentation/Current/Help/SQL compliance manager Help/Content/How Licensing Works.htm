@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="2" MadCap:lastHeight="353" MadCap:lastWidth="971">
+    <head><title>How Licensing Works</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">How licensing works</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">How licensing works</h2>
+        <p class="Body" MadCap:conditions="">
+            <MadCap:keyword term="license:trial">
+            </MadCap:keyword>By default, SQL&#160;Compliance&#160;Manager installs with a limited-time, limited-instance trial license key. The Management Console displays your trial license statistics in the Manage SQL&#160;Compliance&#160;Manager Licenses window.</p>
+        <p class="Body">
+            <MadCap:keyword term="license:production;license:storage">
+            </MadCap:keyword>When you decide to move from a trial implementation of SQL&#160;CM to your production environment, contact and obtain a license key from Idera. You enter the license key using the Manage SQL&#160;Compliance&#160;Manager Licenses window. This license key is stored in the Repository.</p>
+        <p class="Body">SQL&#160;Compliance&#160;Manager checks for a valid license key each time you register a SQL Server instance. <span class="If_Then_Statement">If the SQL Server instance is not currently licensed</span>, and you have enough licenses to proceed, SQL&#160;CM associates the instance with an available license. <span class="If_Then_Statement">If the attempted registration exceeds your licensed limit</span>, SQL&#160;CM does not register the specified instance and you cannot initiate auditing.</p>
+        <p class="Body">When you reach your license limit, SQL&#160;Compliance&#160;Manager disallows the registration of additional SQL Server instances. <span class="If_Then_Statement">If your license expires</span>, SQL&#160;CM disables all auditing of new events and disallows registration of additional SQL Server instances. You can continue to view and report on previously-collected audit data.</p>
+    </body>
+</html>

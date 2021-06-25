@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="6" MadCap:lastHeight="339" MadCap:lastWidth="1159">
+    <head><title>Optimize Model Settings</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1">Optimize model settings</h1>
+        <p class="Body" MadCap:conditions="">
+            <MadCap:keyword term="performance;model settings;recovery model" />Change the following model system database properties to ensure optimal performance and complete backups of the Repository databases. The Repository databases store your audit settings and collected audit data. Whenever the Collection Server creates an events or archive database, SQL Server uses the model database as a template for the new database, applying the same property values.</p>
+        <p class="Body">Use the following guidelines to optimize performance in a typical environment. For best results, monitor your audit data collection over a period of time, and then set these model properties to reflect your needs. For more information, see <a href="Identify Audit Data Volume.htm" target="_self">Identify Audit Data Volume</a>.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Property Name</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Benefits</p>
+                    </th>
+                    <th class="HeadD-Column1-Header1">
+                        <p class="TableHeadRow">Value</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Automatically grow file</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Allows the <code>tempdb </code>database to expand as needed, accommodating cases when the collected audit data set is larger than expected</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Selected</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">File growth</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Allows SQL Server to efficiently handle any required file growth</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">25%</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Recovery Model</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Allows you to perform full backups of the Repository database</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Simple</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Space allocated</p>
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">Allows ample database space for audit data collection, so file growth occurs less frequently</p>
+                    </td>
+                    <td class="BodyA-Column1-Body1">
+                        <p class="TableText">200 MB</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Manage Audit Data|Archive collected events">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Using the CLI to Archive Events</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">Use the CLI to archive events</h1>
+        <p class="Body"><a name="kanchor121"></a>You can use the command line interface to archive audited events for registered SQL Server instances across your environment.</p>
+        <p class="Body">The archive operation supports the following syntax:</p>
+        <p class="DefinitionListBody"><code>SQLcmCmd [-host CollectionServer] [-port number] archive {instance | all} [numberofdaysold] [-prefix phrase] [-partition {quarter | month | year}] </code><code style="mc-tag-and-class: code;"></code><code>[-timezone timezonename] [-nointegrity]</code>
+        </p>
+        <p class="Body"><span class="If_Then_Statement">If you do not specify an optional parameter</span>, the Collection Server will use the settings you selected in your archive preferences. An integrity check will be performed unless you use the <code>–nointegrity</code> parameter in your command.</p>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> <![CDATA[ ]]></p>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="6" MadCap:lastHeight="423" MadCap:lastWidth="1159">
+    <head>
+        <link href="../Resources/TableStyles/Tip.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>SQL CM Configuration Wizard Sensitive Column</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Configuration  Wizard</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Configuration Wizard &gt; </MadCap:conditionalText>Sensitive Column</h2>
+        <p class="Body">This window allows you to select the table columns you want SQL Compliance Manager to audit for sensitive column access using SELECT&#160;events. This information is important to track whether a third-party application or database user read data in a specific table column. </p>
+        <p class="Body">Enable this feature on a database to review the SELECT&#160;events in the Audit Events view. Note that this feature can the performance of your Collection Server and Management Console. You can audit sensitive columns on specific tables without enabling SELECT&#160;statement auditing at the database level.</p>
+        <p class="Body">Sensitive column auditing is not available until you deploy an agent to audit the server and a heartbeat is received.</p>
+        <table class="TableStyle_Tip" style="mc-table-style: url('../Resources/TableStyles/Tip.css');" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">Sensitive Column auditing is supported by SQLcompliance Agent 3.5 or later. To use this feature, please ensure you upgrade your agent to at least version 3.5.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Add</p>
+        <p class="DefinitionListBody">Allows you to select one or more database tables to audit for sensitive columns.</p>
+        <p class="DefinitionListTerm">Remove</p>
+        <p class="DefinitionListBody">Allows you to remove the selected database table from the list of audited tables.</p>
+    </body>
+</html>

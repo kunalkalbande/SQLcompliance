@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Management Console User Interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Archived Events Tab</title>
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">Archived Events Tab</h1>
+        <p class="Body">This tab allows you to read previously collected audit data that has been moved to an archive database for storage. </p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Page through events</p>
+        <p class="DefinitionListBody">Allows you to page through the list of events. Use the previous and next arrows to navigate from page to page, up and down the list.</p>
+        <p class="DefinitionListTerm">Update databases to use optimized indexes</p>
+        <p class="DefinitionListBody">Allows you to update archive and event databases generated with earlier versions of SQL compliance manager. Updating the databases applies optimized indexes that improve the Management Console performance. </p>
+        <p class="DefinitionListBody">To update the databases, click the provided link. Be aware that this update process requires free disk space, may be resource-intensive, and may take some time to complete. Consider performing database updates during non-peak hours.</p>
+        <p class="DefinitionListTerm">Create customized view</p>
+        <p class="DefinitionListBody">Allows you to create a custom version of this tab. You can change the data that is displayed by selecting different columns. You also can save your customizations to view later.</p>
+        <p class="DefinitionListTerm">Attach</p>
+        <p class="DefinitionListBody">Allows you to load audit data stored in the archive database so you can view and run reports on the events. By default, SQL Compliance Manager loads events from the most recently created archive database.</p>
+        <p class="DefinitionListTerm">Detach</p>
+        <p class="DefinitionListBody">Allows you to remove the selected archive database. Removing the archive prevents users from viewing and running reports on the audit data stored in the database.</p>
+        <p class="DefinitionListTerm">Filters</p>
+        <p class="DefinitionListBody">Allows you to filter the listed events by time span (for example, last seven days) or event category (for example, security).</p>
+        <p class="DefinitionListTerm">Enable Groups</p>
+        <p class="DefinitionListBody">Allows you to group events by a specific property, such as the audited SQL Servers affected by the events or the times the events occurred. Enable groups when you want to sort the events or focus on a particular event attribute.</p>
+        <p class="DefinitionListTerm">Archives Properties</p>
+        <p class="DefinitionListBody">Allows you to view details about the selected archive database.</p>
+        <p class="DefinitionListTerm">Refresh</p>
+        <p class="DefinitionListBody">Allows you to update the Archives list with current data.</p>
+        <p class="DefinitionListTerm">Event Properties</p>
+        <p class="DefinitionListBody">Allows you to view details about the selected event.</p>
+        <h2 class="Heading2">Default columns</h2>
+        <p class="DefinitionListTerm">Icon</p>
+        <p class="DefinitionListBody">Provides a visual indication of the event category so you can quickly scan the listed event for a specific event type, such as security events.</p>
+        <p class="DefinitionListTerm">Category</p>
+        <p class="DefinitionListBody">Provides the category SQL Server assigns to this event.</p>
+        <p class="DefinitionListTerm">Event</p>
+        <p class="DefinitionListBody">Provides the type of SQL action that caused this event, such as CREATE USER.</p>
+        <p class="DefinitionListTerm">Date</p>
+        <p class="DefinitionListBody">Provides the date that the event occurred.</p>
+        <p class="DefinitionListTerm">Time</p>
+        <p class="DefinitionListBody">Provides the time that the event occurred.</p>
+        <p class="DefinitionListTerm">Login</p>
+        <p class="DefinitionListBody">Provides the SQL Server login of the user whose actions generated this event.</p>
+        <p class="DefinitionListTerm">Database</p>
+        <p class="DefinitionListBody">Provides the name of the database on which the event occurred.</p>
+        <p class="DefinitionListTerm">Target Object</p>
+        <p class="DefinitionListBody">Provides the name of the database object targeted by the T-SQL statement associated with this event.</p>
+        <p class="DefinitionListTerm">Details</p>
+        <p class="DefinitionListBody">Provides the text description of the event.</p>
+        <h2 class="Heading2">Additional columns</h2>
+        <p class="Body">You can add any of these columns to this tab using the <span class="GUI_Item">Select Column</span> action. After you add a new column, you can save the tab as a custom view to reference later.</p>
+        <p class="DefinitionListTerm">Access Check</p>
+        <p class="DefinitionListBody">Indicates whether this event passed or failed the SQL Server access check.</p>
+        <p class="DefinitionListTerm">Application</p>
+        <p class="DefinitionListBody">Provides the name of the application that initiated this event.</p>
+        <p class="DefinitionListTerm">Database User</p>
+        <p class="DefinitionListBody">Provides the name of the database user who executed this event.</p>
+        <p class="DefinitionListTerm">Host</p>
+        <p class="DefinitionListBody">Provides the name of the computer where the event was initiated.</p>
+        <p class="DefinitionListTerm">Object</p>
+        <p class="DefinitionListBody">Provides the name of the database object affected by this event</p>
+        <p class="DefinitionListTerm">Owner</p>
+        <p class="DefinitionListBody">Provides the name of the owner of the database affected by this event.</p>
+        <p class="DefinitionListTerm">Privileged User</p>
+        <p class="DefinitionListBody">Indicates whether the user who initiated this event was a privileged user.</p>
+        <p class="DefinitionListTerm">Role</p>
+        <p class="DefinitionListBody">Provides the type of SQL Server role assigned to the user who initiated this event.</p>
+        <p class="DefinitionListTerm">Server</p>
+        <p class="DefinitionListBody">Provides the name of the SQL Server affected by this event.</p>
+        <p class="DefinitionListTerm">Session Login</p>
+        <p class="DefinitionListBody">Provides the login credentials used to open the corresponding session with SQL Server.</p>
+        <p class="DefinitionListTerm">SPID</p>
+        <p class="DefinitionListBody">Provides the SQL Server internal process ID of the object affected by the event.</p>
+        <p class="DefinitionListTerm">Target Login</p>
+        <p class="DefinitionListBody">Provides the name of the SQL Server login targeted by the T-SQL statement associated with this event.</p>
+        <p class="DefinitionListTerm">Target User</p>
+        <p class="DefinitionListBody">Provides the name of the database user targeted by the T-SQL statement associated with this event.</p>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="../Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> </p>
+    </body>
+</html>

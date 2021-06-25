@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="5" MadCap:lastHeight="581" MadCap:lastWidth="932">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Deploy the new Collection Server</h1>
+        <p class="Body">Ensure you review the Collection Server requirements before installing. By default, SQL Compliance Manager installs with a trial license. Update the license key to reflect your current production license.</p>
+        <p class="StepIntro">To install the Collection Server:</p>
+        <ol>
+            <li class="Bullet">Log on with an administrator account to the computer on which you want to install the Collection Server.</li>
+            <li class="Bullet">Run <code>Setup.exe</code> in the root of the installation kit.</li>
+            <li class="Bullet">Click <span class="GUI_Item">Begin Setup</span> on the Setup tab of the setup program.</li>
+            <li class="Bullet">Read the Welcome window, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="Bullet">Review and accept the license agreement by clicking I accept the terms in the license agreement, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="Bullet">Accept the default folder for your SQL Compliance Manager installation, or click <span class="GUI_Item">Change </span>to specify a different folder, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="Bullet">Select the <span class="GUI_Item">Custom </span>setup type, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="Bullet">Select the Collection Server component, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="Bullet">Specify the location where the Collection Server should store audit data received from the SQLcompliance Agent, and then click <span class="GUI_Item">Next</span>. The specified folder will be the trace file directory on the Collection Server.</li>
+            <li class="Bullet">Specify the Windows user account the Collection service and SQLcompliance Agent service should use to access the Repository, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="Bullet">Click <span class="GUI_Item">Browse </span>to select the SQL Server instance on which you restored the Repository databases.</li>
+            <li class="Bullet">Specify the authentication the setup program should use to connect to the selected SQL Server, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="Bullet">Indicate that you want to use the existing Repository databases, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="Bullet"><span class="If_Then_Statement">If you want to audit the Repository or other databases associated with the selected SQL Server instance</span>, click <span class="GUI_Item">Yes</span>, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="Bullet">Specify the location where the SQLcompliance Agent should store collected audit data, and then click <span class="GUI_Item">Next</span>. The specified folder will be the trace file directory on the audited SQL Server instance.</li>
+            <li class="Bullet">Select whether you want to start the services immediately after install, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="Bullet">Click <span class="GUI_Item">Install</span>.</li>
+            <li class="BulletLast">Click <span class="GUI_Item">Finish</span>.</li>
+        </ol>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<grid vflex="1" sclass="idera-invisible-grid">
+<columns>
+    <column width="100px" align="left"/>
+    <column width="180px" align="left"/>
+</columns>
+<rows>
+    <row>
+        <label id="filterTimeFrom" sclass="bottom-left-align" hflex="true"/>
+        <timebox id="filterTimeValueFrom" format="hh:mm:ss a" hflex="true" vflex="true"/>
+    </row>
+    <row>
+        <label id="filterTimeTill" sclass="bottom-left-align" hflex="true"/>
+        <timebox id="filterTimeValueTill" format="hh:mm:ss a" hflex="true" vflex="true"/>
+    </row>
+</rows>
+</grid>

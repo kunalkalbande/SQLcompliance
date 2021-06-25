@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="8" MadCap:lastHeight="830" MadCap:lastWidth="1133">
+    <head><title>Hardware Requirements</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1">Hardware requirements</h1>
+        <p class="Body">
+            <MadCap:keyword term="requirements:hardware" />The following sections provide the hardware requirements for each SQL&#160;Compliance&#160;Manager component. For more information, see <a href="Architecture and Components.htm" target="_self">Understanding SQL&#160;Compliance&#160;Manager Components</a>.</p>
+        <h2 class="Heading2">Audited SQL&#160;Server</h2>
+        <p class="Body">The audited SQL Server computer is the computer that hosts the SQL Server databases you want to audit. In a clustered environment with virtual SQL Servers, the audited SQL Server is the virtual SQL Server. However, each node (physical computer) in the cluster that hosts the virtual SQL Server must meet or exceed these requirements.</p>
+        <p class="Body">To achieve optimal performance, ensure each SQL Server computer meets or exceeds the following hardware requirements.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Hardware Type</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Requirement</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">CPU</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">1 GHz</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Memory</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">512 MB</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Hard Disk Space</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">2 GB</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Collection Server</h2>
+        <p class="Body">The Collection Server computer is the computer that hosts the Collection Service and processes trace files. This computer also hosts the Repository databases.</p>
+        <p class="Body">To achieve optimal auditing performance and data storage, ensure the Collection Server computer meets or exceeds the following hardware requirements.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Hardware Type</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Requirement</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">CPU</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">2 GHz</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Memory</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">8 GB</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Hard Disk Space</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">20 GB for trace directory</p>
+                        <p class="TableText">75 GB for Repository</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Management Console</h2>
+        <p class="Body">The Console computer is the computer that hosts the SQL&#160;Compliance&#160;Manager Management Console. You can install the console on the Collection Server computer, or any client computer for remote access to your audit data.</p>
+        <p class="Body">Ensure each console computer meets or exceeds the following hardware requirements.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Hardware Type</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Requirement</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">CPU</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">1 GHz</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Memory</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">512 MB</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Hard Disk Space</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">150 MB</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

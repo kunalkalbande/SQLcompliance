@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Audit SQL Server Events">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Verifying Audit Data Integrity</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">Verify audit data integrity</h1>
+        <p class="Body" data-mc-conditions=""><a name="kanchor66"></a>SQL&#160;Compliance&#160;Manager allows you to verify the integrity of your audit data. This integrity check runs a validation algorithm that determines whether data in your Repository and archive databases has been added, deleted, or modified since the last verification. The integrity check analyzes all collected events as well as additional data for Before-After and Sensitive Column auditing.</p>
+        <p class="Body">Use this integrity check to help ensure your audit data has not been compromised. Consider running an integrity check on a routine basis, depending on the volume or sensitivity of your audit data.</p>
+        <p class="Body">When you run an integrity check, SQL&#160;CM logs the event in the Change Log. </p>
+        <p class="Body">You can also run an integrity check using the command line interface. For more information, see <a href="Using the CLI to Verify Audit.htm" target="_self">Using the CLI to verify audit data integrity</a>.</p>
+        <p class="StepIntro">To verify audit data integrity:</p>
+        <ol>
+            <li class="NumberedList" value="1">Select <span class="GUI_Item">Check Repository Integrity</span> from the <span class="GUI_Item">Auditing</span> drop-down.</li>
+            <li class="NumberedList" value="2">Select the Repository on which you want to run an integrity check, and then click <span class="GUI_Item">Check</span>.</li>
+            <li class="NumberedList" value="3">Review the integrity status. <span class="If_Then_Statement">If your audit data fails the integrity check</span>, decide whether you want to mark each compromised event in the audit data. Marking these events changes the event class to reflect the type of compromise (event was inserted, modified, deleted) and changes the event category to Integrity Check. For more information, see the online Help for the corresponding window.</li>
+        </ol>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> <![CDATA[ ]]></p>
+    </body>
+</html>

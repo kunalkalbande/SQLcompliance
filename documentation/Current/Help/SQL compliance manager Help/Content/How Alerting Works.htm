@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="2" MadCap:lastHeight="297" MadCap:lastWidth="971">
+    <head><title>How Alerting Works</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">How Event Alerts work</h1>
+        <p class="Body">
+            <MadCap:keyword term="alerts:alert rule;alerts:how they work;alerting:alert rule;alerting:how Event Alerts work;Event Alerts:how they work" />SQL&#160;Compliance&#160;Manager can generate an event alert when it finds a suspicious event in your audit data. Alert rules define what a suspicious event is and how SQL&#160;CM should respond. For example, you can create a rule to alert on DML events that occur on a sensitive database. You can configure SQL&#160;CM to write a custom alert message to the application event log and send an alert email notification to your corporate and personal SMTP accounts when the alert is triggered. For more information, see <a href="Using Alerts to Analyze Audit Data.htm" target="_self">Using Event Alerts to analyze audit data</a>.</p>
+        <p class="Body">SQL&#160;Compliance&#160;Manager only alerts on the events you select for an audited SQL Server instance or database. After the Collection Server processes the raw event data sent by the SQLcompliance Agent, the Collection Server uses the criteria defined by your alert rules to search for suspicious events. When a matching event is found, the alert is triggered. <span class="If_Then_Statement">If you specified a message for this alert</span>, SQL&#160;CM saves the alert message in the SQLcompliance Repository database. You can view alert messages and the corresponding events using the Event Alerts tab on the Select SQL Server Instance view. </p>
+        <p class="Body">Depending on the amount of alert activity your environment generates, you may want to groom alert messages on a routine basis. For more information, see <a href="Grooming Alerts Task.htm" target="_self">Grooming Alerts</a>.</p>
+    </body>
+</html>

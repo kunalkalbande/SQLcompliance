@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="500" MadCap:lastWidth="945">
+    <head><title>SQL CM Configuration Wizard Privileged Users</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Configuration Wizard</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Configuration Wizard &gt; </MadCap:conditionalText>Privileged Users</h2>
+        <p class="Body">This window allows you to select which privileged users you want to audit using SQL&#160;Compliance Manager. You can audit individual SQL Server logins with privileged access as well as logins that belong to specific server roles.</p>
+        <p class="Body">To successfully configure privileged user audit settings, the Management Console must have trusted access to the physical computer hosting the target SQL Server instance.</p>
+        <p class="Body"><span class="If_Then_Statement">If you are auditing a virtual SQL Server</span>, configure privileged user audit settings after you have deployed the SQLcompliance Agent to each cluster node hosting the server. Use the Cluster Configuration Console to deploy and configure the SQLcompliance Agent. For more information about installing and configuring the SQLcompliance Agent for a virtual SQL Server, see <a href="../Audit Virtual Instance.htm" target="_self">How to audit a virtual&#160;SQL&#160;Server instance</a>.</p>
+        <p class="Body"><span class="If_Then_Statement">If you are auditing a SQL Server instance running in a non-trusted domain or workgroup</span>, configure privileged user audit settings after you have deployed the SQLcompliance Agent to the computer hosting the instance.</p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Add</p>
+        <p class="DefinitionListBody">Allows you to select one or more privileged users to audit. You can select privileged users by login name or by membership to a server role.</p>
+        <p class="DefinitionListTerm">Remove</p>
+        <p class="DefinitionListBody">Allows you to remove the selected SQL Server login or server role from the list of audited privileged users. <span class="If_Then_Statement">If you remove the login or role</span>, the SQLcompliance Agent will continue collecting events recorded for that login or the role members when these events belong to an audited event category. For example, if you are auditing DML events, any DML event initiated by a privileged user will be included in your audit trail.</p>
+    </body>
+</html>

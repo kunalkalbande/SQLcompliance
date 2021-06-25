@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="8" MadCap:lastHeight="568" MadCap:lastWidth="893">
+    <head>
+        <link href="../Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Registered SQL Server Properties Window Audited Activities</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Registered SQL Server Properties Window</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Registered SQL Server Properties Window &gt; </MadCap:conditionalText>Audited Activities</h2>
+        <p class="Body">This tab allows you to change which types of SQL Server events you want to audit on the selected instance. SQL Compliance Manager audits these events at the server level only.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">Audited Activity</p>
+        <p class="DefinitionListBody">Allows you select the type of activity you want to audit. Based on your selections, SQL CM collects and processes the corresponding SQL Server events. </p>
+        <p class="DefinitionListBody">You can choose to audit event categories and user defined events. An event category includes related SQL Server events that occur at the server level. A user defined event is a custom event you create and track using the <code class="Code_1_1">sp_trace_generateevent</code> stored procedure.</p>
+        <p class="DefinitionListTerm">Access Check Filter</p>
+        <p class="DefinitionListBody">Allows you to refine your audit trail for SQL Server login data by collecting events that better reflect your auditing requirements for security and user processes. </p>
+        <p class="DefinitionListBody">SQL Server validates login permissions and access rights when a user attempts to execute an operation or SQL statement on the audited SQL Server instance. <span class="If_Then_Statement">If the access check filter is enabled for a registered instance</span>, SQL CM collects access check events at the server level. </p>
+        <p class="DefinitionListBody">Select this filter to help identify logins that may have inappropriate access rights or permissions. This filter may also help reduce the size of your audit data.</p>
+        <table style="caption-side: top;mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Type of Event Filter</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Passed</p>
+                </td>
+                <td class="BodyD-Column2-Body1">
+                    <p class="TableText">Omits events that track failed access checks performed by SQL Server</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Failed</p>
+                </td>
+                <td class="BodyD-Column2-Body1">
+                    <p class="TableText">Omits events that track passed access checks performed by SQL Server</p>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

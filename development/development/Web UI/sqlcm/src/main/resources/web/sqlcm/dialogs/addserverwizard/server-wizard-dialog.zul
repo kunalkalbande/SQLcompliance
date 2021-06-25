@@ -1,0 +1,40 @@
+<zk>
+    <idera-cwf-dialog height="640px" width="600px" closable="true" border="none"
+            apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.addserverwizard.ServerWizardViewModel')"
+            contentSclass="modal-dialog-window customize-dba-modal" style="border-radius: 0"
+            position="center,middle" id="wizardWindow" title="@load(vm.title)" >
+          <attribute name="onBind"><![CDATA[
+			zk.afterMount(function () {
+				zWatch.fireDown('onSize', self);
+			}); 
+		]]></attribute>
+
+        <vlayout hflex="1"  width="780px">
+            <hlayout hflex="1"  spacing="0">   			
+					
+                <idera-cwf-panel id="mainPanel" height="610px" width="580px">
+                   
+                    <panelchildren id="mainPanelChildren" />
+                    <toolbar hflex="1" height="75px" sclass="wizard-button-toolbar padding-all-8">
+                        <hbox hflex="1" pack="stretch,start">
+                         <style>.z-toolbar-start{float:right}</style>
+                            <cell hflex="min" sclass="middle-center-align" style="float:left">
+                                <hlayout valign="right">
+                                    <idera-cwf-button id="prevButton" width="85px" onClick="@command('prevCommand')"                        
+                                            label="${idera:getLabel('SQLCM.Label.wizard.button.prev')}" />
+                                    <idera-cwf-button id="nextButton" width="85px" onClick="@command('nextCommand')"                                   
+                                            label="${idera:getLabel('SQLCM.Label.wizard.button.next')}" />
+                                    <idera-cwf-button id="saveButton" width="85px" onClick="@command('saveCommand')"                                           
+                                            label="${idera:getLabel('SQLCM.Label.wizard.button.finish')}" />
+                                    <idera-cwf-button id="cancelButton" width="85px" onClick="@command('cancelCommand')"
+                                            label="${idera:getLabel('SQLCM.Label.wizard.button.cancel')}" />
+                                </hlayout>
+                            </cell>
+                        </hbox>
+                    </toolbar>
+                </idera-cwf-panel>
+            </hlayout>
+        </vlayout>
+    </idera-cwf-dialog>
+</zk>

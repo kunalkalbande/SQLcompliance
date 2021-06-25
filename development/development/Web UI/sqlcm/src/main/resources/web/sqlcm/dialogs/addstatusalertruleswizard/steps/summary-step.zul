@@ -1,0 +1,64 @@
+<zk>
+	<idera-cwf-dialog hflex="1" vflex="1" style="vertical-align:middle;"
+		apply="org.zkoss.bind.BindComposer" closable="true"
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addstatusalertruleswizard.steps.SummaryStepViewModel')">
+
+		<hlayout width="610px" vflex="min"
+			style="padding-bottom: 10px;">
+		</hlayout>
+		<vlayout>
+			<idera-cwf-checkbox id="enableRuleNow"
+				checked = "@bind(step_vm.enabled)"
+				label="${idera:getLabel('SQLCM.Labels.enable-this-rule-now')}">
+			</idera-cwf-checkbox>
+
+			<div
+				style="border:1px solid #808080;width:495px;height:340px">
+				<div
+					style="padding-left:5px;padding-top:5px;width:490px">
+					<label value="@bind(step_vm.generateText)" />
+					<label style="color:blue"
+						value="@bind(step_vm.generateValue)" />
+					<label value="@bind(step_vm.generateAlertText)"></label>
+					<label value="@bind(step_vm.generateAlert)"
+						style="font-weight:bold;" />
+					<label
+						value="@bind(step_vm.generateAlertTextRem)">
+					</label>
+					<label id="generateGbId" style="color:blue"
+						value="@bind(step_vm.generatePercentage)" />
+					<label value="@bind(step_vm.generateAlertRemain)" />
+				</div>
+				<div
+					style="width:490px;height:355px;padding-left:10px;">
+					<hlayout>
+						<label id="sqlAlertIdSpecified" visible="false" />
+						<label id="sqlAlertIdAll" visible="false"
+							maxlength="65" />
+					</hlayout>
+					<hlayout>
+						<label id="sqlWindowEventIdSpecified"
+							visible="false" />
+						<label id="sqlWindowEventIdAll" visible="false" />
+					</hlayout>
+
+					<hlayout>
+						<label id="snmpAddressText" visible="false" />
+						<label id="snmpAddress" style="color:blue"
+							visible="false" />
+					</hlayout>
+					<hlayout>
+						<label id="snmpPortText" visible="false" />
+						<label id="snmpPort" style="color:blue"
+							visible="false" />
+					</hlayout>
+					<hlayout>
+						<label id="snmpCommunityText" visible="false" />
+						<label id="snmpCommunity" style="color:blue"
+							visible="false" />
+					</hlayout>
+				</div>
+			</div>
+		</vlayout>
+	</idera-cwf-dialog>
+</zk>

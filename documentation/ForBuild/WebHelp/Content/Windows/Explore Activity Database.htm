@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Management Console User Interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Explore Activity Database Summary</title>
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">Explore Activity</h1>
+        <h2 class="Heading2">Database Summary</h2>
+        <p class="Body">The SQL&#160;Compliance Manager Database Summary tab displays the status of audit activity for a particular database hosted by the selected SQL Server instance. Use the statistics and graphs on this tab to quickly and easily identify database-level issues so you can continue to ensure the correct level of compliance.</p>
+        <h2 class="Heading2">Understanding Event Distribution</h2>
+        <p class="Body">The Event Distribution pane tracks the distribution of audited activity during the selected time span. This pie chart displays how recently collected events are distributed across the commonly audited event categories. You can mouse-over a slice of the pie to see the exact number of events in this category and the percentage of total events this category represents. To verify which event categories you are auditing, see the Audited Activity pane.</p>
+        <h2 class="Heading2">Understanding Audited Activity</h2>
+        <p class="Body">The Audited Activity pane provides a brief summary of the audit settings configured for the selected database. For more detailed information, review the database audit settings (available from the task ribbon).</p>
+        <p class="DefinitionListTerm">Regulation Guideline</p>
+        <p class="DefinitionListBody">Lists the regulation guideline(s) applied to this database.</p>
+        <p class="DefinitionListTerm">Database</p>
+        <p class="DefinitionListBody">Lists the event categories currently audited on this database. This list includes auditing settings configured at the database level only. </p>
+        <p class="DefinitionListTerm">Before-After</p>
+        <p class="DefinitionListBody">Lists which tables are being audited for before and after data.</p>
+        <p class="DefinitionListTerm">Sensitive Columns</p>
+        <p class="DefinitionListBody">Lists which tables are being audited at the column level for SELECT&#160;events.</p>
+        <p class="DefinitionListTerm">Trusted Users</p>
+        <p class="DefinitionListBody">Displays the number of trusted users that are being excluded from the audit trail.</p>
+        <p class="DefinitionListTerm">Event Filters</p>
+        <p class="DefinitionListBody">Displays the number of Event Filters that have been created to streamline audit data collected from this database, and the event properties being used by these filters. Events that match the listed properties are omitted from the audit data trail for this database.</p>
+        <h2 class="Heading2">Understanding Recent Database Activity</h2>
+        <p class="Body">The Recent Database Activity pane tracks the level of activity during the selected time span. This graph plots the number of recently collected audit events per the commonly audited event categories. </p>
+        <h2 class="Heading2">Understanding Recent Audit Events</h2>
+        <p class="Body">The Recent Audit Events pane lists the most recent audit events collected for this database during the specified time span. This list displays up to 100 events. To see more details about a specific event, double-click the listed event. To view all audited events collected since your last archive, use the Audit Events tab.</p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Configure Alerting</p>
+        <p class="DefinitionListBody">Opens the Alert Rules tab under Administration, allowing you to configure alerting to track specific activity on this database or other SQL Server instances across your environment.</p>
+        <p class="DefinitionListTerm">Configure Event Filters</p>
+        <p class="DefinitionListBody">Opens the Event Filters tab under Administration, allowing you to configure Event Filters that exclude specific types of events from your audit trail, allowing you to eliminate unnecessary events before they are processed by the Collection Server.</p>
+        <p class="DefinitionListTerm">Remove Database</p>
+        <p class="DefinitionListBody">Allows you to unregister the selected SQL Server database(s). When you remove a SQL Server database, SQL Compliance Manager disables all auditing for this specific database on the SQL Server instance. Auditing of other databases on this instance continues.</p>
+        <p class="DefinitionListTerm">Disable Auditing</p>
+        <p class="DefinitionListBody">Allows you to disable auditing on the selected SQL Server database. When you disable auditing, the SQLcompliance Agent stops collecting new event data for this database and stops the corresponding SQL trace running against that database. You can continue to view and report on previously audited events or archived events.</p>
+        <p class="DefinitionListBody">Disabling auditing at the database level does not disable auditing at the server level or auditing of other databases hosted on the SQL Server instance.</p>
+        <p class="DefinitionListBody">To re-enable auditing, right-click the database from the Explore Activity tree, and then click <span class="GUIItem_1">Enable Auditing</span> on the context menu.</p>
+        <p class="DefinitionListTerm">Database Settings</p>
+        <p class="DefinitionListBody">Allows you to change the audit settings for the selected SQL Server database.</p>
+        <p class="DefinitionListTerm">Apply Regulation Guideline</p>
+        <p class="DefinitionListBody">Allows you to select one or more regulations to apply to this audited SQL&#160;Server database. If you want to apply regulation guidelines to all audited databases on a SQL&#160;Server instance, use the <span class="GUI_Item">Apply Regulation Guideline</span> feature from the <a href="Explore Activity Instance.htm" target="_self">Instance Summary tab</a>.</p>
+        <p class="DefinitionListTerm">Trusted Users</p>
+        <p class="DefinitionListBody">Allows you to change which SQL Server logins or roles are considered trusted users on the selected SQL Server database. Logins designated as trusted users are not audited at the database level. All events resulting from trusted user activity are filtered from the audit trail before the trace file is sent to the Collection Server for processing.</p>
+        <p class="DefinitionListTerm">Import</p>
+        <p class="DefinitionListBody">Allows you to import audit settings previously exported from another audited instance or database.</p>
+        <p class="DefinitionListTerm">Export</p>
+        <p class="DefinitionListBody">Allows you to export audit settings for this SQL Server database to an XML file. This file includes audit settings configured at the database level. You can later use this file to import audit settings across multiple databases, ensuring consistent auditing and compliance on a given instance or throughout your environment.</p>
+        <p class="DefinitionListTerm">Span</p>
+        <p class="DefinitionListBody">Allows you to change the number of days (time span) for which the Summary tab displays status, events, and activity. By default, this tab displays data for the last seven days.</p>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="../Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> </p>
+    </body>
+</html>

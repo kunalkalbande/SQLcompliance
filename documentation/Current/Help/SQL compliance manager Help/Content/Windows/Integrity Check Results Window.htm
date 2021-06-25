@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="6" MadCap:lastHeight="597" MadCap:lastWidth="654">
+    <head><title>Integrity Check Results Window</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Integrity Check Results Window</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Integrity Check Results Window</h2>
+        <p class="Body">This window allows you to review the results of your audit data integrity check. </p>
+        <p class="Body"><span class="If_Then_Statement">If your audit data fails the integrity check</span>, the integrity check returns a list of events that have been inserted, modified, or deleted from the selected Repository or archive database. These events are considered compromised. The integrity check also analyzes the additional data associated with Before-After and Sensitive Column auditing of <code>DML</code>&#160;and <code>SELECT</code>&#160;events, and indicates whether this data has been compromised as well. </p>
+        <p class="Body">The integrity check results indicate:<br /></p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">How many individual event entries have been compromised</li>
+            <li class="Bullet">How many entries of Before-After change data and column data has been compromised</li>
+            <li class="BulletLast">How many Sensitive Column entries have been compromised</li>
+        </ul>
+        <p class="Body">You can choose whether to mark each compromised event entry in the audit data. Marking these events changes the event class to reflect the compromise and changes the event category to Integrity Check. Use the marked audit data to help diagnose the issues and begin a forensic analysis.</p>
+        <table style="caption-side: top;mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Type of Compromise</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">New Event Class</p>
+                    </th>
+                    <th class="HeadD-Column1-Header1">
+                        <p class="TableHeadRow">New Event Category</p>
+                    </th>
+                </tr>
+            </thead>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Events were added to the audit data stream after archival, using another application</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">Events inserted</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText">Integrity Check</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Events stored in the selected Repository or archive database were modified using another application</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">Events modified</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText">Integrity Check</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Events previously stored in the selected Repository or archive database were deleted using another application</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">Missing events</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText">Integrity Check</p>
+                </td>
+            </tr>
+        </table>
+        <p class="Body">To mark the compromised events as they occur in the audit data, click <span class="GUI_Item">Mark Events</span>.</p>
+    </body>
+</html>

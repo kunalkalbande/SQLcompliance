@@ -1,0 +1,34 @@
+<zk>
+    <vlayout spacing="10px">
+    <style>
+							.z-listheader-sort-img{
+							position: static;
+							}
+							div.z-listbox-header,
+							div.z-listbox-header tr{ border: 0; width:
+							100%; height: 45px; }div.z-listheader-cnt{
+							padding-top:0px !important; padding-bottom:
+							0px !important; }							 
+							div.z-listcell-cnt{
+							padding-top:0px !important; padding-bottom:	0px !important; }
+							div.z-listbox-body .z-listcell {
+							    height: 44px;
+							}							
+						</style>
+        <label value="${idera:getLabel('SQLCM.agent-properties-d.sql-servers-tab.note')}" />
+        <idera-cwf-listbox model="@load(vm.agentProperties.sqlServerList)" sclass="idera-grid z-listbox" height="300px" hflex="1" >
+            <listhead hflex="1">
+                <listheader hflex="1"
+                            label="${idera:getLabel('SQLCM.agent-properties-d.sql-servers-tab.sql-server-column')}" />
+                <listheader hflex="2"
+                            label="${idera:getLabel('SQLCM.agent-properties-d.sql-servers-tab.description-column')}" />
+            </listhead>
+            <template name="model">
+                <listitem sclass="label">
+                    <listcell label="@load(each.instance)" tooltiptext="@load(each.instance)"/>
+                    <listcell label="@load(each.description)" tooltiptext="@load(each.description)"/>
+                </listitem>
+            </template>
+        </idera-cwf-listbox>
+    </vlayout>
+</zk>

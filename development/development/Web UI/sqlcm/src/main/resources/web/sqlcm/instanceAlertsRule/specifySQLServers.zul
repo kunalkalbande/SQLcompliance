@@ -1,0 +1,89 @@
+<idera-cwf-dialog id="specifySQLServers" closable="true" border="none"
+	height="450px" width="520px" apply="org.zkoss.bind.BindComposer"
+	style="border-radius: 0"
+	contentSclass="modal-dialog-window margin-all-0 padding-all-0"
+	viewModel="@id('vm') @init('com.idera.sqlcm.ui.instancesAlertsRule.SpecifySQLServerViewModel')"
+	title="${idera: getLabel('SQLCM.Labels.specify-sql-server')}">
+
+	<vlayout>
+		<separator height="10px" />
+	</vlayout>
+
+	<vlayout>
+		<label
+			value="${idera:getLabel('SQLCM.Labels.sql-server-monitored')}"
+			sclass="padding-l-8">
+		</label>
+	</vlayout>
+	<div sclass="padding-lr-24 padding-top-10">
+		<vlayout spacing="7px">
+			<!-- <groupbox width="410px" height="250px"> -->
+			<vlayout>
+				<hlayout>
+					<!-- <groupbox> -->
+					<grid width="400px" sclass="idera-invisible-grid">
+						<columns visible="false">
+							<column width="400px" />
+						</columns>
+						<rows>
+							<row>
+								<vlayout>
+									<hlayout>
+										<vlayout>
+											<groupbox width="290px">
+												<caption
+													label="${idera:getLabel('SQLCM.Labels.specify-sql-server')}" />
+											 <style>
+													.idera-checkbox input[type=checkbox]+label::before {
+													margin: 0rem !important;
+													margin-left: 1rem
+													!important; margin-right:
+													.5rem !important; }
+												</style> 
+												<idera-cwf-listbox nonselectableTags="*"
+													id="entitiesListBox1" model="@load(vm.entitiesModel)"  width="280px"
+													rows="5" sclass="idera-grid z-listbox">
+													<template
+														name="model" status="s">
+														<listitem 
+															sclass="label" >
+															<listcell >
+																<idera-cwf-checkbox hflex="1"
+																	label="@load(each.instance)"
+																	checked="@load(each.checkBool)"
+																	onCheck="@command('oncheck', id=each.id)" 
+																	tooltiptext = "@load(each.instance)">
+																</idera-cwf-checkbox>
+															</listcell>
+														</listitem>
+													</template>
+												</idera-cwf-listbox>
+											</groupbox>
+										</vlayout>
+										<vlayout hflex="1">
+											<div
+												width="85px">
+												<idera-cwf-button style="width:85px;height=36px"
+													id="OKButton" hflex="1" visible="${sqlcm:canAccess()}"
+													onClick="@command('submitChoice', id=1, comp=specifySQLServers)"
+													label="${idera:getLabel('SQLCM.Labels.ok')}" />
+
+											</div>
+											<div width="85px">
+												<idera-cwf-button
+													id="cancelButton" hflex="1" visible="${sqlcm:canAccess()}"
+													onClick="@command('closeDialog', comp=specifySQLServers)"
+													label="${idera:getLabel('Labels.sql-cm.instance-properties-dialog-cancel-button')}" />
+											</div>
+										</vlayout>
+									</hlayout>
+								</vlayout>
+								<separator height="16px" />
+							</row>
+						</rows>
+					</grid>
+				</hlayout>
+			</vlayout>
+		</vlayout>
+	</div>
+</idera-cwf-dialog>

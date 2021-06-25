@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="8" MadCap:lastHeight="754" MadCap:lastWidth="1133">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Tip.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1">Upgrade your deployed SQLcompliance Agents</h1>
+        <p class="Body">Before upgrading your SQLcompliance Agents, review the <a href="Permissions Requirements.htm">permissions requirements</a> and <a href="How Agent Works.htm">how the SQLcompliance Agent works</a>.</p>
+        <table class="TableStyle_Tip" style="mc-table-style: url('Resources/TableStyles/Tip.css');" cellspacing="0">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText"><span class="If_Then_Statement">If you manually installed the SQLcompliance Agent on the audited SQL&#160;Server computer</span>, use the setup program to upgrade the agent locally.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Upgrade an agent deployed to a remote server</h2>
+        <p class="Body">You can upgrade the SQLcompliance Agent remotely using the Management Console. Use this approach to upgrade agents on any registered SQL Server where you remotely installed the agent.</p>
+        <p class="StepIntro">To upgrade a remote SQLcompliance Agent:</p>
+        <ol>
+            <li class="NumberedList">In the Navigation pane, click <span class="GUI_Item">Administration</span>, and then select <span class="GUI_Item">Registered SQL Servers</span> in the Administration tree.</li>
+            <li class="NumberedList">In the view pane, right-click the SQL Server instance for which you want to upgrade the SQLcompliance Agent.</li>
+            <li class="NumberedList">Select <span class="GUI_Item">Upgrade Agent</span> from the context menu.</li>
+        </ol>
+        <h2 class="Heading2">Upgrade an agent locally</h2>
+        <p class="Body">You can use the SQL Compliance Manager setup program to upgrade the SQLcompliance Agent on the local computer that is running the registered SQL Server instance. Use this approach when you are upgrading the SQLcompliance Agent on a registered SQL Server where you manually installed the agent.</p>
+        <h2 class="Heading2">Upgrade an agent in a clustered environment</h2>
+        <p class="Body">You can easily upgrade a SQLcompliance Agent for a SQL&#160;Server instance located in a Windows cluster by running the setup program. Perform the following steps on each node (computer) of the cluster.</p>
+        <table style="width: 100%; mc-table-style: url('Resources/TableStyles/Tip.css'); margin-left: 0; margin-right: auto;" class="TableStyle_Tip" cellspacing="0">
+            <col style="width: 30px;" />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">When you upgrade the SQLcompliance Agent, the associated CLI&#160;trigger is deleted and recreated. This update can take several minutes. During this time, the SQLcompliance Agent status will show that it is unavailable due to a CLR&#160;error. Use the <a href="Windows/Activity Log Tab.htm">Activity Log</a> to track when the new CLI&#160;trigger install completes.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="StepIntro">To upgrade an agent on a cluster node:</p>
+        <ol>
+            <li class="NumberedList">Log on with an administrator account to the cluster node. Start with the currently active node.</li>
+            <li class="NumberedList">Bring the SQLcompliance Agent generic service for this SQL&#160;Server resource group offline.</li>
+            <li class="NumberedList">Run <code>SETUP.EXE</code> in the root of the installation kit.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">INSTALL</span> on the Setup tab of the setup program.</li>
+            <li class="NumberedList">On the Install window, click <span class="GUI_Item">Cluster Configuration Console</span>.</li>
+            <li class="NumberedList">On the Idera SQL Compliance Manager Cluster Configuration dialog, click <span class="GUI_Item">Yes </span>to start the upgrade process, and then <span class="GUI_Item">Next </span>to continue. After the upgrade completes, the Cluster Configuration Console automatically starts.</li>
+            <li class="NumberedList">When prompted, specify the directory location you want SQL compliance manager to use to store CLR&#160;trigger assemblies.</li>
+            <li class="NumberedList">Bring the SQLcompliance Agent generic service online.</li>
+        </ol>
+        <p class="Body">&#160;</p>
+    </body>
+</html>

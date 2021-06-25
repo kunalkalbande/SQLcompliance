@@ -1,0 +1,29 @@
+
+*******************************************
+Previous Releases of SQL compliance manager
+*******************************************
+
+<year>\<version>\SQLsecure\Documentation\ForBuild
+
+Auditing Virtual SQL Servers.pdf
+SQL Compliance Manager Quick Start Guide.pdf
+SQL Compliance Manager Release Notes.pdf
+SQL Compliance Manager User Guide.pdf
+
+The Help is converted from an MSWord file using WebWorks Publisher. The PDFs are created from MSWord files. All documentation source files are located under the Documentation\Current folder.
+
+
+*******************************************
+Current Release of SQL compliance manager
+*******************************************
+
+Main\Documentation\ForBuild
+
+Auditing Virtual SQL Servers.pdf
+SQL Compliance Manager Quick Start Guide.pdf
+SQL Compliance Manager Release Notes.pdf
+SQL Compliance Manager User Guide.pdf
+
+The Help is converted from an MSWord file using WebWorks Publisher. The PDFs are created from MSWord files. All documentation source files are located under the Documentation\Current folder.
+
+

@@ -1,0 +1,61 @@
+<idera-cwf-dialog id="archiveWindow" closable="true" border="none" height="300px" width="320px"
+        apply="org.zkoss.bind.BindComposer" style="border-radius: 0" contentSclass="modal-dialog-window margin-all-0 padding-all-0"
+        viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.ApplyReindexForArchiveViewModel')"
+         title="${idera: getLabel('Labels.sql-cm.apply-reindex-for-archive-header-message')}" >
+    <vlayout hflex="true">
+        
+        <vlayout sclass="margin-all-16">
+            <label sclass="padding-l-8"
+                   value="${idera:getLabel('Labels.sql-cm.apply-reindex-for-archive-message')}"/>
+            <a sclass="padding-l-8" label="${idera:getLabel('Labels.sql-cm.apply-reindex-for-archive-tell-me-more')}"
+               href="@load(vm.helpURL)"
+               target="_blank"/>
+        </vlayout>
+
+        <groupbox width="295px" sclass="idera-invisible-grid padding-l-16">
+            <caption
+                    label="${idera:getLabel('Labels.sql-cm.apply-reindex-specify-schedule')}"/>
+            <grid width="295px" sclass="idera-invisible-grid">
+                <columns visible="false">
+                    <column width="170px"/>
+                    <column width="120px"/>
+                </columns>
+                <rows>
+                    <row>
+                        <label value="${idera:getLabel('Labels.sql-cm.apply-reindex-start-time')}"/>
+                        <listbox id="startTimeListBox" mold="select" model="@load(vm.startTimeListModelList)"
+                                 width="100px">
+                            <template name="model">
+                                <listitem hflex="1" label="@load(each) @converter(vm.timeConverter)"
+                                          selected="@load(each eq vm.defaultStartTime ? 'true' : 'false')"
+                                          value="@load(each)"/>
+                            </template>
+                        </listbox>
+                    </row>
+                    <row>
+                        <label value="${idera:getLabel('Labels.sql-cm.apply-reindex-duration')}"/>
+                        <listbox id="durationListBox" mold="select" model="@load(vm.durationListModelList)"
+                                 onSelect="@command('onSelectDuration')"
+                                 width="100px">
+                            <template name="model">
+                                <listitem hflex="1" label="@load(each)"
+                                          selected="@load(each eq vm.defaultDuration ? 'true' : 'false')"
+                                          value="@load(each)"/>
+                            </template>
+                        </listbox>
+                    </row>
+                </rows>
+            </grid>
+            <separator height="8px"/>
+        </groupbox>
+        <hlayout sclass="margin-all-16" valign="middle">
+            <idera-cwf-checkbox id="disableScheduleCheckBox"
+                      checked="false"
+                      label="${idera:getLabel('Labels.sql-cm.apply-reindex-disable-schedule')}"
+                      onCheck="@command('disableSchedule')"></idera-cwf-checkbox>
+            <idera-cwf-button id="okButton"  hflex="1"
+                    label="${idera:getLabel('Labels.sql-cm.archive-properties-dialog-ok-button')}"
+                    onClick="@command('okAction', comp=archiveWindow)"/>
+        </hlayout>
+    </vlayout>
+</idera-cwf-dialog>

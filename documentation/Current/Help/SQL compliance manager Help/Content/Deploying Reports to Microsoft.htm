@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="6" MadCap:lastHeight="513" MadCap:lastWidth="1159">
+    <head><title>Deploying Reports to Microsoft Reporting Services</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Deploy Reports to Reporting Services</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Deploy Reports to Reporting Services</h2>
+        <p class="Body">The Deploy Reports wizard allows you to integrate SQL Compliance Manager reports into Microsoft Report Services. Perform this deployment for each Repository that contains data you want to audit using Microsoft Reporting Services. The following procedure guides you through a remote install.</p>
+        <p class="Body"><span class="If_Then_Statement">If the Repository databases are located in a non-trusted domain</span>, deploy the reports to the same physical computer that is hosting the Repository databases (by default, this computer is also the Collection Server). To ensure successful authentication, ensure the target computer is running a local install of Microsoft Reporting Services. </p>
+        <p class="StepIntro">To install reports:</p>
+        <ol>
+            <li class="NumberedList">Ensure your environment includes supported installations of Microsoft Report Services, and note the configuration settings. For more information, see <a href="Reporting Services Requirements.htm" target="_self">Reporting Services Requirements</a>.</li>
+            <li class="NumberedList">Start the Management Console and navigate to the <span class="GUI_Item">Audit Reports</span> view.</li>
+            <li class="NumberedList">Under <span class="GUI_Item">Reporting Services</span>, click<span class="GUI_Item"> Deploy Reports</span>.</li>
+            <li class="NumberedList">On the Welcome window, click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Specify the name of the Report Server computer hosting Microsoft Reporting Services and any advanced configuration settings, such as a dedicated port, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Specify the following Repository connection settings, and then click <span class="GUI_Item">Next</span>.<ul style="list-style-type: circle;"><li class="Bullet">Name of the SQL Server instance that is hosting the target Repository</li><li class="Bullet">Credentials of the Windows account the Report Server should use to connect to the Repository databases</li></ul></li>
+            <li class="NumberedList">Specify the name of the virtual folder Reporting Services will use to store the reports (RDL files) and choose whether to overwrite any previously deployed reports, and then click <span class="GUIItem_1"><span class="GUI_Item">Next</span>.</span> <![CDATA[ ]]></li>
+            <ul style="list-style-type: circle;">
+                <li class="NumberedList"><span class="If_Then_Statement">If you choose to not overwrite reports</span>, the wizard deploys only the new reports included in this release. The wizard will not deploy updated reports.</li>
+            </ul>
+            <li class="NumberedList">On the Summary window, click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Review the progress. When deployment is complete, click <span class="GUI_Item">OK</span>.</li>
+            <li class="NumberedList">To start using the deployed reports, click <span class="GUI_Item">View Deployed Reports</span> under <span class="GUIItem_1">Reporting Services</span> on the Audit Reports view. This link opens the Report Manager interface on the Report Server.</li>
+        </ol>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<zk>
+	<vlayout spacing="7px">
+		<groupbox width="700px" style="margin-left:10px;">
+			<caption
+				label="${idera:getLabel('Labels.sql-cm.event-properties-dialog-event')}" />
+			<hlayout>
+				<grid width="400px" sclass="idera-invisible-grid">
+					<columns visible="false">
+						<column width="100px" />
+						<column width="270px" />
+					</columns>
+					<rows>
+						<row>
+							<label
+								value="${idera:getLabel('Labels.sql-cm.event-properties-dialog-time')}" />
+							<idera-cwf-textbox type="text"
+								value="@bind(vm.eventProperties.eventTime)"
+								tooltiptext="@bind(vm.eventProperties.eventTime)"
+								readonly="true" hflex="1" />
+						</row>
+						<row>
+							<label
+								value="${idera:getLabel('Labels.sql-cm.event-properties-dialog-type')}" />
+							<idera-cwf-textbox type="text"
+								value="@bind(vm.eventProperties.eventType)"
+								readonly="true" hflex="1"
+								tooltiptext="@bind(vm.eventProperties.eventType)" />
+						</row>
+					</rows>
+				</grid>
+				<grid width="330px" sclass="idera-invisible-grid">
+					<columns visible="false">
+						<column width="100px" />
+						<column width="230px" />
+					</columns>
+					<rows>
+						<row>
+							<label
+								value="${idera:getLabel('Labels.sql-cm.event-properties-dialog-sql-server')}" />
+							<idera-cwf-textbox type="text"
+								value="@bind(vm.eventProperties.instanceName)"
+								tooltiptext="@bind(vm.eventProperties.instanceName)"
+								readonly="true" width="160px" />
+						</row>
+					</rows>
+				</grid>
+			</hlayout>
+		</groupbox>
+		<groupbox width="700px" style="margin-left:10px;">
+			<caption
+				label="${idera:getLabel('Labels.sql-cm.event-properties-dialog-sql-details')}" />
+			<grid width="690px" sclass="idera-invisible-grid"
+				style="margin-left:10px;">
+				<columns visible="false">
+					<column width="675px" />
+				</columns>
+				<rows>
+					<row>
+						<textbox id="txtDetail" type="text"
+							value="@bind(vm.eventProperties.detail)"
+							tooltiptext="@bind(vm.eventProperties.detail)" readonly="true" rows="5" 
+							hflex="1" style="background-color:#FAFAFA " />
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+	</vlayout>
+</zk>

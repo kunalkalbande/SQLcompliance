@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="423" MadCap:lastWidth="1159">
+    <head>
+        <link href="Resources/TableStyles/Tip.css" rel="stylesheet" MadCap:stylesheetType="table" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">New features and fixed issues</h1>
+        <p class="Body">SQL Compliance Manager 4.4 provides the following new features and fixed issues.</p>
+        <table class="TableStyle_Tip" style="mc-table-style: url('Resources/TableStyles/Tip.css');" cellspacing="0">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">Idera, Inc. customers have the sole responsibility to ensure their compliance with the laws and standards affecting their business. Idera, Inc. does not represent that its products or services ensures that customer is in compliance with any law. It is the responsibility of the customer to obtain legal, accounting, or audit counsel as to the necessary business practices and actions to comply with such laws.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">4.4 New Features</h2>
+        <p class="DefinitionListTerm">Audit the local SQL&#160;Server instance running the Collection Server on cluster</p>
+        <p class="DefinitionListBody">SQL Compliance Manager now supports auditing a virtual SQL&#160;Server instance including the local instance on a cluster running the Collection Server.</p>
+        <h2 class="Heading2">4.4 Fixed Issues</h2>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE19724</MadCap:conditionalText> An issue causing some users to receive multiple file parsing errors when upgrading from SQL&#160;CM&#160;3.7 to SQL&#160;CM 4.3 does not occur when upgrading to SQL CM 4.4.</li>
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16024</MadCap:conditionalText> SQL&#160;CM&#160;no longer incorrectly captures creating a linked server on SQL&#160;Server 2012 as "Create SQL&#160;Login" events. This activity is now captured as a "Create Linked Server" event.</li>
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16032</MadCap:conditionalText> Users now can create a custom role on a SQL&#160;Server 2012 instance without the event returning as "invalid."</li>
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE19827</MadCap:conditionalText> This release corrects an issue that occurred after a user added a second node to a clustered repository, causing the SQL&#160;Compliance Agents to not process new files.</li>
+        </ul>
+        <p class="Body">&#160;</p>
+    </body>
+</html>

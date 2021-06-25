@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="6" MadCap:lastHeight="1061" MadCap:lastWidth="919">
+    <head><title>Understanding Server Audit Settings</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Server-level audit settings</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Server-level audit settings</h2>
+        <p class="Body" MadCap:conditions="">
+            <MadCap:keyword term="auditing:server settings">
+            </MadCap:keyword>You can specify which SQL events you want to audit at the server level. SQL&#160;Compliance&#160;Manager applies these settings to the registered SQL Server instance. These settings are not applied to the hosted databases.</p>
+        <p class="Body">You can configure server audit settings when you register a new SQL Server instance or later as your auditing needs change.  For more information about individual SQL events, see Microsoft SQL Server Books Online.</p>
+        <table class="TableStyle-Idera_Table_Stylesheet" style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">Event Class</th>
+                    <th class="HeadE-Column2-Header1">SQL&#160;Server Version</th>
+                    <th class="HeadD-Column1-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Add Login</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2000 only</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records when a SQL Server login is added to or dropped from a registered SQL Server instance
+</p>
+                        <p class="TableText">In SQL Server 2005 and later, this event class is Audit Server Principal Management</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Add Login To Server Role</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2000
+and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records when a login is added to or removed from a server role</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Change Database Owner</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2005 and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records when the ALTER AUTHORIZATION statement is used to specify a different database owner</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Database Management</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2005</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records all DROP, ALTER, and CREATE operations on a database</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Login</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2000
+and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records all successful logins on the registered SQL Server instance</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Login Change Password</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2000
+and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records all password changes for logins on the registered SQL Server instance</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Login Change Properties</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2000
+and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records changes in default database and language properties for all logins on the registered SQL Server instance</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Login Failed</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2000
+and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records all logins that failed an access check on the registered SQL Server instance</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Login GDR</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2000 only</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records all GRANT, REVOKE, or DENY actions on Windows 2000 user account login rights
+</p>
+                        <p class="TableText">In SQL Server 2005 and later, this event class is Audit Server Principal Management
+</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Object Derived Permission</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2000 only</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records CREATE and DROP commands executed on a server object, such as CREATE DATABASE or DROP DATABASE</p>
+                        <p class="TableText">In SQL Server 2005 and later, this event class is Audit Database Management
+</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Server Alter Trace</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2005 and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records when an ALTER TRACE permission check is executed for a T-SQL statement that creates, configures, or filters a SQL trace</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Server Object GDR</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2005 and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records all GRANT, REVOKE, or DENY actions on permissions for executing T-SQL statements on the audited schema object, such as a table or function</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Server Object Management</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2005 and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records all DROP, ALTER, and CREATE operations on server objects</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Server Object Take Ownership</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2005 and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records when ownership of an audited server object changes</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Server Operation</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2005 and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records all security operations executed on the audited server</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Server Principal Impersonation</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2005 and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records when impersonation is used to access or act on a server object</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Server Principal Management</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2005 and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records all DROP, ALTER, and CREATE operations on server principals</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Audit Server Scope GDR</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SQL Server 2005 and later</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Records all GRANT, REVOKE, or DENY actions on permissions for executing T-SQL statements that change the server scope, such as creating a login</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Audit Statement Permission</p>
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">SQL Server 2000 only</p>
+                    </td>
+                    <td class="BodyA-Column1-Body1">
+                        <p class="TableText">Records when a user is authorized to execute a T-SQL statement on the registered SQL Server instance
+</p>
+                        <p class="TableText">In SQL Server 2005 and later, this event class is Audit Database Management
+</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

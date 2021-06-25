@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<InstanceTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="" Description="" FullFilename="">
+  <AuditTemplate Name="" Description="" FullFilename="">
+
+	<!-- This is the recommended Server settings for Family Educational Rights and Privacy Act-->
+    <ServerLevelAuditConfig>
+      <AuditedActivity>Logins</AuditedActivity>
+      <AuditedActivity>FailedLogins</AuditedActivity>
+      <AuditedActivity>Security</AuditedActivity>
+      <AccessCheckFilter>CapturePassedCheckActions</AccessCheckFilter>
+    </ServerLevelAuditConfig>
+	
+	<!--  !!!!!!!!!  Privileged User auditing should be configured in the console so the user Sids are obtained and encoded properly. This is  -->
+	<!--  !!!!!!!!!  is being included here for completeness.  --> 
+    <!-- <PrivilegedUserAuditConfig>
+      <AuditedActivity>Logins</AuditedActivity>
+      <AuditedActivity>FailedLogins</AuditedActivity>
+      <AuditedActivity>DDL</AuditedActivity>
+      <AuditedActivity>Security</AuditedActivity>
+      <AuditedActivity>Admin</AuditedActivity>
+      <AccessCheckFilter>CapturePassedCheckActions</AccessCheckFilter> -->
+	  
+	<!-- This should be configured in the SQLcompliance manager console and exported.  Then copy the user list to here. -->
+     <!-- <UserList>
+        <Logins>
+          <Login>
+            <Name>DOMAIN\user</Name>
+            <Sid>AQUAAAAAAAUVAAAAVsrycLD5mjYG9eE7VCIABC==</Sid>
+          </Login>
+        </Logins>
+        <ServerRoles>
+          <ServerRole>
+            <FullName>Bulk Insert Administrators</FullName>
+            <Name>Bulk Insert Administrators</Name>
+            <Id>4096</Id>
+          </ServerRole>
+        </ServerRoles>
+      </UserList>
+      <CaptureSQL>false</CaptureSQL>
+      <CaptureTrans>false</CaptureTrans>
+    </PrivilegedUserAuditConfig> -->
+  </AuditTemplate>
+</InstanceTemplate>

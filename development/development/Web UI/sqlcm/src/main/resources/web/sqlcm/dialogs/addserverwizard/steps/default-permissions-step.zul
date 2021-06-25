@@ -1,0 +1,15 @@
+<zk>
+    <div hflex="1" vflex="1"
+         style="vertical-align:middle;"
+         apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addserverwizard.steps.DefaultPermissionsStepViewModel')">
+        <groupbox>
+            <caption label="${idera:getLabel('SQLCM.Label.add-server-wizard.default-permissions.label')}"/>
+            <radiogroup id="rgPermissions" orient="vertical" model="@load(step_vm.permissionsListModelList)">
+                <template name="model">
+                    <idera-cwf-radio label="@load(each.label)" radiogroup="rgPermissions" />
+                </template>
+            </radiogroup>
+        </groupbox>
+    </div>
+</zk>

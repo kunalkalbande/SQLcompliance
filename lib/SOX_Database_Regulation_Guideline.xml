@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<InstanceTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="" Description="" FullFilename="">
+  <AuditTemplate Name="" Description="" FullFilename="">
+<!-- Listed below are the recommended Database settings for Sarbanes Oxley -->
+ <DatabaseAuditConfig DatabaseName="DatabaseName">
+      <AuditedActivity>DDL</AuditedActivity>
+      <AuditedActivity>Security</AuditedActivity>
+      <AuditedActivity>Admin</AuditedActivity>
+      <AuditedActivity>DML</AuditedActivity>
+      <AuditedActivity>SELECT</AuditedActivity>
+      <AccessCheckFilter>CapturePassedCheckActions</AccessCheckFilter>
+
+      <CaptureSQL>true</CaptureSQL>
+      <CaptureTransactions>false</CaptureTransactions>
+      <AuditAllObjectTypes>true</AuditAllObjectTypes>
+      <AuditAllUserTables>true</AuditAllUserTables>
+      <AuditedObjectType>UserTables</AuditedObjectType>
+      <AuditedObjectType>SystemTables</AuditedObjectType>
+      <AuditedObjectType>StoredProcedures</AuditedObjectType>
+      <AuditedObjectType>AllOtherTypes</AuditedObjectType>
+	<!-- This is for sensitive column auditing..the default is all- can make the changes in the GUI or indicate specific columns below -->
+    <!--  <SensitiveColumnTable>
+        <TableName>owner.tableName</TableName>
+        <Columns>All Columns</Columns>
+      </SensitiveColumnTable> -->
+    </DatabaseAuditConfig>
+  </AuditTemplate>
+</InstanceTemplate>

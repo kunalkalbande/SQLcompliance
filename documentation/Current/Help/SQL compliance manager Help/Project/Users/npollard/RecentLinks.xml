@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RecentLinks>
+    <Dialog Name="B3.XmlTextKit.InsertHyperlinkDialog">
+        <Link Value="C:\Users\npollard\Documents\GitHub\SQLcm\documentation\Current\Help\SQL compliance manager Help\Content\Windows\Registered SQL Server Properties Privileged User.htm" />
+    </Dialog>
+    <Dialog Name="B3.XmlTextKit.InsertCrossReferenceDialog">
+        <Link Value="C:\Users\npollard\Documents\GitHub\SQLcm\documentation\Current\Help\SQL compliance manager Help\Content\Architecture and Components.htm" />
+    </Dialog>
+    <Dialog Name="B3.XmlMdiEditorKit.ImageGeneralDialogPage">
+        <Link Value="C:\Users\npollard\Documents\GitHub\SQLcm\documentation\Current\Help\SQL compliance manager Help\Content\Resources\Images\ChklistBoxClear.png" />
+    </Dialog>
+</RecentLinks>

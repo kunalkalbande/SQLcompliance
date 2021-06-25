@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="498" MadCap:lastWidth="1185">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Fine tuning your audit settings</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Fine tuning your audit settings</h2>
+        <p class="Body">SQL Compliance Manager provides a lot of flexibility for your audit settings, allowing you to collect a wide range of SQL Server events. However, extensive auditing requires sufficient disk space, processing time, and a very stable network connection. Your environment may not provide the resources necessary to audit every event that occurs on a particular SQL Server instance.</p>
+        <p class="Body">The following auditing options can be resource-intensive and cause significant growth in the Repository databases, thereby decreasing the performance of SQL&#160;CM. For more information, see <a href="Reducing Audit Data Optimize Perf.htm" target="_self">Reducing audit data to optimize performance</a>.</p>
+        <h2 class="Heading2">Auditing System Administrators or sa login as a privileged user</h2>
+        <p class="Body">Many SQL&#160;Server environments are not hardened around the sysadmin fixed role. Consequently, when you audit this role as a privileged user, you will likely collect a significant number of events initiated by benign applications simply because they have been designed to operate using a login in this role. <span class="If_Then_Statement">If you want to continue auditing System Administrator activity</span>, consider defining <a href="Using Event Filters.htm">Event Filters</a> to exclude the benign operations you do not need to monitor.</p>
+        <h2 class="Heading2">Auditing the system databases for DML or SELECT activity</h2>
+        <p class="Body">Gathering events directly from the system databases is only useful under very specific circumstances in an audited environment. Internal operations of SQL Server may be accidentally collected when you audit DML or SELECT events, causing unnecessary data to be collected and stored. <span class="If_Then_Statement">If you want to continue auditing system databases</span>, consider <a href="How Archives Work.htm">archiving</a> or <a href="How Grooming Works.htm">grooming</a> your event databases on a routine basis.</p>
+        <h2 class="Heading2">Auditing login events at the server level</h2>
+        <p class="Body">Some third-party applications perform a login to the SQL Server instance before any individual operation is initiated. This can cause a very large number of login events to be collected for your audit data trail. <span class="If_Then_Statement">If you have this type of activity in your environment</span>, consider specifying a <a href="Windows/Add Privileged Users Window.htm">privileged user status</a> to those logins whose activity you need to collect. Note that auditing the Login Failed event category does not result in the same level of data and can remain enabled.</p>
+    </body>
+</html>

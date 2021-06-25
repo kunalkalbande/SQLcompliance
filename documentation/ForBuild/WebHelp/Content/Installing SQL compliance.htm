@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Get Started|Installation and deployment">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Installing SQL Compliance Manager</title>
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1">How to install SQL&#160;Compliance&#160;Manager</h1>
+        <p class="Body" data-mc-conditions=""><a name="kanchor22"></a>Before installing SQL&#160;Compliance Manager, consider the following best-practices:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet" value="1" data-mc-conditions="">Ensure you review the <a href="Hardware Requirements.htm">hardware</a>, <a href="Software Requirements.htm">software</a>, <a href="Permissions Requirements.htm">permissions</a>, and <a href="Port Requirements.htm">port</a> requirements. </li>
+            <li class="Bullet" value="2" data-mc-conditions="">Decide whether you should <a href="Install Collection Server.htm">install the Collection Server on a dedicated SQL&#160;Server instance</a>.</li>
+            <li class="BulletLast" value="3" data-mc-conditions=""><span class="If_Then_Statement">If you plan to audit instances running SQL Server 2005 or later</span>, install the Collection Server on a computer hosting the highest version of SQL&#160;Server running in your environment. For example, to accept event data from audited instances running SQL Server 2012, the Repository databases must reside on a SQL Server 2012 instance.</li>
+        </ul>
+        <p class="Body">By default, SQL&#160;CM installs with a trial license. For more information about trial licenses or upgrading your license, see <a href="Licensing.htm" target="_self">Licensing</a>.</p>
+        <p class="StepIntro">To install SQL Compliance Manager:</p>
+        <ol>
+            <li class="NumberedList" value="1">Log on with an administrator account to the computer on which you want to install SQL&#160;CM.</li>
+            <li class="NumberedList" value="2">Run <code>SETUP.EXE</code> in the root of the installation kit.</li>
+            <li class="NumberedList" value="3">On the Idera SQL Compliance Manager Quick Start window, click <span class="GUI_Item">SQL Compliance Manager</span> to begin the installation process.</li>
+            <li class="NumberedList" value="4">On the Welcome to the Setup Wizard for Idera SQL Compliance Manager window, click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList" value="5">Read the Trial Software License Agreement, select<span class="GUI_Item"> I accept the terms in the license agreement </span>and click <span class="GUI_Item">Next </span>to continue.</li>
+            <li class="NumberedList" value="6">Accept the default folder for your SQL&#160;CM installation, or click <span class="GUI_Item">Browse </span>to specify a different folder.</li>
+            <li class="NumberedList" value="7">Select whether you want the SQL&#160;CM application to be available to all users who log on to this computer, and then click <span class="GUI_Item">Next</span>.</li>
+            <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+                <col class="Column-Column1" />
+                <col class="Column-Column2" />
+                <thead>
+                    <tr class="Head-Header1">
+                        <th class="HeadE-Column1-Header1">
+                            <p class="TableHeadRow">If you select this option …</p>
+                        </th>
+                        <th class="HeadD-Column2-Header1">
+                            <p class="TableHeadRow">Setup configures the user logon profile to …</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Anyone who uses this computer</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">Display icon on desktop when anyone logs onto this computer using a valid domain user account</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyB-Column1-Body1">
+                            <p class="TableText">Only for me</p>
+                        </td>
+                        <td class="BodyA-Column2-Body1">
+                            <p class="TableText">Display icon on desktop only when the current user account logs onto this computer</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <li class="NumberedList" value="8"><a name="kanchor23"></a>Select the appropriate setup type, and then click <span class="GUI_Item">Next</span>.</li>
+            <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+                <col class="Column-Column1" />
+                <col class="Column-Column2" />
+                <thead>
+                    <tr class="Head-Header1">
+                        <th class="HeadE-Column1-Header1">
+                            <p class="TableHeadRow">Setup Type</p>
+                        </th>
+                        <th class="HeadD-Column2-Header1">
+                            <p class="TableHeadRow">Description</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Typical</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">Allows you to install all SQL Compliance Manager components on this computer</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Console Only</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">Allows you to install only the SQLcompliance Management Console</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyE-Column1-Body1">
+                            <p class="TableText">Agent Only</p>
+                        </td>
+                        <td class="BodyD-Column2-Body1">
+                            <p class="TableText">Allows you to install only the SQLcompliance Agent</p>
+                        </td>
+                    </tr>
+                    <tr class="Body-Body1">
+                        <td class="BodyB-Column1-Body1">
+                            <p class="TableText">Custom</p>
+                        </td>
+                        <td class="BodyA-Column2-Body1">
+                            <p class="TableText">Allows you to select the individual SQL CM components you want to install</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <li class="NumberedList" value="9"><span class="If_Then_Statement">If you chose the Custom type</span>, select one or more SQL CM component, and then click <span class="GUI_Item">Next</span>. <a name="kanchor24"></a>Using the Custom setup type, you can install SQL&#160;CM components in the following ways:<ul style="list-style-type: circle;"><li class="Bullet" value="1">Collection Server and Repository with SQLcompliance Agent</li><li class="Bullet" value="2">Collection Server and Repository</li><li class="Bullet" value="3">Management Console with SQLcompliance Agent</li><li class="Bullet" value="4">Management Console only</li><li class="Bullet" value="5">SQLcompliance Agent only</li></ul></li>
+        </ol>
+        <p class="DefinitionListBody">The setup program installs the Repository when you install the Collection Server.</p>
+        <p class="DefinitionListBody">To install all SQL&#160;Compliance&#160;Manager components at the same time, use the <span class="GUI_Item">Typical</span> setup type.</p>
+        <ol data-mc-continue="true">
+            <li class="NumberedList" value="10"><span class="If_Then_Statement">If you chose to install the Collection Server and SQLcompliance Agent using the Typical or Custom setup</span>, complete the following procedure:<ol style="list-style-type: lower-alpha;" data-mc-continue="true"><li class="NumberedList" value="1">Specify the location where you want the Collection Server to store audit data received from the SQLcompliance Agent, and then click <span class="GUI_Item">Next</span>. The specified folder is the trace file directory on the Collection Server.</li><li class="NumberedList" value="2">Specify the Windows user account that you want the Collection service and SQLcompliance Agent to run as to access the Repository, and then click <span class="GUI_Item">Next</span>. </li><li class="NumberedList" value="3">Click <span class="GUI_Item">Browse</span> to select the SQL Server instance on which you want to install the Repository. The setup program creates the Repository databases on the specified instance.</li><li class="NumberedList" value="4">Specify the authentication the setup program should use to connect to the selected SQL Server and create the Repository, and then click <span class="GUI_Item">Next</span>. </li></ol><ol style="list-style-type: lower-alpha;" data-mc-continue="true"><li class="NumberedList" value="5"><span class="If_Then_Statement">If you want to audit the Repository or other databases associated with the selected SQL Server instance</span>, click <span class="GUI_Item">Yes</span>, and then click <span class="GUI_Item">Next</span>. </li><li class="NumberedList" value="6">Specify the location where the SQLcompliance Agent should store collected audit data, and then click <span class="GUI_Item">Next</span>. The specified folder will be the trace file directory on the audited SQL Server instance.</li><li class="NumberedList" value="7">Select whether you want to start the services immediately after install, and then click <span class="GUI_Item">Next</span>.</li></ol></li>
+            <li class="NumberedList" value="11"><span class="If_Then_Statement">If you chose the Agent Only setup</span>, complete the following procedure:<ol style="list-style-type: lower-alpha;" data-mc-continue="true"><li class="NumberedList" value="1">Specify the location where the SQLcompliance Agent should store collected audit data, and then click<span class="GUI_Item"> Next</span>. The specified folder will be the trace file directory on the audited SQL Server instance.</li><li class="NumberedList" value="2">Specify the Windows user account the SQLcompliance Agent service should run as to access databases associated with the audited SQL Server instance, and then click <span class="GUI_Item">Next</span>. <span class="If_Then_Statement">If you are installing the agent on a computer that belongs to a workgroup or non-trusted domain</span>, specify a valid local account (<code class="Code">MyComputer\AccountName</code>).</li><li class="NumberedList" value="3">Type the name of the computer on which the Collection Server is installed, and then click <span class="GUI_Item">Next</span>.<span class="If_Then_Statement"> If you are installing the SQLcompliance Agent on a workstation or a computer that belongs to a non-trusted domain</span>, the setup program is unable to validate a connection to the specified computer. Click <span class="GUI_Item">No</span> when prompted to specify another Collection Server computer.</li><li class="NumberedList" value="4">Click <span class="GUI_Item">Browse</span> to select the SQL Server instance you want to audit, specify the authentication the SQLcompliance Agent should use to connect to associated databases, and then click <span class="GUI_Item">Next</span>. </li><li class="NumberedList" value="5">Select whether you want to start the SQLcompliance Agent service immediately after install, and then click <span class="GUI_Item">Next</span>.</li></ol></li>
+            <li class="NumberedList" value="12">Click <span class="GUI_Item">Install</span>.</li>
+            <li class="NumberedList" value="13">Click <span class="GUI_Item">Finish</span>. <span class="If_Then_Statement">If you chose a typical setup</span>, select <span class="GUI_Item">Launch Idera SQL&#160;Compliance&#160;Manager</span> to begin auditing your SQL Server environment.</li>
+        </ol>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">  <![CDATA[ ]]></p>
+    </body>
+</html>

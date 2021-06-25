@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="279" MadCap:lastWidth="1185">
+    <head><title>Identify Audit Data Volume</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Identify audit data volume</h1>
+        <p class="Body">
+            <MadCap:keyword term="auditing:database usage;auditing:memory usage;audit data traffic;auditing:volume of data" />Estimate the amount of audit data your compliance needs may generate, and ensure the Collection Server computer has ample memory and database space. Consider the following examples:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">A data set of one million events may require 1 GB of database space to store the audit data</li>
+            <li class="BulletLast">A trace file that is 5 MB may require 100 MB of memory to process the collected events</li>
+        </ul>
+        <p class="Body">The amount of audit data you collect and process depends on your audit settings. Test your audit settings to identify a baseline and set your memory and hardware needs accordingly.</p>
+        <p class="Body">
+            <MadCap:keyword term="Repository:performance;Repository:autogrow databases" />To estimate your audit data volume, perform a test audit of your SQL Servers for 7 days, and track how much space is used by the Repository databases. Use the resultant event collection rate to estimate the database size you will need to store and process audit data over time. Also consider how often you plan to archive or groom data. For example, <span class="If_Then_Statement">if you collect an average of 500 MB of audit data per day and you plan to archive events every 14 days</span>, then the database size should be set to 7 GB. Ensure you set the Repository databases to automatically grow. For more information, see <a href="Optimize tempdb Settings.htm" target="_self">Optimize tempdb Settings</a>.</p>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<zk>
+    <div hflex="1" vflex="1"
+         style="vertical-align:middle;"
+         apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addserverwizard.steps.PermissionsCheckStepViewModel')">
+        <vlayout width="525px" vflex="1">
+            <hlayout hflex="1" class="z-valign-middle" style="vertical-align:bottom;">
+                <label style="padding-left: 5px" value="@load(step_vm.operationInfo)" />
+                <div hflex="1" />
+                <idera-cwf-button width="85px" id="reCheck" 
+                        label="${idera:getLabel('SQLCM.Label.add-server-wizard.permissions-check.re-check-button')}" style="text-transform: capitalize;"
+                        onClick="@command('reCheckClick')"/>
+            </hlayout>
+            <idera-cwf-listbox id="lbPermissions" sclass="idera-grid z-listbox" style="border: 1px solid #9D9D9D"
+                     model="@load(step_vm.permissionList)" width="510px" vflex="1">
+                <listhead>
+                    <listheader label="" width="55px" />
+                    <listheader label="Check" width="325px" />
+                    <listheader label="Status" width="130px" />
+                </listhead>
+                <template name="model">
+                    <listitem >
+                        <listcell>
+                            <image src="@load(each.status) @converter(step_vm.permissionStatusToImagePathConverter)" />
+                        </listcell>
+                        <listcell label="@load(each.name)" tooltiptext="@load(each.name)" />
+                        <listcell label="@load(each.status) @converter(step_vm.permissionStatusToLabelConverter)" tooltiptext="@load(each.status) @converter(step_vm.permissionStatusToLabelConverter)"
+                                  style="@load(each.status) @converter(step_vm.permissionStatusToCssStyleConverter)" />
+                    </listitem>
+                </template>
+            </idera-cwf-listbox>
+
+        </vlayout>
+    </div>
+</zk>

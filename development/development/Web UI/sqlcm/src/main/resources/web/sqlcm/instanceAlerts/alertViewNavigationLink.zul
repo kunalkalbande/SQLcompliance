@@ -1,0 +1,21 @@
+<zk>
+<vlayout>
+	<hlayout>
+		<div>
+			<a id="activityLogs" 
+				label="${idera:getLabel('SQLCM.Labels.alerts')}"
+				onClick="@command('instanceAlertsView',id=1)" visible="${sqlcm:canAccess()}"
+				sclass="lnk-selected" />
+		</div>
+		<div>
+			<label value="${idera:getLabel('Labels.sql-cm.vertical-separator')}"
+				sclass="H5 padding-lr-12" />
+		</div>
+		<div>
+			<a id="changeLogs" label="${idera:getLabel('SQLCM.Labels.alerts-rules')}"
+				onClick="@command('instanceAlertsView',id=2)" visible="${sqlcm:canAccess()}"
+				sclass="lnk-unselected" />
+		</div>
+	</hlayout>
+</vlayout>	
+</zk>

@@ -1,0 +1,646 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="12" MadCap:lastHeight="4719" MadCap:lastWidth="1081">
+    <head>
+        <link href="Resources/TableStyles/Tip.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Comply with specific regulations</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Comply with specific regulations</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Comply with specific regulations</h2>
+        <p class="Body">
+            <MadCap:keyword term="regulations;HIPAA guideline;FERPA guideline;SOX guideline;PCI guideline" />SQL Compliance Manager audits and identifies events that affect SQL&#160;Server objects and data. By selecting a specific regulation guideline set, SQL CM applies audit settings to your selected databases according the corresponding data security rules. This audited data is collected and securely stored for forensic analysis and reporting. SQL CM also provides tamper-proof data security features as well as methods for watching events without exposing account information.</p>
+        <p class="Body">You can apply a regulation guideline when you <a href="Registering Your SQL Servers.htm">register a new SQL&#160;Server instance</a> or <a href="Enabling Auditing on a Database.htm">audit a new database</a> though the Console or CLI. The following tables list each section of a regulation and the associated SQL Server events that SQL CM audits, as well as specific audit features.</p>
+        <table class="TableStyle_Tip" style="mc-table-style: url('Resources/TableStyles/Tip.css');" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">Idera, Inc. customers have the sole responsibility to ensure their compliance with the laws and standards affecting their business. Idera, Inc. does not represent that its products or services ensures that customer is in compliance with any law. It is the responsibility of the customer to obtain legal, accounting, or audit counsel as to the necessary business practices and actions to comply with such laws.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">FERPA&#160;Compliance</h2>
+        <table style="width: 100%;mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" style="width: 107px;" />
+            <col class="Column-Column2" style="width: 401px;" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p>Section</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Summary</p>
+                    </th>
+                    <th class="HeadD-Column1-Header1">Associated Audit Events and Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">99.2</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText"><b>What is the purpose of these regulations? </b>
+                        </p>
+                        <p class="TableText">The purpose of this part is to set out requirements for the protection of privacy of parents and students under section 444 of the General Education Provisions Act, as amended.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Successful and Failed Logins </li>
+                            <li class="BulletLast">Security changes</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="BulletLast">Security changes</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">99.31(a)(1)</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText"><b>School officials</b>
+                        </p>
+                        <p class="TableText">Institutions that allow “school officials, including teachers, within the agency or institution” to have access to students' education records, without consent, must first make a determination that the official has “legitimate educational interests” in the information. The list of officials must be included in the annual FERPA notification.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Successful and Failed Logins </li>
+                            <li class="Bullet">Security changes</li>
+                            <li class="BulletLast">Privileged Users activity</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">SELECT&#160;statements</li>
+                            <li class="Bullet">Security changes</li>
+                            <li class="BulletLast">Sensitive &#160;Columns</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">99.31(a)(1)(ii)</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText"><b>Controlling access to education records by school </b>
+                        </p>
+                        <p class="TableText">Institutions are now required to use “reasonable methods” to ensure that instructors and other school officials (including outside service providers) obtain access to only those education records (paper or electronic) in which they have legitimate educational interests. Institutions are encouraged to restrict or track access to education records to ensure that they remain in compliance with this requirement. The higher the risk, the more stringent the protections should be (e.g., SSNs should be closely guarded).</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Successful and Failed Logins</li>
+                            <li class="Bullet">Security changes</li>
+                            <li class="BulletLast">Privileged Users activity</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">DDL</li>
+                            <li class="Bullet">DML</li>
+                            <li class="Bullet">SELECT&#160;statements</li>
+                            <li class="Bullet">Sensitive &#160;Columns</li>
+                            <li class="BulletLast">Before-After Data auditing</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">99.31(a)(2)</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText"><b>Student’s new school</b> <![CDATA[ ]]></p>
+                        <p class="TableText">An institution retains the authority to disclose and transfer education records to a student’s new school even after the student has enrolled and such authority continues into the future so long as the disclosure is for purposes related to the student’s enrollment/transfer. After admission, the American Disabilities Act (ADA) does not prohibit institutions from obtaining information concerning a current student with disabilities from any school previously attended by the student in connection with an emergency and if necessary to protect the health or safety of a student or other persons under FERPA. A student’s previous school may supplement, update, or correct any records it sent during the student’s application or transfer period and may identify any falsified or fraudulent records and/or explain the meaning of any records disclosed previously to the new school.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Successful and Failed Logins</li>
+                            <li class="Bullet">Security changes</li>
+                            <li class="BulletLast">Privileged Users activity</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Security changes</li>
+                            <li class="Bullet">DML</li>
+                            <li class="Bullet">SELECT statements</li>
+                            <li class="Bullet">Sensitive &#160;Columns</li>
+                            <li class="BulletLast">Before-After Data auditing</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">99.32(a)(1)</p>
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText"><b>What record keeping requirements exist concerning requests and disclosures? </b>
+                        </p>
+                        <p class="TableText">An educational agency or institution must maintain a record of each request for access to and each disclosure of personally identifiable information from the education records of each student, as well as the names of State and local educational authorities and Federal officials and agencies listed in § 99.31(a)(3) that may make further disclosures of personally identifiable information from the student's education records without consent under § 99.33(b)(2). The agency or institution shall maintain the record with the education records of the student as long as the records are maintained.</p>
+                    </td>
+                    <td class="BodyA-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Successful and Failed Logins</li>
+                            <li class="Bullet">Security changes</li>
+                            <li class="BulletLast">Privileged Users activity</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Security changes</li>
+                            <li class="Bullet">DML</li>
+                            <li class="Bullet">SELECT&#160;statements</li>
+                            <li class="Bullet">Sensitive &#160;Columns</li>
+                            <li class="BulletLast">SELECT statements</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">HIPAA&#160;Compliance</h2>
+        <table style="width: 100%;mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" style="width: 110px;" />
+            <col class="Column-Column2" style="width: 410px;" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Section</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Summary</p>
+                    </th>
+                    <th class="HeadD-Column1-Header1">Associated Audit Events and Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">164.306 (a, 2)</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText" style="font-weight: bold;">Security Standards</p>
+                        <p class="TableText">Protect against any reasonably anticipated threats or hazards to the security or integrity of such information.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Failed Logins</li>
+                            <li class="Bullet">Security Changes</li>
+                            <li class="Bullet">DDL</li>
+                            <li class="BulletLast">Privileged Users activity</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">DML</li>
+                            <li class="BulletLast">Sensitive Columns</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">164.308 (1, i)</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText" style="font-weight: bold;">Security Management Process</p>
+                        <p class="TableText">Implement policies and procedures to prevent, detect, contain and correct security violations.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Failed Logins</li>
+                            <li class="Bullet">Security Changes</li>
+                            <li class="Bullet">DDL</li>
+                            <li class="BulletLast">Privileged Users activity</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="BulletLast">None</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">164.308 (B)</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText" style="font-weight: bold;">Risk Management</p>
+                        <p class="TableText">Implement security measures sufficient to reduce risks and vulnerabilities to a reasonable and appropriate level to comply with 164.306(a).</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Failed Logins</li>
+                            <li class="Bullet">Security Changes</li>
+                            <li class="Bullet">DDL</li>
+                            <li class="BulletLast">Privileged User activity</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="BulletLast">None</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">164.308 (D)</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText" style="font-weight: bold;">Information System Activity Review</p>
+                        <p class="TableText">Implement procedures to regularly review records of information system activity such as audit logs, access reports and security incident tracking reports.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Failed Logins</li>
+                            <li class="Bullet">Security Changes</li>
+                            <li class="Bullet">DDL</li>
+                            <li class="BulletLast">Privileged Users activity</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Security</li>
+                            <li class="Bullet">DDL</li>
+                            <li class="Bullet">Administrative Actions</li>
+                            <li class="Bullet">DML</li>
+                            <li class="BulletLast">Sensitive Columns</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">164.308 (3, C)</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText" style="font-weight: bold;">Termination Procedures</p>
+                        <p class="TableText">Implement procedures for terminating access to electronic protected health information when the employment of a workforce member ends or as required by determinations made as specified in paragraph (a) (3) (ii) (B) of this section.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="BulletLast">Security Changes</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="BulletLast">Security</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">164.308 (5, C)</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText" style="font-weight: bold;">Implementation Specifications</p>
+                        <p class="TableText">Log-in monitoring (Addressable). Procedures for monitoring log-in attempts and reporting discrepancies.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Logins</li>
+                            <li class="BulletLast">Failed Logins</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="BulletLast">None</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">164.312 (b)</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText" style="font-weight: bold;">Technical Standard</p>
+                        <p class="TableText"><b>Audit controls</b>. Implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use electronic protected health information.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Failed Logins</li>
+                            <li class="Bullet">Security Changes</li>
+                            <li class="Bullet">DDL</li>
+                            <li class="BulletLast">Administrative Actions</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Security</li>
+                            <li class="Bullet">DDL</li>
+                            <li class="Bullet">Administrative Actions</li>
+                            <li class="Bullet">DML</li>
+                            <li class="BulletLast">Sensitive Columns</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">164.404 (a) (1) (2)</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText" style="font-weight: bold;">Security and Privacy</p>
+                        <p class="TableText"><b>General rule</b>. A covered entity shall, following the discovery of a breach of unsecured protected health information, notify each individual whose unsecured protected health information has been, or is reasonably believed by the covered entity to have been, accessed, acquired, used, or disclosed as a result of such breach.</p>
+                        <p class="TableText"><b>Breaches treated as discovered</b>. For purposes of paragraph (a)(1) of this section, §§ 164.406(a), and 164.408(a), a breach shall be treated as discovered by a covered entity as of the first day on which such breach is known to the covered entity, or, by exercising reasonable diligence would have been known to the covered entity. A covered entity shall be deemed to have knowledge of a breach if such breach is known, or by exercising reasonable diligence would have been known, to any person, other than the person committing the breach, who is a workforce member or agent of the covered entity (determined in accordance with the federal common law of agency).</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="BulletLast">None</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Security</li>
+                            <li class="BulletLast">Sensitive Columns</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">164.404 (c) (1) (A), (B)</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText" style="font-weight: bold;">Security and Privacy</p>
+                        <p class="TableText">(c) Implementation specifications:</p>
+                        <p class="TableText">Content of notification</p>
+                        <p class="TableText">(1) Elements. The notification required by (a) of this section shall include, to the extent possible:</p>
+                        <p class="TableText">(A) A brief description of what happened, including the date of the breach and the date of the discovery of the breach, if known;</p>
+                        <p class="TableText">(B) A description of the types of unsecured protected health information that were involved in the breach (such as whether full name, social security number, date of birth, home address, account number, diagnosis, disability code, or other types of information.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="BulletLast">None</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="BulletLast">Sensitive Columns</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">HITECH 13402 (a) (f), (1), (2)</p>
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText" style="font-weight: bold;">Notification In the Case of Breach</p>
+                        <p class="TableText">(a) In General. A covered entity that accesses, maintains, retains, modifies, records, stores, destroys, or otherwise holds, uses, or discloses unsecured protected health information (as defined in subsection (h)(1)) shall, in the case of a breach of such information that is discovered by the covered entity, notify each individual whose unsecured protected health information has been, or is reasonably believed by the covered entity to have been, accessed, acquired, or disclosed as a result of such breach.</p>
+                        <p class="TableText">(f)  Content of Notification. Regardless of the method by which notice is provided to individuals under this section, notice of a breach shall include, to the extent possible, the following:</p>
+                        <p class="TableText">(1) A brief description of what happened, including the date of the breach and the date of the discovery of the breach, if known.</p>
+                        <p class="TableText">(2) A description of the types of unsecured protected health information that were involved in the breach (such as full name, Social Security number, date of birth, home address, account number, or disability code).</p>
+                    </td>
+                    <td class="BodyA-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="BulletLast">None</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="BulletLast">Sensitive Columns</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">PCI&#160;DSS&#160;Compliance</h2>
+        <table style="width: 100%;mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" style="width: 443px;" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p>Section</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Summary</p>
+                    </th>
+                    <th class="HeadD-Column1-Header1">Associated Audit Events and Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">8</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Assigning a unique identification (ID) to each person with access ensures that each individual is uniquely accountable for his or her actions. When such accountability is in place, actions taken on critical data and systems are performed by, and can be traced to, known and authorized users.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Failed Logins</li>
+                            <li class="Bullet">Security Changes</li>
+                            <li class="Bullet">DDL</li>
+                            <li class="Bullet">Administrative Actions</li>
+                            <li class="BulletLast">Privileged Users </li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Security</li>
+                            <li class="Bullet">DDL</li>
+                            <li class="Bullet">Administrative Actions</li>
+                            <li class="Bullet">DML</li>
+                            <li class="Bullet">SQL&#160;statements</li>
+                            <li class="BulletLast">Sensitive Columns</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">8.5.4</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Immediately revoke access for any terminated users.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Security Changes</li>
+                            <li class="BulletLast">Administrative Actions</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="BulletLast">Security</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">10</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Track and monitor all access to network resources and cardholder data- Logging mechanisms and the ability to track user activities are critical. The presence of logs in all environments allows thorough tracking and analysis if something does go wrong. Determining the cause of a compromise is very difficult without system activity logs.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">See subsections</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">10.1</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Establish a process for linking all access to system components (especially access done with administrative privileges such as root) to each individual user).</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Failed Logins</li>
+                            <li class="Bullet">Administrative Actions</li>
+                            <li class="BulletLast">Privileged Users activity</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="BulletLast">None</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">10.2</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Implement automated audit trails for all system components to reconstruct the following events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">10.2.1 All individual user accesses to cardholder data</li>
+                            <li class="Bullet">10.2.2 All actions taken by any individual with root or administrative privileges</li>
+                            <li class="Bullet">10.2.3 Access to all audit trails</li>
+                            <li class="Bullet">10.2.4 Invalid logical access attempts</li>
+                            <li class="Bullet">10.2.5 Use of identification and authentication mechanisms</li>
+                            <li class="Bullet">10.2.6 Initialization of audit logs</li>
+                            <li class="BulletLast">10.2.7 Creation and deletions of system-level objects</li>
+                        </ul>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Failed Logins</li>
+                            <li class="BulletLast">DDL</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">DDL</li>
+                            <li class="Bullet">DML</li>
+                            <li class="BulletLast">Sensitive Columns</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">10.3</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Record at least the following audit trail entries for all system components for each event:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">10.3.1 User identification</li>
+                            <li class="Bullet">10.3.2 Type of event</li>
+                            <li class="Bullet">10.3.3 Date and time</li>
+                            <li class="Bullet">10.3.4 Success or failure indication</li>
+                            <li class="Bullet">10.3.5 Origination of event</li>
+                            <li class="BulletLast">10.3.6 Identify or name of affected data, system component, or resource</li>
+                        </ul>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Failed Logins</li>
+                            <li class="BulletLast">Privileged Users activity</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Security</li>
+                            <li class="Bullet">DDL</li>
+                            <li class="Bullet">DML</li>
+                            <li class="BulletLast">Sensitive Columns</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">10.5</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Secure audit trails so they cannot be altered.</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">SQL CM Repository</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">10.7</p>
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">Retain audit trail history for at least one year, with a minimum of three months online availability.</p>
+                    </td>
+                    <td class="BodyA-Column1-Body1">
+                        <p class="TableText">Enable archive and groom to retain Repository data for a minimum of one year</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">SOX&#160;Compliance</h2>
+        <table style="width: 100%;mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" style="width: 107px;" />
+            <col class="Column-Column2" style="width: 401px;" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p>Section</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Summary</p>
+                    </th>
+                    <th class="HeadD-Column1-Header1">Associated Audit Events and Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">404</p>
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">A statement of management's responsibility for establishing and maintaining an adequate internal control structure and procedures for financial reporting; and management's assessment, as of the end of the company's most recent fiscal year of the effectiveness of the company's internal control structure and procedures for financial reporting, Section 404 requires the company's auditor to attest to , and report on management's assessment of the effectiveness of the company's internal controls and procedures for financial reporting in accordance with standards established by the Public Company Accounting Oversight Board. (Source: Securities and Exchange Commission.)</p>
+                        <p class="TableText"><b>What does this mean from an Information Technology standpoint?</b>
+                        </p>
+                        <p class="TableText">The key is reliability of financial reporting.</p>
+                        <p class="TableText">Financial information resides in the database and it is the responsibility of IT to ensure the right personnel have access to that data at the right time. Any changes to the permissions must be tracked. Additionally, all access to that data (select, insert, update, and delete operations, plus before and after changes) must be audited down to the actual user and stored. If the need arises to determine where an individual has violated the accuracy of the financial data, an audit trail of activity will help to prove that the user:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Accessed the data</li>
+                            <li class="Bullet">Changed permissions</li>
+                            <li class="Bullet">Changed the data</li>
+                        </ul>
+                    </td>
+                    <td class="BodyA-Column1-Body1">
+                        <p class="TableText">Server Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Successful and Failed Logins</li>
+                            <li class="Bullet">Security</li>
+                            <li class="Bullet">DDL</li>
+                            <li class="BulletLast"> Privileged User activity</li>
+                        </ul>
+                        <p class="TableText">Database Events:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Security changes</li>
+                            <li class="Bullet">Administrative Actions</li>
+                            <li class="Bullet">DML</li>
+                            <li class="Bullet">SQL statements</li>
+                            <li class="Bullet">SELECT statements on all DB objects</li>
+                            <li class="Bullet">SELECT statements on specific tables</li>
+                            <li class="Bullet">Before-After Data auditing</li>
+                            <li class="Bullet">Sensitive Columns</li>
+                            <li class="BulletLast">Alerting</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

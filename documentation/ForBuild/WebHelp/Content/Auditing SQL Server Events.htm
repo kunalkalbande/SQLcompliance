@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Auditing SQL Server Events</title>
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">Audit SQL Server Events</h1>
+        <p class="Body"><a name="kanchor43"></a>Auditing your SQL Server instances and databases is the first step in ensuring your SQL Server environment remains in continuous compliance with federal and corporate security and privacy policies. You can also generate reports on the audit data you collect, allowing you to demonstrate compliance on demand. For more information, see <a href="Reporting on Audit Data.htm" target="_self">Reporting on audit data</a>.</p>
+        <h2 class="Heading2">Auditing checklists</h2>
+        <p class="Body"><a name="kanchor44"></a>Use the following checklists to help you prepare your environment to successfully audit your SQL Server instances and databases. <span class="If_Then_Statement">If you plan to audit virtual SQL Servers running in Microsoft failover clusters</span>, see <a href="Audit Virtual Instance.htm" target="_self">How to audit a virtual&#160;SQL&#160;Server instance</a> for detailed installation and configuration tasks.&#160;</p>
+        <h3 class="Heading3">1. Gather the information necessary to set up your auditing</h3>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;width: 100%;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <img src="Resources/Images/ChklistBoxChecked.png" />
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Task</p>
+                    </th>
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">For more information</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Verify privileges on your Windows login account</p>
+                    </td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Ensure that your Windows login account has sysadmin privileges on all SQL&#160;Server instances you want to audit.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Permissions Requirements.htm" target="_self">Permissions requirements</a>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Review the list of auditable events</p>
+                    </td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Review how the audit process works and which SQL&#160;events you can audit. Note that you can audit events at the server or database level.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="How Auditing Works.htm" target="_self">How auditing works</a>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyE-Column2-Body1">Identify the items you want to audit on your SQL&#160;Server instances</td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Identify the audit settings you want to apply to individual <b>instances </b>in your SQL Server environment. These settings should specify which server events you want to collect and report. Remember that the more data you collect, the more overhead is required. SQL&#160;Compliance Manager allows you to change your auditing settings at any time to help you make sure you collect exactly what an auditor needs.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Understanding Server Audit.htm" target="_self">Understanding server audit settings</a>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyE-Column2-Body1">Identify the items you want to audit on your databases</td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Identify the audit settings you want to apply to individual <b>databases </b>in your SQL Server environment. These settings should specify which database events you want to collect and report. Remember that the more data you collect, the more overhead is required. SQL&#160;Compliance Manager allows you to change your auditing settings at any time to help you make sure you collect exactly what an auditor needs.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Understanding Database Audit.htm" target="_self">Understanding database audit settings</a>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyB-Column2-Body1">Identify excluded events</td>
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Identify any events you want to exclude from your audit data.</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText"><a href="Using Event Filters.htm" target="_self">Event filters</a>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 class="Heading3">2. Register your SQL&#160;Server instances</h3>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;width: 100%;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <img src="Resources/Images/ChklistBoxChecked.png" />
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Task</p>
+                    </th>
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">For more information</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">Register your SQL Server instances</p>
+                    </td>
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Register each SQL Server instance that hosts the databases you want to audit.</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText"><a href="Registering Your SQL Servers.htm" target="_self">Registering your SQL Servers</a>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 class="Heading3">3. Enable auditing</h3>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;width: 100%;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <img src="Resources/Images/ChklistBoxChecked.png" />
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Task</p>
+                    </th>
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">For more information</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Enable server-level auditing</p>
+                    </td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText"><span class="If_Then_Statement">If you want to audit your SQL&#160;Server instances,</span> enable auditing at the server level.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Enabling Auditing on a Server.htm" target="_self">Enabling auditing on the server</a>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">Enable database-level auditing</p>
+                    </td>
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText"><span class="If_Then_Statement">If you want to audit your databases,</span> enable auditing at the database level.</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText"><a href="Enabling Auditing on a Database.htm" target="_self">Enabling auditing on a database</a>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 class="Heading3">4. Apply regulation guidelines</h3>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;width: 100%;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <img src="Resources/Images/ChklistBoxChecked.png" />
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Task</p>
+                    </th>
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">For more information</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">Apply regulation guidelines</p>
+                    </td>
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Apply regulation guidelines to the appropriate audited databases.</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText"><a href="Comply with specific regulations.htm" target="_self">Comply with specific regulations</a>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 class="Heading3">5. Configure filters and test your settings</h3>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;width: 100%;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <img src="Resources/Images/ChklistBoxChecked.png" />
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Task</p>
+                    </th>
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">For more information</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Configure Event Filters</p>
+                    </td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Configure the appropriate Event Filters, depending on which event category you want to exclude from your audit data.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Using Event Filters.htm" target="_self">Using event filters</a>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">Test your audit settings</p>
+                    </td>
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Test your audit settings to ensure you will collect the SQL Server events you need.</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText"><a href="Testing Your Audit Settings.htm" target="_self">Testing your audit settings</a>.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 class="Heading3">6. Monitor your settings</h3>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;width: 100%;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <img src="Resources/Images/ChklistBoxChecked.png" />
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Task</p>
+                    </th>
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">For more information</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Monitor event collection and adjust if necessary</p>
+                    </td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Monitor how many events are collected on a daily basis. Depending on the growth rate of your audit data, consider creating Event Filters to better manage audit data in large environments.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Using Event Filters.htm" target="_self">Using event filters</a>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Monitor the Repository database growth</p>
+                    </td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Monitor the growth of the SQL Compliance Manager Repository databases.<span class="If_Then_Statement"> If the databases are growing too fast</span>, change your auditing settings to limit growth and optimize performance.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Reducing Audit Data Optimize Perf.htm" target="_self">Reducing audit data to optimize performance</a>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Determine whether you need alerts</p>
+                    </td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Determine whether you need to alert on the events you are collecting. SQL CM allows you to build rules that provide real-time alert notifications to help you quickly identify and resolve security issues.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Alerting on Audit Data.htm" target="_self">Alerting on audit data</a>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Determine whether you need to capture before-and-after object values</p>
+                    </td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText"><span class="If_Then_Statement">If you are auditing DML activity</span>, determine whether you want to capture the value of the database object before and after a specific transaction.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Windows/Database Properties BAD.htm" target="_self">Audited Database Properties window &gt; Before-After Data</a>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">Determine who needs access rights to administer or report on audit data</p>
+                    </td>
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Determine which SQL users should have access rights to administer or report on audit data. This security feature is important as both sensitive and audit data should be secure.</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText"><a href="Securing Audit Data.htm" target="_self">Securing audit data</a>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 class="Heading3">7. Implementing reports</h3>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;width: 100%;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <img src="Resources/Images/ChklistBoxChecked.png" />
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Task</p>
+                    </th>
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">For more information</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">Review report implementation</p>
+                    </td>
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Review how you can implement Reports in your SQL Server environment using SQL&#160;Server Reporting Services.</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText"><a href="Reporting on Audit Data.htm" target="_self">Reporting on audit data</a>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 class="Heading3">8. Archiving events</h3>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;width: 100%;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <img src="Resources/Images/ChklistBoxChecked.png" />
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Task</p>
+                    </th>
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">For more information</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">Archive collected events</p>
+                    </td>
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Configure how you want SQL&#160;CM&#160;to archive audit data. Note that SQL&#160;CM&#160;creates an archive database for each registered SQL&#160;Server instance.</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText"><a href="Archiving Events.htm" target="_self">Archive collected events</a>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">  <![CDATA[ ]]></p>
+    </body>
+</html>

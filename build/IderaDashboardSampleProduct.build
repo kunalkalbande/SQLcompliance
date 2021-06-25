@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<project name="SampleProduct" default="Build.Official" basedir="..">
+
+
+	<property name="dir.Root" value="${Sample.buildroot}"/>
+	<property name="env" value="iderabuild"/>
+
+	<property name="dir.Build" value="${dir.Root}\Build"/>
+
+	<!-- For this to work, install NAntContrib along with NAnt -->
+		<echo message="${dir.Build}\idera${env}.properties"/>
+	<loadproperties file="${dir.Build}\${env}.properties" />
+
+	<!-- Installation / Build Directories -->
+	<property name="current.dir" value="${directory::get-current-directory()}" />
+	<property name="current.dir.parent" value="${directory::get-parent-directory(current.dir)}" />
+	<property name="dir.Build.Bin" value="${dir.Build}\Bin"/>
+	<property name="dir.Build.Output" value="${dir.Build}\Output"/>
+	<property name="dir.Development" value="${dir.Root}\Development"/>
+	<property name="sample.product.rest.solution" value="SampleProduct.sln"/>
+	<property name="zip.filename" value="SampleProduct.zip"/>
+	<property name="dir.Development.Idera.bin.Release" value="${dir.Development}\Idera\bin\Release"/>
+	<property name="dir.Development.Idera.bin.Release.sample" value="${dir.Development.Idera.bin.Release}\SampleProduct"/>
+	<property name="dir.Development.Idera.bin.Release.sample.jar" value="${dir.Development.Idera.bin.Release.sample}\Jars\"/>
+	<property name="dir.Dashboard.x64.en-us" value="${dir.CWFLib}\x64\en-us" />
+	<property name="dir.Dashboard.x86.en-us" value="${dir.CWFLib}\x86\en-us" />
+
+	<property name="dir.Development.WebUI.sample" value="${dir.Development}\WebUI\product-ui"/>
+	<property name="dir.Development.WebUI.sample.jar.dir" value="${dir.Development}\WebUI\product-ui\target"/>
+	<property name="sample.product.jar" value="idera-sample_cwf_product-1.0.0.0.jar"/>
+	<property name="dir.Development.Core" value="${dir.Root}\Development\Core"/>
+	<property name="dir.Development.Idera.bin.Release.SampleProduct" value="${dir.Development}\Idera\bin\Release\SampleProduct"/>
+	<property name="dir.Development.WebUI" value="${dir.Development}\WebUI"/>
+	<property name="sample.product.absolute.uri" value="${current.dir.parent}\${dir.Development.Idera.bin.Release}"/>
+
+	<!-- Product specific properties for registering the product -->
+	<property name="sample.product.name" value="SampleProduct"/>
+	<property name="sample.product.short.name" value="SampleProduct"/>
+	<property name="sample.product.version" value="1.0.0.0"/>
+	<property name="sample.product.status" value="Green"/>
+	<property name="sample.product.location" value="WIN-ABB909BSJ"/>
+	<property name="sample.product.connection.user" value="Administrator"/>
+	<property name="sample.product.connection.password" value="Admin"/>
+	<property name="sample.product.registering.user" value="Administrator"/>
+	<property name="sample.product.rest.url" value="SampleProduct"/>
+	<property name="sample.product.root.context" value="/sample"/>
+	<property name="sample.product.package.uri" value="${sample.product.jar}"/>
+	<property name="sample.product.description" value="SampleProduct"/>
+	<property name="sample.product.default.page" value="ssas-list"/>
+	<property name="dir.DevSilentBuilds" value="\\qnap\IderaRelease\Development\SQLComplianceManager\Builds"/>
+	
+	
+	<property name="x64Installer" value="C:\Build\masterSampleProduct\Install\SampleProductInstaller\SetupProject1\bin\Release\x64\en-US" />
+	<property name="x86Installer" value="C:\Build\masterSampleProduct\Install\SampleProductInstaller\SetupProject1\bin\Release\x86\en-US" />
+	<!--
+	<property name="dir.DevBuilds" value="\\redhouse.hq\Development\Idera Dashboard\Builds\${Sample.buildbranch}"/>
+	-->
+	<property name="dir.DevBuilds" value="\\qnap\iderarelease\Development\Idera Dashboard\Builds\${Sample.buildbranch}"/>
+	<property name="dir.jarDllZipFolder" value="C:\Build\masterSampleProduct\Development\Idera\bin\Release" />
+	
+	<property name="newinstallerdir" value="C:\New_SQLCM_Installer" />
+
+	<tstamp property="Build.DateTime" pattern="MM-dd-yyyy.HH:mm"/>	
+	<tstamp property="Version.DateTime" pattern="yyyy/MM/dd HH:mm"/>	
+
+	<target name="Build.Official">
+		<!-- <call target="BuildBinaries" /> -->
+		<!-- zipping also copies the zip file at required location (check below) -->
+		<!-- <call target="ZipTheFolder" /> -->
+		<!-- <call target="BuildSampleProductInstaller" /> -->
+		<call target= "ChangeJarVersion" />
+		<call target="SampleProductShellProgram" />
+		<!-- <call target="CopyToDevShare" /> -->
+		<call target="CopyToFolder" />
+	</target>
+
+<!--  *****************************************************************************
+       Build Steps
+       *****************************************************************************  -->	
+
+
+<!-- ********************************************************
+	  BuildBinaries 
+	  ******************** -->
+	<target name="BuildBinaries">
+		<call target="_updateAssemblyInfoAndVersionResources" />
+ 		<call target="_cleanBinaries" />
+ 		<call target="copyDllsFromIderaCWFBuild" />
+		<call target="_createBinaries" />
+	</target>
+
+	<!-- Clean binaries prior to building  -->
+	<target name="_cleanBinaries">
+		<exec program="${Build.MsBuild}" workingdir="${dir.Development.Core}">
+			<arg value="${sample.product.rest.solution}"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+			<arg value="/target:clean"/>
+		</exec>
+		<!-- Cleaning up sample product installer msi files -->
+		<exec program="${Build.MsBuild}" workingdir="${dir.Root}\Install\SampleProductInstaller">
+			<arg value="SampleProductInstaller.sln"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+			<arg value="/p:Platform=x86" />
+			<arg value="/target:clean" />
+		</exec>
+		<exec program="${Build.MsBuild}" workingdir="${dir.Root}\Install\SampleProductInstaller">
+			<arg value="SampleProductInstaller.sln"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+			<arg value="/p:Platform=x64" />
+			<arg value="/target:clean" />
+		</exec>
+		<!-- <delete dir="${dir.Development.Idera.bin.Release.SampleProduct}" /> -->
+	</target>
+
+	<!-- copy required dlls from idera cwf workspace to this project -->
+	<target name="copyDllsFromIderaCWFBuild">
+		<copy overwrite="true" file="C:\SQLCM Installer\Development\Core\SampleProduct\bin\debug\PluginCommon.dll" tofile="${dir.Root}\Development\CoreServicesLibrary\PluginCommon.dll" />
+		<copy overwrite="true" file="C:\SQLCM Installer\Install\Installer form application\Installer form application\bin\Release\CWFInstallerService.dll" tofile="${dir.Root}\Development\CoreServicesLibrary\CWFInstallerService.dll" />
+		<copy overwrite="true" file="C:\SQLCM Installer\PluginAddInViewV2.dll" tofile="${dir.Root}\Development\CoreServicesLibrary\PluginAddInViewV2.dll" />
+		<copy overwrite="true" file="C:\SQLCM Installer\Development\ThirdParty\TracerX\TracerX.exe" tofile="${dir.Root}\Development\CoreServicesLibrary\TracerX.exe" />
+	</target>
+
+	<!-- Create binaries using the solution and command line build commands -->
+	<target name="_createBinaries">
+		<!-- Build binaries -->
+ 		<exec program="${Build.MsBuild}" workingdir="${dir.Development.Core}">
+			<arg value="${sample.product.rest.solution}"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+		</exec>
+ 		<exec program="${Build.MVN}" workingdir="${dir.Development.WebUI.sample}">
+			<arg value="-Denv=${env}"/>
+			<arg value="clean"/>
+			<arg value="package"/>
+		</exec>
+		<copy file="${dir.Development.WebUI.sample.jar.dir}\${sample.product.jar}" tofile="${dir.Development.Idera.bin.Release.sample.jar}\${sample.product.jar}" />
+	</target>
+
+	<target name="ZipTheFolder">
+		<!-- Build binaries -->
+ 		<exec program="${zip.application}" workingdir="${dir.Development.Idera.bin.Release}">
+			<arg value="-r"/>
+			<arg value="${zip.filename}"/>
+			<arg value="*/*"/>
+		</exec>
+		<!-- After zipping the file, copy it to requried location -->
+		<copy file="${dir.Development.Idera.bin.Release}\${zip.filename}" tofile="${dir.Root}\Install\SampleProductInstaller\SetupProject1\${zip.filename}" />
+	</target>
+
+	<target name="BuildSampleProductInstaller">
+
+		<!-- Sample product service needs to be compiled first in order to make sample product -->
+		<exec program="${Build.MsBuild}" workingdir="${dir.Development.Core}">
+			<arg value="SampleProductService.sln"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+		</exec>
+		<!-- code for building sample product installer -->
+		<exec program="${Build.MsBuild}" workingdir="${dir.Root}\Install\SampleProductInstaller">
+			<arg value="SampleProductInstaller.sln"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+			<arg value="/p:Platform=x86" />
+		</exec>
+		<exec program="${Build.MsBuild}" workingdir="${dir.Root}\Install\SampleProductInstaller">
+			<arg value="SampleProductInstaller.sln"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+			<arg value="/p:Platform=x64" />
+		</exec>
+		<move file="${x64Installer}/SetupProject1.msi" 
+			  tofile="${x64Installer}/IderaDashboardSampleProduct.msi" overwrite="true" />
+		<move file="${x86Installer}/SetupProject1.msi" 
+			  tofile="${x86Installer}/IderaDashboardSampleProduct.msi" overwrite="true" />
+	</target>
+	
+	
+	<!-- Sample Product Shell Program -->
+	<target name="SampleProductShellProgram">
+		<exec program="${Build.MsBuild}" workingdir="${dir.Root}\Install\Installer form application">
+			<arg value="Installer form application.sln"/>
+			<arg value="/p:Configuration=Release"/>
+			<arg value="/target:clean" />
+		</exec>
+		
+		<exec program="${Build.MsBuild}" workingdir="${dir.Root}\Install\Installer form application">
+			<arg value="Installer form application.sln"/>
+			<arg value="/p:Configuration=Release"/>
+			<arg value="/p:Platform=x64"/>	
+		</exec>
+		
+		<exec program="${Build.MsBuild}" workingdir="${dir.Root}\Install\Installer form application">
+			<arg value="Installer form application.sln"/>
+			<arg value="/p:Configuration=Release"/>
+			<arg value="/p:Platform=x86"/>	
+		</exec>
+
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x64\CWFInstallerService.dll" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x64\CWFInstallerService.dll"/>
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x64\SQL Compliance Manager Setup.exe" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x64\SQL Compliance Manager Setup.exe"/>
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x64\SQL Compliance Manager Setup.exe.config" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x64\SQL Compliance Manager Setup.exe.config"/>
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\Resources\Idera - Software License Agreement.rtf" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x64\Idera - Software License Agreement.rtf"/>
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\Resources\Idera_Icon.ico" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x64\Idera_Icon.ico"/>
+		<!--<copy file="${dir.Root}\Install\SampleProductInstaller\SetupProject1\bin\Release\x64\en-US\IderaDashboardSampleProduct.msi" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x64\Packages\IderaDashboardSampleProduct.msi"/>
+		<copy file="${dir.Dashboard.x64.en-us}/IderaDashboard.msi" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x64\Packages\IderaDashboard.msi"/> -->
+
+		<call target="Copyx64FilestoQnap"/>
+		
+		<exec program="${zip.application}" workingdir="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\">
+			<arg value="a"/>
+			<arg value="-tzip"/>
+			<arg value="SQL Compliance Manager_X64.zip"/>
+			<arg value="*.*"/>
+			<arg value="-r"/>
+		</exec>
+		
+		<!-- Creating X86 Zip -->
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x86\CWFInstallerService.dll" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x86\CWFInstallerService.dll"/>
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x86\SQL Compliance Manager Setup.exe" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x86\SQL Compliance Manager Setup.exe"/>
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x86\SQL Compliance Manager Setup.exe.config" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x86\SQL Compliance Manager Setup.exe.config"/>
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\Resources\Idera - Software License Agreement.rtf" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x86\Idera - Software License Agreement.rtf"/>
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\Resources\Idera_Icon.ico" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x86\Idera_Icon.ico"/>
+		<!-- <copy file="${dir.Root}\Install\SampleProductInstaller\SetupProject1\bin\Release\x86\en-US\IderaDashboardSampleProduct.msi" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x86\Packages\IderaDashboardSampleProduct.msi"/> -->
+
+		<call target="Copyx86FilestoQnap"/>
+		
+		<!-- <copy file="${dir.Dashboard.x86.en-us}/IderaDashboard.msi" tofile="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x86\Packages\IderaDashboard.msi"/> -->
+		<exec program="${zip.application}" workingdir="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\">
+			<arg value="a"/>
+			<arg value="-tzip"/>
+			<arg value="SQL Compliance Manager_X86.zip"/>
+			<arg value="*.*"/>
+			<arg value="-r"/>
+		</exec>
+
+	</target>
+	
+	<target name="Copyx64FilestoQnap">
+		<copy todir="${dir.DevSilentBuilds}/5.5.0.${Sample.buildnumber}/Production/x64/Silent_Installer" flatten="false">
+			<fileset basedir="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x64">
+				<include name="**"/>
+			</fileset>
+		</copy>
+			
+		<copy todir="${dir.DevSilentBuilds}/5.5.0.${Sample.buildnumber}/Trial/x64/Silent_Installer" flatten="false">
+			<fileset basedir="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x64">
+				<include name="**"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${dir.DevSilentBuilds}/5.5.0.${Sample.buildnumber}/Production/x64/Silent_Installer/Full" flatten="false">
+			<fileset basedir="${dir.DevSilentBuilds}/5.5.0.${Sample.buildnumber}/Production/x64/Full">
+				<include name="**"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${dir.DevSilentBuilds}/5.5.0.${Sample.buildnumber}/Trial/x64/Silent_Installer/Full" flatten="false">
+			<fileset basedir="${dir.DevSilentBuilds}/5.5.0.${Sample.buildnumber}/Trial/x64/Full">
+				<include name="**"/>
+			</fileset>
+		</copy>
+	</target>
+	
+		<target name="Copyx86FilestoQnap">
+		<copy todir="${dir.DevSilentBuilds}/5.5.0.${Sample.buildnumber}/Production/x86/Silent_Installer" flatten="false">
+			<fileset basedir="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x86">
+				<include name="**"/>
+			</fileset>
+		</copy>
+			
+		<copy todir="${dir.DevSilentBuilds}/5.5.0.${Sample.buildnumber}/Trial/x86/Silent_Installer" flatten="false">
+			<fileset basedir="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\x86">
+				<include name="**"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${dir.DevSilentBuilds}/5.5.0.${Sample.buildnumber}/Production/x86/Silent_Installer/Full" flatten="false">
+			<fileset basedir="${dir.DevSilentBuilds}/5.5.0.${Sample.buildnumber}/Production/x86/Full">
+				<include name="**"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${dir.DevSilentBuilds}/5.5.0.${Sample.buildnumber}/Trial/x86/Silent_Installer/Full" flatten="false">
+			<fileset basedir="${dir.DevSilentBuilds}/5.5.0.${Sample.buildnumber}/Trial/x86/Full">
+				<include name="**"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="RegisterProduct">
+		<!-- Registers the product on the configured URI -->
+		<exec program="curl" workingdir="${dir.Development.Idera.bin.Release}">
+			<arg value="-X"/>
+			<arg value="POST"/>
+			<arg value="-F"/>
+			<arg value="Product=@${sample.product.absolute.uri}\${zip.filename}"/>
+			<arg value="-F"/>
+			<arg value="Name=${sample.product.name}"/>
+			<arg value="-F"/>
+			<arg value="ShortName=${sample.product.short.name}"/>
+			<arg value="-F"/>
+			<arg value="Version=${sample.product.version}"/>
+			<arg value="-F"/>
+			<arg value="Status=${sample.product.status}"/>
+			<arg value="-F"/>
+			<arg value="Location=${sample.product.location}"/>
+			<arg value="-F"/>
+			<arg value="ConnectionUser=${sample.product.connection.user}"/>
+			<arg value="-F"/>
+			<arg value="ConnectionPassword=${sample.product.connection.password}"/>
+			<arg value="-F"/>
+			<arg value="RegisteringUser=${sample.product.registering.user}"/>
+			<arg value="-F"/>
+			<arg value="RestURL=${sample.product.rest.url}"/>
+			<arg value="-F"/>
+			<arg value="RootContext=${sample.product.root.context}"/>
+			<arg value="-F"/>
+			<arg value="PackageURI=${sample.product.package.uri}"/>
+			<arg value="-F"/>
+			<arg value="Description=${sample.product.description}"/>
+			<arg value="-F"/>
+			<arg value="DefaultPage=${sample.product.default.page}"/>
+			<arg value = "${sample.product.registration.uri}"/>
+		</exec>
+	</target>
+	
+	<target name="CopyToDevShare">
+		<property name="buildShareDir" 
+		          value="${dir.DevBuilds}/SampleProduct-3.0.0.${Sample.buildnumber}"/>
+		<mkdir dir="${buildShareDir}"/>
+		<copy file="${x64Installer}/IderaDashboardSampleProduct.msi"      
+			  tofile="${buildShareDir}\IderaDashboardSampleProduct.msi"/>
+		<copy file="${x86Installer}/IderaDashboardSampleProduct.msi"      
+			  tofile="${buildShareDir}\IderaDashboardSampleProduct_x86.msi"/>
+		<copy file="${dir.jarDllZipFolder}/SampleProduct.zip"      
+			  tofile="${buildShareDir}\SampleProduct.zip"/>
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\SampleProduct_X64.zip"      
+			  tofile="${buildShareDir}\SampleProduct_X64.zip"/>
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\SampleProduct_X86.zip"      
+			  tofile="${buildShareDir}\SampleProduct_X86.zip"/>
+	</target>
+	
+	<target name= "ChangeJarVersion">
+		<copy file="C:\GitHub\SQLCm\development\SQLcomplianceCwfAddin\RestService\RestServiceConstants.cs"      
+			  tofile="C:\GitHub\SQLcm\install\Installer form application\Installer form application\RestServiceConstants.cs"/>
+	</target>
+	
+	<target name="CopyToFolder">
+		
+		<mkdir dir="${newinstallerdir}"/>
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\SQL Compliance Manager_X64.zip"      
+			  tofile="${newinstallerdir}\SampleProduct_X64.zip"/>
+		<copy file="${dir.Root}\Install\Installer form application\Installer form application\bin\Release\SQL Compliance Manager_X86.zip"      
+			  tofile="${newinstallerdir}\SampleProduct_X86.zip"/>
+	</target>
+</project>

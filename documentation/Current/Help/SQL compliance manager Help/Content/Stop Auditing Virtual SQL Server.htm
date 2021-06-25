@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="272" MadCap:lastWidth="945">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Stop auditing the virtual SQL Server</h1>
+        <p class="Body">When you decide to stop auditing a virtual SQL Server instance, use the following procedure to remove your configuration settings and uninstall the SQLcompliance Agent.</p>
+        <p class="StepIntro">To stop auditing the virtual SQL Server:</p>
+        <ol>
+            <li class="NumberedList">Use the Microsoft Cluster Administrator tool to remove the registered generic service you created for the SQLcompliance Agent Service. You can perform this task on any node of the cluster hosting the virtual SQL Server instance.</li>
+            <li class="NumberedList">Use the <a href="Windows/Cluster Configuration Console Window.htm" target="_self">Cluster Configuration Console</a> to remove the SQLcompliance Agent Service. This action deletes the SQLcompliance Agent Service. Be sure to perform this task on each node of the cluster hosting the virtual SQL Server instance.</li>
+            <li class="NumberedList">Use Add/Remove Programs to uninstall the Cluster Configuration Console and the SQLcompliance Agent. You must perform this task on each node of the cluster hosting the virtual SQL Server instance.</li>
+            <li class="NumberedList">Use the Management Console to <a href="Windows/Registered SQL Servers Tab.htm" target="_self">remove (unregister) the virtual SQL Server instance</a>.</li>
+        </ol>
+    </body>
+</html>

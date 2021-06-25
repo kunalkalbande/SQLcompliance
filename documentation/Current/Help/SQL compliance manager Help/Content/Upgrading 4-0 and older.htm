@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="836" MadCap:lastWidth="1159">
+    <head>
+        <link href="Resources/TableStyles/Tip.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Upgrade from Idera SQL Compliance Manager 4.0 and older in a clustered environment</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Upgrade from SQL CM 4.0 and older in a clustered environment</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Upgrade from SQL CM 4.0 and older in a clustered environment</h2>
+        <p class="Body">Use the following steps if you are upgrading SQL Compliance Manager 4.0 or older in a clustered environment. The steps support upgrading in a Windows Server 2003, Windows Server 2008 , or Windows Server 2012 clustered environment.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Tip.css');margin-left: 0;margin-right: auto;caption-side: top;" class="TableStyle_Tip" cellspacing="0">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p class="TableHeadRow">TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">Be sure to back up your Repository and all databases and archives before upgrading SQL CM.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Install the SQL CM Collection Service on Cluster Nodes</h2>
+        <p class="Body">You must upgrade the SQL Compliance Manager Collection Service on each cluster node for the service to work correctly when a failure occurs on the primary cluster node hosting the Collection Service.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Tip.css');margin-left: 0;margin-right: auto;caption-side: top;" class="TableStyle_Tip" cellspacing="0">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p class="TableHeadRow">TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">Before upgrading, changing, or uninstalling SQL CM on the passive node, you must delete the following registry entry:<br /> HKEY_LOCAL_MACHINE\Software\Idera\SQLcompliance\CollectionService\TraceDirectory.<br />This step in unnecessary for new installations.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="StepIntro">To install the SQL Compliance Manager Collection Service on cluster nodes:</p>
+        <ol>
+            <li class="NumberedList">In the Microsoft Cluster Administrator tool (Windows Server 2003) or Microsoft Failover Cluster Management Console (Windows Server 2008 or Windows Server 2012), select the SQLComplianceCollectionService resource and take the service offline.</li>
+            <li class="NumberedList">Log on with an administrator account to the computer on which you want to upgrade SQL CM.</li>
+            <li class="NumberedList">Run <span class="Code">Setup.exe</span> in the root of the SQL CM installation kit on the first cluster node.</li>
+            <li class="NumberedList">Under <span class="GUI_Item">Install</span>, click <span class="GUI_Item">SQL Compliance Manager</span>.</li>
+            <li class="NumberedList">Read the Welcome window, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Review and accept the license agreement by clicking <span class="GUI_Item">I accept the terms in the license agreement</span>, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Verify that the installation folder is the same location where you initially installed SQL CM, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Select the <span class="GUI_Item">Clustered Collection Server</span> setup type, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Check the <span class="GUI_Item">Install the Collection Server in a Windows Cluster</span> check box.</li>
+            <li class="NumberedList">Select whether you are upgrading the Collection Service on the <span class="GUI_Item">Currently Active Node</span> or <span class="GUI_Item">A Passive Node</span>, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you upgrade the currently active node</span>, verify that the SQL CM Collection Service trace directory is the same location where you current directory resides, and then click <span class="GUI_Item">Next</span>. <span class="If_Then_Statement">If you install on a passive node</span>, continue with the next step.</li>
+            <li class="NumberedList">Type the service account information, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Verify that the Repository path is the same SQL Server instance name hosting the Repository.</li>
+            <li class="NumberedList">Select the authentication method used to upgrade the Repository database and include credentials, if required, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">In the Repository Warning dialog box, click <span class="GUI_Item">Preserve </span>to retain your current Repository. If you click <span class="GUI_Item">Delete</span>, the upgrade tool DELETES all of your current Repository databases.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Install</span>.</li>
+            <li class="NumberedList">In Windows Services, stop the SQL CM Collection Service and set the Startup type to <span class="GUI_Item">Manual</span>.</li>
+            <li class="NumberedList">Repeat the previous steps on each cluster node. Point to the SQL CM Repository installed on the first node.</li>
+            <li class="NumberedList">In the Microsoft Cluster Administrator tool (Windows Server 2003) or Microsoft Failover Cluster Management Console (Windows Server 2008 or Windows Server 2012), select the SQLComplianceCollectionService resource and bring the service online.</li>
+        </ol>
+        <p class="Body">&#160;</p>
+    </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE project>
+<project name="idera-main" default="compile" basedir=".">
+
+  <property name="base.dir" value="."/>
+
+  <property name="build.plugins.dir" value="${basedir}/../build-plugins"/>
+
+  <!-- Global properties for this build -->
+  <property name="src.java.dir" value="${base.dir}/src"/>
+  <property name="proj.name" value="idera-main"/>
+  <property name="lib.dir" value="${base.dir}/../idera-lib/lib"/>
+  <property name="build.dir" value="${base.dir}/classes"/>
+  <property name="conf.dir" value="${base.dir}/conf"/>
+  <property name="jar.file.name" value="${ant.project.name}.jar"/>
+  <property name="compile.debug" value="on"/>
+
+  <!-- Classpath declaration -->
+  <path id="run.classpath">
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+      <include name="**/*.zip"/>
+    </fileset>
+    <path path="${conf.dir}"/>
+    <path path="${build.dir}"/>
+  </path>
+
+  <path id="build.classpath">
+    <fileset dir="${lib.dir}">
+      <include name="**/*.jar"/>
+      <include name="**/*.zip"/>
+    </fileset>
+  </path>
+
+  <!-- Useful shortcuts -->
+  <patternset id="meta.files">
+    <include name="**/*.xml"/>
+    <include name="**/*.properties"/>
+    <include name="**/*.png"/>
+  </patternset>
+
+  <!-- Clean up -->
+  <target name="clean" description="Clean the project">
+    <delete dir="${build.dir}"/>
+    <mkdir dir="${build.dir}"/>
+    <delete file="${base.dir}/${ant.project.name}.jar"/>
+  </target>
+
+  <!-- Compile Java source -->
+  <target name="compile" depends="">
+    <mkdir dir="${build.dir}"/>
+    <javac srcdir="${src.java.dir}" destdir="${build.dir}" nowarn="on" debug="${compile.debug}">
+      <classpath refid="build.classpath"/>
+    </javac>
+  </target>
+
+  <!-- Copy metadata to build classpath -->
+  <target name="copymetafiles">
+    <copy todir="${build.dir}">
+      <fileset dir="${src.java.dir}">
+        <patternset refid="meta.files"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <!-- Run new-main -->
+  <target name="run" depends="compile, copymetafiles" description="Build and run idera Server">
+    <property name="myclasspath" refid="run.classpath"/>
+    <echo message="Classpath = ${myclasspath}"/>
+    <java dir="${base.dir}" fork="true" classname="com.idera.Main" classpathref="run.classpath" maxmemory="256m" jvmargs="-XX:MaxPermSize=256M">
+      <jvmarg value="-Djava.library.path=../${lib.dir}"/>
+    </java>
+  </target>
+
+  <target name="build" depends="compile, copymetafiles" description="Build idera Server">
+  </target>
+
+  <target name="run-debug" depends="compile, copymetafiles" description="Build and run idera Server">
+    <java dir="${base.dir}" fork="true" classname="com.idera.Main" classpathref="run.classpath" maxmemory="256m" jvmargs="-XX:MaxPermSize=256M">
+      <sysproperty key="DEBUG" value="true"/>
+      <jvmarg value="-Xrunjdwp:transport=dt_socket,address=1044,server=y,suspend=n"/>
+      <jvmarg value="-Djava.library.path=../${lib.dir}"/>
+    </java>
+  </target>
+
+  <target name="jar" depends="compile, copymetafiles">
+    <jar destfile="${base.dir}/${jar.file.name}">
+      <zipfileset dir="${build.dir}"/>
+    </jar>
+  </target>
+
+  <target name="findbugs" depends="compile">
+    <findbugs home="${findbugs.home}" output="xml" outputFile="${base.dir}/findbugs.xml" jvmargs="-Xmx1024m" effort="max" reportLevel="low">
+      <auxClasspath>
+        <path refid="build.classpath"/>
+        <fileset dir="${findbugs.lib}">
+          <include name="**/*.jar"/>
+          <include name="**/*.zip"/>
+        </fileset>
+      </auxClasspath>
+      <sourcePath path="${src.java.dir}"/>
+      <class location="${build.dir}"/>
+    </findbugs>
+  </target>
+
+</project>

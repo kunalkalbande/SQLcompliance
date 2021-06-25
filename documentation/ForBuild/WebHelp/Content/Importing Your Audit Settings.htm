@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Get Started|Configure your deployment">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Importing Your Audit Settings</title>
+        <link href="Resources/TableStyles/Tip.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">Import your audit settings</h1>
+        <p class="Body">As you configure or modify audit settings for your SQL Server instances, you may want to apply the same settings across multiple SQL Server instances in your environment. You can import audit settings through previously exported XML files, allowing you to:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet" value="1">Use previously configured audit settings as a baseline, or template, you deploy to multiple instances and databases so that the same events are audited across your environment</li>
+            <li class="Bullet" value="2">Ensure all SQL Server databases used by regulated applications, such as SAP, are being audited consistently and held to the same level of compliance</li>
+            <li class="BulletLast" value="3">Streamline and automate your configuration workflow</li>
+        </ul>
+        <p class="Body"><span class="If_Then_Statement">If a user is assigned privileged status as part of the alert rule you are importing, and that user does not yet exist in the environment you are importing to</span>, the privileged user status will apply if the user is ever added to your environment.</p>
+        <table style="width: 100%;mc-table-style: url('Resources/TableStyles/Tip.css');margin-left: 0;margin-right: auto;" class="TableStyle_Tip" cellspacing="0">
+            <col style="width: 32px;" />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">To execute a T-SQL script that applies previously exported audit settings, <a href="Enabling Auditing on a Database.htm">use the auditdatabase CLI command</a>.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Auditing the same events across multiple instances and databases</h2>
+        <p class="Body">You can import previously configured audit settings to use as a baseline, or template. By deploying this baseline to multiple instances and databases, you can ensure the same events are audited across your environment.</p>
+        <p class="StepIntro">To audit the same events across multiple instances or databases:</p>
+        <ol>
+            <li class="NumberedList" value="1">Navigate to<span class="GUI_Item"> Registered SQL Servers</span> in the <span class="GUI_Item">Administration </span>tree.</li>
+            <li class="NumberedList" value="2">On the <span class="GUI_Item">Registered SQL Servers</span> tab, click <span class="GUI_Item">Import</span>.</li>
+            <li class="NumberedList" value="3">On the Select File to Import window, click <span class="GUI_Item">Browse</span> and locate the audit settings file, and then click <span class="GUI_Item">Open</span>.</li>
+            <li class="NumberedList" value="4">Click <span class="GUI_Item">Next</span>.</li>
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1"><span class="If_Then_Statement">If you want to audit events at the server level as well as events initiated by privileged users</span>, select these import options.</li>
+                <li class="Bullet" value="2"><span class="If_Then_Statement">If you want to audit events at the database level</span>, click <span class="GUI_Item">Database Audit Settings</span>, and then select the database you want to use as your baseline or template. </li>
+            </ul>
+            <li class="NumberedList" value="5">On the Target Servers window, select the registered SQL Server instances to which you want to apply the selected audit settings, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList" value="6">On the Import Audit Settings window, select the audit settings you want to import, and then click <span class="GUI_Item">Next</span><span class="GUIItem_1">.</span></li>
+            <li class="NumberedList" value="7">On the Target Databases window, select the audited databases to which you want to apply the selected audit settings, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList" value="8">On the Summary window, choose whether you want your imported audit settings to overwrite the settings on the target SQL Server instances and databases or be added to the settings already present. Click <span class="GUI_Item">Finish</span> to import your audit settings.</li>
+        </ol>
+        <h2 class="Heading2">Auditing regulated applications across your environment</h2>
+        <p class="Body">You can import previously configured audit settings to ensure all SQL Server databases used by regulated applications, such as SAP, are being audited consistently and are held to the same level of compliance.</p>
+        <p class="StepIntro">To audit regulatory applications across your environment:</p>
+        <ol>
+            <li class="NumberedList" value="1">Navigate to <span class="GUI_Item">Registered SQL Servers</span> in the <span class="GUI_Item">Administration </span>tree.</li>
+            <li class="NumberedList" value="2">On the Registered SQL Servers tab, click <span class="GUI_Item">Import</span>.</li>
+            <li class="NumberedList" value="3">On the Select File to Import window, click <span class="GUI_Item">Browse</span> and locate the audit settings file, and then click <span class="GUI_Item">Open</span>.</li>
+            <li class="NumberedList" value="4">Click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList" value="5">On the Import Audit Settings window, specify which databases have been configured with the audit settings you want to import. Complete the following steps:<ol style="list-style-type: lower-alpha;"><li class="NumberedList" value="1">Click <span class="GUI_Item">Database Audit Settings</span>, and then select the<span class="GUI_Item"> Only import for matching database names</span> option.</li><li class="NumberedList" value="2">Select the databases whose audit settings you want to apply.</li><li class="NumberedList" value="3"><span class="If_Then_Statement">If you </span><span class="If_Then_Statement">also </span><span class="If_Then_Statement">want to audit events at the server level as well as events initiated by privileged users</span>, select these options, and then click <span class="GUI_Item">Next</span>.</li></ol></li>
+            <li class="NumberedList" value="6">On the Target Servers window, select the audited SQL Server instances you want to apply the audit settings to from the list, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList" value="7">On the Target Databases window, ensure the target database list matches the database names you specified to match. Select the audited databases to which you want to apply the imported audit settings, and then click <span class="GUIItem_1"><span class="GUI_Item">Next</span></span>. </li>
+            <li class="NumberedList" value="8">On the Summary window, select whether you want your imported audit settings to overwrite the settings on the target SQL Server instances and databases or added to the settings already present. Click <span class="GUI_Item">Finish</span> to import your audit settings.</li>
+        </ol>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> <![CDATA[ ]]></p>
+    </body>
+</html>

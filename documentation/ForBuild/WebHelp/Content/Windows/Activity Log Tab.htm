@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Management Console User Interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Activity Log Tab</title>
+        <link href="../Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">Activity Log Tab</h1>
+        <p class="Body" data-mc-conditions=""><a name="kanchor135"></a>This tab lists events and alerts initiated by the SQL&#160;Compliance Manager components, allowing you to monitor SQL CM operations and diagnose issues. </p>
+        <h2 class="Heading2" data-mc-conditions="">Available actions</h2>
+        <p class="DefinitionListTerm">View activity details</p>
+        <p class="DefinitionListBody">To view detailed information about a particular event, double-click the event entry in the Activity Log.</p>
+        <p class="DefinitionListTerm">View system alerts</p>
+        <p class="DefinitionListBody">To view detailed information about a system alert, double-click the event entry in the Activity Log.</p>
+        <p class="DefinitionListBodyLast">SQL&#160;compliance manager generates the following types of system alerts.</p>
+        <table style="mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">System Alert</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Caused by ...</p>
+                    </th>
+                    <th class="HeadD-Column1-Header1">
+                        <p class="TableHeadRow">Resolves when ...</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Agent Configuration Error</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1" style="padding: 0px;">
+                        <table style="mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+                            <col class="Column-Column1" />
+                            <tbody>
+                                <tr class="Body-Body1">
+                                    <td class="BodyD-Column1-Body1">
+                                        <p class="TableText">Error saving the SQL compliance Agent configuration file (.bin)</p>
+                                    </td>
+                                </tr>
+                                <tr class="Body-Body1">
+                                    <td class="BodyA-Column1-Body1">
+                                        <p class="TableText">Error loading the new configuration</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td class="BodyD-Column1-Body1" style="padding: 0px;">
+                        <table style="mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+                            <col class="Column-Column1" />
+                            <tbody>
+                                <tr class="Body-Body1">
+                                    <td class="BodyD-Column1-Body1">
+                                        <p class="TableText">File is successfully saved</p>
+                                    </td>
+                                </tr>
+                                <tr class="Body-Body1">
+                                    <td class="BodyA-Column1-Body1">
+                                        <p class="TableText">SQL&#160;compliance Agent configuration is successfully updated</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Collection Service Connection Error</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Collection Server is offline or the SQL&#160;Server instance hosting the Repository is offline</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Connection to the collection service is established</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">CLR Error</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Error when enabling CLR, creating or modifying the before-after data trigger, or performing a health check               </p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">SQL compliance Agent configuration update or health check is successful</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Server Connection Error</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Error when connecting to the audited instances, due to invalid permissions or the SQL&#160;Server instance being offline</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Connection is established</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">SQL Trace Error</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Error when starting or stopping the audit traces </p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Audit traces are started or stopped</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Trace Directory Error</p>
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">Error when creating trace directory or when reaching the maximum  size allocated for the trace directory</p>
+                    </td>
+                    <td class="BodyA-Column1-Body1">
+                        <p class="TableText">Trace directory is created or the trace files are transferred to the Collection Server for processing</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="DefinitionListTerm">Page through activities</p>
+        <p class="DefinitionListBody">Allows you to page through the list of activities. Use the previous and next arrows to navigate from page to page, up and down the list.</p>
+        <p class="DefinitionListTerm">Filters</p>
+        <p class="DefinitionListBody">Allows you to filter the listed activities by time span (for example, last seven days).</p>
+        <p class="DefinitionListTerm">Enable Groups</p>
+        <p class="DefinitionListBody">Allows you to group activities by a specific property, such as the computers on which the activities occurred or the times the activities occurred. Enable groups when you want to sort the activities or focus on a particular activity attribute.</p>
+        <p class="DefinitionListTerm">Refresh</p>
+        <p class="DefinitionListBody">Allows you to update the activity list with current data.</p>
+        <h2 class="Heading2">Available columns</h2>
+        <p class="DefinitionListTerm">Date</p>
+        <p class="DefinitionListBody">Provides the date that the event occurred.</p>
+        <p class="DefinitionListTerm">Time</p>
+        <p class="DefinitionListBody">Provides the time that the event occurred. </p>
+        <p class="DefinitionListTerm">SQL Server&#160;</p>
+        <p class="DefinitionListBody">Provides the name of the SQL Server instance, using the format <code class="Code_1_1">SQLServerName\InstanceName</code>.</p>
+        <p class="DefinitionListTerm">Event</p>
+        <p class="DefinitionListBody">Provides the type of event that occurred.</p>
+        <p class="DefinitionListTerm">Details</p>
+        <p class="DefinitionListBody">Displays the first line of the event details.</p>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="../Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">  <![CDATA[ ]]></p>
+    </body>
+</html>

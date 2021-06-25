@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="5" MadCap:lastHeight="537" MadCap:lastWidth="932">
+    <head><title>Available Login Permissions</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Available login permissions</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Available login permissions</h2>
+        <p class="Body">
+            <MadCap:keyword term="permissions;security:permissions;logins:permissions;security:logins" />SQL&#160;Compliance&#160;Manager permissions allow a user to access specific SQL&#160;CM features. When you assign a SQL&#160;CM permission, SQL&#160;Compliance&#160;Manager applies specific SQL Server privileges to the login.</p>
+        <p class="Body">SQL&#160;Compliance&#160;Manager provides the following levels of permission:</p>
+        <p class="DefinitionListTerm">Can configure SQL&#160;Compliance&#160;Manager settings and view audit data</p>
+        <p class="DefinitionListBody">Allows the selected login to perform any administrative task in the Management Console. </p>
+        <p class="DefinitionListBody">Administrative tasks include:</p>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet">Configuring audit settings and event filters</li>
+            </ul>
+        </ul>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet">Managing alerts</li>
+            </ul>
+        </ul>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet">Managing logins</li>
+            </ul>
+        </ul>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet">Monitoring SQL&#160;CM activities</li>
+            </ul>
+        </ul>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet">Archiving and grooming audit data</li>
+                <li class="Bullet">Enabling auditing on SQL Servers and databases</li>
+            </ul>
+        </ul>
+        <p class="DefinitionListTerm">Logins with this permission can also view and report on audit data.</p>
+        <p class="DefinitionListBody">When you assign this permission, SQL&#160;CM grants the System Administrators role to the selected login. This role is granted on the SQL Server instance that hosts the Repository databases, applying this role along side any default permission settings.</p>
+        <p class="DefinitionListTerm">Can view and report on audit data</p>
+        <p class="DefinitionListBody">Allows the selected login to view and report on audited data using the Management Console. When you assign this permission, SQL&#160;CM grants read privileges to the selected login. These privileges are granted on the SQL Server instance that hosts the Repository databases, applying these privileges along side any default permission settings.</p>
+    </body>
+</html>

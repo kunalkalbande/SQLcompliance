@@ -1,0 +1,6 @@
+<zk>
+	<config-name>sqlcm-configuration</config-name>
+	<language-config>
+		<addon-uri>metainfo/zk/lang-addon-sqlcm.xml</addon-uri>
+	</language-config>
+</zk>

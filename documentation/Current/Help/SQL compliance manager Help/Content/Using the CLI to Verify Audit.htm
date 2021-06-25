@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="3" MadCap:lastHeight="265" MadCap:lastWidth="844">
+    <head><title>Using the CLI to Verify Audit Data Integrity</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Use the CLI to verify audit data integrity</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Use the CLI to verify audit data integrity</h2>
+        <p class="Body">
+            <MadCap:keyword term="integrity check:using CLI;CLI:check integrity;CLI:examples;CLI:usage" />You can use the command line interface to verify and resolve the integrity of audited events for a specific registered SQL Server instance.</p>
+        <p class="Body">The <code class="Code">checkintegrity</code> operation supports the following syntax:</p>
+        <p class="DefinitionListBody"><code class="Code_1_1">SQLcmCmd [-host CollectionServer] [-port number] checkintegrity instance [-fixintegrity]</code>
+        </p>
+        <p class="Body">For example, to verify the integrity of audited events for the <code>test01\STD_SQL_2005</code> registered instance, use the following command:</p>
+        <p class="DefinitionListBody"><code class="Code_1_1">SQLcmCmd –host TEST01 –port 5201 checkintegrity TEST01\STD_SQL_2005</code>
+        </p>
+    </body>
+</html>

@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/background.png</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/HelpSplash_left.png</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/HelpSplash_right.png</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/idera.gif</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Preserve Repository.bmp</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/product.png</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Splash_back.png</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Images/Archit-1.jpg</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Images/background.png</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Images/checked.jpg</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Images/ChklistBoxChecked.png</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Images/ChklistBoxClear.png</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Images/HelpSplash_left.png</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Images/HelpSplash_right.png</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Images/Idera.gif</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Images/pdficon_small.gif</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Images/product.png</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Images/Splash_back.png</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Images/Thumbs.db</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Stylesheets/Idera Stylesheet.css</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/MasterPages/NewPage.flmsp</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/MasterPages/Splash Page.flmsp</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/Stylesheets/splash.css</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/TableStyles/banner.css</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/TableStyles/Idera Table Stylesheet.css</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/TableStyles/Tip Style.css</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Resources/TableStyles/Tip.css</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Access RN.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Getting Started.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Upgrading SQL compliance manager.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Upgrade Components.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Upgrade License.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Upgrade SQLcompliance Agent.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Upgrading 4-0 and older.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Start Help.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/What Is CM.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/How SQLcm Helps You.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Find Answers.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Contacting Idera.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Document Conventions.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Help System.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/About Idera.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Idera Products.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Legal Notice.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Install and Deploy SQLcm.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Architecture and Components.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Hardware Requirements.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Permissions Requirements.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Port Requirements.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Software Requirements.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Implementation Scenarios.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Implementation Considerations.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Identify Audit Data Volume.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Install Collection Server.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Optimize Model Settings.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Optimize tempdb Settings.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Preserve Audit Data Using.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Include Repository Databases.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Installing SQL compliance.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Deploying SQLcm in a Clustered Environment.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows Server 2003 Clustered Environment.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows Server 2008 Clustered Environment.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows Server 2012 Clustered Environment.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Configure Deployment.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Checking the Product Version.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Checking the SQL Server Version.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Exporting Your Audit Settings.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Importing Your Audit Settings.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Managing the SQLcm Agent.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/How Agent Works.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/SQLcompliance Agent Compatibility.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Deploying Agent Manually.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Deploying Agent Remotely.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Upgrading Agent Locally.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Upgrading Agent Remotely.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Ensuring Current Audit Settings.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Checking Trace File Integrity.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Checking Agent Status.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Checking Agent Version.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Configuring How the SQLcompliance.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Licensing.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/How Licensing Works.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Upgrading Your License.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Registering Your SQL Servers.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Auditing SQL Server Events.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/How Auditing Works.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Understanding Audit Collection.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/SQL Server Events You Audit.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Understanding Database Audit.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Understanding Server Audit.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Understanding User Defined.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Comply with specific regulations.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using Audit Snapshots.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Capturing an Audit Snapshot.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Scheduling an Audit Snapshot.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Viewing the Audit Snapshot.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Controlling Access to Audit.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Enabling Auditing on a Database.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Enabling Auditing on a Server.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using Event Filters.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/How Event Filters Work.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Creating an Event Filter.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using an Event Filter as a Template.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Exporting Your Event Filters.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Importing Your Event Filters.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Changing Audit Type Exclude.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Enabling an Event Filter.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Disabling an Event Filter.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Disabling Auditing on a Database.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Disabling Auditing on a Server.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Fine Tuning Your Audit Settings.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Monitoring SQLcompliance Activities.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Reducing Audit Data Optimize Perf.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Understanding Self Auditing.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Testing Your Audit Settings.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Verifying Audit Data Integrity.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Viewing Audit Data.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using Custom Views.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Viewing Your Activity Summary.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Alerting on Audit Data.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using Alerts to Analyze Audit Data.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/How Alerting Works.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Creating an Alert Rule.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Changing Audit Type Trigger.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Viewing the Event that Triggered Alert.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Use Status Alerts.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/How Status Alerts Work.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Create Status Alert.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Use Data Alerts.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/How Data Alerts Work.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Create Data Alert.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Changing the Action an Alert.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Disabling Alerting.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Enabling Alerting.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Exporting Your Alert Rules.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Grooming Alerts Concept.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Importing Your Alert Rules.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Receiving Alerts through Email.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Reporting on Alerts.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using an Alert Rule as a Template.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Viewing Alerts.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Securing Audit Data.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/How Console Security Works.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Security and Existing Logins.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Security and Login Permissions.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Understanding Default Permissions.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Implementing Logins.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Available Login Permissions.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Creating a Login.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Assigning Permissions Login.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Reporting on Audit Data.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/How Reports Work.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Available Reports.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Customizing Reports.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Generating Reports Console.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Generating Reports MSRS.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Reporting Services Requirements.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Deploying Reports to Microsoft.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Testing Deployment.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Change RS Data Source.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using Reports to Analyze Trends.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using Reports to Establish Compliance.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using Report Cards to Track.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Managing Audit Data.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/How Archives Work.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/How Grooming Works.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Archiving Events.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using the Management Console to Archive Events.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using the CLI to Archive Events.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Attaching Archives.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Automating Audit Data Management.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Grooming Alerts Task.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Grooming Audit Data.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using the Management Consol to Groom Events.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using the CLI to Groom Events.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Maintaining the Repository.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Backing Up Event Databases.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Backing Up and Restoring Archive.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Changing the Repository Recovery.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Restoring Event Databases.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Upgrading Your Archive Databases.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Using the CLI to Verify Audit.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Management Console User Interface.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Activity Log Properties Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Activity Log Tab.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Add Privileged Users Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Add User Tables Window BAD.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Add User Tables Window DML.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Add User Tables Window SC.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Alert Message Template Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Alert Rules Tab.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Archive Audit Data Now Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Archive Preferences Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Archive Properties Default Permissions.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Archive Properties General.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Archived Events Tab.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Attach Archive Database Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Audit Events Tab.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Audit Reports.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Audit Snapshot Preferences.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Database Properties Activities.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Database Properties BAD.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Database Properties DML Select.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Database Properties General.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Database Properties Sensitive Columns.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Database Properties Trusted Users.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Capture Audit Snapshot Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Change Log Properties Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Change Log Tab.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Check Repository Integrity.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Collection Server Status Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Add Databases.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Add Server.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Apply Regulation.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Audit Level.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Database Audit Settings.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Default Permissions.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard DML and Select.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Enforce Regulation Guidelines.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Existing Audit Data.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Incomplete Database.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard License Limit.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Privileged Users.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Privileged Users Activity.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Regulation Details.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Sensitive Columns.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Server Audit Settings.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard SQLServer Cluster.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard SQLcompliance Agent Deployment.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Agent Service Account.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Trace Directory.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Summary.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configuration Wizard Trusted Users.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configure Email Settings Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configure Repository Databases.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configure Repository Recovery Model.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Configure Table Auditing Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Connect to Repository Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Console Preferences Alert Views.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Console Preferences Event Views.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Data Alerts Tab.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Deploy Agent Wizard Service Account.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Deploy Agent Wizard Summary.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Deploy Agent Wizard Trace Directory.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Deploy Reports Wizard Connect.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Deploy Reports Wizard Location.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Deploy Reports Wizard Repository.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Deploy Reports Wizard Summary.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Deploy Reports Wizard Welcome.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Data Alert Rule Wizard Actions.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Data Alert Rule Wizard Type.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Data Alert Rule Wizard Finish.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Data Alert Rule Wizard Object.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Alert Rule Wizard Event Filters.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Alert Rule Wizard Alert Actions.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Alert Rule Wizard Finish.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Alert Rule Wizard Event Type.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Alert Rule Wizard Object Type.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Event Filter Wizard Finish.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Event Filter Wizard Event Object.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Event Filter Wizard Event Source.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Event Filter Wizard Event Type.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Status Alert Wizard Actions.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Status Alert Wizard Finish.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Edit Status Alert Wizard Type.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Alerts Tab.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Event Filters Tab.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Event Properties Window Data.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Event Properties Window Details.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Event Properties Window General.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Explore Activity Audited SQL Servers Summary.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Explore Activity Database.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Explore Activity Instance.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Groom Alerts Now Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Groom Audit Data Now Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Import Audit Settings Import.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Import Audit Settings Select.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Import Audit Settings Summary.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Import Audit Settings Target Databases.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Import Audit Settings Target Servers.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Integrity Check Results Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Login Filtering Options Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Login Properties Window Database.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Login Properties Window General.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Manage Lincenses Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Data Alert Rule Wizard Actions.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Data Alert Rule Wizard Type.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Data Alert Rule Wizard Finish.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Data Alert Rule Wizard Object.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Alert Rule Wizard Event Filters.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Alert Rule Wizard Actions.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Alert Rule Wizard Finish.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Alert Rule Wizard Event Type.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Alert Rule Wizard Object Type.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Event Filter Wizard Finish.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Event Filter Wizard Event Source.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Event Filter Wizard Event Type.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Event Filter Wizard Object Type.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New SQL Server Login Wizard Permissions.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New SQL Server Login Wizard Authentication.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New SQL Server Login Wizard Summary.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Status Alert Wizard Actions.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Status Alert Wizard Finish.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/New Status Alert Wizard Type.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Registered SQL Server Properties Advanced.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Registered SQL Server Properties Audited Activities.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Registered SQL Server Properties Auditing Thresholds.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Registered SQL Server Properties General.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Registered SQL Server Properties Privileged User.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Registered SQL Servers Tab.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Select SQL Server Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Set Maintenance Schedule Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Specify Addresses Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Specify Alert Criteria Windows.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Specify Event Filter Criteria.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/SQL Logins Tab.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/SQLcompliance Agent Properties Deployment.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/SQLcompliance Agent Properties General.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/SQLcompliance Agent Properties Servers.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/SQLcompliance Agent Properties Trace Options.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/SQLcompliance Agent Trace.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Status Alerts Tab.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Update Indexes Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Cluster Configuration Console UI.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Add Agent Service Collection Server.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Add Agent Service General.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Add Agent Service Account.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Add Agent Service Trace Directory.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Add Agent Service CLR Directory.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Add Agent Service Summary.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Cluster Configuration Console Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/SQLcompliance Agent Details.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Windows/Specify CLR Trigger Directory Window.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Upgrade Environment SS.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Upgrade Collection Server SS.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Deploy Second SQLcm.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Migrate Collection Server.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Prepare Migration.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Restore Repository Databases.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Deploy Migrated Collection Server.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Configure Agent Connection.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Audit Virtual Instance.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Deploy Agent Cluster.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Add SQLcompliance Agent Service.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Register SQLcompliance Agent with Cluster.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Start Auditing Virtual SQL Server.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Stop Auditing Virtual SQL Server.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/PDF1.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Configure Auditing Thresholds.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Console Reports.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/FIPS Compliance.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Microsoft Reporting Services.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Understanding Reports.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Understanding the Audit Process.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Content/Understanding the Console.htm</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Default.mcwebhelp</loc>
+    </url>
+    <url>
+        <loc>http://www.idera.com/Help/SQLsafe/8-0/Web/Default.htm</loc>
+    </url>
+</urlset>

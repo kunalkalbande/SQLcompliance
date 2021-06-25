@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Audit a Virtual SQL Server Instance">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Register the SQLcompliance Agent Service</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1">Register the SQLcompliance Agent Service</h1>
+        <p class="Body">Registering the SQLcompliance Agent Service with the Microsoft Cluster Administrator allows the Microsoft Cluster Service to manage the SQLcompliance Agent Service in failover situations. This configuration ensures the SQL trace continues to be audited during a failover and no audit data is lost. 
+</p>
+        <p class="Body">Complete the following procedure on one cluster node hosting the virtual SQL Server instance. You can perform this task on the currently active node or on any passive node in the same cluster. The Microsoft Cluster Administrator tool replicates your completed configuration to the remaining nodes in the cluster.</p>
+        <p class="StepIntro">To register the SQLcompliance Agent Service:</p>
+        <ol>
+            <li class="NumberedList" value="1">Log on to the cluster node using an administrator account.</li>
+            <li class="NumberedList" value="2"><span class="If_Then_Statement">If this is a Windows Server 2003 cluster</span>, start the Microsoft Cluster Administrator tool.<span class="If_Then_Statement"> If this is a Windows 2008 or later cluster</span>, start the Microsoft Failover Cluster Administrator tool.</li>
+            <li class="NumberedList" value="3">Add the SQLcompliance Agent Service as a generic service.</li>
+            <p class="BodyIndent">Specify the following dependencies:</p>
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1">Disk where the SQLcompliance Agent trace directory is located</li>
+                <li class="Bullet" value="2">SQL network name</li>
+                <li class="BulletLast" value="3">SQL Server</li>
+            </ul>
+            <p class="BodyIndent">Specify the following generic service permissions:</p>
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1">Specify a friendly name for the generic service.</li>
+                <li class="Bullet" value="2">Specify the name of the SQLcompliance Agent Service (as displayed in the Services Manager tool), but leave the parameters unspecified. Use the <a href="Windows/SQLcompliance Agent Details.htm" target="_self">SQLcompliance Agent Details window</a> in the Cluster Configuration Console to copy the service name to your clipboard. Paste the name in the provided field.</li>
+                <li class="Bullet" value="3">Clear the start parameter setting.</li>
+                <li class="BulletLast" value="4">Select to use the network name.</li>
+            </ul>
+            <p class="Body">Agree to replicate registry entries, and then specify the registry key for the SQLcompliance Agent Service. Use the <a href="Windows/SQLcompliance Agent Details.htm" target="_self">SQLcompliance Agent Details window</a> in the Cluster Configuration Console to copy the registry key path to your clipboard. Paste the name in the provided field.</p>
+            <li class="NumberedList" value="4">Bring the generic service online.</li>
+            <li class="NumberedList" value="5">Verify that the SQLcompliance Agent is running on the active cluster node.</li>
+        </ol>
+        <p class="Body">&#160;</p>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> </p>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<idera-cwf-dialog closable="true" border="none" height="224px" width="530px"
+	apply="com.idera.sqlcm.ui.dialogs.WelcomeDialogComposer"
+	contentSclass="modal-dialog-window margin-all-0 padding-all-0"
+	style="border-radius: 0" id="welcomeDialog">
+
+	<vlayout>
+		<div hflex="1"  height="8px" />
+		<vlayout style="margin: 10px">
+			<separator height="4px" />
+			<hbox width="100%">
+				<label
+					value="${idera:getLabel('SQLCM.Labels.welcome-dialog-message')}"
+					multiline="true" />
+			</hbox>
+			<separator height="10px" />
+			<hbox width="100%">
+				<label
+					value="${idera:getLabel('SQLCM.Labels.welcome-dialog-see-more')}" />
+			</hbox>
+			<separator height="10px" />
+			<hbox width="100%">
+				<a href="${idera:getLabel('SQLCM.Labels.welcome-dialog-help-link')}"
+					target="_blank"
+					label="${idera:getLabel('SQLCM.Labels.welcome-dialog-help-message')}"
+					sclass="action-link" />
+			</hbox>
+			<separator height="10px" />
+		</vlayout>
+
+		<hlayout>
+			<div hflex="1" />
+			<div hflex="min" align="center">
+				<idera-cwf-button id="closeButton"
+					label="${idera:getLabel('SQLCM.Labels.ok')}"
+					sclass="orange-text-light-gray-button" />
+			</div>
+			<separator height="10px" />
+		</hlayout>
+	</vlayout>
+
+</idera-cwf-dialog>

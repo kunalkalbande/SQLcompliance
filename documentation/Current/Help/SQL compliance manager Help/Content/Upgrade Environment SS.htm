@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="433" MadCap:lastWidth="945">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Upgrade SQL Server in Your Audited Environment</h1>
+        <p class="Body">
+            <MadCap:keyword term="Collection Server:upgrade SQL Server;SQL Server:upgrade on Collection Server;upgrade:SQL Server on Collection Server" />You can choose one of the following SQL&#160;Compliance Manager upgrade strategies. Each strategy meets different goals and auditing needs. Before choosing a strategy, review how you intend to deploy a newer version of SQL Server in your audited environment.</p>
+        <h2 class="Heading2">How to use your current installation</h2>
+        <p class="Body">Allows you to use your current SQL Compliance Manager installation to audit instances running on multiple versions of SQL&#160;Server at the same time in a single environment. This strategy supports a heterogeneous environment and provides a seamless approach to upgrading. As you deploy SQL Server to production servers, you can upgrade the SQLcompliance Agent to support SQL Server 2005 or later event collection.</p>
+        <p class="Body">However, you will need to stop auditing SQL Server events during the time required to upgrade the Collection Server and Repository databases to the new SQL Server version. To prevent potential audit data loss, upgrade the Collection Server and Repository databases during off-hours or other times when there is little or no SQL Server activity.</p>
+        <h2 class="Heading2">How to deploy a second installation</h2>
+        <p class="Body">Allows you to audit separate homogeneous environments of SQL Server instances, such as a SQL Server 2005 environment and a SQL Server 2008 environment. This strategy requires two installations of SQL Compliance Manager, one in each environment. You can also use this strategy to perform test auditing of SQL Server instances before you deploy the latest SQL Server version on production servers.</p>
+        <p class="Body">Although you can continue auditing your current environment as you deploy the second SQL Compliance Manager installation, you may want to move your audit settings to the new Repository.</p>
+    </body>
+</html>

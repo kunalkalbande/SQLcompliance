@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="7" MadCap:lastHeight="516" MadCap:lastWidth="906">
+    <head><title>Archive Preferences Window</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Archive Preferences Window</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Archive Preferences Window</h2>
+        <p class="Body">This window allows you to set the age at which audited events are archived, and configure how the archive databases are partitioned and named. You can continue to report on all audited events that you archive. SQL Compliance Manager uses these settings each time you archive audited events collected for a registered SQL Server instance.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">Archive Options</p>
+        <p class="DefinitionListBody">Allows you to configure the following options to control which audit data is archived:</p>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet">How old events must be before they are moved to an archive database.</li>
+                <li class="BulletLast">Which time zone the Collection Server uses to determine when to partition an archive database</li>
+            </ul>
+        </ul>
+        <p class="DefinitionListBody">You can also skip the integrity check SQL CM usually performs before archiving your collected events. <span class="If_Then_Statement">If the audit data for the selected SQL Server instance fails this integrity check</span>, SQL CM does not archive the data. </p>
+        <p class="DefinitionListTerm">Archive Database Creation</p>
+        <p class="DefinitionListBody">Allows you to configure the following options to control how the archive database is created:</p>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet">How often the archive database is partitioned (by month, quarter, or year)</li>
+                <li class="BulletLast">Naming conventions for the archive databases</li>
+            </ul>
+        </ul>
+        <p class="DefinitionListBody">By default, the Collection Server creates a new archive database at midnight (GMT) when the specified time period (month, quarter, year) ends. For example, if you set archive creation to occur every month, the Collection Server creates a new archive database at midnight on the first day of each month. Each archive database represents a separate data set. You can report on audited events from each archive database.</p>
+    </body>
+</html>

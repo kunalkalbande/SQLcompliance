@@ -1,0 +1,93 @@
+<!-- Start SQLCm-5.4 
+	Requirement - 4.1.4.1. 
+-->
+<zk>
+	<div hflex="1" vflex="1" style="vertical-align:middle;"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.importAuditSetting.ImportAuditSelectSetting')">
+		<style>
+			tr.z-row td.z-row-inner, tr.z-row .z-cell{ border: none
+			!important; background-image : none !important;
+			background-color: white; }
+		</style>
+		<vlayout vflex="1">
+			<vlayout>
+				<label style = "font-weight:600"
+					value="${idera:getLabel('SQLCM.Labels.select-audit-file-text-next')}" />
+					<separator spacing="10px" />
+				<hlayout>
+					<groupbox width="595px" height="435px"
+						style="background-color:white">
+						<hlayout>
+							<label style = "font-weight:600"
+								value="${idera:getLabel('SQLCM.Labels.select-audit-setting-to-import')}" />
+							<separator height="10px;"/>
+						</hlayout>
+						<hlayout>
+						<grid hflex="1">
+							<columns>
+								<column hflex="min"></column>
+								<column hflex="min"></column>
+							</columns>
+							<rows>
+								<row style="backgroud-image:none !important">
+								<idera-cwf-checkbox
+									id="serverLevelConfig"
+									onCheck="@command('serverLevelConfigcheck')"
+									label="${idera:getLabel('SQLCM.Labels.select-server-audit-setting')}">
+								</idera-cwf-checkbox>
+								<idera-cwf-checkbox id="privUserConfig"
+								onCheck="@command('privUserConfigcheck')"
+								label="${idera:getLabel('SQLCM.Labels.server-privileged-audit-setting')}">
+								</idera-cwf-checkbox>
+								</row>
+								<row style="backgroud-image:none !important">
+								<idera-cwf-checkbox id="database"
+									onCheck="@command('databasecheck')"
+									label="${idera:getLabel('SQLCM.Labels.select-db-audit-setting')}">
+								</idera-cwf-checkbox>
+								<idera-cwf-checkbox
+									id="databasePrivUser"
+									onCheck="@command('databasePrivUsercheck')"
+									label="${idera:getLabel('SQLCM.Labels.db-privileged-audit-setting')}">
+								</idera-cwf-checkbox>
+								</row>
+							</rows>
+						</grid>
+						</hlayout>
+						<vlayout style="padding-left: .5rem;">
+						<idera-cwf-checkbox
+							id="matchDBNames" onCheck="@command('matchdbNamesCheck')"
+							label="${idera:getLabel('SQLCM.Labels.import-for-matching-database')}">
+						</idera-cwf-checkbox>
+						</vlayout>
+						<separator spacing="10px" />
+						<hlayout spacing="20px"
+							style="padding-left: 45px;">
+							<label style = "font-weight:600"
+								value="${idera:getLabel('SQLCM.Labels.select-db-setting-to-import')}" />
+						</hlayout>
+						<separator spacing="10px" />
+						<hlayout spacing="20px"
+							style="padding-left: 45px;">
+							<style>
+								div.z-listbox-body .z-listcell { height: 30px !important; }
+							</style>
+							<div id="dbDetailsShow" width="450px">
+								<idera-cwf-listbox rows="6" id="dbName"
+									sclass="idera-grid z-listbox"  width="432px">
+									<template name="model">
+										<listitem label="${each.dbName}"
+											disabled="${dbName.disabled}">
+										</listitem>
+									</template>
+								</idera-cwf-listbox>
+							</div>
+						</hlayout>
+					</groupbox>
+				</hlayout>
+			</vlayout>
+		</vlayout>
+
+	</div>
+</zk>

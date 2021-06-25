@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="425" MadCap:lastWidth="1185">
+    <head><title>Changing the Type of Audit Data that Triggers an Alert</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Changing which event triggers the alert</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Changing which event triggers the alert</h2>
+        <p class="Body">
+            <MadCap:keyword term="alerting:triggers;alerting:change trigger">
+            </MadCap:keyword>Based on the criteria defined in your alert rules, SQL&#160;Compliance&#160;Manager generates alerts against your audit data stream for events that occur on a specified SQL Server instance, database, or database object. <span class="If_Then_Statement">If a SQL Server instance, database, or database object is not specified</span>, the alert rule criteria is applied against all audit data collected from your SQL Server environment.</p>
+        <p class="Body">You can change the type of audit data that triggers an alert. For example, you can alert on a different event type or a different database. You can also copy an existing alert rule and use it as a template to create a new rule. For more information, see <a href="Using an Alert Rule as a Template.htm" target="_self">Using an alert rule as a template</a>.</p>
+        <p class="StepIntro">To change the type of audit data that triggers an alert:</p>
+        <ol>
+            <li class="NumberedList">Select <span class="GUI_Item">Alert Rules</span> in the <span class="GUI_Item">Administration </span>tree.</li>
+            <li class="NumberedList">Right-click the rule for the alert you want to change, and then select <span class="GUI_Item">Properties</span> on the context menu.</li>
+            <li class="NumberedList">On the SQL Server Event Type window, select the type of event (event category) that you want to alert on, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">On the SQL Server Object Type window, select the type of object you want to alert on for the selected event type, and then click <span class="GUI_Item">Next</span>. By default, the alert rule will generate an alert when the selected event occurs on any registered SQL Server instance, database, or database object. Use the links provided on the rule details pane to narrow your alert rule to specific objects or objects that match a naming convention.</li>
+            <li class="NumberedList">On the Additional Event Filters window, define the criteria under which the alert should trigger. Use the criteria to narrow your alert rule to generate alerts only under specific conditions. To specify values that the event should match, use the links provided on the rule details pane.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Finish</span>.</li>
+        </ol>
+    </body>
+</html>

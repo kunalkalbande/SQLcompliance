@@ -1,0 +1,72 @@
+<idera-cwf-dialog id="importSqlServers" closable="true" border="none" height="550px" width="750px" apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.ImportSqlServersViewModel')" style="border-radius: 0"
+        title="${idera:getLabel('SQLCM.Labels.import-instances')}">
+        
+        
+    <hlayout height="500px" width="690px" spacing="0">
+ 
+        <div hflex="1">
+          
+
+            <separator height="15px"/>
+
+            <vlayout>
+                <hbox sclass="padding-lr-8" hflex="1">
+                    <cell align="left" hflex="1" valign="middle">
+                        <label value="${idera:getLabel('SQLCM.Labels.upload-csv-file')}"/>
+                    </cell>
+                    <script>
+                        jq.alert = function (msg, opts) {
+                            zAu.send(new zk.Event(zk.Widget.$(jq('$windowComponent')[0]), 'onErrorMessage', msg));
+                        }
+                    </script>
+                    <cell align="right" hflex="1" valign="middle">
+                        <button id="uploadButton" sclass="idera-button-primary" width="85px"
+                                upload="true"
+                                style="float:right;font-weight:bold;color:#473E2E !important;"
+                                label="${idera:getUpperCaseLabel('SQLCM.Labels.upload')}"
+                                onUpload="@command('uploadFile')"/>
+                    </cell>
+                </hbox>
+
+                <separator height="8px"/>
+
+                <label sclass="padding-lr-8" value="${idera:getLabel('SQLCM.Labels.select-instances-to-import')}"/>
+
+                <div sclass="padding-lr-16" height="330px" width="660px">
+                    <idera-cwf-listbox model="@load(vm.importInstanceListModel)" sclass="idera-grid z-listbox" width="660px"
+                             checkmark="true" multiple="true" vflex="1" visible="@load(vm.showListBox)"
+                             onSelect="@command('checkImportButtonState')">
+                        <listhead hflex="1">
+                            <listheader hflex="1" label="${idera:getLabel('SQLCM.Labels.instance.name')}"/>
+                        </listhead>
+                        <template name="model">
+                            <listitem sclass="label" onClick="@command('checkImportButtonState')">
+                                <listcell label="@load(each)" />
+                            </listitem>
+                        </template>
+                    </idera-cwf-listbox>
+                </div>
+
+                
+
+                <hlayout>
+                    <div hflex="1"/>
+
+                    <idera-cwf-button sclass="white-text-dark-gray-button" width="85px"
+                            visible="${sqlcm:canAccess()}" disabled="@load(vm.disabledImport)"
+                            onClick="@command('importInstances', comp=importSqlServers)"
+                            label="${idera:getLabel('SQLCM.Labels.import')}"/>
+
+                    <div sclass="padding-r-10">
+                        <idera-cwf-button id="cancelButton" sclass="white-text-dark-gray-button" width="85px"
+                                visible="${sqlcm:canAccess()}"
+                                onClick="@command('closeDialog', comp=importSqlServers)"
+                                label="${idera:getLabel('Labels.sql-cm.instance-properties-dialog-cancel-button')}"/>
+                    </div>
+                </hlayout>
+            </vlayout>
+        </div>
+    </hlayout>
+
+</idera-cwf-dialog>

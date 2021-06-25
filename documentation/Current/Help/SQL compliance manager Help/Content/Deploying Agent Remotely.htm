@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="436" MadCap:lastWidth="945">
+    <head><title>Deploying the SQLcompliance Agent through the Management Console</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Deploy the SQLcompliance Agent remotely</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Deploy the SQLcompliance Agent&#160;remotely</h2>
+        <p class="Body">
+            <MadCap:keyword term="SQLcompliance Agent:deploy with console" />You can deploy the SQLcompliance Agent to a registered SQL Server instance using the Management Console. Deploying the agent allows you to begin auditing server and database activity on the selected SQL Server instance.</p>
+        <p class="Body"><span class="If_Then_Statement">If you want to audit a virtual SQL Server</span>, you must manually deploy the SQLcompliance Agent to each cluster node hosting the server. Use the Cluster Configuration Console to deploy and configure the SQLcompliance Agent. For more information about installing and configuring the SQLcompliance Agent for a virtual SQL Server, see <a href="Audit Virtual Instance.htm" target="_self">How to audit a virtual&#160;SQL&#160;Server instance</a>.</p>
+        <p class="Body"><span class="If_Then_Statement">If you want to audit a SQL Server instance hosted by a computer that belongs to a non-trusted domain or a workgroup</span>, you must manually deploy the SQLcompliance Agent to the host computer using the SQL&#160;Compliance&#160;Manager setup program. </p>
+        <p class="StepIntro">To deploy the SQLcompliance Agent:</p>
+        <ol>
+            <li class="NumberedList">Navigate to <span class="GUI_Item">Registered SQL Servers</span> in the Administration tree.</li>
+            <li class="NumberedList">Right-click the SQL Server instance to which you want to deploy the SQLcompliance Agent. </li>
+            <li class="NumberedList">Select <span class="GUI_Item">Deploy Agent</span> from the context menu.</li>
+            <li class="NumberedList">Type and confirm the account name and password. You want the SQLcompliance Agent service account to use the connect to your audited instances.</li>
+            <li class="NumberedList">Specify the trace directory and click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Review your settings, and then click <span class="GUI_Item">Finish</span> to deploy the SQLcompliance Agent.</li>
+        </ol>
+    </body>
+</html>

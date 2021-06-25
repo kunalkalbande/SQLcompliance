@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="6" MadCap:lastHeight="597" MadCap:lastWidth="1159">
+    <head><title>Implementation Scenarios</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Supported installation scenarios</h1>
+        <p class="Body">You can install and deploy SQL&#160;Compliance&#160;Manager to meet your unique auditing and SQL Server environment needs. For example, you can select which specific databases on your SQL Server instances you want to audit. </p>
+        <h2 class="Heading2">Typical environment</h2>
+        <p class="Body">The following figure illustrates a typical SQL&#160;CM implementation scenario. This configuration includes the following installations:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Management Console on your workstation (and, optionally, the Collection Server computer)</li>
+            <li class="Bullet">Collection Service and Repository on a SQL Server database server</li>
+            <li class="BulletLast">SQLcompliance Agents on each computer hosting databases you want to audit</li>
+        </ul>
+        <h2 class="Heading2">Clustered environment</h2>
+        <p class="Body">You can install and configure SQL&#160;Compliance&#160;Manager to audit virtual SQL Servers. A virtual SQL Server is a SQL Server running on a Microsoft failover cluster managed by Microsoft Cluster Services.</p>
+        <p class="Body">This configuration includes the following installations:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Management Console on your workstation</li>
+            <li class="Bullet">Collection Service and Repository on a SQL Server Database server</li>
+            <li class="BulletLast">SQLcompliance Agents on each cluster node hosting the virtual SQL Server you want to audit</li>
+        </ul>
+        <p class="Body">For more information, see <a href="Audit Virtual Instance.htm" target="_self">how to audit a virtual&#160;SQL&#160;Server instance</a>.</p>
+        <h2 class="Heading2">Non-trusted environment</h2>
+        <p class="Body">You can install and configure SQL&#160;Compliance&#160;Manager to audit SQL Server instances running in non-trusted domains or workgroups. This configuration includes the following installations:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Management Console on your workstation</li>
+            <li class="Bullet">Collection Service and Repository on a SQL Server database server</li>
+            <li class="BulletLast">SQLcompliance Agents on each SQL Server instance you want to audit in a non-trusted domain or workgroup</li>
+        </ul>
+    </body>
+</html>

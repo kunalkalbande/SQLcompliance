@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="349" MadCap:lastWidth="1185">
+    <head><title>Creating an Alert Rule</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Create an Event Alert rule</h1>
+        <p class="Body">
+            <MadCap:keyword term="alerting:using alert rules;alerts:event alert rule;alerting:implement;alerts:create event alert;Event Alerts:create" />Creating an Event Alert rule allows you to begin generating alerts on audit data across your SQL Server environment. To successfully generate an alert, the alert rule criteria you select must match SQL Server event data you are currently auditing on the specified instance or database. For more information, see <a href="Using Alerts to Analyze Audit Data.htm" target="_self">Use event alerts to analyze audit data</a>.</p>
+        <p class="StepIntro">To create an Event Alert:</p>
+        <ol>
+            <li class="NumberedList">Select<span class="GUI_Item"> Alert Rules</span> in the <span class="GUI_Item">Administration </span>tree.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Event </span>on the <span class="GUI_Item">New Rule</span> ribbon.</li>
+            <li class="NumberedList">Select the type of event (event category) that you want to alert on, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Select the type of object you want to alert on for the selected event type, and then click  <span class="GUI_Item">Next</span>. By default, the alert rule will generate an alert when the selected event occurs on any registered SQL Server instance, database, or database object. Use the links provided on the rule details pane to narrow your alert rule to specific objects or objects that match a naming convention.</li>
+            <li class="NumberedList">Define the criteria under which the alert should trigger, and then click <span class="GUI_Item">Next</span>. Use the criteria to narrow your alert rule to generate alerts only under specific conditions. To specify values that the event should match, use the links provided on the rule details pane.</li>
+            <li class="NumberedList">Select the action you want SQL&#160;Compliance&#160;Manager to take when this alert triggers, and then click <span class="GUI_Item">Next</span>. To configure the email notification message or event log entry, use the links provided on the rule details pane.</li>
+            <li class="NumberedList">Specify a name and appropriate alert level for this alert, review the summary, and then click <span class="GUI_Item">Finish</span>. By default, the new alert rule is enabled.</li>
+        </ol>
+    </body>
+</html>

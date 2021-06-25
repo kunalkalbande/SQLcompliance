@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultSkin
+  Version="1"
+  Comment="This is the default skin"
+  Anchors="Width,Height"
+  Width="899px"
+  Height="412px"
+  Top="0"
+  Left="0"
+  Bottom="0"
+  Right="0"
+  Tabs="TOC,Index,Search,Favorites"
+  DefaultTab="TOC"
+  UseBrowserDefaultSize="false"
+  UseDefaultBrowserSetup="True"
+  Title="SQL compliance manager Help">
+  <Index
+    BinaryStorage="True" />
+  <HtmlHelpOptions
+    ShowMenuBar="false"
+    TopmostWindowStyle="False"
+    Buttons="Hide,Back,Forward,Refresh,Home,Print"
+    EnableButtonCaptions="True"
+    AdvancedSearch="false" />
+  <Toc
+    Border="Fixed3D" />
+  <Stylesheet>
+    <Styles>
+      <Style
+        Name="AccordionItem">
+        <Classes>
+          <StyleClass
+            Name="BrowseSequence">
+            <Properties>
+              <Property
+                Name="Label">Print this Help</Property>
+              <Property
+                Name="Icon">url('pdficon_small.gif')</Property>
+            </Properties>
+          </StyleClass>
+        </Classes>
+      </Style>
+    </Styles>
+    <Resources>
+      <Resource
+        Name="pdficon_small.gif">H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3mkuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZkAWz2zkrayZ4hgKrIHz9+fB8/Ij4/e3bwMPvNf43f/Nf413/81/jPfuYP/vf/pX/lP/rr/sb/+vd89p/8aX/Wf/h3/b3/y1ff+8U/8zN//h/6h/1P/9P/9B/8Y//Ef75a/82/9e/4Hz/9vf7do6cPHjx4/ezzP/w3/a3+2627h7/+j/2Lv93v8l/+3r/fX/nH/4mXv8lv8Xsnv3F99HtWk+l/+kf9cf/FrPivnr/6y//yv2K5rP773+l3+4f+oX/o3/v3/4P/+//+v3+Nn4Xnd/1Vv86v+Wv8Gj/+a4zwB8b0a/x6f8Q/9C9v/ebf+h3+xN/1L95r/6eDv/BfOPl1ftdf5/f5G3/vl//kP/oXpb/Fv/0//TbNn/2H/SP/9p8w/z9/7Lf/jX7jzy/+gz/5N3r0x/7tf9X2b3T9yz/6NX6tP+gXn/34L/2Dfqc/9A/6mT/yD/zBH/OH/fF/1J/06/wpf8Sf9tGv2fyaf9yf9Sf+wb/Or/s7Jz/4U//EX/O3/nV/jd/p105/7d/pr/xzfqc/5AfJ7/g7/w5/4a/z7g/7K/6s3+bqH/gHf8lv9tv/Lv/UP/3P/Ka/6/Gvcfj/ALsjMI1pAQAA</Resource>
+    </Resources>
+  </Stylesheet>
+</CatapultSkin>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="387" MadCap:lastWidth="1185">
+    <head><title>Verifying Audit Data Integrity</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Verify audit data integrity</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Verify audit data integrity</h2>
+        <p class="Body" MadCap:conditions="">
+            <MadCap:keyword term="integrity check:using Console;integrity check:about;check integrity;diagnostics;data integrity;audit data integrity;auditing:verify integrity;auditing:troubleshoot;Change Log:integrity check;sensitive column auditing:check integrity;Before-After data">
+            </MadCap:keyword>SQL&#160;Compliance&#160;Manager allows you to verify the integrity of your audit data. This integrity check runs a validation algorithm that determines whether data in your Repository and archive databases has been added, deleted, or modified since the last verification. The integrity check analyzes all collected events as well as additional data for Before-After and Sensitive Column auditing.</p>
+        <p class="Body">Use this integrity check to help ensure your audit data has not been compromised. Consider running an integrity check on a routine basis, depending on the volume or sensitivity of your audit data.</p>
+        <p class="Body">When you run an integrity check, SQL&#160;CM logs the event in the Change Log. </p>
+        <p class="Body">You can also run an integrity check using the command line interface. For more information, see <a href="Using the CLI to Verify Audit.htm" target="_self">Using the CLI to verify audit data integrity</a>.</p>
+        <p class="StepIntro">To verify audit data integrity:</p>
+        <ol>
+            <li class="NumberedList">Select <span class="GUI_Item">Check Repository Integrity</span> from the <span class="GUI_Item">Auditing</span> drop-down.</li>
+            <li class="NumberedList">Select the Repository on which you want to run an integrity check, and then click <span class="GUI_Item">Check</span>.</li>
+            <li class="NumberedList">Review the integrity status. <span class="If_Then_Statement">If your audit data fails the integrity check</span>, decide whether you want to mark each compromised event in the audit data. Marking these events changes the event class to reflect the type of compromise (event was inserted, modified, deleted) and changes the event category to Integrity Check. For more information, see the online Help for the corresponding window.</li>
+        </ol>
+    </body>
+</html>

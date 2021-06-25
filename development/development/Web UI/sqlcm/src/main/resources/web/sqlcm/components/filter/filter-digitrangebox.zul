@@ -1,0 +1,16 @@
+<grid sclass="idera-invisible-grid">
+    <columns>
+        <column width="75px" align="right"/>
+        <column width="70px" align="left"/>
+        <column width="75px" align="right"/>
+        <column width="70px" align="left"/>
+    </columns>
+    <rows>
+        <row>
+            <label id="filterFrom" sclass="bottom-left-align" hflex="true"/>
+            <idera-cwf-intbox id="filterValueFrom" hflex="true" maxlength="9" constraint="no negative" style="background-color: #fff"/>
+            <label id="filterTill" sclass="bottom-left-align" hflex="true"/>
+            <idera-cwf-intbox id="filterValueTill" hflex="true" maxlength="9" constraint="no negative" style="background-color: #fff"/>
+        </row>
+    </rows>
+</grid>

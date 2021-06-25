@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="10" MadCap:lastHeight="1653" MadCap:lastWidth="1107">
+    <head><title>Using Status Alerts to ensure compliance</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1">Use Status Alerts to ensure compliance</h1>
+        <p class="Body">
+            <MadCap:keyword term="alerts:example rules;alerting:examples;alerting:audit data;Status Alerts:examples;Status Alerts:how to use;Status Alerts:best practices;SQLcompliance Agent:alert on status;Collection Service:alert on status;diagnostics;alert on:SQLcompliance Agent;alert on:Collection Service;alert on:audit status" />You can use Status Alerts to identify issues and potential disruptions in your SQL Compliance Manager deployment. By enabling Status Alerts, you can:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Confirm that your SQL&#160;Server instances are available to be audited.</li>
+            <li class="Bullet">Ensure the SQLcompliance Agent and Collection Server are operating as expected.</li>
+            <li class="BulletLast">Proactively know when the event databases are growing too large so you can <a href="Archiving Events.htm">archive</a> or <a href="Grooming Audit Data.htm">groom</a> your audit data before too much disk space has been consumed.</li>
+        </ul>
+        <h2 class="Heading2">Status Alerts best practices</h2>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">Alert</th>
+                    <th class="HeadE-Column2-Header1">What it means</th>
+                    <th class="HeadE-Column1-Header1">What is the risk</th>
+                    <th class="HeadD-Column2-Header1">What might be wrong</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Agent cannot connect to audited instance</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">The SQLcompliance Agent was unable to connect to the audited SQL&#160;Server instance. This alert is sent immediately after the failed connection occurs.</p>
+                    </td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">You are in danger of filling the trace directory and losing important audit data.</p>
+                        <p class="TableText">Updated audit settings will not be applied to the SQL trace that is collecting events, and you will fail to collect the events you want.</p>
+                        <p class="TableText">SQL&#160;Server will continue to write trace files to the SQLcompliance Agent trace directory, but the agent will not be able to send these files to the Collection Server. When the trace directory is full, auditing will cease, and the SQL&#160;Server performance will be impacted.</p>
+                        <p class="TableText"><span class="If_Then_Statement">If the database id changes</span>, the agent will not be able to detect this update, causing the SQL trace to stop. </p>
+                        <p class="TableText"><span class="If_Then_Statement">If communications between the agent and the instance are "down" for more than 7 days</span>, the SQL trace will automatically stop.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <ul style="list-style-type: circle;">
+                            <li>The audited SQL Server instance may be offline or unable to respond.</li>
+                            <li>The SQLcompliance Agent service account does not have the <a href="Permissions Requirements.htm">required permissions</a> to access the target SQL&#160;Server instance.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Agent heartbeat was not received</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">The Collection Server has not received a heartbeat from the SQLcompliance Agent within the specified heartbeat interval.</p>
+                    </td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Auditing is not immediately affected by this issue; however, you cannot apply updated audit settings. </p>
+                        <p class="TableText">Trace files will continue to queue in the trace file directory until the SQLcompliance Agent Service is able to send these trace files to the Collection Server.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <ul style="list-style-type: circle;">
+                            <li>The computer hosting the SQLcompliance Agent may be offline.</li>
+                            <li>Network firewall settings may be blocking communication between the SQLcompliance Agent and the Collection Server.</li>
+                            <li>The SQLcompliance Agent may have been stopped.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Agent trace directory reached size limit</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">The trace directory folder on the SQL Server computer where the SQLcompliance Agent is deployed has exceeded the disk space percentage allocated in the alert rule.</p>
+                    </td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">You are in danger of filling the trace directory and losing important audit data. </p>
+                        <p class="TableText">When the trace directory reaches its specified maximum size, the SQLcompliance Agent will cease auditing the target instances. The SQL traces are stopped, and no subsequent events are collected. </p>
+                        <p class="TableText"> The size of the trace directory could also impact the performance of the SQL Server instances on this computer.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <ul style="list-style-type: circle;">
+                            <li>The Collection Server may be offline, preventing the SQLcompliance Agent from sending the trace files.</li>
+                            <li>Network firewall settings may be blocking communication between the SQLcompliance Agent and the Collection Server.</li>
+                            <li>Your audit settings may be collecting more SQL Server events than you expected.</li>
+                            <li>SQL Server traffic may have unexpectedly increased, causing more events to be collected and resulting in larger trace files.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Collection Server trace directory reached size limit</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">The trace directory folder on the computer where the Collection Server is installed has exceeded the disk space limit specified in the alert rule.</p>
+                    </td>
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">You are in danger of filling the trace directory, which can impact the performance of the Collection Server, such as delaying alerts.</p>
+                        <p class="TableText">In turn, a full trace directory on the Collection Server can cause the SQLcompliance Agent trace directory to fill as the trace files queue up to be sent. When the SQLcompliance Agent trace directory reaches its specified maximum size, the agent will cease auditing the target instances. The SQL traces are stopped, and no subsequent events are collected.</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <ul style="list-style-type: circle;">
+                            <li>The Collection Service may have been manually stopped, preventing the trace files from being processed.</li>
+                            <li>The Collection Service may not be able to access the Repository, due to <a href="Permissions Requirements.htm">inadequate permissions</a> or the Repository database being offline.</li>
+                            <li>Your audit settings may be collecting more SQL Server events than you expected.</li>
+                            <li>A third-party application, such as an anti-virus scanner, may be preventing the Collection Service from accessing the trace directory.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Event database is too large</p>
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">The event database for an audited SQL&#160;Server instance is larger than the size limit specified in the alert rule.</p>
+                    </td>
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Large event databases can significantly impact the performance of the Repository, and the SQL&#160;Server instance hosting the Repository.</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <ul style="list-style-type: circle;">
+                            <li>Your audit settings may be collecting more SQL Server events than you expected.</li>
+                            <li>SQL Server traffic may have unexpectedly increased, causing more events to be collected and resulting in larger trace files.</li>
+                            <li>You may need to <a href="Archiving Events.htm">archive</a> or <a href="Grooming Audit Data.htm">groom</a> events.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="DefinitionListTerm">&#160;</p>
+    </body>
+</html>

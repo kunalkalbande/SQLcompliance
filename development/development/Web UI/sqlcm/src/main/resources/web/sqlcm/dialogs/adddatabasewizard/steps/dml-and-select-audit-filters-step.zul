@@ -1,0 +1,31 @@
+<zk>
+	<div hflex="1" vflex="1" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.adddatabasewizard.steps.DmlAndSelectAuditFiltersStepViewModel')">
+		<vlayout hflex="1">
+			<radiogroup id="rgAuditObjects" orient="vertical"
+				onCheck="@command('onAuditCheck')" model="@load(step_vm.auditOptionList)">
+				<template name="model">
+					<idera-cwf-radio id="@load(each.name)" label="@load(each.label)"
+						radiogroup="rgAuditObjects" />
+				</template>
+			</radiogroup>
+
+			<idera-cwf-checkbox style="margin-left: 20px;"
+				disabled="@load(step_vm.auditFollowingDbObjectsDisable)" onCheck="@command('onAuditUserTablesCheck', checked=self.checked)"
+				label="${idera:getLabel('SQLCM.Label.add-database-wizard.dml-and-select-audit-filters.audit-user-tables')}" ></idera-cwf-checkbox>
+
+			<idera-cwf-checkbox style="margin-left: 20px;"
+				disabled="@load(step_vm.auditFollowingDbObjectsDisable)" checked="@bind(step_vm.dmlSelectFilters.auditSystemTables)"
+				label="${idera:getLabel('SQLCM.Label.add-database-wizard.dml-and-select-audit-filters.audit-system-tables')}" ></idera-cwf-checkbox>
+
+			<idera-cwf-checkbox style="margin-left: 20px;"
+				disabled="@load(step_vm.auditFollowingDbObjectsDisable)" checked="@bind(step_vm.dmlSelectFilters.auditStoredProcedures)"
+				label="${idera:getLabel('SQLCM.Label.add-database-wizard.dml-and-select-audit-filters.audit-stored-procedures')}" ></idera-cwf-checkbox>
+
+			<idera-cwf-checkbox style="margin-left: 20px;"
+				disabled="@load(step_vm.auditFollowingDbObjectsDisable)" checked="@bind(step_vm.dmlSelectFilters.auditDmlOther)"
+				label="${idera:getLabel('SQLCM.Label.add-database-wizard.dml-and-select-audit-filters.audit-all-other-object-types')}" ></idera-cwf-checkbox>
+
+		</vlayout>
+	</div>
+</zk>

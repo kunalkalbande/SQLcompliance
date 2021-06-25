@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="559" MadCap:lastWidth="945">
+    <head><title>Registered SQL Server Properties Window Auditing Thresholds</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Registered SQL Server Properties Window</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Registered SQL Server Properties Window &gt; </MadCap:conditionalText>Auditing Thresholds</h2>
+        <p class="Body">This tab allows you to set auditing thresholds to identify unusual activity on the selected SQL Server instance. SQL Compliance Manager reports threshold violations through the Activity Report Cards on the Summary tabs.</p>
+        <p class="Body">Use auditing thresholds to display critical issues or warnings when a particular activity, such as privileged user events, is higher than expected. These thresholds can notify you about issues related to increased activity levels, such as a security breach, that may be occurring on this instance. Auditing thresholds can also inform you when an audited SQL Server instance is becoming non-compliant. Use thresholds to supplement the alert rules you have configured for your environment.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">Warning</p>
+        <p class="DefinitionListBody">Allows you to specify the number of events you expect to occur in a given event category for the selected time period. When the warning threshold is exceeded, this violation indicates an unusually high number of events. A warning threshold violation can lead to a non-compliant database or SQL Server instance.</p>
+        <p class="DefinitionListTerm">Critical</p>
+        <p class="DefinitionListBody">Allows you to specify the maximum number of events that should occur in a given event category for the selected time period. When the critical threshold is exceeded, this violation indicates a serious issue, such as a security breach, which is compromising your ability to remain in compliance with your corporate and regulatory policies.</p>
+        <p class="DefinitionListTerm">Period</p>
+        <p class="DefinitionListBody">Allows you to set an acceptable rate, or time span, for the warning and critical thresholds. For example, you may expect overall activity to be no more than 200 events per day on this instance.</p>
+        <p class="DefinitionListTerm">Enabled</p>
+        <p class="DefinitionListBody">Allows you to enable (select) or disable (clear) auditing thresholds for a particular event category.</p>
+    </body>
+</html>

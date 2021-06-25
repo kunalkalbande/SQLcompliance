@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<InstanceTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="" Description="" FullFilename="">
+  <AuditTemplate Name="" Description="" FullFilename="">
+    <ServerLevelAuditConfig>
+	<!-- Delete the lines for the event categories that are not to be audited. There are a total of 6 categories for the server.--> 
+      <AuditedActivity>Logins</AuditedActivity>
+      <AuditedActivity>FailedLogins</AuditedActivity>
+      <AuditedActivity>DDL</AuditedActivity>
+      <AuditedActivity>Security</AuditedActivity>
+      <AuditedActivity>Admin</AuditedActivity>
+      <AuditedActivity>UDC</AuditedActivity>  <!-- User Defined Events -->
+	  <!-- This is a required element but only one can be choosen -->
+      <AccessCheckFilter>NoFilter</AccessCheckFilter>
+    <!--  <AccessCheckFilter>CapturePassedCheckActions</AccessCheckFilter> -->
+    <!--  <AccessCheckFilter>CaptureFailedCheckActions</AccessCheckFilter> -->
+    </ServerLevelAuditConfig>
+	
+	
+    <PrivilegedUserAuditConfig>
+	
+	<!--  !!!!!!!!!  Privileged User auditing should be configured in the console so the user Sids are obtained and encoded properly. This is  -->
+	<!--  !!!!!!!!!  is being included here for completeness.  -->
+	
+	<!-- Delete the lines for the event categories that are not to be audited. There are a total of 8 categores for privileged users.-->
+	  <AuditedActivity>Logins</AuditedActivity>
+      <AuditedActivity>FailedLogins</AuditedActivity>
+      <AuditedActivity>DDL</AuditedActivity>
+      <AuditedActivity>Security</AuditedActivity>
+      <AuditedActivity>Admin</AuditedActivity>
+      <AuditedActivity>DML</AuditedActivity>
+      <AuditedActivity>SELECT</AuditedActivity>
+      <AuditedActivity>UDC</AuditedActivity> <!-- User Defined Events -->
+	  
+	  <!-- This is a required element but only one can be choosen -->
+      <AccessCheckFilter>CapturePassedCheckActions</AccessCheckFilter>
+      <!-- <AccessCheckFilter>CaptureFailedCheckActions</AccessCheckFilter> -->
+	  
+	  <!-- This should be configured in the SQLcompliance manager console and exported.  Then copy the user list to here. -->
+      <UserList>
+        <Logins>
+          <Login>
+            <Name>DOMAIN\user</Name>
+            <Sid>AQUAAAAAAAUVAAAAVsrycLD5mjYG9eE7VCIAAA==</Sid>
+          </Login>
+        </Logins>
+        <ServerRoles>
+          <ServerRole>
+            <FullName>Server Administrators</FullName>
+            <Name>Server Administrators</Name>
+            <Id>64</Id>
+          </ServerRole>
+        </ServerRoles>
+      </UserList>
+      <CaptureSQL>false</CaptureSQL>  <!-- This is not allowed unless DML or SELECT is audited -->
+      <CaptureTrans>false</CaptureTrans>
+    </PrivilegedUserAuditConfig>
+  </AuditTemplate>
+</InstanceTemplate>

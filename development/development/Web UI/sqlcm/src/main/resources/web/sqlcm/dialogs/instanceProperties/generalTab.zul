@@ -1,0 +1,169 @@
+<zk>
+    <div>
+        <vlayout spacing="7px">
+            <grid width="720px" sclass="idera-invisible-grid">
+                <columns visible="false">
+                    <column width="90px"/>
+                    <column width="415px"/>
+                    <column width="60px"/>
+                    <column width="110px"/>
+                </columns>
+                <rows>
+                    <row>
+                        <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-sql-server')}"/>
+                        <idera-cwf-textbox id="sqlServer" type="text" hflex="true" value="@bind(vm.instanceProperties.generalProperties.instance)"
+                                 readonly="true" width="420px" />
+
+                        <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-version')}"/>
+                        <idera-cwf-textbox id="version" type="text" hflex="true" value="@bind(vm.instanceProperties.generalProperties.instanceVersion)"
+                                 readonly="true" width="85px"/>
+                    </row>
+                    <row >
+                        <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-description')}"/>
+                        <cell colspan="3">
+                            <idera-cwf-textbox id="description" hflex="1" type="text" rows="3" maxlength="256" height="80px" style="resize:none; background-color: #ffffff"
+                                     value="@bind(vm.instanceProperties.generalProperties.description)"
+                                     readonly="${!sqlcm:canAccess()}" />
+                        </cell>
+                    </row>
+                </rows>
+            </grid>
+            <groupbox width="693px" height="556px">
+                <vlayout>
+                    <hlayout>
+                        <grid width="315px" sclass="idera-invisible-grid">
+                            <columns visible="false">
+                                <column width="52px"/>
+                                <column width="60px"/>
+                                <column width="203px"/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-status')}"/>
+                                    <cell colspan="2">
+                                        <idera-cwf-textbox id="status" type="text" hflex="1" readonly="true"
+                                                 value="@bind(vm.instanceProperties.generalProperties.statusMessage)" />
+                                    </cell>
+                                </row>
+                                <row>
+                                    <cell colspan="2">
+                                        <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-date-created')}"/>
+                                    </cell>
+                                    <idera-cwf-textbox id="createdDate" type="text" readonly="true" hflex="1"
+                                             value="@bind(vm.instanceProperties.generalProperties.createdDateTime)" />
+                                </row>
+                                <row>
+                                    <cell colspan="2">
+                                        <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-last-modified')}"/>
+                                    </cell>
+                                    <idera-cwf-textbox id="lastModified" type="text" readonly="true" hflex="1"
+                                             value="@bind(vm.instanceProperties.generalProperties.lastModifiedDateTime) @converter('com.idera.sqlcm.ui.converter.DateToNeverConverter')" />
+                                </row>
+                                <row>
+                                    <cell colspan="2">
+                                        <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-last-heartbeat')}"/>
+                                    </cell>
+                                    <idera-cwf-textbox id="lastHeartbeat" type="text" readonly="true" hflex="1"
+                                             value="@bind(vm.instanceProperties.generalProperties.lastHeartbeatDateTime) @converter('com.idera.sqlcm.ui.converter.DateToNeverConverter')" />
+                                </row>
+                                <row>
+                                    <cell colspan="2">
+                                        <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-events-received')}"/>
+                                    </cell>
+                                    <idera-cwf-textbox id="eventsReceived" type="text" readonly="true" hflex="1"
+                                             value="@bind(vm.instanceProperties.generalProperties.eventsReceivedDateTime) @converter('com.idera.sqlcm.ui.converter.DateToNeverConverter')" />
+                                </row>
+                            </rows>
+                        </grid>
+                        <groupbox>
+                            <caption label="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-audit-settings')}"/>
+                            <grid width="354px" sclass="idera-invisible-grid">
+                                <columns visible="false">
+                                    <column width="150px"/>
+                                    <column width="204px"/>
+                                </columns>
+                                <rows>
+                                    <row>
+                                        <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-audit-status')}"/>
+                                        <idera-cwf-textbox id="auditStatus" type="text" readonly="true" hflex="1"
+                                                 value="@load(vm.instanceProperties.generalProperties.auditEnabled) @converter('com.idera.sqlcm.ui.converter.EnabledStateConverter')" />
+                                    </row>
+                                    <row>
+                                        <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-last-agent-update')}"/>
+                                        <idera-cwf-textbox id="lastAgentUpdate" type="text" readonly="true" hflex="1"
+                                                 value="@bind(vm.instanceProperties.generalProperties.lastAgentUpdateDateTime) @converter('com.idera.sqlcm.ui.converter.DateToNeverConverter')" />
+                                    </row>
+                                    <row>
+                                        <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-audit-settings-status')}"/>
+                                        <idera-cwf-textbox id="auditSettingsStatus" type="text" readonly="true" hflex="1"
+                                                 value="@load(vm.instanceProperties.generalProperties.auditSettingsUpdateEnabled) @converter('com.idera.sqlcm.ui.converter.AuditSettingsStatusConverter')" />
+                                    </row>
+                                    <row>
+                                        <cell/>
+                                        <idera-cwf-button id="updateNowButton"  hflex="1"
+                                                disabled="@bind(!vm.instanceProperties.generalProperties.auditSettingsUpdateEnabled)"
+                                                visible="${sqlcm:canAccess()}"
+                                                label="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-update-now')}"
+                                                onClick="@command('updateAuditConfigurationForServer', instanceId=vm.instanceProperties.serverId)"/>
+                                    </row>
+                                </rows>
+                            </grid>
+                        </groupbox>
+                    </hlayout>
+                    <groupbox width="680px">
+                        <caption label="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-events-db-info')}"/>
+                        <grid sclass="idera-invisible-grid">
+                            <columns visible="false">
+                                <column width="200px"/>
+                                <column width="468px"/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-events-db')}"/>
+                                    <idera-cwf-textbox id="eventsDb" type="text" readonly="true" hflex="1"
+                                             value="@bind(vm.instanceProperties.generalProperties.eventsDatabaseName)" />
+                                </row>
+                                <row>
+                                    <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-db-integrity')}"/>
+                                    <idera-cwf-textbox id="dbIntegrity" type="text" readonly="true" hflex="1"
+                                             value="@bind(vm.instanceProperties.generalProperties.databaseIntegrityOk) @converter('com.idera.sqlcm.ui.converter.OkStateConverter')" />
+                                </row>
+                                <row>
+                                    <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-last-integrity-check')}"/>
+                                    <idera-cwf-textbox id="lastIntegrityCheck" type="text" readonly="true" hflex="1"
+                                             value="@bind(vm.instanceProperties.generalProperties.lastIntegrityCheckDateTime) @converter('com.idera.sqlcm.ui.converter.DateToNeverConverter')" />
+                                </row>
+                                <row>
+                                    <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-last-integrity-check-result')}"/>
+                                    <idera-cwf-textbox id="lastIntegrityCheckResult" type="text" readonly="true" hflex="1"
+                                             value="@bind(vm.instanceProperties.generalProperties.lastIntegrityCheckResultsStatus) @converter('com.idera.sqlcm.ui.converter.IntegrityCheckStatusConverter')" />
+                                </row>
+                            </rows>
+                        </grid>
+                    </groupbox>
+                    <groupbox width="680px">
+                        <caption label="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-archive-summary')}"/>
+                        <grid sclass="idera-invisible-grid" >
+                            <columns visible="false">
+                                <column width="200px"/>
+                                <column width="468px"/>
+                            </columns>
+                            <rows>
+                                <row>
+                                    <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-last-archive-time')}"/>
+                                    <idera-cwf-textbox id="lastArchiveTime" type="text" readonly="true" hflex="1"
+                                             value="@bind(vm.instanceProperties.generalProperties.lastArchiveCheckDateTime) @converter('com.idera.sqlcm.ui.converter.DateToNeverConverter')" />
+                                </row>
+                                <row>
+                                    <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-gen-tab-last-archive-results')}"/>
+                                    <idera-cwf-textbox id="lastArchiveResults" type="text" readonly="true" hflex="1"
+                                             value="@bind(vm.instanceProperties.generalProperties.lastArchiveCheckResultsStatus) @converter('com.idera.sqlcm.ui.converter.ArchiveCheckStatusConverter')" />
+                                </row>
+                            </rows>
+                        </grid>
+                    </groupbox>
+                </vlayout>
+            </groupbox>
+        </vlayout>
+    </div>
+</zk>

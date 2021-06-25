@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="6" MadCap:lastHeight="475" MadCap:lastWidth="1159">
+    <head><title>Upgrading Your Archive Databases</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Update your archive databases</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Update your archive databases</h2>
+        <p class="Body" MadCap:conditions="">
+            <MadCap:keyword term="update Repository indexes;archives:update Repository  indexes;archives:upgrade;upgrade:archive databases" />Updating your archive databases allows you to take advantage of the performance enhancements provided by optimized indexing in the latest version. When you update an archive database, SQL&#160;Compliance&#160;Manager locks the Repository and applies the new indexing scheme to the specified database. </p>
+        <p class="Body">You can update your archive databases using the Management Console or the command line interface (CLI). </p>
+        <h2 class="Heading2">Update your archive database using the Management Console</h2>
+        <p class="StepIntro">To update archive databases using the Management Console:</p>
+        <ol>
+            <li class="NumberedList"><a href="Attaching Archives.htm">Attach the appropriate archives</a>.</li>
+            <li class="NumberedList">Select <span class="GUI_Item">Auditing &gt; Configure Repository Databases</span>.</li>
+            <li class="NumberedList">On the Configure Repository Databases window, select the <span class="GUI_Item">Databases</span> tab.</li>
+            <li class="NumberedList">Select the databases you want to update, and then click <span class="GUI_Item">Update Now</span>.</li>
+        </ol>
+        <h2 class="Heading2">Update your archive databases using the CLI</h2>
+        <p class="StepIntro">To update your archive databases using the CLI:</p>
+        <ol>
+            <li class="NumberedList">From a DOS prompt, navigate to your SQL compliance manager installation directory.</li>
+            <li class="NumberedList">Enter the following at the prompt:</li>
+        </ol>
+        <p class="DefinitionListBody"><span class="Code_1_1"><code>SQLcmCMD updateindex –all</code></span>
+        </p>
+    </body>
+</html>

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="10" MadCap:lastHeight="1453" MadCap:lastWidth="1107">
+    <head>
+        <link href="Resources/TableStyles/Tip.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Registering Your SQL Servers</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Register your SQL Servers</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Register your SQL Servers</h2>
+        <p class="Body">
+            <MadCap:keyword term="SQL Server:audit;register SQL Servers;auditing:enable through CLI;auditing:SQL Server instance;CLI:register new instance;CLI:enable auditing;CLI:apply SOX regulation;CLI:apply FERPA regulation" />Registering a SQL Server instance allows you to audit this instance and the associated databases. For each database you want to audit, register the corresponding SQL Server instance. When you register the instance, you can also deploy the SQLcompliance Agent to begin auditing SQL events on this instance.</p>
+        <h2 class="Heading2">Use the Console to register your SQL&#160;Servers</h2>
+        <ol>
+            <li class="NumberedList">Ensure the SQL&#160;Server instance you want to register meets the <a href="Hardware Requirements.htm">hardware</a> and <a href="Software Requirements.htm">software</a> requirements.</li>
+            <li class="NumberedList">Decide which <a href="SQL Server Events You Audit.htm">SQL&#160;Server events</a> you want to audit on this instance.</li>
+            <li class="NumberedList">Start the Management Console, and then click <span class="GUI_Item">New &gt; Registered SQL&#160;Server</span>.</li>
+            <li class="NumberedList">Specify or browse to the SQL Server instance you want to register with SQL&#160;Compliance&#160;Manager, and then click <span class="GUI_Item">Next</span>. You can also specify the description SQL&#160;CM uses when listing this instance in the Management Console.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If the SQL Server instance is hosted by a Microsoft SQL Server Cluster virtual server</span>, select the checkbox. Click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Indicate whether you want to deploy the SQLcompliance Agent now or later, and then click <span class="GUI_Item">Next</span>. You can also choose to deploy the SQLcompliance Agent manually, allowing you to install the agent at the physical computer that is hosting the registered SQL Server instance.</li>
+        </ol>
+        <table style="width: 100%; mc-table-style: url('Resources/TableStyles/Tip.css'); margin-left: 0; margin-right: auto;" class="TableStyle_Tip" cellspacing="0">
+            <col style="width: 32px;" />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText"><span class="If_Then_Statement">If you are auditing a virtual SQL Server or a SQL Server instance running in a non-trusted domain or workgroup</span>, you must manually deploy the SQLcompliance Agent to the computer hosting the instance. For more information, see <a href="Deploying Agent Manually.htm" target="_self">Deploying the SQLcompliance Agent manually</a>.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ol MadCap:continue="true">
+            <li class="NumberedList"><span class="If_Then_Statement">If you chose to deploy the SQLcompliance Agent now</span>, specify the appropriate service account credentials for the agent, and then click <span class="GUI_Item">Next</span>. For more information, see <a href="Permissions Requirements.htm" target="_self">Permissions requirements</a>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you chose to deploy the SQLcompliance Agent now</span>, indicate whether you want the SQLcompliance Agent to use the default trace directory, and then click <span class="GUI_Item">Next</span>. By default, the trace directory path is:</li>
+        </ol>
+        <p start="41" class="DefinitionListBody"><code class="Code_1_1">C:\Program Files\Idera\SQLcompliance\AgentTraceFiles</code>
+        </p>
+        <p class="DefinitionListBody"><span class="If_Then_Statement">If you designate a different directory path</span>, ensure the SQLcompliance Agent Service account has read and write privileges on the specified folder.</p>
+        <ol MadCap:continue="true">
+            <li class="NumberedList">Select the server databases you want to audit, and then click <span class="GUI_Item">Next</span>.<span class="If_Then_Statement"> If you do not want to audit any databases</span>, clear the <span class="GUI_Item">Audit Databases</span> check box.</li>
+            <li class="NumberedList">Select the collection level of server activities you want to audit, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you chose to create a custom audit collection</span>, select the server activities you want to audit, and then click <span class="GUI_Item">Next</span>. You can also indicate whether you want to audit successful or failed access checks.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you chose to create a custom audit collection</span>, specify which privileged users you want to audit, and then click <span class="GUI_Item">Next</span>.</li>
+        </ol>
+        <p class="DefinitionListBody"><span class="If_Then_Statement">If you are auditing a virtual SQL&#160;Server or a SQL&#160;Server instance running in a non-trusted domain or workgroup</span>, configure privileged user audit settings after you have deployed the SQLcompliance Agent.</p>
+        <ol MadCap:continue="true">
+            <li class="NumberedList"><span class="If_Then_Statement">If you chose to create a custom audit collection</span>, select the database activities you want to audit, and then click <span class="GUI_Item">Next</span>. You can also indicate whether you want to audit successful or failed access checks, capture SQL&#160;statements for DML and SELECT activity, or capture the transaction status for DML activity.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you chose to create a custom audit collection</span>, specify which privileged users you want to audit, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Specify whether you want to grant the assigned SQL&#160;logins read access to events audited on this SQL&#160;Server instance, and then <span class="GUI_Item">Next</span>. For more information, see <a href="How Console Security Works.htm" target="_self">How Console security works</a>.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Finish</span>.</li>
+        </ol>
+        <h2 class="Heading2">Use the CLI&#160;to register a SQL&#160;Server instance</h2>
+        <p class="Body">You can use the command line interface to register a new SQL&#160;Server instance and apply audit settings. The audit settings can be configured using the Typical auditing settings or an audit template (audit settings you exported to an XML file).</p>
+        <p class="Body">Keep in mind the following requirements and limitations:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">This process requires manually deploying the SQLcompliance Agent to this instance.</li>
+            <li class="Bullet">You cannot apply the built-in HIPAA or PCI regulation guidelines at the server level using the CLI.</li>
+            <li class="Bullet">The <code>register</code> command supports case-sensitive named instances. Ensure you are using the appropriate case when you cite the instance  name.</li>
+            <li class="BulletLast">The <code>registerinstance </code>command does not support registering a virtual SQL&#160;Server instance hosted on a Windows cluster.</li>
+        </ul>
+        <p class="Body">SQL Compliance Manager includes a sample instance audit settings template (Sample_Server_AuditSettings.xml)&#160;for your convenience. Use this sample template to familiarize yourself with how specific audit settings are defined. By default, the sample template is located under <span class="Code">C:\Program Files\Idera\SQLcompliance</span>.</p>
+        <p class="StepIntro">To register an instance and apply the Typical (default) audit settings:</p>
+        <ol>
+            <li class="Bullet">Use the SQL CM setup program to <a href="Deploying Agent Manually.htm">manually deploy the SQLcompliance Agent</a> to the target instance.</li>
+            <li class="BulletLast">In Windows Command Prompt, use the following syntax: <code>SQLcmCmd [-host CollectionServer] [-port number] registerinstance instance</code>.</li>
+        </ol>
+        <p class="StepIntro">To register an instance and apply a FERPA regulation guideline:</p>
+        <table style="width: 100%;mc-table-style: url('Resources/TableStyles/Tip.css');" class="TableStyle_Tip" cellspacing="0">
+            <col style="width: 30px;" />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">The FERPA regulation guideline is provided as an XML template (<code>FERPA_Server_Regulation_Guideline.xml</code>) stored in the SQL&#160;CM installation directory (<code>C:\Program Files\Idera\SQLcompliance</code>). Ensure the path you cite for the FERPA template reflects the directory you chose during installation.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ol>
+            <li class="NumberedList">Use the SQL CM setup program to <a href="Deploying Agent Manually.htm">manually deploy the SQLcompliance Agent</a> to the instance that hosts the target database.</li>
+            <li class="BulletLast">In Windows Command Prompt, use the following syntax: <code>SQLcmCmd [-host CollectionServer] [-port number] registerinstance instance -config "FERPA regulation guideline file path"</code>.</li>
+        </ol>
+        <p class="StepIntro">To register an instance and apply a SOX regulation guideline:</p>
+        <table style="width: 100%;mc-table-style: url('Resources/TableStyles/Tip.css');" class="TableStyle_Tip" cellspacing="0">
+            <col style="width: 30px;">
+            </col>
+            <col>
+            </col>
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">The SOX regulation guideline is provided as an XML template (<code>SOX_Server_Regulation_Guideline.xml</code>) stored in the SQL&#160;Compliance Manager installation directory (<code>C:\Program Files\Idera\SQLcompliance</code>). Ensure the path you cite for the SOX template reflects the directory you chose during installation. </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ol>
+            <li class="NumberedList">Use the SQL CM setup program to <a href="Deploying Agent Manually.htm">manually deploy the SQLcompliance Agent</a> to the instance that hosts the target database.</li>
+            <li class="BulletLast">In Windows Command Prompt, use the following syntax: <code>SQLcmCmd [-host CollectionServer] [-port number] registerinstance instance -config "SOX regulation guideline file path"</code>.</li>
+        </ol>
+        <p class="StepIntro">To register an instance and apply a custom audit template:</p>
+        <ol>
+            <li class="NumberedList">Determine which currently audited SQL&#160;Server instance has the audit settings you want to apply to the new instance.</li>
+            <li class="NumberedList"><a href="Exporting Your Audit Settings.htm">Export the audit settings</a> from the source instance.</li>
+            <li class="NumberedList">Use the SQL Compliance Manager setup program to <a href="Deploying Agent Manually.htm">manually deploy the SQLcompliance Agent</a> to the target instance.</li>
+            <li class="NumberedList">In Windows Command Prompt, use the following syntax: <code>SQLcmCmd [-host CollectionServer] [-port number] registerinstance instance -config "exported audit settings file path"</code>.</li>
+        </ol>
+    </body>
+</html>

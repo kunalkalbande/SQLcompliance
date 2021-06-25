@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="8" MadCap:lastHeight="372" MadCap:lastWidth="893">
+    <head><title>Port Requirements</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1">Port requirements</h1>
+        <p class="Body">To ensure the SQLcompliance Agent and Collection Server can successfully audit instances in your environment, open the following ports. For more information, see<a href="Implementation Scenarios.htm" target="_self"> Implementation scenarios</a>.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Environment Type</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Port Requirements</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Typical</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <ul class="TableText" style="list-style-type: circle;">
+                            <li class="Bullet">	Port 5201 on the Collection Server computer</li>
+                            <li class="Bullet">Port 5200 on each computer hosting an audited SQL Server instance
+</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Clustered</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Port 5201 on the Collection Server computer</li>
+                            <li class="Bullet">	Port 5200 on each cluster node hosting a virtual SQL Server you want to audit
+</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Non-trusted</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Port 5201 on the Collection Server computer</li>
+                            <li class="Bullet">Port 5200 on each computer hosting an audited SQL Server instance in a non-trusted domain or workgroup
+</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="Body">&#160;</p>
+    </body>
+</html>

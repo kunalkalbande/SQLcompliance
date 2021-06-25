@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultTarget
+  Version="1"
+  Comment="SQL CM Release Notes"
+  Type="PDF"
+  Destinations=""
+  GlossaryTermConversion="marked"
+  ConditionTagExpression="include[Default.PrintOnly] exclude[Default.Google or &quot;Default.Internal Use Only&quot; or &quot;Default.Not in PDF&quot; or Default.ScreenOnly or Default.SEO] "
+  MasterToc="/Project/TOCs/RN TOC.fltoc"
+  MasterStylesheet="/Content/Resources/Stylesheets/Idera Stylesheet.css"
+  OutputFile="SQLcm Release Notes"
+  OutputFolder="C:\Users\npollard\Documents\GitHub\SQLcm\documentation\Current\Release Notes\Output">
+  <PDF
+    ShowUsedBookmarks="false"
+    Tagged="true" />
+  <DocumentProperties
+    Author="Idera" />
+</CatapultTarget>

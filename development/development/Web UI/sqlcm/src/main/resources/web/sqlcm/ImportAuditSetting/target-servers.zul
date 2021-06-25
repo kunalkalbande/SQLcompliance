@@ -1,0 +1,88 @@
+<zk>
+	<div hflex="1" vflex="1" style="vertical-align:middle;"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.importAuditSetting.ImportAuditTargetServer')">
+		<vlayout vflex="1">
+			<hlayout spacing="25px">
+				<div hflex="1">
+					<vlayout>
+						<hlayout style="height:30px">
+							<label
+								style="font-family: Source Sans Pro;
+								  height: 18px;
+								  font-size: 18px;
+								  font-weight: 600;
+								  font-style: normal;
+								  font-stretch: normal;
+								  color: #4e4e4e;"
+								sclass="modal-dialog-title"
+								value="${idera:getLabel('SQLCM.Labels.target-server')}" />
+						</hlayout>
+						</vlayout>
+						<hlayout>
+							<div hflex="1">
+								<vlayout>
+									<separator height="8px" />
+									<hlayout spacing="20px">
+										<label style="font-weight:600"
+											value="${idera:getLabel('SQLCM.Labels.target-server-text')}" />
+									</hlayout>
+									<separator height="10px" />
+									<hlayout>
+										<groupbox width="595px"
+											height="400px" style="background-color:white">
+											<hlayout spacing="30px"
+												style="padding-left: 30px;">
+												<label
+													style="font-weight:600"
+													value="${idera:getLabel('SQLCM.Labels.select-target-servers-to-import')}" />
+												<separator
+													spacing="20px">
+												</separator>
+											</hlayout>
+											<separator spacing="10px"></separator>
+											<div width="450px"
+												height="300px"
+												style="overflow: auto; padding-left: 30px;">
+												<idera-cwf-listbox
+													id="serverName" onSelect="@command('listItemSelect')"
+													sclass="idera-grid z-listbox" width="400px"
+													height="270px">
+													<template
+														name="model">
+														<listitem
+															label="${each.serverName}">
+														</listitem>
+													</template>
+												</idera-cwf-listbox>
+											</div>
+											<vlayout>
+												<hlayout
+													style="padding-left:20px">
+													<idera-cwf-button
+														label="Clear All" style="text-transform: capitalize;"
+														onClick="@command('ClearAll')">
+													</idera-cwf-button>
+													<idera-cwf-button
+														label="Select All" style="text-transform: capitalize;"
+														onClick="@command('SelectAll')">
+													</idera-cwf-button>
+												</hlayout>
+											</vlayout>
+										</groupbox>
+									</hlayout>
+								</vlayout>
+							</div>
+						</hlayout>						
+						</div>
+						</hlayout>
+			<hlayout sclass="padding-lr-24">
+				<hbox hflex="1" pack="stretch,start">
+					<cell hflex="1" />
+					<cell hflex="min" sclass="middle-center-align">
+					</cell>
+				</hbox>
+			</hlayout>
+		</vlayout>
+				</div>
+</zk>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="9" MadCap:lastHeight="694" MadCap:lastWidth="1120">
+    <head><title>Edit Alert Rule Wizard SQL Server Object Type</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Edit Event Alert Rule Wizard</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Edit Event Alert Rule Wizard &gt; </MadCap:conditionalText>SQL Server Object Type</h2>
+        <p class="Body">This tab allows you to change the type of SQL Server object that should be monitored by this alert rule. You can generate alerts for objects on currently audited databases and SQL Server instances.</p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Select the object that triggers this alert</p>
+        <p class="DefinitionListBody">Allows you to specify the SQL Server object type that should trigger this alert. When the Collection Server processes an audited event associated with the specified object type, the alert rule is run to see whether the identified event matches the other alert rule criteria.</p>
+        <p class="DefinitionListBody">By default, the alert rule will generate alerts for matching events on all audited SQL Server instances. </p>
+        <p class="DefinitionListBodyLast">You can specify one or more objects:</p>
+        <table style="caption-side: top;mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Type of Object</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">You can specify …</p>
+                    </th>
+                </tr>
+            </thead>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">SQL Server instance</p>
+                </td>
+                <td class="BodyD-Column2-Body1">
+                    <ul style="list-style-type: circle;">
+                        <li class="Bullet">Any instance</li>
+                        <li class="Bullet">A specific instance by name</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Database</p>
+                </td>
+                <td class="BodyD-Column2-Body1">
+                    <ul style="list-style-type: circle;">
+                        <li class="Bullet">A specific database by name</li>
+                        <li class="Bullet">Any database whose name matches a naming convention or phrase</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Database object</p>
+                </td>
+                <td class="BodyD-Column2-Body1">
+                    <ul style="list-style-type: circle;">
+                        <li class="Bullet">A specific database object by name</li>
+                        <li class="Bullet">Any database object whose name matches a naming convention or phrase</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <p class="DefinitionListBody">For example, you can specify the following objects:<ul style="list-style-type: circle;"><li class="Bullet-Def-Body">Any database whose name contains the word <code class="Code_1_1">test</code> on the <code class="Code_1_1">LABSERVER</code> instance</li><li class="Bullet-Def-Body">The <code>model </code>database on any audited instance</li><li class="Bullet-Def-Body-Last">The <code class="Code_1_1">Salary</code> table in the <code class="Code_1_1">HR01</code> database hosted by the <code class="Code_1_1">Chicago</code> instance</li></ul></p>
+        <p class="DefinitionListTerm">Edit rule details</p>
+        <p class="DefinitionListBody">Allows you specify the word or phrase the alert rule should use to identify events associated with the object you want to alert on.</p>
+        <p class="DefinitionListBody">The rule details pane also allows you to change your specified alert rule criteria at any time as you edit your alert rule. As you specify criteria using the Edit Event Alert Rule wizard, the rule details grows to include these additional settings. To edit previously set criteria, click the corresponding setting.</p>
+    </body>
+</html>

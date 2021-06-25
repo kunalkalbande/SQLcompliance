@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="10" MadCap:lastHeight="1322" MadCap:lastWidth="867">
+    <head><title>SQL Server Events You Can Audit</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">SQL Server events you can audit</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">SQL Server events you can audit</h2>
+        <p class="Body">
+            <MadCap:keyword term="auditing:events;auditing:logins" />SQL&#160;Compliance&#160;Manager allows you to audit specific types of SQL Server event data, and distinguish between successful operations and failed operations. Whether an operation succeeds or fails is dependent upon whether the login permissions are correct.</p>
+        <h2 class="Heading2">Data types and corresponding events</h2>
+        <p class="Body">SQL&#160;Compliance&#160;Manager captures the following types of event data.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Data Type</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Events Audited</p>
+                    </th>
+                    <th class="HeadD-Column1-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Logins</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Successful logins
+</li>
+                            <li class="Bullet">Failed logins
+Impersonation
+</li>
+                        </ul>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Audits login activity if an access check is performed and the event status is recorded (success or failure) at the server level</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Administration</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Backups
+Restores</li>
+                            <li class="Bullet">DBCC
+</li>
+                            <li class="Bullet">Change server settings</li>
+                            <li class="Bullet">Alter trace
+Database operation
+</li>
+                        </ul>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Audits common administrative tasks on the SQL Server instance</p>
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Security</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Add login
+</li>
+                            <li class="Bullet">Add role
+</li>
+                            <li class="Bullet">Grant, Revoke, Deny
+</li>
+                            <li class="Bullet">Change role password
+</li>
+                            <li class="Bullet">Change login properties
+</li>
+                            <li class="Bullet">Change owner
+</li>
+                        </ul>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Audits all SQL security model activity</p>
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Database Definition (DDL)</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">Derived permission
+</li>
+                            <li class="Bullet">SQL statement permission</li>
+                            <li class="Bullet">Database access
+</li>
+                        </ul>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Audits create, drop, and alter operations performed on SQL Server objects, database objects, and schema object</p>
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">DML</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">Object permissions</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Audits common database operations, such as:
+</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet">UPDATE
+</li>
+                            <li class="Bullet">INSERT
+</li>
+                            <li class="Bullet">DELETE</li>
+                        </ul>
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Select</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">SELECT</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Audits all SELECT statements executed on database table</p>
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Privileged User</p>
+                    </td>
+                    <td class="BodyE-Column2-Body1">
+                        <p class="TableText">All</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p class="TableText">Audits all privileged user activity at any level</p>
+                        <p class="TableText"><span class="If_Then_Statement">If the privileged user is also a trusted user</span>, SQL Compliance Manager continues to audit this user because of its elevated privileges. For example, a service account that is a member of the sysadmin fixed SQL Server role will continue to be audited even though the account is designated as trusted
+.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">User defined</p>
+                    </td>
+                    <td class="BodyB-Column2-Body1">
+                        <p class="TableText">All</p>
+                        <p>&#160;</p>
+                    </td>
+                    <td class="BodyA-Column1-Body1">
+                        <p class="TableText">Audits all custom events generated using the <span class="Code_1_1">sp_trace_generateevent</span> stored procedure</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Data levels</h2>
+        <p class="Body">You can capture different event data at one or more of the following levels:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">SQL Server instance</li>
+            <li class="Bullet">Database</li>
+            <li class="BulletLast">Database object, such as a table</li>
+        </ul>
+        <p class="Body">This flexibility allows you to achieve precise and granular compliance. For example, you can configure different audit settings for multiple databases hosted on a single registered SQL Server instance.</p>
+    </body>
+</html>

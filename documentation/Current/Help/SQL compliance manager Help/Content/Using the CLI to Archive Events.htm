@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="2" MadCap:lastHeight="274" MadCap:lastWidth="943">
+    <head><title>Using the CLI to Archive Events</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Use the CLI to archive events</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Use the CLI to archive events</h2>
+        <p class="Body">
+            <MadCap:keyword term="archives:CLI;CLI:archive events;CLI:examples;CLI:usage">
+            </MadCap:keyword>You can use the command line interface to archive audited events for registered SQL Server instances across your environment.</p>
+        <p class="Body">The archive operation supports the following syntax:</p>
+        <p class="DefinitionListBody"><code>SQLcmCmd [-host CollectionServer] [-port number] archive {instance | all} [numberofdaysold] [-prefix phrase] [-partition {quarter | month | year}] </code><code style="mc-tag-and-class: code;"></code><code>[-timezone timezonename] [-nointegrity]</code>
+        </p>
+        <p class="Body"><span class="If_Then_Statement">If you do not specify an optional parameter</span>, the Collection Server will use the settings you selected in your archive preferences. An integrity check will be performed unless you use the <code>–nointegrity</code> parameter in your command.</p>
+    </body>
+</html>

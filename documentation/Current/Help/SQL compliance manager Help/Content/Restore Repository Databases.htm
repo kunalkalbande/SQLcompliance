@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="352" MadCap:lastWidth="945">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Restore the Repository databases</h1>
+        <p class="Body">To recover lost or damaged audit data, restore the Repository databases. For best results, use the following guidelines:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Perform a full restore, including the transaction logs</li>
+            <li class="Bullet">Schedule the restore during off-hours, or times when you expect the least audit activity</li>
+            <li class="BulletLast">Restore all Repository databases during the same restore procedure to ensure audit data integrity remains intact</li>
+        </ul>
+        <p class="StepIntro">To restore the Repository databases:</p>
+        <ol>
+            <li class="NumberedList">Use the SQL Server client tools to close any open connections to the SQLcompliance database.</li>
+            <li class="NumberedList">Use the SQL Server client tools to take the SQLcompliance database offline. <span class="If_Then_Statement">If you cannot take the SQLcompliance database offline</span>, stop the Collection Service.</li>
+            <li class="NumberedList">Use a tool such as Idera SQL Safe to restore the SQLcompliance database using the appropriate backup file, including transaction logs.</li>
+            <li class="NumberedList">Use a tool such as Idera SQL Safe to restore each event and archive database using the appropriate backup file, including the transaction logs. Each registered SQL Server instance has a corresponding event database. The number of archive databases depends on your archive preferences and your archive frequency.</li>
+            <li class="NumberedList">Use SQL Server client tools to bring the SQLcompliance database online.</li>
+        </ol>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<zk>
+    <hlayout>
+          <grid hflex="1" sclass="idera-invisible-grid">
+			<rows> 
+			<row>            
+             <idera-cwf-dropdownlist mold="default" model="@load(vm.eventOptions)" tabindex="8" readonly="true" value="@load(vm.eventType)"
+            	onSelect="@command('selectEventSource', id=self.selectedItem.label)">            	          
+            	          <template name="model">
+            	          <comboitem label="@load(each)"/>
+            	          </template>
+            	      </idera-cwf-dropdownlist> 
+    </row>
+    </rows>
+    </grid>    
+        <div hflex="1" align="right">
+        <hlayout>
+       <zk when="${sqlcm:canAccess() != true}"> 
+        <idera-cwf-button id="auditingLabel" disabled="true" hflex="min"
+                   style="text-transform: capitalize;"  label="@load(vm.instance.enabled eq 'true'
+                                    ?idera:getLabel('SQLCM.Labels.disable-auditing')
+                                    :idera:getLabel('SQLCM.Labels.enable-auditing'))"               
+                   onClick="@command('changeAuditing')" visible="false" />
+        </zk>
+       <zk when="${sqlcm:canAccess() == true}">
+       	<idera-cwf-button disabled="@load(vm.disabledButton eq 'true'
+       								? true: false)"
+       			hflex="min" style="text-transform: capitalize;"
+       			label="@load(vm.instance.enabled eq 'true'
+                                    ?idera:getLabel('SQLCM.Labels.disable-auditing')
+                                    :idera:getLabel('SQLCM.Labels.enable-auditing'))"
+       			onClick="@command('changeAuditing')" visible="false" />
+       </zk>
+
+
+       <div>
+				<idera-cwf-button  id="makeReportLink" label="${idera:getLabel('Labels.export')}"
+                   style="{color: black;} :hover {color: white}" popup="reportsMenuPopup, position=after_end"/>
+                <menupopup id="reportsMenuPopup" sclass="sql-cm-export-menu">
+                    <menuitem id="createPDFMenuItem" label="${idera:getLabel('Labels.export-as-pdf')}"
+                              onClick="@command('exportToPdf')"/>
+                    <menuitem id="createXLSMenuItem" label="${idera:getLabel('Labels.export-as-xls')}"
+                              onClick="@command('exportToExcel')"/>
+                    <menuitem id="createXMLMenuItem" label="${idera:getLabel('Labels.export-as-xml')}"
+                              onClick="@command('exportToXml')"/>
+                </menupopup>
+               </div>      
+         
+          <image src="~./sqlcm/images/refresh-icon.png" height="20px" style="margin-top:16px" onClick="@command('refreshEvent')"></image>
+    </hlayout>
+    </div>
+    </hlayout>
+</zk>

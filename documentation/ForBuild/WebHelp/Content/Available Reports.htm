@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Report on Audit Data">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Available Reports</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">Available Reports</h1>
+        <p class="Body">The following report categories are included with SQL Compliance Manager. The activity, change, and history reports list events that passed the SQL Server access check. To audit events that failed the SQL Server access check, generate the Permission Denied Activity report for the appropriate SQL Server instance.</p>
+        <p class="DefinitionListTerm"><a name="kanchor102"></a>Audit Reports </p>
+        <p class="DefinitionListBody">The Daily Audit Activity Statistics report lists the amount of activity that occurred on the SQL Server instance or designated database, on an hourly basis, for the dates specified. Use this report to audit overall activity levels on your SQL Server instances and databases.</p>
+        <p class="DefinitionListTerm"><a name="kanchor103"></a>Alerts Reports</p>
+        <p class="DefinitionListBody">The Alert Activity report lists alert details, such as target object, event, and time of the alert. Use this report to audit alerts triggered over a specified time period.</p>
+        <p class="DefinitionListTerm"><a name="kanchor104"></a>Application Audit Reports</p>
+        <p class="DefinitionListBody">These reports list activity details, such as login, event, and time of activity, per application and database. Use these reports to audit activity across multiple applications and databases.</p>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1">Application Activity</li>
+                <li class="Bullet" value="2">Application Activity Statistics</li>
+            </ul>
+        </ul>
+        <p class="DefinitionListTerm"><a name="kanchor105"></a>Database Object Audit Reports</p>
+        <p class="DefinitionListBody">The Backup and DBCC Activity report lists backup, restore, DBCC, and database object activities on specific databases. Use these reports to audit mass data movement or database object activity, such as <span class="Code">SELECT</span> or <span class="Code">UPDATE</span>, across multiple databases. </p>
+        <p class="DefinitionListTerm"><a name="kanchor106"></a>DDL Audit Reports</p>
+        <p class="DefinitionListBody">The Database Schema Change History report lists schema changes applied to audited databases. Use these reports to audit data definition language (DDL) statements, such as dropped tables, executed against one or more databases on a SQL Server instance.</p>
+        <p class="DefinitionListTerm"><a name="kanchor107"></a>DML Audit Reports</p>
+        <p class="DefinitionListBody">The DML Activity (Before-After) report lists DML events for which before and after data is available. Use this report to audit <code>UPDATE</code>, <code>INSERT</code>, and <code>DELETE </code>activity on critical or sensitive databases.</p>
+        <p class="DefinitionListTerm"><a name="kanchor108"></a>Host Audit Reports</p>
+        <p class="DefinitionListBody">The Host Activity report lists all host computers from which specific logins executed an action. Use this report to audit user behavior from multiple client computers, identifying the host computer from which an activity request originated.</p>
+        <p class="DefinitionListTerm"><a name="kanchor109"></a>Policy Audit Reports</p>
+        <p class="DefinitionListBody">These reports list changes and updates applied to the SQLcompliance Agent deployed on a specific SQL Server, and any integrity violations in your audit data. Use these reports to diagnose audit data integrity issues and track agent configuration changes as well as agent activities, such as SQLcompliance Agent service restarts.</p>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1">Agent History</li>
+            </ul>
+        </ul>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1">Alert Rules</li>
+            </ul>
+        </ul>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1">Audit Control Changes</li>
+                <li class="Bullet" value="2">Integrity Check</li>
+            </ul>
+        </ul>
+        <p class="DefinitionListTerm"><a name="kanchor110"></a>Regulation Audit Reports</p>
+        <p class="DefinitionListBody">The Regulation Guidelines report lists all of the regulations and their individual guidelines applied to one or more databases. Use this report to audit the regulatory guidelines applied to your SQL&#160;Server instance.</p>
+        <p class="DefinitionListTerm"><a name="kanchor111"></a>Security Audit Reports</p>
+        <p class="DefinitionListBody">These reports list permission changes by object type as well as unauthorized attempts to execute activities. Use these reports to audit your SQL Server security settings and identify misconduct.</p>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1">Change History (by object)</li>
+            </ul>
+        </ul>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1">Change History (by user)</li>
+            </ul>
+        </ul>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1">Permission Denied Activity</li>
+                <li class="Bullet" value="2">User Login History</li>
+            </ul>
+        </ul>
+        <p class="DefinitionListTerm"><a name="kanchor112"></a>SELECT Audit Reports</p>
+        <p class="DefinitionListBody">The Sensitive Column report lists all  <code>SELECT&#160;</code>events that were initiated by applications to read specific columns that contain sensitive data. This report also includes the T-SQL statements that executed the corresponding commands. Use this report to audit columns that require high security, such as employee Social Security numbers (SSNs).</p>
+        <p class="DefinitionListTerm"><a name="kanchor113"></a>User Audit Reports</p>
+        <p class="DefinitionListBody">These reports list user activities performed on a specific SQL Server instance, and provide a history of login creations and deletions. Use these reports to audit user behavior and login management.</p>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1">Login Creation History</li>
+            </ul>
+        </ul>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1">Login Deletion History</li>
+            </ul>
+        </ul>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1">Server Login Activity Summary</li>
+            </ul>
+        </ul>
+        <ul class="ul_1">
+            <ul style="list-style-type: circle;">
+                <li class="Bullet" value="1">User Activity History</li>
+            </ul>
+        </ul>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> <![CDATA[ ]]></p>
+    </body>
+</html>

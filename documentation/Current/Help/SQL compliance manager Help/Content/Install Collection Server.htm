@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="226" MadCap:lastWidth="1185">
+    <head><title>Use a Dedicated Computer</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Use a dedicated computer</h1>
+        <p class="Body">
+            <MadCap:keyword term="installing:Collection Server" />Install the Collection Server on a dedicated physical computer running SQL Server. For optimal performance, implement the following recommended configurations:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Configure the trace directory to use a different disk than what the operating system uses</li>
+            <li class="Bullet">Run 64-bit versions of the Windows operating system and the SQL Server software</li>
+            <li class="Bullet"> Ensure the Repository databases are the only databases hosted on this SQL Server</li>
+            <li class="BulletLast">Set the default database file locations so these files are stored on a different disk than what the operating system uses</li>
+        </ul>
+        <p class="Body">This configuration also helps you ensure minimal access to the SQL Server instance and your audit data. For more information, see <a href="Architecture and Components.htm" target="_self">product components and architecture</a>.</p>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="394" MadCap:lastWidth="1185">
+    <head><title>Restoring Event Databases</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Restore event databases</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Restore event databases</h2>
+        <p class="Body" MadCap:conditions="">
+            <MadCap:keyword term="Repository:restoring">
+            </MadCap:keyword>Restore the event databases to recover lost or damaged audit data, according to your established disaster recovery strategies. For best results, use the following guidelines:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Perform a full restore, including the transaction logs</li>
+            <li class="Bullet">Schedule the restore during off-hours, or times when you expect the least audit activity</li>
+            <li class="Bullet">Restore all event databases during the same restore procedure</li>
+            <li class="BulletLast">Restore the SQLcompliance database during the same restore procedure to ensure audit data integrity remains intact</li>
+        </ul>
+        <p class="StepIntro">To restore the event databases:</p>
+        <ol>
+            <li class="NumberedList">Use SQL Server Enterprise Manager or Management Studio to close any open connections to the SQLcompliance database.</li>
+            <li class="NumberedList">Use SQL Server Enterprise Manager or Management Studio to take the SQLcompliance database offline. <span class="If_Then_Statement">If you cannot take the SQLcompliance database offline</span>, stop the Collection Service.</li>
+            <li class="NumberedList">Use a tool such as Idera SQL Safe to restore the SQLcompliance database using the appropriate backup file, including transaction logs.</li>
+            <li class="NumberedList">Use a tool such as Idera SQL Safe to restore each event database using the appropriate backup file, including the transaction logs. Each registered SQL Server instance has a corresponding event database. For more information, see <a href="Architecture and Components.htm" target="_self">Understanding SQL&#160;Compliance&#160;Manager components</a>.</li>
+            <li class="NumberedList">Use SQL Server Enterprise Manager or Management Studio to bring the SQLcompliance database online.</li>
+        </ol>
+    </body>
+</html>

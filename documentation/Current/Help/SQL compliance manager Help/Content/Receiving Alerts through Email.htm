@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="6" MadCap:lastHeight="408" MadCap:lastWidth="1159">
+    <head><title>Receiving Alerts through Email</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Receive Alerts through Email</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Receive Alerts through Email</h2>
+        <p class="Body">
+            <MadCap:keyword term="configure SMTP server;email notification;alerts:using email;alerting:email alerts;Event Alerts:email alert messages;Status Alerts:email alert messages" />You can configure SQL&#160;Compliance&#160;Manager to email custom alert messages to yourself or others. To successfully receive alert messages through an email client, configure SQL&#160;CM to connect to your SMTP server, and then configure the Event or Status Alert rule to send an email when the alert is triggered.</p>
+        <p class="StepIntro">To receive alerts through email:</p>
+        <ol>
+            <li class="NumberedList">On the <span class="GUI_Item">Alerting </span>menu, click <span class="GUI_Item">Configure Email Settings</span>.</li>
+            <li class="NumberedList">Specify the following settings according to your SMTP server configuration:<ul style="list-style-type: circle;"><li class="Bullet">Name of the physical computer hosting the SMTP server</li><li class="Bullet">Port used to connect to the SMTP server</li><li class="Bullet">Whether the SMTP server requires authentication to accept a connection from another computer or application</li><li class="Bullet">Whether the SMTP server uses Secure Sockets Layer (SSL)</li><li class="Bullet">Address that should display in the <span class="GUIItem_1">From</span> field of the alert email</li></ul></li>
+            <li class="NumberedList">To verify that SQL&#160;compliance&#160;manager can connect to your SMTP server using the specified settings, click <span class="GUI_Item">Test</span>.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">OK</span>.</li>
+            <li class="NumberedList">Depending on the alert rule type, use the either Edit Event Alert Rule or the Edit Status Alert Rule wizard to enable email notification, specify recipient addresses, and create a custom alert message for existing alerts. For more information, see <a href="Changing the Action an Alert.htm" target="_self">Changing the Action an Alert Performs</a>.</li>
+        </ol>
+    </body>
+</html>

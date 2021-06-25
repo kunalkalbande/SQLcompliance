@@ -1,0 +1,154 @@
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            
+//  IIIIIII SSSSSS                                                            
+//    II    SS                          InstallShield (R)                     
+//    II    SSSSSS      (c) 1996-2002, InstallShield Software Corporation     
+//    II        SS                     All rights reserved.             
+//  IIIIIII SSSSSS                  
+//                                                                            
+//                                                                            
+//  This template script provides the code necessary to build an entry-point 
+//  function to be called in an InstallScript custom action. 
+//                                                                            
+//                                                                            
+//    File Name:  Setup.rul                                                   
+//                                                                            
+//  Description:  InstallShield script                                        
+//
+////////////////////////////////////////////////////////////////////////////////
+
+// Include Ifx.h for built-in InstallScript function prototypes, for Windows 
+// Installer API function prototypes and constants, and to declare code for 
+// the OnBegin and OnEnd events.  
+#define APPLICATION INSTALLDIR^"SQLcomplianceClusterGUI.exe"
+#include "ifx.h"
+
+// The keyword export identifies MyFunction() as an entry-point function.
+// The argument it accepts must be a handle to the Installer database.
+export prototype ExFn_LaunchApp (HWND); 
+export prototype RemoveShortcut(HWND);
+export prototype RemoveMDeploy(HWND);
+export prototype CheckVirtualServersKey(HWND);
+                                            
+//for internal use	
+prototype DeleteDirectory(STRING); //accepts a directory path   
+
+
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           
+// Function:  ExFn_LaunchApp
+//                                                                           
+// Purpose:  Launches App specified in APPLICATION #DEFINE above
+//                                                                           
+///////////////////////////////////////////////////////////////////////////////
+function ExFn_LaunchApp (hMSI)
+begin
+    if (LaunchApp  (APPLICATION, "") < 0) then
+        MessageBox ("Unable to launch "+APPLICATION+".", SEVERE);
+    endif;
+end; 
+
+
+///////////////////////////////////////////////////////////////////////////////
+//  RemoveMDeploy
+//  Called to remove all files in the minideploy directory tree
+//  This is necessary because the minidepoy stuff has a few dynamic files that
+//  arent uninstalled without this
+//
+///////////////////////////////////////////////////////////////////////////////
+function RemoveMDeploy(hMSI)
+begin 
+      
+ 	// Delete the install directory   
+	DeleteDirectory(INSTALLDIR + "\\v1.1.4322");
+
+end;        
+
+///////////////////////////////////////////////////////////////////////////////
+//  DeleteDirectory
+//  Deletes all files in a directory, even read only files
+//
+///////////////////////////////////////////////////////////////////////////////
+
+function DeleteDirectory(directory)
+STRING fileName, szProgramFiles, szResult;
+NUMBER nvStringBufferSize;
+begin
+  
+  nvStringBufferSize = 256;
+  MsiGetProperty(ISMSI_HANDLE, "ProgramFilesFolder", szProgramFiles, nvStringBufferSize);
+  
+  
+  	LongPathToQuote(directory, FALSE);
+
+	while (FindAllFiles(directory, "*.*", szResult, CONTINUE) = 0)
+	SetFileInfo(szResult, FILE_ATTRIBUTE, FILE_ATTR_NORMAL, "");
+	endwhile;
+  
+  	DeleteDir(directory, ALLCONTENTS);
+    
+    
+    // Try to remove the Installed folders.  ignores errors and leaves is any files exist
+    try
+	DeleteDir(INSTALLDIR, ONLYDIR);
+	catch
+	endcatch;
+	
+	try
+	DeleteDir(szProgramFiles ^ "Idera", ONLYDIR);
+	catch
+	endcatch;
+	
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  RemoveShortcut
+//  Called to remove all files in the INSTALLDIR during uninstallation of agent MSI.
+//
+///////////////////////////////////////////////////////////////////////////////
+function RemoveShortcut(hMSI)
+
+	STRING szUser, szDeleteFile, szDelete, szFolder, szDeleteIdera;
+	NUMBER nvStringBufferSize;
+
+begin 
+
+    nvStringBufferSize = 256;
+    
+    MsiGetProperty(ISMSI_HANDLE, "LogonUser", szUser, nvStringBufferSize);
+    MsiGetProperty(ISMSI_HANDLE, "LOCALPERSONALFOLDER", szFolder, nvStringBufferSize);
+ 
+ 	
+ 	szDeleteIdera = szFolder^"\\Programs\\Idera";
+    szDelete =  szDeleteIdera^"\\SQL compliance manager";
+    szDeleteFile = szDelete^"SQL compliance Cluster Support Manager.lnk";  
+
+	SetFileInfo(szDeleteFile, FILE_ATTRIBUTE, FILE_ATTR_NORMAL, "");
+  	DeleteFile(szDeleteFile);
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  CheckVirtualServersKey
+//  Checks to see if VirtualServers key has entries
+///////////////////////////////////////////////////////////////////////////////
+function CheckVirtualServersKey(hMSI)
+
+	STRING myString, szKey, szValue;
+	NUMBER type,size,count;
+
+begin
+
+   // Set Registry Root to HKEY_LOCAL_MACHINE 
+   RegDBSetDefaultRoot(HKEY_LOCAL_MACHINE);
+
+   szKey = "SOFTWARE\\Idera\\SQLcompliance\\VirtualServers";
+   szValue =  "";
+
+   // Check if any virtual servers exist - if they do
+   // then there will be subkeys for the ones that are registered
+   count = RegDBQueryKeyCount ( szKey, REGDB_KEYS );
+   if ( count > 0 ) then
+      MsiSetProperty(ISMSI_HANDLE, "VirtualServersPopulated", "1");
+   endif;     
+
+end;  

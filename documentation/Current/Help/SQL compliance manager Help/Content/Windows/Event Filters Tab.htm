@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="959" MadCap:lastWidth="945">
+    <head><title>Event Filters Tab</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Event Filters Tab</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Event Filters Tab</h2>
+        <p class="Body">This tab allows you to filter out specific SQL events in the audit data collected from the SQL Server instances and databases you are auditing. Use audit Event Filters to refine your audit data trail so that it contains only the events you need to track. </p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Set filter criteria</p>
+        <p class="DefinitionListBody">Use the links in the <span class="GUI_Item">Filter Description</span> pane to change the value or setting of a specific filter criterion.</p>
+        <p class="DefinitionListTerm">New Event Filter</p>
+        <p class="DefinitionListBody">Allows you to create a new event filter using the New Event Filter wizard. SQL Compliance Manager stores this event filter in the Repository.</p>
+        <p class="DefinitionListTerm">Use Filter as Template</p>
+        <p class="DefinitionListBody">Allows you to create a new event filter using the selected filter as a template. This action launches the New Event Filter wizard, each window populated with event criteria from the selected filter. You can change any event criterion to meet the goals of your new filter. SQL CM stores the new event filter in the Repository. The selected filter remains unchanged.</p>
+        <p class="DefinitionListTerm">Enable Filter</p>
+        <p class="DefinitionListBody">Allows you to enable the selected event filter. When an event filter is enabled, SQL Compliance Manager processes audited events using the selected criteria in this filter.<span class="If_Then_Statement"> If an event matches the filter criteria</span>, SQL CM removes the event from the audit data. Use the Audit Events tab to see the resultant set of processed events.</p>
+        <p class="DefinitionListTerm">Disable Filter</p>
+        <p class="DefinitionListBody">Allows you to temporarily stop using the selected event filter. SQL Compliance Manager will no longer use this filter when processing events. All previously processed audit data stored in the Repository remains intact. To reinstate this filter, enable it.</p>
+        <p class="DefinitionListTerm">Import Filters</p>
+        <p class="DefinitionListBody">Allows you to import Event Filters previously exported from another SQL Server instance. By default, the imported Event Filters are disabled.</p>
+        <p class="DefinitionListTerm">Export Filters</p>
+        <p class="DefinitionListBody">Allows you to export Event Filters created for this SQL Server instance to an XML file. You can later use this file to import Event Filters across multiple SQL Server instances, ensuring consistent filtering of specific events throughout your environment.</p>
+        <p class="DefinitionListTerm">View Details</p>
+        <p class="DefinitionListBody">Allows you to view or change the criteria for the selected filter.</p>
+        <p class="DefinitionListTerm">Delete</p>
+        <p class="DefinitionListBody">Allows you to permanently delete the selected event filter. This option removes the filter from the Repository. SQL Compliance Manager will no longer use this filter when processing events. All previously processed audit data stored in the Repository remains intact.</p>
+        <p class="DefinitionListTerm">Refresh</p>
+        <p class="DefinitionListBody">Allows you to update the Audit Event Filters list with current data.</p>
+        <h2 class="Heading2">Available columns</h2>
+        <p class="DefinitionListTerm">Filter</p>
+        <p class="DefinitionListBody">Provides the name of the audit event filter. You can specify a new name when you create or edit an audit event filter.</p>
+        <p class="DefinitionListTerm">SQL Server</p>
+        <p class="DefinitionListBody">Provides the name of the registered SQL Server instance for which audited events are being excluded by this filter.</p>
+        <p class="DefinitionListTerm">Description</p>
+        <p class="DefinitionListBody">Provides a brief description of the event filter. You can specify the filter description when you create or edit an event filter.</p>
+    </body>
+</html>

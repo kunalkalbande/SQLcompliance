@@ -1,0 +1,2627 @@
+////////////////////////////////////////////////////////////////////////////////                                                                           
+//                                                                            
+//    File Name:  Setup.rul                                                   
+//                                                                            
+//  Description:  SQLcompliance Installshiled Scipt                                        
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// INCLUDES 
+///////////////////////////////////////////////////////////////////////////////
+
+	// Include Ifx.h for built-in InstallScript function prototypes, for Windows 
+	// Installer API function prototypes and constants, and to declare code for 
+	// the OnBegin and OnEnd events.
+#include "ifx.h"
+
+///////////////////////////////////////////////////////////////////////////////
+// EXPORTS 
+///////////////////////////////////////////////////////////////////////////////
+    #ifndef RegMultiSZ		
+  	#define RegMultiSZ
+    
+      
+    // The keyword export identifies MyFunction() as an entry-point function.
+    // The argument it accepts must be a handle to the Installer database.
+    export prototype CheckDMO(HWND); 
+    export prototype CheckINSTANCE(HWND);
+    export prototype AddSlashINSTALLDirMedia(HWND);
+    export prototype CheckFeatureState(HWND);
+    export prototype CheckForBetaInstall(HWND); 
+    export prototype CheckForOtherInstall(HWND); 
+    export prototype CheckForOtherInstallAgent(HWND); 
+    export prototype CheckRepositoryExist(HWND);
+    export prototype CheckSQLSecureDatabaseExist(HWND);
+    export prototype ConfirmAgentTraceDirectory(HWND);
+    export prototype ConfirmINSTALLDirectory(HWND);
+    export prototype ConfirmINSTALLDirMedia(HWND);
+    export prototype ConfirmTraceDirectory(HWND);
+    export prototype ConvertServiceUsername(HWND);
+    export prototype GetInstances(HWND);
+    export prototype IsValidStoreProcVersion(HWND);
+    export prototype RemoveAgentTraceFiles(HWND);
+    export prototype RemoveAgentTraceFilesAgent(HWND);
+    export prototype RemoveCollectionTraceFiles(HWND);
+    export prototype RemoveMDeploy(HWND);
+    export prototype RemoveSlashAgentTraceDirectory(HWND);
+    export prototype RemoveSlashTraceDirectory(HWND);
+    export prototype SetAgentUninstall(HWND);
+    export prototype SetPreserveTraces_32(HWND);
+    export prototype SetPreserveTraces_64(HWND);
+    export prototype UpdateLocalInstance(HWND);   
+    export prototype UpdateLocalInstance_Agent(HWND);
+    export prototype UpgradeRepositoryCheck(HWND);
+    
+    
+	
+	//for internal use	
+	prototype Advapi32.RegOpenKeyA(NUMBER, POINTER, POINTER);
+	prototype Advapi32.RegCloseKey(NUMBER);
+	prototype Advapi32.RegSetValueExA(NUMBER,POINTER,NUMBER,NUMBER,POINTER,NUMBER);     
+   	prototype InstallUtilLib.ConvertHexEncodedString( BYREF WSTRING, BYREF WSTRING);
+	prototype RegDBSetMultiSZ(NUMBER,STRING,STRING,LIST);
+      
+    
+    prototype _WriteToLogFile(HWND, STRING);
+    prototype BOOL CheckDriveLetter(STRING);
+    prototype NUMBER CheckRepositoryVersion();
+    prototype STRING DecryptString(STRING);
+    prototype DeleteDirectory(STRING); //accepts a directory path
+    prototype BOOL DirAgentTraceCheckPath(STRING);
+    prototype BOOL DirCheckCharacters(STRING);
+    prototype BOOL DirCheckPath(STRING);
+    prototype BOOL DirCheckSlash(STRING); 
+    prototype BOOL DirTraceCheckPath(STRING);
+    prototype NUMBER DoesDatabaseExist();
+    prototype BOOL IsValidRepositoryVersion(HWND);
+    prototype LocalInstance(STRING, STRING);
+
+     
+///////////////////////////////////////////////////////////////////////////////
+// GLOBAL VARIABLES 
+///////////////////////////////////////////////////////////////////////////////
+
+ 	#define DELIMITER "|" 
+ 	// Stars
+	#define  LONG_STARS               "*****************************************************************"
+	#define  STARS                    "*** "
+
+ 
+///////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS 
+///////////////////////////////////////////////////////////////////////////////
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+//  RemoveUserFiles
+//  Called to remove all files in the INSTALLDIR during uninstallation.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+function RemoveMDeploy(hMSI)
+
+begin 
+_WriteToLogFile(hMSI, LONG_STARS);      
+ 	// Delete the install directory
+_WriteToLogFile(hMSI, "Cleaning up " + INSTALLDIR + "\\v1.1.4322");   
+	DeleteDirectory(INSTALLDIR + "\\v1.1.4322");
+_WriteToLogFile(hMSI, LONG_STARS);
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  RemoveAgentTraceFilesAgent
+//  Called to remove all files in the INSTALLDIR during uninstallation of agent MSI.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+function RemoveAgentTraceFilesAgent(hMSI)
+
+	STRING szTraceDir;
+	NUMBER nvStringBufferSize;
+
+begin 
+_WriteToLogFile(hMSI, LONG_STARS);
+    nvStringBufferSize = 256;
+    
+    MsiGetProperty(ISMSI_HANDLE, "TRACE_DIRECTORY", szTraceDir, nvStringBufferSize);
+
+_WriteToLogFile(hMSI, "Currently No Action");      
+    
+ 	// Delete the Agent Trace directory   
+	//DeleteDirectory(szTraceDir);    	
+_WriteToLogFile(hMSI, LONG_STARS); 
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  RemoveAgentTraceFiles
+//  Called to remove all files in the INSTALLDIR during uninstallation.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+function RemoveAgentTraceFiles(hMSI)
+
+	STRING szTraceDir;
+	NUMBER nvStringBufferSize, iTraceDir;
+
+begin 
+
+_WriteToLogFile(hMSI, LONG_STARS);
+    
+    nvStringBufferSize = 256;
+
+_WriteToLogFile(hMSI, "Initializing properties");
+    
+    MsiGetProperty(ISMSI_HANDLE, "TRACEDIR_AGENT", szTraceDir, nvStringBufferSize);
+        
+    iTraceDir = StrLengthChars ( szTraceDir ); 
+
+    
+    if iTraceDir <= 3 then 
+    	
+_WriteToLogFile(hMSI, "INSTALLDIR not set to path.  defaulting to " + INSTALLDIR + "\\SQLcomplianceAgentTraceFiles");
+    	
+    	szTraceDir = INSTALLDIR + "\\SQLcomplianceAgentTraceFiles";
+    
+    endif;  
+
+_WriteToLogFile(hMSI, "Removing files from " + szTraceDir);
+    
+ 	// Delete the Agent Trace directory   
+	DeleteDirectory(szTraceDir); 
+	   	
+_WriteToLogFile(hMSI, LONG_STARS);
+ 
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  RemoveCollectionTraceFiles
+//  Called to remove all files in the INSTALLDIR during uninstallation.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+function RemoveCollectionTraceFiles(hMSI)
+
+	STRING szTraceDir;
+	NUMBER nvStringBufferSize;
+
+begin 
+
+_WriteToLogFile(hMSI, LONG_STARS);
+     
+    nvStringBufferSize = 256;
+_WriteToLogFile(hMSI, "Getting property TRACEDIR_COLLECT");    
+    
+    MsiGetProperty(ISMSI_HANDLE, "TRACEDIR_COLLECT", szTraceDir, nvStringBufferSize);   
+
+_WriteToLogFile(hMSI, "Cleaning up " + szTraceDir);
+    
+ 	// Delete the Collection Trace directory   
+	DeleteDirectory(szTraceDir);    	
+
+_WriteToLogFile(hMSI, LONG_STARS);
+
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  DeleteDirectory
+//  Deletes all files in a directory, even read only files
+//
+///////////////////////////////////////////////////////////////////////////////
+
+function DeleteDirectory(directory)
+STRING fileName, szProgramFiles, szResult;
+NUMBER nvStringBufferSize;
+begin
+  
+  nvStringBufferSize = 256;
+  MsiGetProperty(ISMSI_HANDLE, "ProgramFilesFolder", szProgramFiles, nvStringBufferSize);
+  
+
+  //while ( FindFile(directory, "*.*", fileName)=0 ) //Finds all files in a directory
+    //SetFileInfo(directory^fileName, FILE_ATTRIBUTE, FILE_ATTR_NORMAL, ""); //resets files attributes to NORMAL
+    //DeleteFile(directory^fileName); //Delete File
+  //endwhile;
+  
+  	LongPathToQuote(directory, FALSE);
+
+	while (FindAllFiles(directory, "*.*", szResult, CONTINUE) = 0)
+	SetFileInfo(szResult, FILE_ATTRIBUTE, FILE_ATTR_NORMAL, "");
+	endwhile;
+  
+  	DeleteDir(directory, ALLCONTENTS);
+    
+    
+    // Try to remove the Installed folders.  ignores errors and leaves is any files exist
+    try
+	DeleteDir(INSTALLDIR, ONLYDIR);
+	catch
+	endcatch;
+	
+	try
+	DeleteDir(szProgramFiles ^ "Idera", ONLYDIR);
+	catch
+	endcatch;
+	
+end;      
+
+///////////////////////////////////////////////////////////////////////////////
+//  CheckDMO
+//  Tries to connect to SQLDMO object to determine if we need to install or not
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+function CheckDMO(hMSI)
+    STRING  szKey;  
+    STRING  szPropertyValue;
+    NUMBER  nRootKey;      
+    OBJECT	oSqlServer;
+
+begin
+
+_WriteToLogFile(hMSI, LONG_STARS);
+
+// Set SQL-DMO object
+_WriteToLogFile(hMSI, "Creating SQLDMO object");
+
+set oSqlServer = CoCreateObject("SQLDMO.Database");
+
+// Check if the object creation worked
+
+if ( !IsObject(oSqlServer) ) then    
+    //SQLDMO not installed
+_WriteToLogFile(hMSI, "SQLDMO not installed");
+
+    szPropertyValue = "TRUE";
+	MsiSetProperty(ISMSI_HANDLE, "INSTALLDMO", szPropertyValue);                      
+else
+	//SQLDMO installed
+_WriteToLogFile(hMSI, "SQLDMO installed");
+
+	szPropertyValue = "FALSE";
+	MsiSetProperty(ISMSI_HANDLE, "INSTALLDMO", szPropertyValue);
+endif;
+_WriteToLogFile(hMSI, LONG_STARS); 
+
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  CheckINSTANCE
+//  Checks to see if Instances key exists.   
+//  If it does exist installer set to no overwrite the key when repaired
+///////////////////////////////////////////////////////////////////////////////
+
+
+function CheckINSTANCE(hMSI)
+
+	STRING myString, szKey, szPropertyValue, szValue;
+	NUMBER type,size;
+
+begin
+
+_WriteToLogFile(hMSI, LONG_STARS);
+
+// Set Registry Root to HKEY_LOCAL_MACHINE 
+_WriteToLogFile(hMSI, "Setting Registry Root to HKEY_LOCAL_MACHINE");
+
+RegDBSetDefaultRoot(HKEY_LOCAL_MACHINE);
+//Set Key
+szKey = "SOFTWARE\\Idera\\SQLcompliance\\SQLcomplianceAgent";
+//Set Value
+szValue =  "Instances";
+
+//Check if Value exists by trying to read value
+_WriteToLogFile(hMSI, "Checking if Value exists");
+
+if(RegDBGetKeyValueEx(szKey , szValue, type, myString, size)==0) then
+	//Value exists
+_WriteToLogFile(hMSI, "Value exist");
+	
+	szPropertyValue = "TRUE";
+	MsiSetProperty(ISMSI_HANDLE, "bInstanceExist", szPropertyValue);
+
+else
+	//Value doesn't exist
+_WriteToLogFile(hMSI, "Value doesn't exist");
+
+	szPropertyValue = "FALSE";
+	MsiSetProperty(ISMSI_HANDLE, "bInstanceExist", szPropertyValue);
+
+endif;
+
+_WriteToLogFile(hMSI, LONG_STARS);
+
+end;  
+
+///////////////////////////////////////////////////////////////////////////////
+//  UpdateLocalInstance_Agent
+//  Make sure agent Instance is pointed to a local Instance   
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function UpdateLocalInstance_Agent(hMSI)
+
+STRING szMsg;
+
+begin
+
+szMsg = "The SQLcompliance Agent must be set to monitor a local instance.  Please update and continue.";
+
+LocalInstance("INSTANCE", szMsg);
+
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  UpdateLocalInstance
+//  Make sure the Repository is pointed at a local Instance   
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function UpdateLocalInstance(hMSI)
+
+STRING szMsg;
+
+begin 
+
+szMsg = "The Repository must be set to a local instance.  Please update and continue.";
+
+LocalInstance("REPOSITORY", szMsg);
+
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  LocalInstance
+//  Function called to convert '.' and '(local)' to the Computer name   
+//  Also ensures the converted name does point to a local instance
+///////////////////////////////////////////////////////////////////////////////
+
+function LocalInstance(szInstance, szMsg)
+
+	STRING sServer, sComputerName, szPropertyValue, szServer, szComputerName;
+	STRING szChar, szProductName;
+	NUMBER nvStringBufferSize;
+
+begin
+// Initialize Numbers
+	nvStringBufferSize = 256;
+
+//Gets Properties to use.  The Instance is variablized to allow different checks
+
+	MsiGetProperty(ISMSI_HANDLE, szInstance, sServer, nvStringBufferSize);
+	MsiGetProperty(ISMSI_HANDLE, "ComputerName", sComputerName, nvStringBufferSize);
+	MsiGetProperty(ISMSI_HANDLE, "ProductName", szProductName, nvStringBufferSize);
+
+    
+// get first 2 characters of string to check for .\ 
+
+	StrSub (szChar, sServer, 0, 2);
+//uppercase all characters for string comparisons
+	StrToUpper (szServer, sServer);
+	StrToUpper (szComputerName, sComputerName);
+
+// check for .\ as intial characters
+	if szChar == ".\\" then
+       
+		StrReplace (szServer, ".", szComputerName, 0);
+		
+	    MsiSetProperty(ISMSI_HANDLE, szInstance, szServer);
+	    
+	endif;
+
+// check if instance entered as '.'
+if szServer == "." then
+        
+	StrReplace (szServer, ".", szComputerName, 0);    
+
+    MsiSetProperty(ISMSI_HANDLE, szInstance, szServer);
+    
+endif;    
+
+// check if Instance contains '(local)'
+if (szServer % "(LOCAL)") then
+        
+	StrReplace (szServer, "(LOCAL)", szComputerName, 0); 
+       
+    MsiSetProperty(ISMSI_HANDLE, szInstance, szServer);
+    
+endif;
+
+// check to ensure instance name contains the local computername
+// This is to ensure we are pointing at a local instance.
+if (szServer % szComputerName) then
+    // Everything is good update property and continue
+	
+	szPropertyValue = "TRUE";
+	MsiSetProperty(ISMSI_HANDLE, "bSQLLocal", szPropertyValue);
+    
+else
+    //Local Instance not found.  Warn User and set to not continue
+ 	
+ 	szPropertyValue = "FALSE";
+	MsiSetProperty(ISMSI_HANDLE, "bSQLLocal", szPropertyValue);
+		
+	SetDialogTitle (DLG_MSG_WARNING, szProductName);	
+	MessageBox (szMsg, WARNING);
+
+
+endif;
+
+end;   
+
+///////////////////////////////////////////////////////////////////////////////
+//  CheckSQLSecureDatabaseExist
+//  Check to see if SQLcompliance or SQLcomplaince.Processing database exists   
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function CheckSQLSecureDatabaseExist(hMSI)
+
+	STRING szDBUser, szDBPassword, szDBServer, iDBMode, szPropertyValue;
+	BOOL bSQLcompliance, bProcessing, bIsValidVersion, bRes;
+	NUMBER nvStringBufferSize, nvBoolBufferSize, iRes;
+	OBJECT conn;
+
+begin
+
+// Initialize Numbers
+nvStringBufferSize = 256;
+nvBoolBufferSize = 1;
+
+// Get Connection Info entered into UI of Install
+
+	MsiGetProperty(ISMSI_HANDLE, "REPOSITORY", szDBServer, nvStringBufferSize);
+	MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_USERNAME", szDBUser, nvStringBufferSize);
+	MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_PASSWORD", szDBPassword, nvStringBufferSize);
+	MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_AUTHENTICATION", iDBMode, nvBoolBufferSize);
+
+
+// Create ADO Connection Object to connect to the SQL server	               
+
+
+	set conn = CreateObject("ADODB.Connection");
+
+// Set the ADO connection properties and open the connection
+conn.Provider = "sqloledb";
+conn.Properties("Data Source").Value = szDBServer;
+conn.Properties("Initial Catalog").Value = "SQLcompliance";
+if (iDBMode = "0") then
+	//set to use Credentials of Installing User
+	conn.Properties("Integrated Security").Value = "SSPI";
+else
+    // set to use SQL credentials
+    conn.Properties("User ID").Value = szDBUser;
+    conn.Properties("Password").Value = szDBPassword;
+endif;
+
+// intialize results
+iRes = 0;
+
+try
+    
+    // try to open a connection
+
+	conn.open();
+
+catch
+    
+    // if the connection errors capture results and clear error
+    iRes = Err.Number;
+	
+	Err.Clear;
+
+endcatch;
+
+
+	if iRes = 0 then
+	
+		bSQLcompliance = TRUE;
+	 
+	else    
+	
+		bSQLcompliance = FALSE;
+	
+	endif;
+
+// If connection fails the database does not exist
+	szPropertyValue = "FALSE";
+	MsiSetProperty(ISMSI_HANDLE, "DATABASE_EXISTS", szPropertyValue);
+
+// Now check for Processing database
+
+// Create ADO Connection Object to connect to the SQL server	               
+
+	set conn = CreateObject("ADODB.Connection");
+
+// Set the ADO connection properties and open the connection
+conn.Provider = "sqloledb";
+conn.Properties("Data Source").Value = szDBServer;
+conn.Properties("Initial Catalog").Value = "SQLcompliance.Processing";
+if (iDBMode = "0") then
+	//set to use Credentials of Installing User
+	conn.Properties("Integrated Security").Value = "SSPI";
+else
+    // set to use SQL credentials
+    conn.Properties("User ID").Value = szDBUser;
+    conn.Properties("Password").Value = szDBPassword;
+endif;
+
+iRes = 0;
+
+try
+    
+    // try to open a connection 
+
+	conn.open();
+ 	 
+catch
+
+	// if the connection errors capture results and clear error
+	iRes = Err.Number;
+
+	Err.Clear;
+
+endcatch;
+
+if iRes = 0 then
+	
+bProcessing = TRUE;
+
+else
+                   
+bProcessing = FALSE;                   
+                   
+endif;
+
+if bSQLcompliance = TRUE then
+
+	if bProcessing = TRUE then
+	
+	// If connection was set property to state the database exists
+	szPropertyValue = "TRUE";
+	MsiSetProperty(ISMSI_HANDLE, "DATABASE_EXISTS", szPropertyValue); 
+	
+	szPropertyValue = "TRUE";
+	MsiSetProperty(ISMSI_HANDLE, "bSQLProcessingExists", szPropertyValue);
+	
+	szPropertyValue = "TRUE";
+	MsiSetProperty(ISMSI_HANDLE, "bSQLcomplianceExists", szPropertyValue);
+	
+			
+	else
+	
+	// If connection was set property to state the database exists
+	szPropertyValue = "TRUE";
+	MsiSetProperty(ISMSI_HANDLE, "DATABASE_EXISTS", szPropertyValue);
+
+	szPropertyValue = "FALSE";
+	MsiSetProperty(ISMSI_HANDLE, "bSQLProcessingExists", szPropertyValue);
+	
+	szPropertyValue = "TRUE";
+	MsiSetProperty(ISMSI_HANDLE, "bSQLcomplianceExists", szPropertyValue);
+	
+	endif; 
+    
+    
+    bIsValidVersion = IsValidRepositoryVersion(hMSI);
+	
+	                            
+else
+    
+    if bProcessing = TRUE then
+	
+	// If connection was set property to state the database exists
+	szPropertyValue = "FALSE";
+	MsiSetProperty(ISMSI_HANDLE, "DATABASE_EXISTS", szPropertyValue);
+	
+	szPropertyValue = "TRUE";
+	MsiSetProperty(ISMSI_HANDLE, "bSQLProcessingExists", szPropertyValue);
+	
+	szPropertyValue = "FALSE";
+	MsiSetProperty(ISMSI_HANDLE, "bSQLcomplianceExists", szPropertyValue);
+	
+	else
+	
+	// If connection fails the database does not exist
+	szPropertyValue = "FALSE";
+	MsiSetProperty(ISMSI_HANDLE, "DATABASE_EXISTS", szPropertyValue);
+	
+	szPropertyValue = "FALSE";
+	MsiSetProperty(ISMSI_HANDLE, "bSQLProcessingExists", szPropertyValue);
+	
+	szPropertyValue = "FALSE";
+	MsiSetProperty(ISMSI_HANDLE, "bSQLcomplianceExists", szPropertyValue);
+	
+	MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "");
+	
+	endif;
+	
+	//szPropertyValue = "TRUE";
+	//MsiSetProperty(ISMSI_HANDLE, "bValidSchema", szPropertyValue);
+	
+endif;	                            
+	                            
+
+end;
+///////////////////////////////////////////////////////////////////////////////
+//  IsValidRepositoryVersion
+//  Check to make sure the latest database schema is being used.   
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function BOOL IsValidRepositoryVersion(hMSI) 
+	OBJECT pADOConnObj, pADORecordSetObj;
+	STRING szConnString, szSQL, szPropertyValue;
+	STRING svServerName, svDatabaseName, svUserName, svUserPassword, svAuthenticationType, svRepositoryVersion;
+	NUMBER nvAuthenticationType, nvStringBufferSize, nvBoolBufferSize, iRes;
+	BOOL   bIsValidVersion, bUpgrade;
+begin
+
+	bIsValidVersion = FALSE;
+	bUpgrade = FALSE;	
+    nvStringBufferSize = 256;
+    nvBoolBufferSize = 1;
+     
+// Get the properties for the connection string                                                                  
+    
+    MsiGetProperty(ISMSI_HANDLE, "REPOSITORY", svServerName, nvStringBufferSize);
+	svDatabaseName = "SQLcompliance";
+	MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_AUTHENTICATION", svAuthenticationType, nvBoolBufferSize);
+	if (svAuthenticationType = "1") then
+		MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_USERNAME", svUserName, nvStringBufferSize);  
+		MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_PASSWORD", svUserPassword, nvStringBufferSize);
+	endif;
+	
+	// Get the SQLsafe Repository version
+	MsiGetProperty(ISMSI_HANDLE, "REPOSITORY_VERSION", svRepositoryVersion, nvStringBufferSize);
+               
+    try
+// Create ADO Connection Object to connect to the SQL server	               
+		
+		
+		set pADOConnObj = CreateObject("ADODB.Connection");
+		
+		// Set the ADO connection properties and open the connection
+
+		pADOConnObj.Provider = "sqloledb";
+		pADOConnObj.Properties("Data Source").Value = svServerName;
+		pADOConnObj.Properties("Initial Catalog").Value = svDatabaseName;
+		if (svAuthenticationType = "0") then
+			pADOConnObj.Properties("Integrated Security").Value = "SSPI";
+		else
+		    pADOConnObj.Properties("User ID").Value = svUserName;
+		    pADOConnObj.Properties("Password").Value = svUserPassword;
+		endif;
+		
+		
+		pADOConnObj.Open();
+	                                       			    
+		// Create ADO Recordset object for the return
+
+		set pADORecordSetObj = CreateObject("ADODB.Recordset");
+	
+		// Set some ADO Recordset properties
+		
+		pADORecordSetObj.CursorType = 3;
+		pADORecordSetObj.ActiveConnection = pADOConnObj;
+		
+		// Determine if the schema version matches 
+		pADORecordSetObj.Open("SELECT sqlComplianceDbSchemaVersion FROM Configuration");
+
+		switch (pADORecordSetObj(0))
+        
+        	case "106":
+                
+                bUpgrade = TRUE;
+			    MsiSetProperty(ISMSI_HANDLE, "bValidSchema", "FALSE"); 
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA", "1");
+			    MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_107", "1");
+			    MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_301", "1");
+			    MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_401", "1");	    
+			    MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "1");
+			        
+            case "201":
+		        
+		        bUpgrade = TRUE;
+		        MsiSetProperty(ISMSI_HANDLE, "bValidSchema", "FALSE"); 
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA", "1");
+		    	MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_107", "");
+		    	MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_301", "1");
+		    	MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_401", "1");
+			    MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "1");    
+			    
+			case "301":
+			
+				bIsValidVersion = TRUE;
+				bUpgrade = FALSE;
+				MsiSetProperty(ISMSI_HANDLE, "bValidSchema", "TRUE");
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA", "");
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_107", "");
+	    		MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_301", "");
+	    		MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_401", "1");
+	    		MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "1");
+
+			case "302":
+			
+				bIsValidVersion = TRUE;
+				bUpgrade = FALSE;
+				MsiSetProperty(ISMSI_HANDLE, "bValidSchema", "TRUE");
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA", "");
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_107", "");
+	    		MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_301", "");
+	    		MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_401", "1");
+	    		MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "1");
+	    				
+	    	case "401":
+
+//	Repository version equals installing version.  please note case statement
+//  only accepts constant values so could not dynamically compared
+			
+				bIsValidVersion = TRUE;
+				bUpgrade = FALSE;
+				MsiSetProperty(ISMSI_HANDLE, "bValidSchema", "TRUE");
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA", "");
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_107", "");
+	    		MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_301", "");
+	    		MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_401", "");
+	    		MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "1");
+
+			case "402":
+
+//	Repository version equals installing version.  please note case statement
+//  only accepts constant values so could not dynamically compared
+			
+				bIsValidVersion = TRUE;
+				bUpgrade = FALSE;
+				MsiSetProperty(ISMSI_HANDLE, "bValidSchema", "TRUE");
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA", "");
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_107", "");
+	    		MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_301", "");
+	    		MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_401", "");
+	    		MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "1");
+	    	
+	    	
+	    		
+	    	default:
+	    		
+	    		bIsValidVersion = FALSE;
+	    		bUpgrade = FALSE;
+	    		MsiSetProperty(ISMSI_HANDLE, "bValidSchema", "FALSE"); 
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA", "");
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_107", "");
+	    		MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA_301", "");
+
+
+		endswitch;		     
+
+         if bUpgrade then
+         
+			   	iRes = MessageBox("Would you like to update the SQLcompliance Repository database?", 52);
+				
+				if iRes = 6 then
+			        
+			        bIsValidVersion = TRUE;
+			        MsiSetProperty(ISMSI_HANDLE, "DATABASE_EXISTS", "TRUE");
+					MsiSetProperty(ISMSI_HANDLE, "UPGRADE_WAIT", "");	
+		
+				else
+					bIsValidVersion = TRUE;
+					
+					MsiSetProperty(ISMSI_HANDLE, "DATABASE_EXISTS", "TRUE");
+					MsiSetProperty(ISMSI_HANDLE, "UPGRADE_WAIT", "1");
+										
+				endif;
+		
+		
+		endif;	
+					
+		// Cleanup
+
+		pADORecordSetObj.Close();
+		pADOConnObj.Close();
+	catch
+	    bIsValidVersion = FALSE;
+	endcatch;
+    
+    if bIsValidVersion then
+	
+		szPropertyValue = "TRUE";
+				
+		MsiSetProperty(ISMSI_HANDLE, "bValidSchema", szPropertyValue);
+	  
+  	else
+  	      
+  	    szPropertyValue = "FALSE"; 
+  	    
+		MsiSetProperty(ISMSI_HANDLE, "bValidSchema", szPropertyValue); 
+  	      
+  	endif;
+    
+	return bIsValidVersion; 
+	      
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  SetAgentUninstall
+//  Sets the registry key StopTracesOnShutdown to 1   
+//  This will instruct the Service to kill all traces when stoping.
+///////////////////////////////////////////////////////////////////////////////
+
+function SetAgentUninstall(hMSI)
+
+STRING szKey, svValue;
+
+begin
+_WriteToLogFile(hMSI, LONG_STARS);
+
+// Initialize values
+_WriteToLogFile(hMSI, "Initialize values");
+
+	szKey = "Software\\Idera\\SQLcompliance\\SQLcomplianceAgent" ;
+	svValue = "1";
+
+_WriteToLogFile(hMSI, "Set Registry root to HKEY_LOCAL_MACHINE");  
+
+	RegDBSetDefaultRoot (HKEY_LOCAL_MACHINE);
+
+//set the registry key
+_WriteToLogFile(hMSI, "Set registry key StopTracesOnShutdown = " + svValue);
+
+	if (RegDBSetKeyValueEx (szKey, "StopTracesOnShutdown", REGDB_NUMBER, svValue , -1) < 0) then
+
+_WriteToLogFile(hMSI, "Error: Registry key could not be set");	
+
+	endif;
+
+_WriteToLogFile(hMSI, LONG_STARS);
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  SetPreserveTraces_64
+//  Sets the registry key PreserveTraces   
+//  This will instruct the upgrading application not to delete traces
+///////////////////////////////////////////////////////////////////////////////
+
+function SetPreserveTraces_64(hMSI)
+
+STRING szKey, svValue;
+
+begin
+_WriteToLogFile(hMSI, LONG_STARS);
+
+// Initialize values
+_WriteToLogFile(hMSI, "Initialize values");
+
+	szKey = "Software\\Idera\\SQLcompliance\\SQLcomplianceAgent" ;
+	svValue = "1";
+    REGDB_OPTIONS = REGDB_OPTIONS | REGDB_OPTION_WOW64_64KEY; 
+    
+    
+_WriteToLogFile(hMSI, "Set Registry root to HKEY_LOCAL_MACHINE");  
+
+	RegDBSetDefaultRoot (HKEY_LOCAL_MACHINE);
+
+//set the registry key
+_WriteToLogFile(hMSI, "Set registry key PreserveTraces = " + svValue);
+
+	if (RegDBSetKeyValueEx (szKey, "PreserveTraces", REGDB_STRING, svValue , -1) < 0) then
+
+_WriteToLogFile(hMSI, "Error: Registry key could not be set");	
+
+	endif;     
+	
+REGDB_OPTIONS = REGDB_OPTIONS & ~REGDB_OPTION_WOW64_64KEY;
+
+_WriteToLogFile(hMSI, LONG_STARS);
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  SetPreserveTraces_32
+//  Sets the registry key PreserveTraces   
+//  This will instruct the upgrading application not to delete traces
+///////////////////////////////////////////////////////////////////////////////
+
+function SetPreserveTraces_32(hMSI)
+
+STRING szKey, svValue;
+
+begin
+_WriteToLogFile(hMSI, LONG_STARS);
+
+// Initialize values
+_WriteToLogFile(hMSI, "Initialize values");
+
+	szKey = "Software\\Idera\\SQLcompliance\\SQLcomplianceAgent" ;
+	svValue = "1";
+
+_WriteToLogFile(hMSI, "Set Registry root to HKEY_LOCAL_MACHINE");  
+
+	RegDBSetDefaultRoot (HKEY_LOCAL_MACHINE);
+
+//set the registry key
+_WriteToLogFile(hMSI, "Set registry key PreserveTraces = " + svValue);
+
+	if (RegDBSetKeyValueEx (szKey, "PreserveTraces", REGDB_STRING, svValue , -1) < 0) then
+
+_WriteToLogFile(hMSI, "Error: Registry key could not be set");	
+
+	endif;
+
+_WriteToLogFile(hMSI, LONG_STARS);
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  ConvertServiceUsername
+//  Pulls the username property to decrypt it   
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function ConvertServiceUsername(hMSI) 
+
+	NUMBER nvStringBufferSize, iRes, iResb;   
+             
+    WSTRING encryptedUsername[256], decryptedUsername, decodedUsername[256];  
+   	WSTRING encryptedPassword[256], decryptedPassword, decodedPassword[256];    	
+    
+   	STRING szSupportDir[MAX_PATH + 1];
+    NUMBER nLength;
+begin  
+_WriteToLogFile(hMSI, LONG_STARS);
+	
+// The decrypted username and password
+	nvStringBufferSize = 256; 
+	nLength = MAX_PATH + 1;
+	
+_WriteToLogFile(hMSI, "Getting Properties");	                            
+    MsiGetProperty(ISMSI_HANDLE, "SERVICEACCOUNT", encryptedUsername, nvStringBufferSize);        
+    MsiGetProperty(ISMSI_HANDLE, "SERVICEPASSWORD", encryptedPassword, nvStringBufferSize);       	
+    MsiGetProperty(hMSI, "SUPPORTDIR", szSupportDir, nLength);
+
+_WriteToLogFile(hMSI, "Opening connection to InstallUtilLib.dll");
+
+    UseDLL(szSupportDir ^ "InstallUtilLib.dll");
+
+_WriteToLogFile(hMSI, "Converting ID and Password from HEX code");
+
+    try 
+    
+    	iRes = InstallUtilLib.ConvertHexEncodedString(encryptedUsername,decodedUsername); 
+    	iRes = InstallUtilLib.ConvertHexEncodedString(encryptedPassword,decodedPassword); 
+    
+    catch
+    
+_WriteToLogFile(hMSI, "Error:  Conversion from HEX failed");
+
+    endcatch;
+
+_WriteToLogFile(hMSI, "Closing connection to InstallUtilLib.dll" );
+    
+    UnUseDLL(szSupportDir ^ "InstallUtilLib.dll");
+    
+// Decrypt the username & password
+
+_WriteToLogFile(hMSI, "Decrypting User Name");
+
+    decryptedUsername = DecryptString(decodedUsername);
+    
+_WriteToLogFile(hMSI, "Decrypting Password");
+
+    decryptedPassword = DecryptString(decodedPassword);
+
+_WriteToLogFile(hMSI, "Write Account ID and password out");
+
+    MsiSetProperty(ISMSI_HANDLE, "SERVICEACCOUNT", decryptedUsername);
+    MsiSetProperty(ISMSI_HANDLE, "SERVICEPASSWORD", decryptedPassword);
+
+_WriteToLogFile(hMSI, LONG_STARS);    
+end;  
+
+///////////////////////////////////////////////////////////////////////////////
+//  DecryptString
+//  Decryption function   
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function STRING DecryptString(encStr)
+
+	NUMBER i, j, numKeyChars, numStrChars;
+    STRING key;
+    STRING decStr;      
+    CHAR keyChar, decChar, encChar; 
+
+begin
+
+	// The key
+	key = "SQLcomplianceAgentService"; 
+	numKeyChars = StrLengthChars(key);  
+	                    	                    
+	numStrChars = StrLengthChars(encStr);   
+	decStr = encStr;
+	
+	// Decrypt the string      
+	j = 0; // key counter
+	for i = 0 to (numStrChars - 1) // ignore null terminator		
+	
+		keyChar = key[j];
+		j++;
+		encChar = encStr[i];
+		if (encChar = keyChar) then
+			decChar = encChar;
+		else
+			decChar = encChar ^ keyChar;
+		endif;  
+		
+		if (decChar = "\"") then
+			decChar = encChar;
+		endif;
+		
+		decStr[i] = decChar;
+		
+		if (j = numKeyChars) 
+			then j = 0;  
+		endif;				
+		
+	endfor;  
+	
+	return decStr;
+	
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+// GetInstances
+// Queries all localy monitored instances and places them back into the registry
+//    
+///////////////////////////////////////////////////////////////////////////////
+       
+function GetInstances(hMSI)
+
+	STRING szDBUser, szDBPassword, szDBServer, iDBMode, szPropertyValue;
+	STRING szList, szKey, szValue, szPreKey1, szPreKey2, sComputerName;
+	NUMBER nvStringBufferSize, nvBoolBufferSize, iRes;
+	NUMBER iPos;
+	OBJECT conn, objRecordSet, objCommand;
+	LIST lInstances; 
+
+begin
+_WriteToLogFile(hMSI, LONG_STARS);
+
+// Initialize Numbers
+	nvStringBufferSize = 256;
+	nvBoolBufferSize = 1;
+
+// Get Connection Info entered into UI of Install
+_WriteToLogFile(hMSI, "Getting Properties");
+
+	MsiGetProperty(ISMSI_HANDLE, "REPOSITORY", szDBServer, nvStringBufferSize);
+	MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_USERNAME", szDBUser, nvStringBufferSize);
+	MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_PASSWORD", szDBPassword, nvStringBufferSize);
+	MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_AUTHENTICATION", iDBMode, nvBoolBufferSize);
+    MsiGetProperty(ISMSI_HANDLE, "ComputerName", sComputerName, nvStringBufferSize);
+
+_WriteToLogFile(hMSI, "REPOSITORY = " + szDBServer); 
+_WriteToLogFile(hMSI, "IS_SQLSERVER_AUTHENTICATION = " + szDBUser);
+_WriteToLogFile(hMSI, "IS_SQLSERVER_USERNAME = " + szDBUser);
+_WriteToLogFile(hMSI, "ComputerName = " + sComputerName);
+
+        
+try
+    
+// Create ADO Connection Object to connect to the SQL server	               
+
+_WriteToLogFile(hMSI, "Creating ADO Connection object");
+
+	set conn = CreateObject("ADODB.Connection");
+	set objCommand = CreateObject("ADODB.Command");
+
+	
+	// Set the ADO connection properties and open the connection
+	conn.Provider = "sqloledb";
+	conn.Properties("Data Source").Value = szDBServer;
+	conn.Properties("Initial Catalog").Value = "SQLcompliance";
+	
+	
+	if (iDBMode = "0") then
+		//set to use Credentials of Installing User
+		conn.Properties("Integrated Security").Value = "SSPI";
+	else
+	    // set to use SQL credentials
+	    conn.Properties("User ID").Value = szDBUser;
+	    conn.Properties("Password").Value = szDBPassword;
+	endif;
+	
+_WriteToLogFile(hMSI, "Opening Connection");
+		
+	conn.Open;
+
+	set objCommand.ActiveConnection = conn;
+	
+	//SQL command
+	objCommand.CommandText = "SELECT instance FROM Servers WHERE IsAuditedServer=1"; //I am assuming you know how to do sql querys
+
+_WriteToLogFile(hMSI, "Executing SQL command");
+	
+	// Execute command
+	set objRecordSet = objCommand.Execute;
+	
+	//Initiate List
+	lInstances = ListCreate (STRINGLIST);
+
+	while (objRecordSet.EOF = 0);
+		
+		//Add results to List		               
+        iPos = -1;
+        
+        iPos = StrFind (objRecordSet(0), sComputerName);
+        
+        if iPos = 0 then
+        
+_WriteToLogFile(hMSI, "Adding Instance " + objRecordSet(0) + " to local server list");
+ 
+        	ListAddString (lInstances, objRecordSet(0), AFTER);
+                        
+        endif;
+                        
+		objRecordSet.MoveNext;
+
+	endwhile;
+    
+  
+    // Set Registry Root to HKEY_LOCAL_MACHINE 
+_WriteToLogFile(hMSI, "Connecting to registry root HKEY_LOCAL_MACHINE");	
+	
+	RegDBSetDefaultRoot(HKEY_LOCAL_MACHINE);
+	//Set Keys
+	szPreKey1 = "SOFTWARE\\Idera";
+	szPreKey2 = "SOFTWARE\\Idera\\SQLcompliance";
+	szKey = "SOFTWARE\\Idera\\SQLcompliance\\SQLcomplianceAgent";
+	//Set Value
+	szValue =  "Instances"; 
+	
+	//Create the Keys nessecary
+	//Start with the highest key in case so the uninstallation will remove all the keys 
+	if RegDBKeyExist ( szPreKey1 ) != 1 then 
+
+_WriteToLogFile(hMSI, "Creating Key: " + szPreKey1);
+	
+		RegDBCreateKeyEx(szPreKey1,"");
+	
+	endif;
+	
+	if RegDBKeyExist ( szPreKey2 ) != 1 then   
+		
+_WriteToLogFile(hMSI, "Creating Key: " + szPreKey2);
+	
+		RegDBCreateKeyEx(szPreKey2,"");
+	
+	endif;
+	
+	if RegDBKeyExist ( szKey ) != 1 then 
+	
+_WriteToLogFile(hMSI, "Creating Key: " + szKey);
+	
+		RegDBCreateKeyEx(szKey,"");
+	
+	endif;
+    
+    //Call Function to Set Multi String Registry
+_WriteToLogFile(hMSI, "Writing Instances value to Registry");
+    
+    RegDBSetMultiSZ(HKEY_LOCAL_MACHINE,szKey,szValue,lInstances);
+ 
+
+    
+catch 
+
+//this is where we go if there is any error
+
+_WriteToLogFile(hMSI, "Custom action failed");
+
+
+endcatch; 
+
+_WriteToLogFile(hMSI, LONG_STARS);
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+// RegDBSetMultiSZ
+// Used to set Multi String Registry entried.
+// Makes a call to the Advapi32.dll   
+///////////////////////////////////////////////////////////////////////////////
+
+function RegDBSetMultiSZ(nRootKey,szKeyName,szName,listValues)
+  NUMBER KeyVal;
+  NUMBER nResult;
+  STRING svTempString,svMultiString;
+  NUMBER lenMultiString;
+  NUMBER c;
+begin 	
+ 	
+ 	if listValues = NULL then
+  		return -1;
+  	endif;
+  	
+  	//Prepare string-array
+   	svMultiString = "";
+    nResult = ListGetFirstString(listValues, svTempString);
+
+    while (nResult != END_OF_LIST);
+    		svMultiString = svMultiString + svTempString + DELIMITER ;
+    		nResult = ListGetNextString(listValues, svTempString);
+    endwhile;
+    svMultiString = svMultiString + DELIMITER;
+
+ 	lenMultiString = StrLength(svMultiString);
+ 	if (lenMultiString = 1) then
+ 		//if there are no values, delete the value
+ 		RegDBSetDefaultRoot(nRootKey);
+ 		RegDBDeleteValue(szKeyName,szName);
+ 		return 0;
+	else
+		//make a c-style string array
+	   	for c = 0 to lenMultiString-1
+  			if svMultiString[c] = DELIMITER then
+  				SetByte(svMultiString,c,0);
+  			endif;
+	  	endfor;
+    endif;
+
+  	UseDLL("advapi32.dll");
+
+	//Open Key
+    nResult = RegOpenKeyA(nRootKey,&szKeyName,&KeyVal);
+    if (nResult != 0) then
+    	return -1;
+    endif;
+
+	//Write Key (7 = REG_MULTI_SZ)
+	if szName = "" then
+		nResult = RegSetValueExA(KeyVal,NULL,0,7,&svMultiString,lenMultiString);
+	else
+		nResult = RegSetValueExA(KeyVal,&szName,0,7,&svMultiString,lenMultiString);
+	endif;
+    if (nResult != 0) then
+    	return -1;
+    endif;
+
+    //Close Key
+    nResult = RegCloseKey(KeyVal);
+    if (nResult != 0) then
+    	return -1;
+    endif;
+
+    UnUseDLL("advapi32.dll");
+    return 0;
+end;
+
+#endif
+ 
+ 
+ ///////////////////////////////////////////////////////////////////////////////
+//  IsValidRepositoryVersion
+//  Check to make sure the latest database schema is being used.   
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function IsValidStoreProcVersion(hMSI) 
+	OBJECT pADOConnObj, pADORecordSetObj;
+	STRING szConnString, szSQL;
+	STRING svServerName, svDatabaseName, svUserName, svUserPassword, svAuthenticationType, svRepositoryVersion;
+	NUMBER nvAuthenticationType, nvStringBufferSize, nvBoolBufferSize;
+	
+begin
+         
+	// Get the properties for the connection string
+    
+    nvStringBufferSize = 256;
+    nvBoolBufferSize = 1;
+    MsiSetProperty(ISMSI_HANDLE, "REINSTALL_SP", "");
+    MsiSetProperty(ISMSI_HANDLE, "UPDATE_CONFIG", "");
+                                                                  
+    MsiGetProperty(ISMSI_HANDLE, "REPOSITORY", svServerName, nvStringBufferSize);
+    //MsiGetProperty(ISMSI_HANDLE, "SQL_DATABASENAME", svDatabaseName, nvStringBufferSize);
+	svDatabaseName = "SQLcompliance";
+	MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_AUTHENTICATION", svAuthenticationType, nvBoolBufferSize);
+	if (svAuthenticationType = "1") then
+		MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_USERNAME", svUserName, nvStringBufferSize);  
+		MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_PASSWORD", svUserPassword, nvStringBufferSize);
+	endif;
+	
+	// Get the SQLsafe Reports version
+	MsiGetProperty(ISMSI_HANDLE, "REPORTING_VERSION", svRepositoryVersion, nvStringBufferSize);
+              
+    try
+		// Create ADO Connection Object to connect to the SQL server	               
+
+		set pADOConnObj = CreateObject("ADODB.Connection");
+		
+		// Set the ADO connection properties and open the connection
+
+		pADOConnObj.Provider = "sqloledb";
+		pADOConnObj.Properties("Data Source").Value = svServerName;
+		pADOConnObj.Properties("Initial Catalog").Value = svDatabaseName;
+		if (svAuthenticationType = "0") then
+			pADOConnObj.Properties("Integrated Security").Value = "SSPI";
+		else
+		    pADOConnObj.Properties("User ID").Value = svUserName;
+		    pADOConnObj.Properties("Password").Value = svUserPassword;
+		endif;
+
+		pADOConnObj.Open();
+	                                       			    
+// Create ADO Recordset object for the return
+
+		set pADORecordSetObj = CreateObject("ADODB.Recordset");
+	
+// Set some ADO Recordset properties
+		pADORecordSetObj.CursorType = 3;
+		pADORecordSetObj.ActiveConnection = pADOConnObj;
+		
+// Determine if the schema version matches 
+		try
+		
+			pADORecordSetObj.Open("SELECT reportingVersion FROM Configuration");
+
+		catch
+		    
+			MsiSetProperty(ISMSI_HANDLE, "REINSTALL_SP", "1");
+    		MsiSetProperty(ISMSI_HANDLE, "UPDATE_CONFIG", "1");
+		
+		endcatch;
+		
+		if (pADORecordSetObj(0) = svRepositoryVersion) then 
+		
+			MsiSetProperty(ISMSI_HANDLE, "REINSTALL_SP", "");
+			MsiSetProperty(ISMSI_HANDLE, "UPDATE_CONFIG", "");
+			
+		else
+		
+			MsiSetProperty(ISMSI_HANDLE, "REINSTALL_SP", "1");
+			MsiSetProperty(ISMSI_HANDLE, "UPDATE_CONFIG", "");
+			
+		endif;
+		
+		// Cleanup
+
+		pADORecordSetObj.Close();
+		pADOConnObj.Close();
+	catch
+
+	    
+	endcatch;
+	        
+end; 
+///////////////////////////////////////////////////////////////////////////////
+//  UpgradeRepositoryCheck
+//  Check to make sure the latest database schema is being used.  For Use
+//	During Upgrade.   
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function UpgradeRepositoryCheck(hMSI) 
+	
+	NUMBER iReturn, iRes;
+	STRING sznumber;
+
+begin
+
+    
+    
+ 	iReturn = CheckRepositoryVersion();          
+    
+        			
+    switch (iReturn)	
+				
+		case 2:
+           
+           //upgrade required
+           
+            
+            MsiSetProperty(ISMSI_HANDLE, "SCHEMA_VALIDATION", "2");
+            MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "1");
+            
+            
+		   	iRes = AskYesNo("Would you like to update the SQL compliance manager Repository database?", 52);
+			
+			if iRes = YES then
+		        			        
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA", "1");	
+	
+			else					
+				
+				MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA", "");
+									
+			endif; 
+			
+			
+		case 1:
+		
+		// Valid version 
+			MsiSetProperty(ISMSI_HANDLE, "SCHEMA_VALIDATION", "1");
+			MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "1");
+			MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA", "");
+		
+		case -1: 
+		
+			MsiSetProperty(ISMSI_HANDLE, "SCHEMA_VALIDATION", "-1");
+			MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "1");
+			MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA", "");
+		
+		default:      
+
+			MsiSetProperty(ISMSI_HANDLE, "SCHEMA_VALIDATION", "-2");
+			MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "");
+			MsiSetProperty(ISMSI_HANDLE, "UPGRADE_SCHEMA", "");
+
+	endswitch;			
+										
+
+        
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  CheckForOtherInstall
+//  Check if the agent installation is installed locally
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+
+function CheckForOtherInstall(hMSI) 
+	OBJECT installer;
+	STRING CheckProductCode, CheckProductCode2;
+	NUMBER i; 
+
+begin 
+
+_WriteToLogFile(hMSI, LONG_STARS);
+
+_WriteToLogFile(hMSI, "Creating Windows Installer Object");
+
+set installer = CreateObject("WindowsInstaller.Installer");
+
+CheckProductCode = "{69CB3830-E94F-40ED-9771-C603BC21FB8D}";
+CheckProductCode2 = "{43351C1E-E0CD-4EE3-B76B-A1BC0E9CC9D3}";
+_WriteToLogFile(hMSI, "Checking if agent installer is installed locally");
+
+for  i = 0 to installer.Products.count - 1
+
+	
+	if installer.Products.item(i) = CheckProductCode then 
+
+_WriteToLogFile(hMSI, CheckProductCode + " is installed locally");
+	  	 	    
+		MsiSetProperty(ISMSI_HANDLE, "PREVIOUS_INSTALL", "TRUE"); 
+		
+	endif ;
+
+	if installer.Products.item(i) = CheckProductCode2 then 
+
+_WriteToLogFile(hMSI, CheckProductCode2 + " is installed locally");
+	  	 	    
+		MsiSetProperty(ISMSI_HANDLE, "PREVIOUS_INSTALL", "TRUE"); 
+		
+	endif ;
+	
+endfor;
+
+_WriteToLogFile(hMSI, LONG_STARS);
+	
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  CheckForBetaInstall
+//  Check if and BETA installation are setup locally  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+
+function CheckForBetaInstall(hMSI) 
+	OBJECT installer;
+	STRING CheckProductCode, CheckProductCode2, CheckProductCode3, CheckProductCode4;
+	NUMBER i; 
+
+begin 
+
+_WriteToLogFile(hMSI, LONG_STARS);
+
+_WriteToLogFile(hMSI, "Creating Windows Installer Object");
+
+set installer = CreateObject("WindowsInstaller.Installer");
+
+CheckProductCode = "{5BF79DA4-C50E-4002-AF52-799AE2364605}";  
+CheckProductCode2 = "{59691FE9-05DE-4556-8B8B-03844EBB7694}";
+CheckProductCode3 = "{6AC07A41-EE66-4D6C-9B62-C902BC5AD3B7}";  
+CheckProductCode4 = "{D54FD82D-C0FF-41D2-8987-AB0A7FC3886B}";
+
+_WriteToLogFile(hMSI, "Checking if Beta installer is installed locally");
+
+for  i = 0 to installer.Products.count - 1
+	
+	if installer.Products.item(i) = CheckProductCode then
+
+_WriteToLogFile(hMSI, CheckProductCode + " is installed locally");
+	  	 	    
+		MsiSetProperty(ISMSI_HANDLE, "BETA_INSTALL", "TRUE"); 
+		
+	endif ;
+                
+   	if installer.Products.item(i) = CheckProductCode2 then
+
+_WriteToLogFile(hMSI, CheckProductCode2 + " is installed locally");
+	  	 	    
+		MsiSetProperty(ISMSI_HANDLE, "BETA_INSTALL", "TRUE"); 
+		
+	endif ;   
+	
+	if installer.Products.item(i) = CheckProductCode3 then
+
+_WriteToLogFile(hMSI, CheckProductCode3 + " is installed locally");
+	  	 	    
+		MsiSetProperty(ISMSI_HANDLE, "BETA_INSTALL", "TRUE"); 
+		
+	endif ;	
+	
+	if installer.Products.item(i) = CheckProductCode4 then
+
+_WriteToLogFile(hMSI, CheckProductCode4 + " is installed locally");
+	  	 	    
+		MsiSetProperty(ISMSI_HANDLE, "BETA_INSTALL", "TRUE"); 
+		
+	endif ;
+	
+endfor;
+
+_WriteToLogFile(hMSI, LONG_STARS);
+	
+end;
+              
+///////////////////////////////////////////////////////////////////////////////
+//  CheckForOtherInstallAgent
+//  Check if the agent installation is installed locally
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+
+function CheckForOtherInstallAgent(hMSI) 
+	OBJECT installer;
+	STRING CheckProductCode, CheckProductCode2;
+	NUMBER i; 
+
+begin 
+
+_WriteToLogFile(hMSI, LONG_STARS);
+
+_WriteToLogFile(hMSI, "Creating Windows Installer Object");
+
+set installer = CreateObject("WindowsInstaller.Installer");
+
+CheckProductCode = "{51874E4B-6DEC-4DA2-BE14-187AF1C31EE2}";
+CheckProductCode2 = "{9D259B8E-2A30-45DB-B7BE-6E9FD149826F}";
+_WriteToLogFile(hMSI, "Checking if agent installer is installed locally");
+
+for  i = 0 to installer.Products.count - 1
+
+	
+	if installer.Products.item(i) = CheckProductCode then 
+
+_WriteToLogFile(hMSI, CheckProductCode + " is installed locally");
+	  	 	    
+		MsiSetProperty(ISMSI_HANDLE, "PREVIOUS_INSTALL", "TRUE"); 
+		
+	endif ;
+
+	if installer.Products.item(i) = CheckProductCode2 then 
+
+_WriteToLogFile(hMSI, CheckProductCode2 + " is installed locally");
+	  	 	    
+		MsiSetProperty(ISMSI_HANDLE, "PREVIOUS_INSTALL", "TRUE"); 
+		
+	endif ;
+	
+endfor;
+
+_WriteToLogFile(hMSI, LONG_STARS);
+	
+end;
+
+
+////////////////////////////////////////////////////////////////////////////
+// Format and write a message to the log
+////////////////////////////////////////////////////////////////////////////
+function _WriteToLogFile(hInstall, szMessage)
+
+	NUMBER hRec;                                      
+	NUMBER lCount;  
+	STRING szOutput;
+	STRING szFullMessage;
+
+begin
+    
+    hInstall = ISMSI_HANDLE;
+    
+	//Validate the passed-in string
+	if (StrLength(szMessage) = 0) then
+		return;
+	endif;
+                
+	//Create a record with only one field
+	hRec = MsiCreateRecord(1);                  
+	
+	//Handle problem creating record
+	if (hRec = 0) then 
+		return;
+	endif;
+	
+	//Create the full message
+	szFullMessage = STARS + szMessage;
+
+	//Set that one field to the passed-in string
+	MsiRecordSetString(hRec, 1, szFullMessage);        
+	
+	//Set the formatting string to NULL
+	MsiRecordSetString(hRec, 0, "[1]");       
+	
+	//Get length of message to pass to MsiFormatRecord
+	lCount = StrLength(szFullMessage);
+	
+	//Format the record to get rid of the '1.'
+	MsiFormatRecord(hInstall, hRec, szOutput, lCount); 
+	
+	//Handle processing the message
+	MsiProcessMessage(hInstall,INSTALLMESSAGE_INFO, hRec);                 
+   
+end; 
+
+///////////////////////////////////////////////////////////////////////////////
+//  CheckFeatureState
+//  Checks the Feature state of the previously installed product during a upgrade  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function CheckFeatureState(hMSI) 
+	OBJECT installer, features;
+	STRING ProductCode, feature, state;
+	NUMBER i, nvStringBufferSize; 
+
+begin 
+_WriteToLogFile(hMSI, LONG_STARS);
+
+_WriteToLogFile(hMSI, "Intializing Properties");
+   
+	// Get the properties for the connection string
+    nvStringBufferSize = 256;
+                                                             
+    
+_WriteToLogFile(hMSI, "Getting Properties");    
+    
+    MsiGetProperty(ISMSI_HANDLE, "ISACTIONPROP1", ProductCode, nvStringBufferSize);
+
+
+	if ProductCode = "" then
+	 
+	  MsiGetProperty(ISMSI_HANDLE, "ISACTIONPROP2", ProductCode, nvStringBufferSize); 
+	      
+	endif;
+    
+ _WriteToLogFile(hMSI, ProductCode);
+ 
+	if ProductCode = "" then
+ 
+   	MsiSetProperty(ISMSI_HANDLE, "IS_MAJOR_UPGRADE", "");
+   
+ _WriteToLogFile(hMSI, "No product codes found setting to not use upgrade screens");
+   
+   	exit;
+      
+	endif;
+
+
+_WriteToLogFile(hMSI, "Creating Windows Installer Object");
+
+	set installer = CreateObject("WindowsInstaller.Installer");
+
+//	ProductCode = "{51874E4B-6DEC-4DA2-BE14-187AF1C31EE2}";
+
+_WriteToLogFile(hMSI, "Connecting to Feature Object.");
+
+	set features = installer.Features(ProductCode);
+
+_WriteToLogFile(hMSI, "Checking Feature state of Product: " + ProductCode);
+
+	for i = 0  to features.Count - 1
+			
+		feature = features.item(i);
+		
+		state = installer.FeatureState(ProductCode, feature);		
+
+       if state = "3" then
+
+			if feature = "CollectionServer" then 
+		
+_WriteToLogFile(hMSI, "The Collection Server is installed locally");
+			  	 	    
+				MsiSetProperty(ISMSI_HANDLE, "FS_COLLECTIONSERVER", "1"); 
+				
+			endif ; 
+			
+			if feature = "Agent" then 
+		
+_WriteToLogFile(hMSI, "The Agent is installed locally");
+			  	 	    
+				MsiSetProperty(ISMSI_HANDLE, "FS_AGENT", "1"); 
+				
+			endif ;	
+			 
+			if feature = "ManagementConsole" then 
+		
+_WriteToLogFile(hMSI, "The Management Console is installed locally");
+			  	 	    
+				MsiSetProperty(ISMSI_HANDLE, "FS_MANAGEMENTCONSOLE", "1"); 
+				
+			endif ;   
+	    
+	    endif;
+	endfor;
+
+_WriteToLogFile(hMSI, LONG_STARS);
+	
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  ConfirmINSTALLDirMedia
+//  Initial check of InstallDir property  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function ConfirmINSTALLDirMedia(hMSI) 
+
+	STRING sInstallDir, sDir;
+	NUMBER nvStringBufferSize;
+	BOOL bRes; 
+
+begin 
+
+   
+	// Get the properties for the connection string
+    nvStringBufferSize = 256;
+    MsiSetProperty(ISMSI_HANDLE, "bINSTALLDrive", "TRUE");
+                                                                
+    
+    MsiGetProperty(ISMSI_HANDLE, "INSTALLDIR", sInstallDir, nvStringBufferSize);
+ 
+
+ 
+ bRes = CheckDriveLetter(sInstallDir);
+ 
+ if !bRes then 
+    
+ 	MsiSetProperty(ISMSI_HANDLE, "bINSTALLDrive", "FALSE");
+ 
+ endif;
+ 
+ StrSub ( sDir, sInstallDir, 0, 3 );
+ 
+ MsiSetProperty(ISMSI_HANDLE, "DRIVE_LETTER", sDir);
+ MsiSetProperty(ISMSI_HANDLE, "DRIVE_TYPE", "3");
+	
+end; 
+
+///////////////////////////////////////////////////////////////////////////////
+//  CheckDriveLetter
+//  Checks to make sure drive letter is formatted in 'c:\' format.  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function BOOL CheckDriveLetter(sInstallDir) 
+    
+    STRING sDir;
+	BOOL bRes; 
+
+begin 
+ 
+ bRes = TRUE;
+ 
+ StrSub ( sDir, sInstallDir, 1, 2 );
+ 
+ if sDir != ":\\" then	
+       
+ 	bRes = FALSE;      
+ 
+ endif;
+ 
+ return bRes; 
+	
+end; 
+
+///////////////////////////////////////////////////////////////////////////////
+//  AddSlashINSTALLDirMedia
+//  Adds a trailing '\' to the INSTALLDIR path if it does not exist.  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function AddSlashINSTALLDirMedia(hMSI) 
+    
+	STRING sInstallDir;
+	NUMBER nvStringBufferSize; 
+
+begin 
+ 
+// Get the properties for the connection string
+nvStringBufferSize = 256;                                                           
+
+MsiGetProperty(ISMSI_HANDLE, "INSTALLDIR", sInstallDir, nvStringBufferSize);
+ 
+StrAddLastSlash ( sInstallDir );
+
+MsiSetProperty(ISMSI_HANDLE, "INSTALLDIR", sInstallDir);
+MsiSetTargetPath(ISMSI_HANDLE, "INSTALLDIR", sInstallDir);
+
+	
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  RemoveSlashTraceDirectory
+//  Removes a trailing '\' to the Collection Service Trace Directory path if it exists.  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function RemoveSlashTraceDirectory(hMSI) 
+    
+	STRING sInstallDir;
+	NUMBER nvStringBufferSize; 
+
+begin 
+ 
+// Get the properties for the connection string
+nvStringBufferSize = 256;                                                           
+
+MsiGetProperty(ISMSI_HANDLE, "TRACEDIR_COLLECT", sInstallDir, nvStringBufferSize);
+ 
+StrRemoveLastSlash ( sInstallDir );
+
+MsiSetProperty(ISMSI_HANDLE, "TRACEDIR_COLLECT", sInstallDir);
+MsiSetTargetPath(ISMSI_HANDLE, "TRACEDIR_COLLECT", sInstallDir);
+	
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  RemoveSlashAgentTraceDirectory
+//  Removes a trailing '\' to the Agent Trace Directory path if it exists.  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function RemoveSlashAgentTraceDirectory(hMSI) 
+    
+	STRING sInstallDir;
+	NUMBER nvStringBufferSize; 
+
+begin 
+ 
+// Get the properties for the connection string
+nvStringBufferSize = 256;                                                           
+
+MsiGetProperty(ISMSI_HANDLE, "TRACEDIR_AGENT", sInstallDir, nvStringBufferSize);
+ 
+StrRemoveLastSlash ( sInstallDir );
+
+MsiSetProperty(ISMSI_HANDLE, "TRACEDIR_AGENT", sInstallDir);
+MsiSetTargetPath(ISMSI_HANDLE, "TRACEDIR_AGENT", sInstallDir);
+	
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  ConfirmINSTALLDirectory
+//  Adds a trailing '\' to the INSTALLDIR path if it does not exist.  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function ConfirmINSTALLDirectory(hMSI) 
+    
+	STRING sInstallDir;
+	NUMBER nvStringBufferSize;
+	BOOL bRes ;
+
+begin 
+ 
+// Get the properties for the connection string
+nvStringBufferSize = 256; 
+
+ MsiSetProperty(ISMSI_HANDLE, "dirValid", "1");                                                          
+
+MsiGetProperty(ISMSI_HANDLE, "INSTALLDIR", sInstallDir, nvStringBufferSize);
+ 
+bRes = DirCheckPath ( sInstallDir );
+
+if !bRes then
+   
+      
+   MsiSetProperty(ISMSI_HANDLE, "dirValid", "");
+      
+endif;
+	
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  ConfirmTraceDirectory
+//  Adds a trailing '\' to the INSTALLDIR path if it does not exist.  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function ConfirmTraceDirectory(hMSI) 
+    
+	STRING sTraceDir, sDir;
+	NUMBER nvStringBufferSize;
+	BOOL bRes ;
+
+begin 
+ 
+// Get the properties for the connection string
+nvStringBufferSize = 256; 
+
+ MsiSetProperty(ISMSI_HANDLE, "dirTraceValid", "1");                                                          
+
+MsiGetProperty(ISMSI_HANDLE, "TRACEDIR_COLLECT", sTraceDir, nvStringBufferSize);
+ 
+bRes = DirTraceCheckPath ( sTraceDir );
+
+if !bRes then
+       
+   MsiSetProperty(ISMSI_HANDLE, "dirTraceValid", "");
+
+else
+
+	 StrSub ( sDir, sTraceDir, 0, 3 );
+	 
+	 MsiSetProperty(ISMSI_HANDLE, "TRACE_DRIVE_LETTER", sDir);
+	 MsiSetProperty(ISMSI_HANDLE, "TRACE_DRIVE_TYPE", "3");
+	       
+endif;
+	
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  ConfirmAgentTraceDirectory
+//  Adds a trailing '\' to the INSTALLDIR path if it does not exist.  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function ConfirmAgentTraceDirectory(hMSI) 
+    
+	STRING sTraceDir, sDir;
+	NUMBER nvStringBufferSize;
+	BOOL bRes ;
+
+begin 
+ 
+// Get the properties for the connection string
+nvStringBufferSize = 256; 
+
+MsiSetProperty(ISMSI_HANDLE, "dirATraceValid", "1");                                                          
+
+MsiGetProperty(ISMSI_HANDLE, "TRACEDIR_AGENT", sTraceDir, nvStringBufferSize);
+ 
+bRes = DirAgentTraceCheckPath ( sTraceDir );
+
+if !bRes then
+       
+   MsiSetProperty(ISMSI_HANDLE, "dirATraceValid", "");
+
+else
+
+	 StrSub ( sDir, sTraceDir, 0, 3 );
+	 
+	 MsiSetProperty(ISMSI_HANDLE, "TRACE_A_DRIVE_LETTER", sDir);
+	 MsiSetProperty(ISMSI_HANDLE, "TRACE_A_DRIVE_TYPE", "3");
+	       
+endif;
+	
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  DirCheckPath
+//  Runs through validations for specific path  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function BOOL DirCheckPath(sTraceDir) 
+    
+    STRING sDir;
+	BOOL bRes; 
+
+begin 
+ 
+ bRes = TRUE;
+ 
+ MsiSetProperty(ISMSI_HANDLE, "dirDoubleSlash", "");
+ MsiSetProperty(ISMSI_HANDLE, "dirIllegalChar", "");
+ 
+ if bRes then 
+ 
+ 	bRes = DirCheckSlash(sTraceDir);
+ 
+ endif;
+ 
+ if bRes then 
+ 
+ 	bRes = DirCheckCharacters(sTraceDir);
+ 
+ else
+ 
+ 	MsiSetProperty(ISMSI_HANDLE, "dirDoubleSlash", "1");
+ 
+ endif;
+ 
+  if (!bRes) then 
+ 
+ 	MsiSetProperty(ISMSI_HANDLE, "dirIllegalChar", "1");
+ 
+ endif;
+ 
+ return bRes; 
+	
+end; 
+
+///////////////////////////////////////////////////////////////////////////////
+//  DirTraceCheckPath
+//  Runs through validations for specific path  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function BOOL DirTraceCheckPath(sTraceDir) 
+    
+    STRING sDir;
+	BOOL bRes, bEarly; 
+
+begin 
+ 
+ bRes = TRUE;
+ bEarly = FALSE;
+ 
+ MsiSetProperty(ISMSI_HANDLE, "dirTDoubleSlash", "");
+ MsiSetProperty(ISMSI_HANDLE, "dirTIllegalChar", "");
+ MsiSetProperty(ISMSI_HANDLE, "dirTDrive", "");
+ 
+ bRes = CheckDriveLetter(sTraceDir);
+  
+ if bRes then 
+ 
+ 	bRes = DirCheckSlash(sTraceDir);
+ 
+ else
+ 
+ 	MsiSetProperty(ISMSI_HANDLE, "dirTDrive", "1");
+    bEarly = TRUE;
+    
+ endif;
+ 
+ if bRes then 
+ 
+ 	bRes = DirCheckCharacters(sTraceDir);
+ 
+ else
+    if !bEarly then
+ 	MsiSetProperty(ISMSI_HANDLE, "dirTDoubleSlash", "1");
+ 	endif;
+ 	bEarly = TRUE;
+ 
+ endif;
+ 
+  if (!bRes) && (!bEarly) then 
+ 
+ 	MsiSetProperty(ISMSI_HANDLE, "dirTIllegalChar", "1");
+ 
+ endif;
+ 
+ return bRes; 
+	
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  DirAgentTraceCheckPath
+//  Runs through validations for specific path  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function BOOL DirAgentTraceCheckPath(sTraceDir) 
+    
+    STRING sDir;
+	BOOL bRes, bEarly; 
+
+begin 
+ 
+ bRes = TRUE;
+ bEarly = FALSE;
+ 
+ MsiSetProperty(ISMSI_HANDLE, "dirATDoubleSlash", "");
+ MsiSetProperty(ISMSI_HANDLE, "dirATIllegalChar", "");
+ MsiSetProperty(ISMSI_HANDLE, "dirATDrive", "");
+ 
+ bRes = CheckDriveLetter(sTraceDir);
+  
+ if bRes then 
+ 
+ 	bRes = DirCheckSlash(sTraceDir);
+ 
+ else
+ 
+ 	MsiSetProperty(ISMSI_HANDLE, "dirATDrive", "1");
+    bEarly = TRUE;
+    
+ endif;
+ 
+ if bRes then 
+ 
+ 	bRes = DirCheckCharacters(sTraceDir);
+ 
+ else
+    if !bEarly then
+ 	MsiSetProperty(ISMSI_HANDLE, "dirATDoubleSlash", "1");
+ 	endif;
+ 	bEarly = TRUE;
+ 
+ endif;
+ 
+  if (!bRes) && (!bEarly) then 
+ 
+ 	MsiSetProperty(ISMSI_HANDLE, "dirATIllegalChar", "1");
+ 
+ endif;
+ 
+ return bRes; 
+	
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  DirCheckSlash
+//  checks to make sure that there are no '\\' in the path.  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function BOOL DirCheckSlash(sInstallDir) 
+    
+    STRING sFindMe;
+	BOOL bRes; 
+    NUMBER nLocation; 
+    
+begin
+
+bRes = TRUE;
+nLocation = -1;
+
+    sFindMe = "\\\\";
+
+    // Find the substring specified by szFindMe.
+    nLocation = StrFind (sInstallDir, sFindMe);
+
+    // Display the location of the text if it was found.
+    if (nLocation < 0) then
+    // Not found
+    bRes = TRUE;
+    else
+    // Found
+    bRes = FALSE;
+    
+    endif;
+ 
+ 
+ return bRes; 
+	
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//  DirCheckCharacters
+//  Checks path for illegal characters  
+//  
+///////////////////////////////////////////////////////////////////////////////
+
+function BOOL DirCheckCharacters(sInstallDir) 
+
+ STRING sDir;
+ NUMBER nLength;
+    
+begin 
+ 
+ nLength = StrLength ( sInstallDir );;
+ StrSub ( sDir, sInstallDir, 3, nLength - 3 );
+ 
+	if (StrFind(sDir, "\"") >= 0) || 
+	   (StrFind(sDir, "*") >= 0) ||
+	   (StrFind(sDir, "?") >= 0) ||
+	   (StrFind(sDir, "|") >= 0) ||
+	   (StrFind(sDir, "<") >= 0) ||  
+	   (StrFind(sDir, ">") >= 0) ||
+	   (StrFind(sDir, ":") >= 0) ||
+	   (StrFind(sDir, "/") >= 0) then		
+		
+		return FALSE;
+		
+	endif;
+	
+	return TRUE;
+	
+end;
+
+
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           
+// Function:  CheckRepositoryVersion
+//                                                                           
+//  Purpose:  Internal function for validating version number. 
+//            
+//                                                                           
+///////////////////////////////////////////////////////////////////////////////
+      
+function NUMBER CheckRepositoryVersion() 
+	OBJECT pADOConnObj, pADORecordSetObj;
+	STRING szConnString, szSQL, svRepositoryVersion2;
+	STRING svServerName, svDatabaseName, svUserName, svUserPassword, svAuthenticationType, svRepositoryVersion;
+	NUMBER nvAuthenticationType, nvStringBufferSize, nvBoolBufferSize, iValidateVersion, nResult, nCompareFlag;
+	NUMBER iRepositoryVersion, iRepositoryVersion2;              
+begin
+	iValidateVersion = 0;
+    nResult = NULL;
+    
+    
+         
+	// Get the properties for the connection string
+    nvStringBufferSize = 256;
+    nvBoolBufferSize = 1;                                                              
+	MsiGetProperty(ISMSI_HANDLE, "REPOSITORY", svServerName, nvStringBufferSize);
+	svDatabaseName = "SQLcompliance";
+	MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_AUTHENTICATION", svAuthenticationType, nvBoolBufferSize);
+	if (svAuthenticationType = "1") then
+		MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_USERNAME", svUserName, nvStringBufferSize);  
+		MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_PASSWORD", svUserPassword, nvStringBufferSize);
+	endif;
+	
+	// Get the SQLsafe Repository version
+	MsiGetProperty(ISMSI_HANDLE, "SCHEMA_VERSION", svRepositoryVersion, nvStringBufferSize);
+    MsiGetProperty(ISMSI_HANDLE, "SCHEMA_VERSION_UPDATED", svRepositoryVersion2, nvStringBufferSize);
+               
+    try
+		// Create ADO Connection Object to connect to the SQL server	               
+		set pADOConnObj = CreateObject("ADODB.Connection");
+		
+		// Set the ADO connection properties and open the connection
+		pADOConnObj.Provider = "sqloledb";
+		pADOConnObj.Properties("Data Source").Value = svServerName;
+		pADOConnObj.Properties("Initial Catalog").Value = svDatabaseName;
+		if (svAuthenticationType = "0") then
+			pADOConnObj.Properties("Integrated Security").Value = "SSPI";
+		else
+		    pADOConnObj.Properties("User ID").Value = svUserName;
+		    pADOConnObj.Properties("Password").Value = svUserPassword;
+		endif;
+		
+		
+		pADOConnObj.Open();                                   			    
+		
+	catch
+        //Failed connection
+        
+	    iValidateVersion = -2;
+	    
+	    
+	    return iValidateVersion;
+	    
+	    
+	endcatch;
+	
+	try
+		
+		// Create ADO Recordset object for the return
+		set pADORecordSetObj = CreateObject("ADODB.Recordset");
+	
+		// Set some ADO Recordset properties  
+		pADORecordSetObj.CursorType = 3;
+		pADORecordSetObj.ActiveConnection = pADOConnObj;
+		
+		// Determine if the schema version matches 
+
+		
+		pADORecordSetObj.Open("SELECT sqlComplianceDbSchemaVersion FROM Configuration");
+        		
+	
+		// Check if Databse is Beta version
+  		StrToNum(iRepositoryVersion, svRepositoryVersion);
+  		StrToNum(iRepositoryVersion2, svRepositoryVersion2);
+  		
+		if (pADORecordSetObj(0) < iRepositoryVersion) then
+	
+	        iValidateVersion = 2;        
+	    
+	    elseif (pADORecordSetObj(0) = iRepositoryVersion) then  
+    
+	         iValidateVersion = 1; 
+	         
+	    elseif (pADORecordSetObj(0) = iRepositoryVersion2) then  
+    
+	         iValidateVersion = 1;
+	    
+	    elseif (pADORecordSetObj(0) > iRepositoryVersion2) then  
+    
+	         iValidateVersion = -4;
+	    
+	    endif;
+    		
+		// Cleanup
+		pADORecordSetObj.Close();
+		pADOConnObj.Close();   
+		
+	catch
+
+	    iValidateVersion = -3;
+	    
+	endcatch;
+          
+	return iValidateVersion;  
+	      
+end;     
+
+///////////////////////////////////////////////////////////////////////////////
+//                                                                           
+// Function:  CheckRepositoryExist
+//                                                                           
+//  Purpose:  Checks if Repository exists and installed and install 
+//            
+//                                                                           
+///////////////////////////////////////////////////////////////////////////////
+function CheckRepositoryExist(hMSI) 
+	OBJECT pADOConnObj, pADORecordSetObj;
+	STRING szConnString, szSQL;
+	STRING svServerName, svDatabaseName, svUserName, svUserPassword, svAuthenticationType;
+	STRING svEscapedDatabaseName;
+	NUMBER iReturn, nvResponse;
+begin                         
+    // At this point, we consider the specified database to be valid
+    // and we'll be installing the database schema
+    MsiSetProperty(ISMSI_HANDLE, "INVALID_DATABASE", "");
+    MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "");
+   
+	/*Since DB name is hard coded can not be changed.  Code Commented out                                                        
+	if (IsValidDatabaseName(svDatabaseName) = FALSE) then
+	
+		MsiSetProperty(ISMSI_HANDLE, "INVALID_DATABASE", "1");
+		MessageBox("The database name contains invalid characters.  Please provide a valid database name.", WARNING);
+	    exit;
+	    
+	endif;
+	
+	// Escape the database name and save it to a separate property
+	svEscapedDatabaseName = EscapeDatabaseName(svDatabaseName);
+    */
+ 
+   iReturn = DoesDatabaseExist();
+    
+    
+    switch (iReturn)	
+				
+		case 1:
+           
+         //Only SQlcompliance DB exists 
+         
+         MsiSetProperty(ISMSI_HANDLE, "DATABASE_EXISTS", "TRUE");
+		 MsiSetProperty(ISMSI_HANDLE, "bSQLProcessingExists", "FALSE");
+		 MsiSetProperty(ISMSI_HANDLE, "bSQLcomplianceExists", "TRUE");
+   
+		
+		case 10:
+		
+		 //Only processing DB exists 
+		 //Install set to remove existing processing DB automatically
+		 
+         MsiSetProperty(ISMSI_HANDLE, "INVALID_DATABASE", "");
+		 MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "");
+		 MsiSetProperty(ISMSI_HANDLE, "SCHEMA_VALIDATION", "");
+		 MsiSetProperty(ISMSI_HANDLE, "DATABASE_EXISTS", "FALSE");
+		 MsiSetProperty(ISMSI_HANDLE, "bSQLProcessingExists", "TRUE");
+		 MsiSetProperty(ISMSI_HANDLE, "bSQLcomplianceExists", "FALSE");
+		 
+		 exit;
+		
+		case 11:
+		
+		 //Both processing and SQLcomplaince DB exist
+
+		 MsiSetProperty(ISMSI_HANDLE, "DATABASE_EXISTS", "TRUE");
+		 MsiSetProperty(ISMSI_HANDLE, "bSQLProcessingExists", "TRUE");
+		 MsiSetProperty(ISMSI_HANDLE, "bSQLcomplianceExists", "TRUE");
+			
+		case 0:
+		
+			// Repository does not exist
+			
+			MsiSetProperty(ISMSI_HANDLE, "INVALID_DATABASE", "");
+			MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "");
+			MsiSetProperty(ISMSI_HANDLE, "SCHEMA_VALIDATION", "");
+	        MsiSetProperty(ISMSI_HANDLE, "DATABASE_EXISTS", "FALSE");
+		 	MsiSetProperty(ISMSI_HANDLE, "bSQLProcessingExists", "TRUE");
+		 	MsiSetProperty(ISMSI_HANDLE, "bSQLcomplianceExists", "FALSE");
+	        
+	        
+	        exit;
+		
+		case -2:
+		 
+			 // Connection Error 
+			 MsiSetProperty(ISMSI_HANDLE, "INVALID_DATABASE", "1");
+			 MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "");
+			 MsiSetProperty(ISMSI_HANDLE, "SCHEMA_VALIDATION", "-2");
+			 
+			 exit;
+		
+
+
+	endswitch;
+ 
+ 
+         
+    iReturn = CheckRepositoryVersion();
+			    
+
+				
+			switch (iReturn)	
+					
+				case -3:
+	            
+	            	// Failed to connect to the database
+	            	
+	            	MsiSetProperty(ISMSI_HANDLE, "INVALID_DATABASE", "1");
+					MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "");
+					MsiSetProperty(ISMSI_HANDLE, "SCHEMA_VALIDATION", "-3");
+					MessageBox("Unable to connect to the SQL compliance manager Repository.  Please ensure you have rights to the SQLcomplaince Repository database.", WARNING);
+					
+	            
+				case -2:
+				   
+				   // no database found
+				   	MsiSetProperty(ISMSI_HANDLE, "INVALID_DATABASE", "");
+				   	MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "");
+				   	MsiSetProperty(ISMSI_HANDLE, "SCHEMA_VALIDATION", "-2"); 
+				   	MsiSetProperty(ISMSI_HANDLE, "DATABASE_EXISTS", "FALSE");
+		
+				
+				case -1:
+				    
+				    //Invalid version of database found
+				    
+					MsiSetProperty(ISMSI_HANDLE, "INVALID_DATABASE", "1");
+		            MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "1");
+				    MsiSetProperty(ISMSI_HANDLE, "SCHEMA_VALIDATION", "-1");
+				    
+				case 1:
+		            
+		            // If the user already has a valid SQLdm Repository version,
+				    // ask if it should be used.
+		            
+		            MsiSetProperty(ISMSI_HANDLE, "SCHEMA_VALIDATION", "0");
+
+				    	MsiSetProperty(ISMSI_HANDLE, "INVALID_DATABASE", "");
+				        MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "1");
+
+		         
+		         case 2:
+		            
+		            // User has databse that needs an upgrade,
+		            
+		            MsiSetProperty(ISMSI_HANDLE, "SCHEMA_VALIDATION", "0");
+
+			    	MsiSetProperty(ISMSI_HANDLE, "INVALID_DATABASE", "");
+			        MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "");
+			        MsiSetProperty(ISMSI_HANDLE, "DATABASE_EXISTS", "TRUE");
+			        MsiSetProperty(ISMSI_HANDLE, "UPGRADE_WAIT", "");
+      	
+		    	default:
+		    			
+	                
+	                MsiSetProperty(ISMSI_HANDLE, "INVALID_DATABASE", "");
+				   	MsiSetProperty(ISMSI_HANDLE, "USE_EXISTING_DATABASE", "");
+				   	MsiSetProperty(ISMSI_HANDLE, "SCHEMA_VALIDATION", "");
+	
+				endswitch;
+
+end; 
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//	Function: DoesDatabaseExist
+//
+//	Purpose: This function will determine whether a given database exists.
+//
+///////////////////////////////////////////////////////////////////////////////     
+function NUMBER DoesDatabaseExist() 
+	OBJECT pADOConnObj, pADORecordSetObj;
+	STRING szConnString, szSQL;
+	STRING svServerName, svUserName, svUserPassword, svAuthenticationType;
+	STRING svDatabaseName, svProcessDatabaseName;
+	NUMBER nvAuthenticationType, nvStringBufferSize, nvBoolBufferSize, iReturn;
+begin                         
+
+   
+    // Get the properties for the connection string
+    nvStringBufferSize = 256;
+    nvBoolBufferSize = 1;                                                              
+    MsiGetProperty(ISMSI_HANDLE, "REPOSITORY", svServerName, nvStringBufferSize);
+	svDatabaseName = "SQLcompliance";
+	svProcessDatabaseName = "SQLcompliance.Processing";
+	MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_AUTHENTICATION", svAuthenticationType, nvBoolBufferSize);
+	if (svAuthenticationType = "1") then
+		MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_USERNAME", svUserName, nvStringBufferSize);  
+		MsiGetProperty(ISMSI_HANDLE, "IS_SQLSERVER_PASSWORD", svUserPassword, nvStringBufferSize);
+	endif;
+
+          
+    try
+		// Create ADO Connection Object to connect to the SQL server	               
+		set pADOConnObj = CreateObject("ADODB.Connection");
+		
+		// Set the ADO connection properties and open the connection
+		pADOConnObj.Provider = "sqloledb";
+		pADOConnObj.Properties("Data Source").Value = svServerName;
+		pADOConnObj.Properties("Initial Catalog").Value = "master";
+		if (svAuthenticationType = "0") then
+			pADOConnObj.Properties("Integrated Security").Value = "SSPI";
+		else
+		    pADOConnObj.Properties("User ID").Value = svUserName;
+		    pADOConnObj.Properties("Password").Value = svUserPassword;
+		endif;
+		pADOConnObj.Open();
+	                                       			    
+		// Create ADO Recordset object for the return
+		set pADORecordSetObj = CreateObject("ADODB.Recordset");
+	
+		// Set some ADO Recordset properties  
+		pADORecordSetObj.CursorType = 3;
+		pADORecordSetObj.ActiveConnection = pADOConnObj;
+		
+		// Create the SQL string to retrieve the database if it exists    
+		szSQL = "Select name from sysdatabases where name='" + svDatabaseName + "'";    
+		
+		// Use the recordset to see if the database exists 
+		pADORecordSetObj.Open(szSQL);
+		if (pADORecordSetObj.RecordCount = 1) then
+        
+        	iReturn = 1;
+        
+        else
+        
+        	iReturn = 0;
+        
+		endif;
+		
+		pADORecordSetObj.Close();
+		
+		szSQL = "Select name from sysdatabases where name='" + svProcessDatabaseName + "'";    
+		
+		// Use the recordset to see if the processing database exists 
+		pADORecordSetObj.Open(szSQL);
+		
+		
+		if (pADORecordSetObj.RecordCount = 1) then
+        
+        	iReturn = iReturn + 10;
+        
+        else
+        
+        	iReturn = iReturn + 0;
+        
+		endif;
+			
+		// Cleanup
+		pADORecordSetObj.Close();
+		pADOConnObj.Close();
+	catch
+	    iReturn = -2;
+		MessageBox(Err.Description, WARNING);
+	endcatch;
+  
+  return iReturn;
+  
+end;

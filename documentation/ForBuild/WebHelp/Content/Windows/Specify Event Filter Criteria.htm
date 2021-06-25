@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Management Console User Interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Specify Event Filter Criteria Windows</title>
+        <link href="../Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">Specify Event Filter Criteria Windows</h1>
+        <p class="Body">These windows allow you to use words, phrases, and wildcards to further define your audit event filter criteria. For example, you can use this window to filter out events that occur on all databases in your environment that use a naming convention such as <code class="Code_1_1">dbname01</code>.</p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Filter events on objects whose names match the listed words, phrases, or wildcards</p>
+        <p class="DefinitionListBody">To filter events on objects with specific names or naming conventions, click <span class="GUI_Item">listed</span>, and then specify the words, phrases, or wildcards the object names should match. You can add more than one criterion.</p>
+        <p class="DefinitionListTerm">Filter events on objects whose names are not listed</p>
+        <p class="DefinitionListBody">To filter events on objects whose names are not listed, click <span class="GUI_Item">except those listed</span>, and then specify the words, phrases, or wildcards the object names should not match. You can add more than one criterion.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">Match all &lt;event filter criteria&gt;</p>
+        <p class="DefinitionListBody">Allows you to indicate whether the event filter should generate alerts for objects that match the listed names, phrases, or wildcards.</p>
+        <p class="DefinitionListTerm">Specify &lt;alert criteria&gt; to match</p>
+        <p class="DefinitionListBody">Allows you to define match criteria. Match criteria can include exact names, words, phrases, or wildcards. For each match criterion you want to define, type the appropriate word, phrase, or wildcard in the provided field, and then click <span class="GUI_Item">Add</span>.</p>
+        <p class="DefinitionListBody">Use the following examples to help you define wildcard match criteria. Note that wildcard matches are not case-sensitive.</p>
+        <table style="caption-side: top;mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">If you want to match …</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Use …</p>
+                    </th>
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Examples</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">&#160;</th>
+                    <th class="HeadD-Column1-Header1">&#160;</th>
+                </tr>
+            </thead>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">One digit</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">#</p>
+                </td>
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText"><i>You want:</i>
+                    </p>
+                    <p class="TableText">All databases with name of testNN</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText"><i>You specify:</i>
+                    </p>
+                    <p class="TableText">test##</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText"><i>You get:</i>
+                    </p>
+                    <p class="TableText">Test00<br />Test01<br />test#1</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">One character</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">?</p>
+                </td>
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText"><i>You want:</i>
+                    </p>
+                    <p class="TableText">All databases with name of testXX</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText"><i>You specify:</i>
+                    </p>
+                    <p class="TableText">test??</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText"><i>You get:</i>
+                    </p>
+                    <p class="TableText">Test00<br />Test01<br />TEST?h<br />tester</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Any character</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">*</p>
+                </td>
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText"><i>You want:</i>
+                    </p>
+                    <p class="TableText">All databases that start with test</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText"><i>You specify:</i>
+                    </p>
+                    <p class="TableText">test*</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText"><i>You get:</i>
+                    </p>
+                    <p class="TableText">Test00<br />Test01<br />test0101<br />test4me<br />test#1<br />TEST?h<br />test*dev<br />tester<br />test</p>
+                </td>
+            </tr>
+        </table>
+        <p class="DefinitionListTerm">&lt;Event filter criteria&gt; to match</p>
+        <p class="DefinitionListBody">Allows to you change the list of match criteria. You can add a new criterion or remove an existing criterion.</p>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="../Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> <![CDATA[ ]]></p>
+    </body>
+</html>

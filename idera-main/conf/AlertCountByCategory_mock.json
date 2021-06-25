@@ -1,0 +1,34 @@
+[
+		{
+			"NumberOfAlerts":31,
+			"Category":"Databases"
+		},
+		{
+			"NumberOfAlerts":0,
+			"Category":"Logs"
+		},
+		{
+			"NumberOfAlerts":7,
+			"Category":"Operational"
+		},
+		{
+			"NumberOfAlerts":1,
+			"Category":"Queries"
+		},
+		{
+			"NumberOfAlerts":22,
+			"Category":"Resources"
+		},
+		{
+			"NumberOfAlerts":15,
+			"Category":"Services"
+		},
+		{
+			"NumberOfAlerts":8,
+			"Category":"Sessions"
+		},
+		{
+			"NumberOfAlerts":0,
+			"Category":"Virtulaization"
+		}
+]

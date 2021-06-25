@@ -1,0 +1,82 @@
+<zk>
+	<idera-cwf-dialog hflex="1" vflex="1" style="vertical-align:middle;" apply="org.zkoss.bind.BindComposer" closable="true"
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.adddataalertruleswizard.steps.NewDataAlertRulesStepViewModel')">
+		<style>
+		.idera-textbox{
+		margin-left: 0px !important;	
+		} 
+		</style>
+		<vlayout vflex="1">
+			<separator height="16px" />
+			<vlayout>
+				<hlayout>
+					<vlayout>
+						<label
+							value="${idera:getLabel('SQLCM.Label.specify-event-alert-rules')}"  id="newAlertRule"/>
+							<separator height="5px" />
+						<idera-cwf-textbox id="eventDataName" maxlength="60" value="${idera:getLabel('SQLCM.Label.new-rule')}"
+							type="text" width="240px" rows="1" style="resize:none" />
+					</vlayout>
+					<vlayout>
+						<label style= "margin-left : 0.5rem;"
+							value="${idera:getLabel('SQLCM.Label.specify-alert-rules-level')}" />
+							<separator height="5px" />
+							<idera-cwf-dropdownlist mold="default" readonly="true"
+								tabindex="8" id ="dataAlertLevel"
+								onSelect="@command('selectEventSource', id=self.selectedItem.id)"
+								value="${idera:getLabel('SQLCM.Label.medium-alert-rules')}">
+								<comboitem id="LOW"
+									label="${idera:getLabel('SQLCM.Label.low-alert-rules')}" 
+									value="${idera:getLabel('SQLCM.Label.low-alert-rules')}" />
+								<comboitem id="MEDIUM"
+									label="${idera:getLabel('SQLCM.Label.medium-alert-rules')}"
+									value="${idera:getLabel('SQLCM.Label.medium-alert-rules')}" />
+								<comboitem id="HIGH"
+									label="${idera:getLabel('SQLCM.Label.high-alert-rules')}"
+									value="${idera:getLabel('SQLCM.Label.high-alert-rules')}" />
+								<comboitem id="SEVERE"
+									label="${idera:getLabel('SQLCM.Label.severe-alert-rules')}"
+									value="${idera:getLabel('SQLCM.Label.severe-alert-rules')}" />
+								</idera-cwf-dropdownlist>
+					</vlayout>
+				</hlayout>
+			</vlayout>
+			<separator height="16px" />
+			<vlayout hflex="1">
+				<label
+					value="${idera:getLabel('SQLCM.Label.description-event-alert-rules')}" />
+				<separator height="5px" />
+				<idera-cwf-textbox id="eventDataDescription" maxlength="200"	type="text" width="492px" height="150px" style="resize:none"  rows="5"/>
+			</vlayout>
+			<separator height="16px" />
+			<vlayout>
+				<hlayout>
+					<vlayout style="vertical-align:middle; margin-top: 8px;">
+						<label value="${idera:getLabel('SQLCM.Labels.rule-type')}" />
+					</vlayout>
+					<vlayout>
+						<hbox sclass="margin-lr-14" hflex="1" width="225px">
+							<idera-cwf-dropdownlist readonly="true" mold="default" tabindex="8" id ="cmDataRuleType" width="225px"
+								onSelect="@command('selectRuleTypeDescription', id=self.selectedItem.id)" value="${idera:getLabel('SQLCM.Label.sensitive-column-accessed')}" >
+								<comboitem id="SENSITIVE_COLUMN"
+									label="${idera:getLabel('SQLCM.Label.sensitive-column-accessed')}"
+									value="${idera:getLabel('SQLCM.Label.sensitive-column-accessed')}" />
+								<comboitem id="COLUMN_VALUE"
+									label="${idera:getLabel('SQLCM.Label.column-value-accessed')}"
+									value="${idera:getLabel('SQLCM.Label.column-value-accessed')}" />
+							</idera-cwf-dropdownlist>
+						</hbox>
+					</vlayout>
+				</hlayout>
+			</vlayout>
+			<separator height="8px" />
+			<groupbox width="500px" height="90px">
+				<caption
+					label="${idera:getLabel('SQLCM.Label.description-event-alert-rules')}" />
+				<vlayout>
+					<label value="@load(step_vm.regulationGuidelinesDesc)" />
+				</vlayout>
+			</groupbox>
+		</vlayout>
+	</idera-cwf-dialog>
+</zk>

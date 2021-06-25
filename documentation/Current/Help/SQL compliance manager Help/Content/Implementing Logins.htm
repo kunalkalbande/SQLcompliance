@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="6" MadCap:lastHeight="348" MadCap:lastWidth="1159">
+    <head>
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Implementing Logins</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">How to implement logins</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">How to implement logins</h2>
+        <p class="Body" MadCap:conditions="">
+            <MadCap:keyword term="logins:use;logins:implement;logins:checklist">
+            </MadCap:keyword>Use the following checklist to help you implement and configure logins that meet your auditing and SQL Server security needs.</p>
+        <table class="TableStyle-Idera_Table_Stylesheet" style="margin-left: 0;margin-right: auto;mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <img src="Resources/Images/ChklistBoxChecked.png" />
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Follow these steps ...</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td style="text-align: center;" class="BodyE-Column1-Body1">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Ensure your Windows logon account has sysadmin privileges on the SQL Server instance that hosts the Repository databases. For more information, see <a href="Permissions Requirements.htm">Permissions Requirements</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Review how SQL compliance manager enforces your native SQL Server security model. For more information, see <a href="How Console Security Works.htm">How Console Security Works</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Review the SQL Server privileges granted with SQL compliance manager permissions.  For more information, see <a href="Available Login Permissions.htm">Available Login Permissions</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Create a login for each person who should generate reports using the Management Console, and then apply the Can view and report on audit data permission to each login.  For more information, see <a href="Creating a Login.htm">Creating a Login</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Create a login for each person who should administer auditing in the Management Console, and then apply the Can configure settings and view audit data permission to each login.
+  For more information, see <a href="Creating a Login.htm">Creating a Login</a>.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

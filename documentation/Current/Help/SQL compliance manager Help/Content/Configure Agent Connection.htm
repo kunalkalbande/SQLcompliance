@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="886" MadCap:lastWidth="456">
+    <head>		<link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Configure the SQLcompliance Agent connection</h1>
+        <p class="Body">To ensure you successfully continue auditing your registered SQL Servers, configure each SQLcompliance Agent to communicate with the new Collection Server.</p>
+        <p class="Body">Apply this update by changing the Server value of the following registry key on the computer that hosts the registered SQL Server instance:</p>
+        <p class="Body"><code>HKEY_LOCAL_MACHINE\SOFTWARE\Idera\ SQLcompliance\SQLcomplianceAgent</code></p>
+        <p class="Body">You can manually apply this update at each registered SQL Server or automate this update using a script. This procedure demonstrates how to use a script, such as a Visual Basic script, to configure the SQLcompliance Agent to communicate to the new Collection Server. </p>
+        <p class="Body">Use this procedure to develop a script that suits your environment. You can run a script locally to update one agent at a time, or remotely to update all agents at the same time.</p>
+        <p class="StepIntro">To configure the SQLcompliance Agent using a script:</p>
+        <ol>
+            <li class="NumberedList">Define variables for the computers that host the SQLcompliance Agent and the new Collection Server.
+	<p class="Body">For example, if you plan to run a Visual Basic script locally on the computer that hosts the SQL Server, your script may include the following code:</p>
+            <p class="Body"><code>' Define the SQL compliance manager Agent server</code><br />
+      		<code>strComputer = &quot;SQLServer01&quot;</code><br />
+            	<code>strNewCollectionServer = &quot;CollectionServer02&quot;</code></p>
+   	 </li>
+            <li class="NumberedList">Declare the SQLcompliance Agent and registry objects.
+	        <p class="Body">For example, if you plan to run a Visual Basic script locally on the computer that hosts the SQL&#160;Server, your script may include the following code:</p>
+        <p class="Body"><code>' Get the SQLcompliance Agent and registry  objects</code>
+            <br /><code>Set objComplianceAgent =  GetObject("winmgmts:{impersonationLevel=impersonate}!\\" _</code>
+            <br /><code>&amp;  strComputer &amp;  "\root\cimv2:Win32_Service='SQLcomplianceAgent'")</code>
+            <br /><code>Set objReg =  GetObject("winmgmts:{impersonationLevel=impersonate}!\\" _</code>
+            <br /><code>&amp;  strComputer &amp; "\root\default:StdRegProv")</code>
+        </p>
+       		 </li>
+            <li class="NumberedList">Stop the SQLcompliance Agent Service.
+		<p class="Body">For example, if you plan to run a Visual Basic script locally on the computer that hosts the SQL Server, your script may include the following code:</p>
+		<p class="Body"><code>' Stop the SQLcompliance Agent</code><br />
+		<code>Set flgStopStatus = objComplianceAgent.ExecMethod_(&quot;StopService&quot;)</code></p></li>
+            <li class="NumberedList">Change the registry key.
+        <p class="Body">For example, if you plan to run a Visual Basic script locally on  the computer that hosts the SQL Server, your script may include the following  code:</p>
+        <p class="Body"><code>' Change the location of the Collection Server in the  registry</code>
+            <br /><code>const HKEY_LOCAL_MACHINE =  &amp;H80000002</code>
+            <br /><code>strRegAgentPath =  "SOFTWARE\Idera\SQLcompliance\SQLcomplianceAgent"</code>
+            <br /><code>strServerValName  = "Server"</code>
+            <br /><code>objReg.GetStringValue HKEY_LOCAL_MACHINE,  strRegAgentPath, strServerValName,  strOldServer</code>
+            <br /><code>objReg.SetStringValue HKEY_LOCAL_MACHINE,  strRegAgentPath,strServerValName,  strNewCollectionServer</code>
+            <br /><code>WScript.Echo "Changed collection server  from " &amp; strOldServer &amp; " to " &amp; strNewCollectionServer</code>
+        </p>
+		</li>
+            <li class="NumberedList">Start the SQLcompliance Agent Service.
+		<p class="Body">For example, if you plan to run a Visual Basic script locally on the computer that hosts the SQL Server, your script may include the following code:</p>
+		<p class="Body"><code>' Restart the SQLcompliance Agent</code><br />
+		<code>Set flgStartStatus = objComplianceAgent.ExecMethod_(&quot;StartService&quot;)</code></p></li>
+            <li class="NumberedList">Using an administrator account, run your script to update each SQLcompliance Agent deployed to your registered SQL Servers.</li>
+        </ol>
+    </body>
+</html>

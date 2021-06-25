@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{879FE469-CFCB-43FE-B5DD-FF1E2945CB80}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SQLCM_Installer</RootNamespace>
+    <AssemblyName>SQLCMInstall</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>applicationicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CWFInstallerService">
+      <HintPath>References\CWFInstallerService.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Custom Controls\AgentSilentMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\IderaMessageBoxWithWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomBorderShadow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\IderaHeaderLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\IderaButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\IderaCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\IderaDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\IderaTitleLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\IderaLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\IderaMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\IderaMessageBoxWithOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\IderaProgressbar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\IderaRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\IderaTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\IderaToolTip.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\PageFinish.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\PageFinish.Designer.cs">
+      <DependentUpon>PageFinish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Prompts\FormCMSQLServerCred.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Prompts\FormCMSQLServerCred.Designer.cs">
+      <DependentUpon>FormCMSQLServerCred.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Prompts\FormDashboardSQLServerCred.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Prompts\FormDashboardSQLServerCred.Designer.cs">
+      <DependentUpon>FormDashboardSQLServerCred.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Prompts\FormEulaBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Prompts\FormEulaBox.Designer.cs">
+      <DependentUpon>FormEulaBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Prompts\FormTestConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Prompts\FormTestConnection.Designer.cs">
+      <DependentUpon>FormTestConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomDropShadow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CwfHelper.cs" />
+    <Compile Include="Enumerator.cs" />
+    <Compile Include="HelperFunctions.cs" />
+    <Compile Include="InstallProperties.cs" />
+    <Compile Include="JsonHelper.cs" />
+    <Compile Include="LogHelper.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CMProducts.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestClient.cs" />
+    <Compile Include="SQLCMArguments.cs" />
+    <Compile Include="WizardBasePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPageInfo.cs" />
+    <Compile Include="WizardPages\PageAgentCollectionServer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageAgentCollectionServer.Designer.cs">
+      <DependentUpon>PageAgentCollectionServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageAgentSQLServer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageAgentSQLServer.Designer.cs">
+      <DependentUpon>PageAgentSQLServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageDashboardRegYesOrNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageDashboardRegYesOrNo.Designer.cs">
+      <DependentUpon>PageDashboardRegYesOrNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageError.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageError.Designer.cs">
+      <DependentUpon>PageError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageInstall.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageInstall.Designer.cs">
+      <DependentUpon>PageInstall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageInstallationDirectory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageInstallationDirectory.Designer.cs">
+      <DependentUpon>PageInstallationDirectory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageIntroduction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageIntroduction.Designer.cs">
+      <DependentUpon>PageIntroduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageRepositories.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageRepositories.Designer.cs">
+      <DependentUpon>PageRepositories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageServiceAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageServiceAccount.Designer.cs">
+      <DependentUpon>PageServiceAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageSetupType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageSetupType.Designer.cs">
+      <DependentUpon>PageSetupType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageSuccess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageSuccess.Designer.cs">
+      <DependentUpon>PageSuccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageSummary.Designer.cs">
+      <DependentUpon>PageSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageTraceDirectory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageTraceDirectory.Designer.cs">
+      <DependentUpon>PageTraceDirectory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageUpgradeIntroduction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageUpgradeIntroduction.Designer.cs">
+      <DependentUpon>PageUpgradeIntroduction.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Custom Controls\AgentSilentMessageBox.resx">
+      <DependentUpon>AgentSilentMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\IderaMessageBox.resx">
+      <DependentUpon>IderaMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\IderaMessageBoxWithWarning.resx">
+      <DependentUpon>IderaMessageBoxWithWarning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\IderaMessageBoxWithOption.resx">
+      <DependentUpon>IderaMessageBoxWithOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\PageFinish.resx">
+      <DependentUpon>PageFinish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Prompts\FormCMSQLServerCred.resx">
+      <DependentUpon>FormCMSQLServerCred.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Prompts\FormDashboardSQLServerCred.resx">
+      <DependentUpon>FormDashboardSQLServerCred.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Prompts\FormEulaBox.resx">
+      <DependentUpon>FormEulaBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Prompts\FormTestConnection.resx">
+      <DependentUpon>FormTestConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="WizardBasePage.resx">
+      <DependentUpon>WizardBasePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageAgentCollectionServer.resx">
+      <DependentUpon>PageAgentCollectionServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageAgentSQLServer.resx">
+      <DependentUpon>PageAgentSQLServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageDashboardRegYesOrNo.resx">
+      <DependentUpon>PageDashboardRegYesOrNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageInstall.resx">
+      <DependentUpon>PageInstall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageInstallationDirectory.resx">
+      <DependentUpon>PageInstallationDirectory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageIntroduction.resx">
+      <DependentUpon>PageIntroduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageRepositories.resx">
+      <DependentUpon>PageRepositories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageServiceAccount.resx">
+      <DependentUpon>PageServiceAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageSetupType.resx">
+      <DependentUpon>PageSetupType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageSuccess.resx">
+      <DependentUpon>PageSuccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageSummary.resx">
+      <DependentUpon>PageSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageTraceDirectory.resx">
+      <DependentUpon>PageTraceDirectory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageUpgradeIntroduction.resx">
+      <DependentUpon>PageUpgradeIntroduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Documents\Idera - Software License Agreement.rtf" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="applicationicon.ico" />
+    <None Include="Images\10off.png" />
+    <None Include="Images\10on.png" />
+    <Content Include="Images\1off.png" />
+    <Content Include="Images\1on.png" />
+    <Content Include="Images\2off.png" />
+    <Content Include="Images\2on.png" />
+    <Content Include="Images\3off.png" />
+    <Content Include="Images\3on.png" />
+    <Content Include="Images\4off.png" />
+    <Content Include="Images\4on.png" />
+    <Content Include="Images\5off.png" />
+    <Content Include="Images\5on.png" />
+    <Content Include="Images\6off.png" />
+    <Content Include="Images\6on.png" />
+    <Content Include="Images\7off.png" />
+    <Content Include="Images\7on.png" />
+    <None Include="Images\8off.png" />
+    <None Include="Images\8on.png" />
+    <None Include="Images\9off.png" />
+    <None Include="Images\9on.png" />
+    <Content Include="Images\applicationicon.ico" />
+    <Content Include="Images\checboxdisabled.PNG" />
+    <Content Include="Images\checkboxcheckedimage.PNG" />
+    <None Include="Images\checkboxDisabledUncheck.png" />
+    <Content Include="Images\checkboximage.PNG" />
+    <Content Include="Images\chkboxhover.png" />
+    <Content Include="Images\chkboxhoverOff.png" />
+    <Content Include="Images\close-icon.png" />
+    <Content Include="Images\criticalicon.png" />
+    <Content Include="Images\diagramAgentAndDashboard.png" />
+    <Content Include="Images\diagramAllComponents.png" />
+    <Content Include="Images\diagramCMAgentOnly.png" />
+    <Content Include="Images\diagramCMAll.png" />
+    <Content Include="Images\diagramCMCOnsoleOnly.png" />
+    <Content Include="Images\diagramConsoleAndDashboard.png" />
+    <Content Include="Images\diagramDashboardOnly.png" />
+    <Content Include="Images\diagramnone.png" />
+    <None Include="Images\dropdownDisabled.png" />
+    <Content Include="Images\dropdownimage.PNG" />
+    <Content Include="Images\error-icon.png" />
+    <Content Include="Images\headericon.png" />
+    <Content Include="Images\icon.png" />
+    <Content Include="Images\idera-logo.png" />
+    <Content Include="Images\infoicon.png" />
+    <Content Include="Images\installationhelpimage.png" />
+    <Content Include="Images\okicon.png" />
+    <Content Include="Images\radiobtnhover.png" />
+    <Content Include="Images\radiobtnhoverOff.png" />
+    <Content Include="Images\radiobuttoncheckedimage.PNG" />
+    <Content Include="Images\radiobuttonimage.PNG" />
+    <Content Include="Images\radioCheckedDisabled.PNG" />
+    <Content Include="Images\radiodisabled.png" />
+    <None Include="Images\radioHidden.png" />
+    <Content Include="Images\webicon.png" />
+    <Content Include="Images\windowsicon.png" />
+    <Content Include="Images\wizardimagescomplete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

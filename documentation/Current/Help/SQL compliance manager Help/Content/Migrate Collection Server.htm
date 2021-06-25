@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="10" MadCap:lastHeight="916" MadCap:lastWidth="867">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1">Migrating or Recovering the Collection Server</h1>
+        <p class="Body">
+            <MadCap:keyword term="Collection Server:migrate;Collection Server:recover;migrate Collection Server;recover Collection Server;disaster recovery;auditing:disaster recovery" />You can execute a migration  strategy that addresses one of the following situations:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">The Collection Server requires maintenance, such as new hardware or a software upgrade (Microsoft Windows or SQL Server Service Pack).</li>
+            <li class="Bullet">The Collection Server becomes permanently unavailable.</li>
+            <li class="BulletLast">The Collection Server is being decommissioned and replaced.</li>
+        </ul>
+        <p class="Body">Establishing a migration  strategy for the Collection Server allows you to preserve existing audit settings and collected SQL Server events. You can also continue auditing your SQL Server environment to meet your compliance requirements with minimal disruption.</p>
+        <h2 class="Heading2">What is the Collection Server?</h2>
+        <p class="Body">The Collection Server is the computer that hosts the Collection Service and the Repository databases. For more information, review the product <a href="Architecture and Components.htm" target="_self">architecture and components</a>.</p>
+        <h2 class="Heading2">Migration checklist</h2>
+        <p class="Body">Use the following checklist to help you migrate your Collection Server.</p>
+        <table class="TableStyle-Idera_Table_Stylesheet" style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxChecked.png" />
+                        </p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p>Follow these steps ...</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p><a href="Prepare Migration.htm" target="_self">Prepare</a> for your migration.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p>Execute your migration by:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet"><a href="Restore Repository Databases.htm" target="_self">Restoring the Repository databases</a>
+                            </li>
+                            <li class="Bullet"><a href="Deploy Migrated Collection Server.htm" target="_self">Deploying the new Collection Server</a>
+                            </li>
+                            <li class="BulletLast"><a href="Configure Agent Connection.htm" target="_self">Configuring the SQLcompliance Agent</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p><span class="If_Then_Statement">If you use Microsoft Reporting Services to generate reports about your audit data</span>, <a href="Change RS Data Source.htm" target="_self">configure the Reporting Services data source</a> to use the restored Repository databases.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p>Test your new Collection Server deployment and setup. </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Migration best practices</h2>
+        <p class="Body">Before you execute your migration  strategy, decide whether you will want to permanently move the Collection Server to another computer. </p>
+        <p class="Body"><span class="If_Then_Statement">If you expect to replace the Collection Server</span>, ensure you have an available SQL Server that can be a dedicated host for the Collection Server. This computer should meet or exceed the product requirements.</p>
+        <p class="Body"><span class="If_Then_Statement">If you expect to repair the original Collection Server computer</span>, ensure your strategy includes plans to reinstate the original computer once it is repaired. Consider the following guidelines:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">To minimize audit data loss, plan to backup the Repository databases on the temporary Collection Server immediately before reinstating the original Collection Server</li>
+            <li class="Bullet">Use these migration procedures to reinstate the Collection Server on the original computer, configure the SQLcompliance agents, and configure Reporting Services</li>
+            <li class="Bullet">To verify all components were reinstated correctly, test your implementation</li>
+            <li class="BulletLast">Uninstall the Collection Server you previously implemented on the temporary computer</li>
+        </ul>
+        <p class="Body">&#160;</p>
+    </body>
+</html>

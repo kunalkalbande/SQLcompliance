@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Upgrade SQL Server in Your Audited Environment">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Deploy second Collection Server</title>
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1">Deploy second Collection Server</h1>
+        <p class="Body">Deploy a second Collection Server when you need to audit separate homogeneous environments of SQL Server instances, such as a SQL Server 2005 environment and a SQL Server 2008 environment. For example, you could deploy one Collection Server to dedicated SQL&#160;Server 2005 instance in one environment and a second Collection Server to a dedicated SQL&#160;Server 2008 instance in another environment. Use the following checklist and instructions to successfully deploy a second Collection Server.</p>
+        <h2 class="Heading2">Deployment checklist</h2>
+        <table class="TableStyle-Idera_Table_Stylesheet" style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxChecked.png" />
+                        </p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p>Follow these steps ...</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Determine whether you want to upgrade to the latest version of SQL&#160;Compliance Manager. To verify whether you are running the latest version, click <span class="GUI_Item">Check for Updates</span> on the Help menu.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                        <p>&#160;</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Choose the appropriate <a href="Upgrade Environment SS.htm" target="_self">upgrade strategy</a> for your environment and your auditing needs.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Ensure the computer that will host the new Collection Server:</p>
+                        <ul style="list-style-type: circle;">
+                            <li value="1">Has trusted access to the computers hosting the SQL Server instances you want to audit. </li>
+                            <li value="2">Hosts the same version of SQL&#160;Server as the upgraded instances. For example, if some instances were recently upgraded to SQL&#160;Server 2008, install the Collection Server on computer hosting SQL&#160;Server 2008.</li>
+                            <li value="3">Meets the product <a href="Hardware Requirements.htm" target="_self">hardware</a>, <a href="Software Requirements.htm" target="_self">software</a>, and <a href="Permissions Requirements.htm" target="_self">permissions</a> requirements.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Deploy new Collection Server after the SQL&#160;Server on an audited instance has been upgraded</h2>
+        <ol>
+            <li class="NumberedList" value="1"><span class="If_Then_Statement">If you want to use the latest version of SQL Compliance Manager</span>, <a href="Upgrading SQL compliance manager.htm" target="_self">upgrade your deployment</a>.</li>
+            <li class="NumberedList" value="2">Use Custom install in the SQL&#160;CM setup program to install the new Collection Server.</li>
+            <li class="NumberedList" value="3"><span class="If_Then_Statement">If you upgraded SQL Compliance Manager to the latest version</span>, also <a href="Upgrading Agent Remotely.htm" target="_self">upgrade the SQLcompliance Agents</a> deployed to the upgraded instances you are auditing.</li>
+            <li class="NumberedList" value="4"><a href="Configure Agent Connection.htm" target="_self">Configure the SQLcompliance Agent</a> to communicate with the new Collection Server.</li>
+        </ol>
+        <h2 class="Heading2">Deploy new Collection Server to audit new instances</h2>
+        <ol>
+            <li class="NumberedList" value="1"><span class="If_Then_Statement">If you want to use the latest version of SQL Compliance Manager</span>, <a href="Upgrading SQL compliance manager.htm" target="_self">upgrade your deployment</a>.</li>
+            <li class="NumberedList" value="2">Use the Custom install in the SQL&#160;CM setup program to install the new Collection Server.</li>
+            <li class="NumberedList" value="3"><a href="Registering Your SQL Servers.htm" target="_self">Register the instances</a> you want to audit.</li>
+            <li class="NumberedList" value="4"><a href="Auditing SQL Server Events.htm" target="_self">Begin auditing</a> your new SQL&#160;Server instances.</li>
+        </ol>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> <![CDATA[ ]]></p>
+    </body>
+</html>

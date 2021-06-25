@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<InstanceTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="" Description="" FullFilename="">
+  <AuditTemplate Name="" Description="" FullFilename="">
+<!-- Listed below are the recommended Database settings for the Family Educational Rights and Privacy Act -->
+    <DatabaseAuditConfig DatabaseName="DatabaseName"> 
+      <AuditedActivity>DDL</AuditedActivity>
+      <AuditedActivity>Security</AuditedActivity>
+      <AuditedActivity>DML</AuditedActivity>
+      <AuditedActivity>SELECT</AuditedActivity>
+      <AccessCheckFilter>CapturePassedCheckActions</AccessCheckFilter>
+
+      <CaptureSQL>true</CaptureSQL>  <!-- This is not allowed unless DML or SELECT is audited -->
+      <CaptureTransactions>false</CaptureTransactions>
+      <AuditAllObjectTypes>true</AuditAllObjectTypes>
+      <AuditAllUserTables>true</AuditAllUserTables>
+      <AuditedObjectType>UserTables</AuditedObjectType>
+      <AuditedObjectType>SystemTables</AuditedObjectType>
+      <AuditedObjectType>StoredProcedures</AuditedObjectType>
+      <AuditedObjectType>AllOtherTypes</AuditedObjectType>
+
+<!-- This is where you list your tables for sensitive column auditing- All columns is the default. You can specify any group of columns or use the GUI after your run the script -->
+<!--      <SensitiveColumnTable>
+        <TableName>owner.tableName</TableName>
+        <Columns>All Columns</Columns>
+      </SensitiveColumnTable> -->
+    </DatabaseAuditConfig>
+  </AuditTemplate>
+</InstanceTemplate>

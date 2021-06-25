@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Manage Audit Data">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>How Archives Work</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">How archives work</h1>
+        <p class="Body"><a name="kanchor115"></a>When you archive audit data, the Collection Server moves audited events from the Repository (typically, the event database) to an archive database. SQL&#160;Compliance&#160;Manager creates an archive database for each registered SQL Server instance, according to the file naming conventions and event age limit you specify. Each archive database contains events collected from the audited databases hosted on the SQL Server instance. You can archive event data across all registered SQL Server instances or for a selected instance.</p>
+        <p class="Body">To ensure you are archiving uncompromised audit data, SQL&#160;CM allows you to check the integrity of the collected events. <span class="If_Then_Statement">If the audit data fails this integrity check</span>, SQL&#160;CM does not archive the data.</p>
+        <p class="Body"><a name="kanchor116"></a>During the archival process, the audited events are temporarily written to the <code>tempdb </code>before being stored in the appropriate archive database. <span class="If_Then_Statement">If you are archiving a large number of events, such as one million events</span>, the <code>tempdb </code>may run out of available space, resulting in an incomplete archive.</p>
+        <p class="Body">To ensure optimal event handling and performance, archive your audit data frequently. Monitor your Repository database consumption over the first few days of collecting audit data, so you can develop a maintenance strategy that best suits your needs. For more information, see <a href="Backing Up and Restoring Archive.htm" target="_self">Backing Up and Restoring Archive Databases</a>.</p>
+        <p class="Body">For more information on how to archive events, see <a href="Archiving Events.htm">Archiving Events</a>.</p>
+        <p class="Body">Also consider grooming older audit data. Grooming allows you to minimize your storage requirements and ensure your audit data remains relevant to your compliance needs. For more information, see <a href="How Grooming Works.htm" target="_self">How Grooming Works</a>.</p>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> <![CDATA[ ]]></p>
+    </body>
+</html>

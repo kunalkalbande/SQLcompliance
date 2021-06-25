@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="606" MadCap:lastWidth="919">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Register the SQLcompliance Agent Service</h1>
+        <p class="Body">Registering the SQLcompliance Agent Service with the Microsoft Cluster Administrator allows the Microsoft Cluster Service to manage the SQLcompliance Agent Service in failover situations. This configuration ensures the SQL trace continues to be audited during a failover and no audit data is lost. 
+</p>
+        <p class="Body">Complete the following procedure on one cluster node hosting the virtual SQL Server instance. You can perform this task on the currently active node or on any passive node in the same cluster. The Microsoft Cluster Administrator tool replicates your completed configuration to the remaining nodes in the cluster.</p>
+        <p class="StepIntro">To register the SQLcompliance Agent Service:</p>
+        <ol>
+            <li class="NumberedList">Log on to the cluster node using an administrator account.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If this is a Windows Server 2003 cluster</span>, start the Microsoft Cluster Administrator tool.<span class="If_Then_Statement"> If this is a Windows 2008 or later cluster</span>, start the Microsoft Failover Cluster Administrator tool.</li>
+            <li class="NumberedList">Add the SQLcompliance Agent Service as a generic service.</li>
+            <p class="BodyIndent">Specify the following dependencies:</p>
+            <ul style="list-style-type: circle;">
+                <li class="Bullet">Disk where the SQLcompliance Agent trace directory is located</li>
+                <li class="Bullet">SQL network name</li>
+                <li class="BulletLast">SQL Server</li>
+            </ul>
+            <p class="BodyIndent">Specify the following generic service permissions:</p>
+            <ul style="list-style-type: circle;">
+                <li class="Bullet">Specify a friendly name for the generic service.</li>
+                <li class="Bullet">Specify the name of the SQLcompliance Agent Service (as displayed in the Services Manager tool), but leave the parameters unspecified. Use the <a href="Windows/SQLcompliance Agent Details.htm" target="_self">SQLcompliance Agent Details window</a> in the Cluster Configuration Console to copy the service name to your clipboard. Paste the name in the provided field.</li>
+                <li class="Bullet">Clear the start parameter setting.</li>
+                <li class="BulletLast">Select to use the network name.</li>
+            </ul>
+            <p class="Body">Agree to replicate registry entries, and then specify the registry key for the SQLcompliance Agent Service. Use the <a href="Windows/SQLcompliance Agent Details.htm" target="_self">SQLcompliance Agent Details window</a> in the Cluster Configuration Console to copy the registry key path to your clipboard. Paste the name in the provided field.</p>
+            <li class="NumberedList">Bring the generic service online.</li>
+            <li class="NumberedList">Verify that the SQLcompliance Agent is running on the active cluster node.</li>
+        </ol>
+        <p class="Body">&#160;</p>
+    </body>
+</html>

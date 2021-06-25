@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<homeAuditedInstance>
+	<agentAction>false</agentAction>
+</homeAuditedInstance>
+<instances>
+	<add>false</add>
+	<remove>false</remove>
+	<edit>false</edit>
+	<options>false</options>
+</instances>
+<alerts>
+	<options>false</options>
+	<import>false</import>
+	<addNewRules>false</addNewRules>
+</alerts>
+<auditEventFilters>
+	<add>false</add>
+	<remove>false</remove>
+	<options>false</options>
+	<import>false</import>
+</auditEventFilters>
+<activityLogs>
+	<options>true</options>
+	<delete>false</delete>
+</activityLogs>
+<changeLogs>
+	<options>true</options>
+	<delete>false</delete>
+</changeLogs>
+<databaseEvents>
+	<options>false</options>
+</databaseEvents>
+<auditedDatabase>
+	<options>false</options>
+</auditedDatabase>
+<eventFiltersView>
+	<options>false</options>
+</eventFiltersView>
+<instancesAlert>
+	<options>false</options>
+</instancesAlert>
+<instancesAlertRule>
+	<options>false</options>
+</instancesAlertRule>
+<instanceEvents>
+	<options>false</options>
+</instanceEvents>
+<administration>
+	<manageUsers>false</manageUsers>
+	<license>false</license>
+	<manageInstance>false</manageInstance>
+	<manageConfiguration>false</manageConfiguration>
+</administration>
+<databases>
+	<remove>false</remove>
+	<edit>false</edit>
+	<changeAudit>false</changeAudit>
+	<import>false</import>
+	<showDropdown>false</showDropdown>
+</databases>
+<databaseDetailOverview>
+	<applyGuidelines>false</applyGuidelines>
+</databaseDetailOverview>
+<auditedInstance>
+	<edit>false</edit>
+	<import>false</import>
+	<showCombo>false</showCombo>
+</auditedInstance>
+<instanceDetailOverview>
+	<selectCombo>false</selectCombo>
+</instanceDetailOverview>

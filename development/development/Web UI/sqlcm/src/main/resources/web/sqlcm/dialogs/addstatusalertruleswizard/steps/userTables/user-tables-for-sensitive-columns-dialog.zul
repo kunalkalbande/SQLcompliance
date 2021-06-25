@@ -1,0 +1,156 @@
+<zk>
+	<window height="640px" width="880px" closable="true" border="none"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.userTables.UserTablesForSensitiveColumnsViewModel')"
+		contentSclass="wizard-layout" style="border-radius: 0"
+		position="center,middle" sclass="wizard-window"
+		id="userTablesWindow">
+
+		<attribute name="onBind"><![CDATA[
+zk.afterMount(function () {
+				zWatch.fireDown('onSize', self);
+			});
+]]></attribute>
+		<vlayout height="45px" width="880px"
+			Style="background-color:#b7afa7; padding-top:15px; padding-left:20px">
+			<label
+				value="${idera:getLabel('Labels.sql-cm.select-tables-to-audit-dialog.title')}"
+				style="font-size: 1.6rem; font-family: Source Sans Pro;color:white;font-weight: 600; " />
+		</vlayout>
+		<vlayout height="595px" sclass="wizard-layout" width="880px">
+			<hlayout hflex="1" height="580px" sclass="wizard-layout"
+				spacing="0">
+				<div id="tipsDiv" height="580px" width="200px"
+					sclass="wizard-tips-div padding-all-8 margin-all-0">
+					<vlayout spacing="8px">
+						<div id="tipsContent" sclass="padding-all-16">
+							<hlayout valign="middle"
+								sclass="wizard-tips-header">
+								<image
+									src="/images/lightbulb-white.png" />
+								<label style="font-size: 17px;"
+									value="Tips" />
+								<space width="80px" />
+								<a sclass="H3 wizard-tips-help-link"
+									label="?" href="@load(helpURL)" target="_blank" />
+							</hlayout>
+
+							<space height="16px" />
+
+							<div sclass="idera-tooltip">
+								<vbox spacing="12px">
+									<html id="tipsHtml"
+										content="${idera:getLabel('SQLCM.Html.sql-cm.select-tables-to-audit-dialog.tips')}" />
+								</vbox>
+							</div>
+						</div>
+					</vlayout>
+				</div>
+
+				<panel id="mainPanel"
+					sclass="margin-all-0 wizard-panel " height="595px" width="660px">
+
+					<panelchildren id="mainPanelChildren"
+						sclass="wizard-main-content wizard-content-spacing">
+						<hlayout width="610px" vflex="1">
+							<vlayout width="250px" vflex="1">
+								<label
+									value="${idera:getLabel('SQLCM.Label.select-tables-to-audit-dialog.available-tables')}" />
+								<hlayout height="30px">
+									<textbox instant="true"
+										width="170px" value="@bind(vm.filterText)" />
+									<idera-cwf-button label="" mold="os"
+										image="${idera:getImageURLWithoutSize('magnifying-glass')}"
+										onClick="@command('filterClick')" />
+								</hlayout>
+								<idera-cwf-listbox
+									id="lbAvailableDatabases" sclass="idera-grid z-listbox"
+									width="240px" height="392px" multiple="true" checkmark="false"
+									mold="paging" paginal="${listBoxPageId}"
+									model="@load(vm.candidateListModelList)">
+									<listhead>
+										<listheader />
+									</listhead>
+									<template name="model">
+										<listitem>
+											<listcell
+												label="@load(each.fullTableName)" />
+										</listitem>
+									</template>
+
+									<listfoot>
+										<listfooter span="8"
+											align="center">
+											<vbox align="center">
+												<paging
+													id="listBoxPageId" />
+												<hbox align="center">
+													<label
+														value="@load(vm.fileSize)" style="float:left" />
+													<label
+														value="Total files" style="float:left" />
+													<spinner
+														style="text-align: center"
+														id="listBoxRowsBox" width="50px" placeholder="#"
+														maxlength="3" onChange="@command('setGridRowsCount')"
+														onOK="@command('setGridRowsCount')"
+														constraint="no empty,no negative, no zero: ${idera:getLabel('Labels.sql-cm-listbox.page-size-error')}" />
+
+												</hbox>
+											</vbox>
+										</listfooter>
+									</listfoot>
+								</idera-cwf-listbox>
+							</vlayout>
+							<vlayout width="110px" vflex="1"
+								style="padding-top: 100px;">
+								<idera-cwf-button id="addButton"
+									onClick="@command('addCommand')" style="width: 105px;"
+									label="${idera:getLabel('SQLCM.Label.add-database-wizard.button.add-arrow')}" />
+								<idera-cwf-button id="removeButton"
+									onClick="@command('removeCommand')"
+									label="${idera:getLabel('SQLCM.Label.add-database-wizard.button.remove-arrow')}" />
+							</vlayout>
+							<vlayout width="250px" vflex="1">
+								<label
+									value="${idera:getLabel('SQLCM.Label.select-tables-to-audit-dialog.selected-tables')}" />
+								<separator height="30px" />
+								<listbox id="lbSelectedDatabases"
+									style="border: 1px solid #9D9D9D;" width="238px" height="392px"
+									multiple="true" checkmark="false"
+									model="@load(vm.chooseListModelList)">
+									<listhead>
+										<listheader />
+									</listhead>
+									<template name="model">
+										<listitem>
+											<listcell
+												label="@load(each.fullTableName)" />
+										</listitem>
+									</template>
+								</listbox>
+							</vlayout>
+						</hlayout>
+					</panelchildren>
+					<toolbar hflex="1" height="75px" align="center"
+						sclass="wizard-button-toolbar padding-all-8">
+						<hbox hflex="1" pack="stretch,start">
+							<cell hflex="1" />
+							<cell hflex="min"
+								sclass="middle-center-align">
+								<hlayout valign="middle">
+									<div hflex="1" />
+									<idera-cwf-button id="closeButton"
+										onClick="@command('closeCommand')"
+										label="${idera:getLabel('Labels.sql-cm.regulation-details-dialog-close-button')}" />
+								</hlayout>
+							</cell>
+						</hbox>
+					</toolbar>
+				</panel>
+
+			</hlayout>
+		</vlayout>
+
+	</window>
+</zk>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="368" MadCap:lastWidth="1159">
+    <head>
+        <link href="Resources/TableStyles/Tip.css" rel="stylesheet" MadCap:stylesheetType="table" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Upgrade the product components</h1>
+        <p class="Body">You can use the setup program to upgrade all components or any individual component. The setup program detects whether SQL Compliance Manager components are running or installed on the local computer. The setup program automatically upgrades the Management Console, the Collection Server, and the SQLcompliance Agent according to your implementation.
+</p>
+        <table class="TableStyle_Tip" style="mc-table-style: url('Resources/TableStyles/Tip.css');" cellspacing="0">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">The Repository must reside on a version of SQL&#160;Server that is greater than or equal to the highest audited SQL&#160;Server version.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="StepIntro">To upgrade SQL&#160;Compliance Manager:</p>
+        <ol>
+            <li class="NumberedList">Log on with an administrator account to the computer on which you want to upgrade the Collection Server.</li>
+            <li class="NumberedList">Run <code>SETUP.EXE</code> in the root of the installation kit.</li>
+            <li class="NumberedList">On the Idera SQL Compliance Manager Quick Start window, click <span class="GUI_Item">SQL Compliance Manager</span> to begin the upgrade process.</li>
+            <li class="NumberedList">On the Idera SQL Compliance Manager dialog, click <span class="GUI_Item">Yes </span>to start the upgrade process.</li>
+            <li class="NumberedList">On the Upgrade Wizard for Idera SQL Compliance Manager window, click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">On the Repository Host window, select the authentication type and enter the SQL credentials, if necessary, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">On the Setup Wizard Completed window, click <span class="GUI_Item">Finish </span>to end the upgrade process.</li>
+            <li class="NumberedList">Start the Management Console. When prompted, <a href="Windows/Set Maintenance Schedule Window.htm" target="_self">schedule</a> a time for SQL&#160;Compliance Manager to perform maintenance on your Repository databases.</li>
+            <li class="NumberedList"><a href="Upgrade SQLcompliance Agent.htm">Upgrade your SQLcompliance Agents</a>.</li>
+        </ol>
+    </body>
+</html>

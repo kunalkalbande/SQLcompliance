@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<InstanceTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="" Description="" FullFilename="">
+  <AuditTemplate Name="" Description="" FullFilename="">
+
+	<!-- This is a Sarbanes Oxley Auditing template specific to server settings -->
+    <ServerLevelAuditConfig>
+      <AuditedActivity>Logins</AuditedActivity>
+      <AuditedActivity>FailedLogins</AuditedActivity>
+      <AuditedActivity>DDL</AuditedActivity>
+      <AuditedActivity>Security</AuditedActivity>
+      <AccessCheckFilter>CapturePassedCheckActions</AccessCheckFilter>
+    </ServerLevelAuditConfig>
+	
+	<!--  !!!!!!!!!  Privileged User auditing should be configured in the console so the user Sids are obtained and encoded properly. This is  -->
+	<!--  !!!!!!!!!  is being included here for completeness.  --> 
+    <!--<PrivilegedUserAuditConfig>
+      <AuditedActivity>Admin</AuditedActivity>
+      <AuditedActivity>Audit</AuditedActivity>
+      <AuditedActivity>DDL</AuditedActivity>
+      <AuditedActivity>DML</AuditedActivity>
+      <AuditedActivity>FailedLogins</AuditedActivity>
+      <AuditedActivity>Logins</AuditedActivity>
+      <AuditedActivity>Security</AuditedActivity>
+      <AuditedActivity>SELECT</AuditedActivity>
+      <AuditedActivity>UDC</AuditedActivity>
+      <AccessCheckFilter>NoFilter</AccessCheckFilter>
+	-->
+	<!-- This should be configured in the SQLcompliance manager console and exported.  Then copy the user list to here. -->
+    <!--  <UserList>
+        <Logins />
+        <ServerRoles>
+          <ServerRole>
+            <FullName>some  Administrators</FullName>
+            <Name>some  Administrators</Name>
+            <Id>4096</Id>
+          </ServerRole>
+        </ServerRoles>
+      </UserList>
+      <CaptureSQL>true</CaptureSQL>
+      <CaptureTrans>true</CaptureTrans>
+    </PrivilegedUserAuditConfig> -->
+  </AuditTemplate>
+</InstanceTemplate>

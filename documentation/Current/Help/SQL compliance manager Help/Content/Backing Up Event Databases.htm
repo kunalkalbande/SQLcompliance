@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="415" MadCap:lastWidth="1185">
+    <head><title>Backing Up Event Databases</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Back up event databases</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Back up event databases</h2>
+        <p class="Body">
+            <MadCap:keyword term="Repository:backing up">
+            </MadCap:keyword>Consider backing up the event databases frequently, depending on the volume of audit data you collect and your established disaster recovery strategies. For best results, use the following guidelines:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Perform a full backup, including the transaction logs</li>
+            <li class="Bullet">Schedule the backup during off-hours, or times when you expect the least audit activity</li>
+            <li class="Bullet">Back up all event databases during the same backup procedure</li>
+            <li class="Bullet">Save each database to a separate backup file</li>
+            <li class="BulletLast">Back up the SQLcompliance database during the same backup procedure to ensure audit data integrity remains intact</li>
+        </ul>
+        <p class="StepIntro">To back up the event databases:</p>
+        <ol>
+            <li class="NumberedList">Use SQL Server Enterprise Manager or Management Studio to take the SQLcompliance database offline. <span class="If_Then_Statement">If you cannot take the SQLcompliance database offline</span>, stop the Collection Service.</li>
+            <li class="NumberedList">Use a tool such as Idera SQL Safe to perform a full backup, including transaction logs, of the SQLcompliance database.</li>
+            <p class="BodyIndent">For each event database, perform a full backup, including the transaction logs. Each registered SQL Server instance has a corresponding event database. For more information, see <a href="Architecture and Components.htm" target="_self">Understanding SQL&#160;Compliance&#160;Manager components</a>.</p>
+            <li class="NumberedList">Use SQL Server Enterprise Manager or Management Studio to bring the SQLcompliance database online.</li>
+        </ol>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<zk>
+<div hflex="1" vflex="1"
+         style="vertical-align:middle;"
+         apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addserverwizard.steps.RegulationGuidelinesApplyStepViewModel')">
+        <vlayout width="510px" vflex="1">
+            <vlayout width="510px" vflex="min">
+                <label value="${idera:getLabel('SQLCM.Label.add-database-wizard.reg-guide-apply.audit-settings')}" />
+            </vlayout>
+            <separator height="10px" />
+            <vlayout width="510px">
+                    <n:ul xmlns:n="native">
+                    <n:li><label value="${idera:getLabel('SQLCM.Label.add-database-wizard.reg-guide-apply.priv-users')}" /></n:li>
+                    <n:li><label value="${idera:getLabel('SQLCM.Label.add-database-wizard.reg-guide-apply.priv-user-events')}" /></n:li>
+                    <n:li><label value="${idera:getLabel('SQLCM.Label.add-database-wizard.reg-guide-apply.sens-column-auditing')}" /></n:li>
+                    <n:li><label value="${idera:getLabel('SQLCM.Label.add-database-wizard.reg-guide-apply.permission-server-roles-logins')}" /></n:li>
+                    </n:ul>
+                </vlayout>
+            <separator height="10px" />
+             <vlayout width="510px" vflex="min">
+                <label value="${idera:getLabel('SQLCM.Label.add-database-wizard.reg-guide-apply.note')}" />
+                </vlayout>
+            <separator height="10px" />
+            <vlayout width="510px" vflex="min">
+                <label value="${idera:getLabel('SQLCM.Label.add-database-wizard.reg-guide-apply.deploy-agent-add-priv-users')}" />
+            </vlayout>
+            <separator height="10px" />
+             <html content="${idera:getLabel('SQLCM.Label.add-database-wizard.reg-guide-apply.need-help')}" class="z-label" />
+        </vlayout>
+    </div>
+</zk>

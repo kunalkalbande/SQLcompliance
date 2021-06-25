@@ -1,0 +1,73 @@
+<?component name="filter-checkbox" class="com.idera.cwf.ui.filter.components.FilterCheckBox" ?>
+<?component name="filter-textbox" class="com.idera.cwf.ui.filter.components.FilterTextBox" ?>
+<?component name="filter-idera-cwf-dropdownlist" class="com.idera.cwf.ui.filter.components.FilterComboBox" ?>
+<zk>
+  <vlayout vflex="true" width="315px" style="overflow: auto" sclass="light-panel-color-shade">
+    <vlayout sclass="padding-lr-28 padding-tb-12" width="250px">
+      <grid sclass="idera-invisible-grid">
+        <columns>
+          <column align="left"/>
+          <column align="right"/>
+        </columns>
+        <rows>
+          <row>
+            <label sclass="H4" value="Filtering"/>
+            <a id="clearWholeFilter" label="${idera:getLabel('Messages.clear')}" sclass="link" visible="false"/>
+          </row>
+        </rows>
+      </grid>
+      <hlayout id="applyChangesNowHlayout" sclass="padding-l-4" visible="false">
+        <image src="${idera:getImageURL('info-gray', 'small')}"/>
+        <a id="applyFilterAfterChanges" label="${idera:getLabel('Messages.apply-changes-now')}" sclass="link"/>
+      </hlayout>
+    </vlayout>
+
+    <zk forEach="${arg.includer.filters}">
+      <groupbox id="group_${each.id}" open="${each.valueSet}" mold="3d" width="250px" contentStyle="border: 0px;"
+                sclass="filtering-layout-style padding-lr-28 padding-t-0 padding-b-16">
+        <caption label="${idera:getLabel(each.name)}" sclass="open-false"/>
+        <zk choose="">
+          <zk when="${each.type.inputType == 'TEXT'}">
+            <vlayout id="${each.id}">
+              <zk if="${each.valueSet}">
+                <zk forEach="${each.children}">
+                  <filter-textbox value="${each.value}" isDefault="false" parentFilterId="${forEachStatus.previous.each.id}"/>
+                </zk>
+              </zk>
+              <filter-textbox isDefault="true" parentFilterId="${each.id}" placeholder="${idera:getLabel(each.name)}"/>
+            </vlayout>
+          </zk>
+
+          <zk when="${each.type.inputType == 'COMBO'}">
+            <vlayout id="${each.id}">
+              <zk if="${each.valueSet}">
+                <zk forEach="${each.children}">
+                  <filter-idera-cwf-dropdownlist value="${each.value}" isDefault="false" parentFilterId="${forEachStatus.previous.each.id}"/>
+                </zk>
+              </zk>
+              <filter-idera-cwf-dropdownlist isDefault="true" parentFilterId="${each.id}" placeholder="${idera:getLabel(each.name)}"/>
+            </vlayout>
+          </zk>
+
+          <zk when="${each.type.inputType == 'OPTIONS'}">
+            <vlayout width="315px">
+              <zk forEach="${each.children}">
+                <filter-checkbox id="${each.id}" parentFilterId="${forEachStatus.previous.each.id}" value="${each.label}" width="315px"
+                                 hflex="true" checked="${each.checked}"/>
+              </zk>
+            </vlayout>
+          </zk>
+        </zk>
+
+        <hbox>
+          <hbox>
+            <a id="removeFilter_${each.id}" visible="${each.valueSet}" sclass="link"/>
+          </hbox>
+        </hbox>
+      </groupbox>
+    </zk>
+    <div align="Left" sclass="filtering-layout-style padding-lr-28 padding-t-0 padding-b-16">
+      <idera-cwf-checkbox id="applyFilterOnChange" hflex="true"  label="${idera:getLabel('Labels.filter.apply-immediately')}" checked="true"></idera-cwf-checkbox>
+    </div>
+  </vlayout>
+</zk>

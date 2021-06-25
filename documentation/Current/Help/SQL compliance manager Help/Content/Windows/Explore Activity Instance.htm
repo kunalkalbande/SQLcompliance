@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="8" MadCap:lastHeight="2589" MadCap:lastWidth="893">
+    <head><title>Explore Activity Instance Summary</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Explore Activity</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Explore Activity &gt; </MadCap:conditionalText>Instance Summary</h2>
+        <p class="Body">The SQL&#160;Compliance Manager Instance Summary tab displays the status of audit activity for a particular SQL Server instance in your environment. Use the statistics and graphs on this tab to quickly and easily identify server-level issues so you can continue to ensure the correct level of compliance.</p>
+        <h2 class="Heading2">Understanding Server Status</h2>
+        <p class="DefinitionListTerm">Status</p>
+        <p class="DefinitionListBody">Indicates whether SQL CM encountered any issues while auditing this SQL Server instance. </p>
+        <p class="DefinitionListBody"><span class="If_Then_Statement">If a system alert is triggered</span>, the status displays as critical.  System alerts notify you when the health of your SQL&#160;CM deployment may be compromised. For more information, see the <a href="Activity Log Tab.htm" target="_self">Activity Log tab</a>.</p>
+        <p class="DefinitionListTerm">Last Heartbeat</p>
+        <p class="DefinitionListBody">Provides the most recent date and time that the SQLcompliance Agent deployed for this instance contacted the Collection Server.</p>
+        <p class="DefinitionListTerm">Last Archived</p>
+        <p class="DefinitionListBody">Provides the most recent date and time that events collected for this instance were archived.</p>
+        <p class="DefinitionListTerm">Processed Events</p>
+        <p class="DefinitionListBody">Displays the number of audit events stored in the Repository event databases for the selected time span. This number does not include events previously archived or groomed.</p>
+        <p class="DefinitionListTerm">Recent Alerts</p>
+        <p class="DefinitionListBody">Displays the number of alerts generated for events collected from this instance during the specified time span.</p>
+        <h2 class="Heading2">Understanding the Server Activity Report Card status</h2>
+        <p class="Body">Each tab of the Server Activity Report Card provides an auditing status for the corresponding event category. You can use this status to help you determine whether you are effectively auditing events on this SQL Server instance. </p>
+        <p class="Body">You can also use auditing thresholds to display critical issues or warnings should a particular activity, such as privileged user events, be higher than expected. These thresholds can notify you about issues related to increased activity levels, such as a security breach, that may be occurring on this instance. Use thresholds to supplement the alert rules you have configured for this instance.</p>
+        <table style="caption-side: top;mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Status Type</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">Indication</p>
+                    </th>
+                    <th class="HeadD-Column1-Header1">
+                        <p class="TableHeadRow">Meaning</p>
+                    </th>
+                </tr>
+            </thead>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Audited without thresholds</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">gray check</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText">This event category is being audited on instances in your environment but auditing thresholds have not been set for this event category.</p>
+                    <p class="TableText">Consider setting audit thresholds so you can track peaks in activity and identify any suspicious events.</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Critical</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">red icon</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText">The event activity during the selected time span is higher than the defined critical threshold.</p>
+                    <p class="TableText">To see more information about this activity, navigate to the Audit Events tab and search for events in the event category that is flagged. You can view the detailed properties of an event by double-clicking the listed event.</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">OK</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">green check</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText">This event category is being audited on instances in your environment and auditing thresholds have been set for this event category.</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Not audited</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">red icon</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText">This event category is not being audited on instances in your environment even though auditing thresholds have been set for this event category.</p>
+                    <p class="TableText">To track this activity, change your audit settings to include the corresponding event category.</p>
+                    <p class="TableText">To ignore this activity, disable the auditing threshold set for this event category.</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Not audited and no thresholds set</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">gray circle</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText">This event category is not being audited on any instances in your environment. Auditing thresholds have not been set for this event category.</p>
+                    <p class="TableText">Review whether you need to audit and track this activity on any of your SQL Server instance. </p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Warning</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">yellow icon</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText">The event activity during the selected time span is higher than the defined warning threshold.</p>
+                    <p class="TableText">To see more information about this activity, navigate to the Audit Events tab and search for events in the event category that is flagged. You can view the detailed properties of an event by double-clicking the listed event.</p>
+                </td>
+            </tr>
+        </table>
+        <h2 class="Heading2">Understanding the Server Activity Report Card tabs</h2>
+        <p class="Body">The Server Activity Report Card tabs chart recent activity for each of the common audit event categories and provide the status of this registered SQL Server instance. This activity and status is calculated from the processed audit events stored in the Repository event databases for the selected time span.</p>
+        <p class="Body">Use the Report Card to track the rate of activity in specific event categories and identify when exceptional activity occurs. Auditing thresholds can also help you track and identify activity that could reflect a SQL Server performance or security issue. Using the yellow and red lines that display when warning and critical auditing thresholds are exceeded, you can pinpoint the exact time at which the violations occurred.</p>
+        <p class="Body">When reviewing the Report Card, consider guidelines such as the following tips:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Too many alerts and failed logins can indicate serious issues</li>
+            <li class="Bullet">A sudden spike in privileged user activity could indicate a security breach</li>
+            <li class="BulletLast">Setting your Overall Activity threshold at 20% above the benchmark activity can warn you when unexpected traffic or database growth occurs</li>
+        </ul>
+        <p class="Body">To get more detailed information about a particular increase in activity, use the Recent Audit Events pane to see which events correlated to this activity.</p>
+        <h2 class="Heading2">Understanding Audit Configuration</h2>
+        <p class="Body">The Audit Configuration pane provides a brief summary of the audit settings configured for the selected SQL Server instance. </p>
+        <p class="Body">For more detailed information, review the properties of the registered instance.</p>
+        <p class="DefinitionListTerm">Server</p>
+        <p class="DefinitionListBody">Lists the event categories currently audited on this SQL Server instance. This list includes auditing settings configured at the server level. </p>
+        <p class="DefinitionListTerm">Privileged Users</p>
+        <p class="DefinitionListBody">Displays the number of privileged users who are being audited, and the audit settings currently configured to track their activity.</p>
+        <p class="DefinitionListTerm">Databases</p>
+        <p class="DefinitionListBody">Indicates the number of databases hosted by this SQL Server instance that are being audited.</p>
+        <p class="DefinitionListTerm">Event Filters</p>
+        <p class="DefinitionListBody">Displays the number of Event Filters that have been created to streamline audit data collected from this SQL Server instance, and the event properties being used by these filters. Events that match the listed properties are omitted from the audit data trail for this instance.</p>
+        <h2 class="Heading2">Understanding Recent Audit Events</h2>
+        <p class="Body">The Recent Audit Events pane lists the most recent audit events collected for this SQL Server instance during the specified time span. This list displays up to 100 events. </p>
+        <p class="Body">To see more details about a specific event, double-click the listed event. </p>
+        <p class="Body">To view all audited events collected since your last archive, use the Audit Events tab.</p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Configure Alerting</p>
+        <p class="DefinitionListBody">Opens the Alert Rules tab under Administration, allowing you to configure alerting to track specific activity on this instance or other SQL Server instances across your environment.</p>
+        <p class="DefinitionListTerm">Remove Server</p>
+        <p class="DefinitionListBody">Allows you to unregister the selected SQL Server instance. When you remove a SQL Server instance, SQL Compliance Manager disables all auditing at the server and database levels on the SQL Server instance. <span class="If_Then_Statement">If the selected instance is the last instance to be audited on this SQL Server</span>, SQL CM also uninstalls the SQLcompliance Agent. <span class="If_Then_Statement">If you manually deployed the SQLcompliance Agent</span>, you must manually uninstall it from the SQL Server computer.</p>
+        <p class="DefinitionListTerm">Add Audited Databases</p>
+        <p class="DefinitionListBody">Starts the New Audited Database wizard, allowing you to enable auditing on additional databases hosted by this SQL Server instance.</p>
+        <p class="DefinitionListTerm">Disable Auditing</p>
+        <p class="DefinitionListBody">Allows you to disable auditing on the selected SQL Server instance. When you disable auditing, the SQLcompliance Agent stops collecting new event data, and stops the corresponding SQL trace. You can continue to view and report on previously audited events or archived events. </p>
+        <p class="DefinitionListBody">To re-enable auditing, right-click the instance from the <span class="GUI_Item">Explore Activity</span> tree, and then click <span class="GUI_Item">Enable Auditing</span> on the context menu.</p>
+        <p class="DefinitionListTerm">Server Settings</p>
+        <p class="DefinitionListBody">Allows you to change the audit settings for the selected SQL Server instance.</p>
+        <p class="DefinitionListTerm">Apply Regulation Guideline</p>
+        <p class="DefinitionListBody">Allows you to select one or more regulations to apply to all of the audited databases within this SQL Server instance. If you want to apply regulation guidelines only to specific databases, use the <span class="GUI_Item">Apply Regulation Guideline</span> feature from the <a href="Explore Activity Database.htm" target="_self">Database Summary tab</a>. This option is unavailable if you have no databases selected for audit.</p>
+        <p class="DefinitionListTerm">Privileged Users </p>
+        <p class="DefinitionListBody">Allows you to change how privileged user activity is audited on the selected SQL Server instance.</p>
+        <p class="DefinitionListTerm">Import</p>
+        <p class="DefinitionListBody">Allows you to import audit settings previously exported from another SQL Server instance. Using the Import Audit Settings wizard, you can specify whether you want to import settings at the server or database level.</p>
+        <p class="DefinitionListTerm">Export</p>
+        <p class="DefinitionListBody">Allows you to export audit settings for this SQL Server instance to an XML file. This file includes audit settings configured at the server and database level. You can later use this file to import audit settings across multiple SQL Server instances, ensuring consistent auditing and compliance throughout your environment.</p>
+        <p class="DefinitionListTerm">Collect Audit Data</p>
+        <p class="DefinitionListBody">Allows you to force the SQLcompliance Agent to send trace files to the Collection Server for processing. Typically, the SQLcompliance Agent sends trace files to the Collection Server at the specified collection interval. By default, a trace file collection occurs every two minutes.</p>
+        <p class="DefinitionListTerm">Agent Properties</p>
+        <p class="DefinitionListBody">Allows you to view or change the properties, such as the heartbeat interval and the collection interval, of the SQLcompliance Agent deployed to the selected SQL Server instance. </p>
+        <p class="DefinitionListTerm">Span</p>
+        <p class="DefinitionListBody">Allows you to change the number of days (time span) for which the Summary tab displays status, alerts, and activity. By default, this tab displays data for the last 7 days.</p>
+    </body>
+</html>

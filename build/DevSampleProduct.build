@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<project name="SampleProduct" default="Build.Official" basedir="..">
+
+
+	<property name="dir.Root" value="."/>
+	<property name="env" value="build"/>
+
+	<property name="dir.Build" value="${dir.Root}\Build"/>
+
+	<!-- For this to work, install NAntContrib along with NAnt -->
+		<echo message="${dir.Build}\idera${env}.properties"/>
+	<loadproperties file="${dir.Build}\${env}.properties" />
+
+	<!-- Installation / Build Directories -->
+	<property name="current.dir" value="${directory::get-current-directory()}" />
+	<property name="current.dir.parent" value="${directory::get-parent-directory(current.dir)}" />
+	<property name="dir.Build.Bin" value="${dir.Build}\Bin"/>
+	<property name="dir.Build.Output" value="${dir.Build}\Output"/>
+	<property name="dir.Development" value="${dir.Root}\Development"/>
+	<property name="sample.product.rest.solution" value="SampleProduct.sln"/>
+	<property name="zip.filename" value="SampleProduct.zip"/>
+	<property name="dir.Development.Idera.bin.Release" value="${dir.Development}\Idera\bin\Release"/>
+	<property name="dir.Development.Idera.bin.Release.sample" value="${dir.Development.Idera.bin.Release}\SampleProduct"/>
+	<property name="dir.Development.Idera.bin.Release.sample.jar" value="${dir.Development.Idera.bin.Release.sample}\Jars\"/>
+
+	<property name="dir.Development.WebUI.sample" value="${dir.Development}\WebUI\product-ui"/>
+	<property name="dir.Development.WebUI.sample.jar.dir" value="${dir.Development}\WebUI\product-ui\target"/>
+	<property name="sample.product.jar" value="idera-sample_cwf_product-1.0.0.0.jar"/>
+	<property name="dir.Development.Core" value="${dir.Root}\Development\Core"/>
+	<property name="dir.Development.Idera.bin.Release.SampleProduct" value="${dir.Development}\Idera\bin\Release\SampleProduct"/>
+	<property name="dir.Development.WebUI" value="${dir.Development}\WebUI"/>
+	<property name="sample.product.absolute.uri" value="${current.dir.parent}\${dir.Development.Idera.bin.Release}"/>
+
+	<!-- Product specific properties for registering the product -->
+	<property name="sample.product.name" value="SampleProduct"/>
+	<property name="sample.product.short.name" value="SampleProduct"/>
+	<property name="sample.product.version" value="1.0.0.0"/>
+	<property name="sample.product.status" value="Green"/>
+	<property name="sample.product.location" value="WIN-ABB909BSJ"/>
+	<property name="sample.product.connection.user" value="Administrator"/>
+	<property name="sample.product.connection.password" value="Admin"/>
+	<property name="sample.product.registering.user" value="Administrator"/>
+	<property name="sample.product.rest.url" value="SampleProduct"/>
+	<property name="sample.product.root.context" value="/sample"/>
+	<property name="sample.product.package.uri" value="${sample.product.jar}"/>
+	<property name="sample.product.description" value="SampleProduct"/>
+	<property name="sample.product.default.page" value="ssas-list"/>
+	
+	<property name="x64Installer" value="${dir.Root}\Install\SampleProductInstaller\SetupProject1\bin\Release\x64\en-US" />
+	<property name="x86Installer" value="${dir.Root}\Install\SampleProductInstaller\SetupProject1\bin\Release\x86\en-US" />
+	<property name="dir.jarDllZipFolder" value="${dir.Root}\Development\Idera\bin\Release" />
+
+	<tstamp property="Build.DateTime" pattern="MM-dd-yyyy.HH:mm"/>	
+	<tstamp property="Version.DateTime" pattern="yyyy/MM/dd HH:mm"/>	
+
+	<target name="Build.Official">
+		<call target="BuildBinaries" />
+		<!-- zipping also copies the zip file at required location (check below) -->
+		<call target="ZipTheFolder" /> 
+		<call target="BuildSampleProductInstaller" />
+	</target>
+
+<!--  *****************************************************************************
+       Build Steps
+       *****************************************************************************  -->	
+
+
+<!-- ********************************************************
+	  BuildBinaries 
+	  ******************** -->
+	<target name="BuildBinaries">
+		<!-- <call target="_updateAssemblyInfoAndVersionResources" />-->
+ 		<call target="_cleanBinaries" />
+ 		<call target="copyDllsFromIderaCWFBuild" />
+		<call target="_createBinaries" />
+	</target>
+
+	<!-- Clean binaries prior to building  -->
+	<target name="_cleanBinaries">
+		<exec program="${Build.MsBuild}" workingdir="${dir.Development.Core}">
+			<arg value="${sample.product.rest.solution}"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+			<arg value="/target:clean"/>
+		</exec>
+		<!-- Cleaning up sample product installer msi files -->
+		<exec program="${Build.MsBuild}" workingdir="${dir.Root}\Install\SampleProductInstaller">
+			<arg value="SampleProductInstaller.sln"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+			<arg value="/p:Platform=x86" />
+			<arg value="/target:clean" />
+		</exec>
+		<exec program="${Build.MsBuild}" workingdir="${dir.Root}\Install\SampleProductInstaller">
+			<arg value="SampleProductInstaller.sln"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+			<arg value="/p:Platform=x64" />
+			<arg value="/target:clean" />
+		</exec>
+		<!-- <delete dir="${dir.Development.Idera.bin.Release.SampleProduct}" /> -->
+	</target>
+
+	<!-- copy required dlls from idera cwf workspace to this project -->
+	<target name="copyDllsFromIderaCWFBuild">
+		<copy overwrite="true" file="${dir.CWFLib}\PluginCommon.dll" tofile="${dir.Root}\Development\CoreServicesLibrary\PluginCommon.dll" />
+		<copy overwrite="true" file="${dir.CWFLib}\PluginAddInView.dll" tofile="${dir.Root}\Development\CoreServicesLibrary\PluginAddInView.dll" />
+		<copy overwrite="true" file="${dir.CWFLib}\TracerX.exe" tofile="${dir.Root}\Development\CoreServicesLibrary\TracerX.exe" />
+	</target>
+
+	<!-- Create binaries using the solution and command line build commands -->
+	<target name="_createBinaries">
+		<!-- Build binaries -->
+ 		<exec program="${Build.MsBuild}" workingdir="${dir.Development.Core}">
+			<arg value="${sample.product.rest.solution}"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+		</exec>
+ 		<exec program="${Build.MVN}" workingdir="${dir.Development.WebUI.sample}">
+			<arg value="-Denv=${env}"/>
+			<arg value="clean"/>
+			<arg value="package"/>
+		</exec>
+		<copy file="${dir.Development.WebUI.sample.jar.dir}\${sample.product.jar}" tofile="${dir.Development.Idera.bin.Release.sample.jar}\${sample.product.jar}" />
+	</target>
+
+	<target name="ZipTheFolder">
+		<!-- Build binaries -->
+ 		<exec program="${zip.application}" workingdir="${dir.Development.Idera.bin.Release}">
+			<arg value="-r"/>
+			<arg value="${zip.filename}"/>
+			<arg value="*/*"/>
+		</exec>
+		<!-- After zipping the file, copy it to requried location -->
+		<copy file="${dir.Development.Idera.bin.Release}\${zip.filename}" tofile="${dir.Root}\Install\SampleProductInstaller\SetupProject1\${zip.filename}" />
+	</target>
+
+	<target name="BuildSampleProductInstaller">
+
+		<!-- Sample product service needs to be compiled first in order to make sample product -->
+		<exec program="${Build.MsBuild}" workingdir="${dir.Development.Core}">
+			<arg value="SampleProductService.sln"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+		</exec>
+		<!-- code for building sample product installer -->
+		<exec program="${Build.MsBuild}" workingdir="${dir.Root}\Install\SampleProductInstaller">
+			<arg value="SampleProductInstaller.sln"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+			<arg value="/p:Platform=x86" />
+		</exec>
+		<exec program="${Build.MsBuild}" workingdir="${dir.Root}\Install\SampleProductInstaller">
+			<arg value="SampleProductInstaller.sln"/>
+			<arg value="/m:2"/>
+			<arg value="/p:Configuration=Release"/>
+			<arg value="/p:Platform=x64" />
+		</exec>
+		<mkdir dir="${dir.Root}\Output" />
+		<copy file="${x64Installer}/SetupProject1.msi" 
+			  tofile="${dir.Root}/Output/IderaDashboardSampleProduct.msi" overwrite="true" />
+		<copy file="${x86Installer}/SetupProject1.msi" 
+			  tofile="${dir.Root}/Output/IderaDashboardSampleProduct_x86.msi" overwrite="true" />
+		<copy file="${dir.jarDllZipFolder}/SampleProduct.zip"      
+			  tofile="${dir.Root}/Output/SampleProduct.zip"/>
+	</target>
+	
+	<target name="RegisterProduct">
+		<!-- Registers the product on the configured URI -->
+		<exec program="curl" workingdir="${dir.Development.Idera.bin.Release}">
+			<arg value="-X"/>
+			<arg value="POST"/>
+			<arg value="-F"/>
+			<arg value="Product=@${sample.product.absolute.uri}\${zip.filename}"/>
+			<arg value="-F"/>
+			<arg value="Name=${sample.product.name}"/>
+			<arg value="-F"/>
+			<arg value="ShortName=${sample.product.short.name}"/>
+			<arg value="-F"/>
+			<arg value="Version=${sample.product.version}"/>
+			<arg value="-F"/>
+			<arg value="Status=${sample.product.status}"/>
+			<arg value="-F"/>
+			<arg value="Location=${sample.product.location}"/>
+			<arg value="-F"/>
+			<arg value="ConnectionUser=${sample.product.connection.user}"/>
+			<arg value="-F"/>
+			<arg value="ConnectionPassword=${sample.product.connection.password}"/>
+			<arg value="-F"/>
+			<arg value="RegisteringUser=${sample.product.registering.user}"/>
+			<arg value="-F"/>
+			<arg value="RestURL=${sample.product.rest.url}"/>
+			<arg value="-F"/>
+			<arg value="RootContext=${sample.product.root.context}"/>
+			<arg value="-F"/>
+			<arg value="PackageURI=${sample.product.package.uri}"/>
+			<arg value="-F"/>
+			<arg value="Description=${sample.product.description}"/>
+			<arg value="-F"/>
+			<arg value="DefaultPage=${sample.product.default.page}"/>
+			<arg value = "${sample.product.registration.uri}"/>
+		</exec>
+	</target>
+</project>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Get Started|Configure your deployment|Manage the SQLcompliance Agent">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>How the SQLcompliance Agent Works</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">How the SQLcompliance Agent works</h1>
+        <p class="Body"><a name="kanchor29"></a>The SQLcompliance Agent runs under the SQLcompliance Agent Service account on each registered SQL Server computer that hosts the audited instances and databases. To audit events, the SQLcompliance Agent starts SQL Server traces that run on the target SQL Server. Once a trace starts, SQLcompliance copies events from the SQL trace to trace files, providing a raw audit record. </p>
+        <p class="Body">Trace files are stored in the AgentTraceFiles folder under the install directory (<code>C:\Program Files\Idera\SQLcompliance</code>) on the computer that hosts the SQL Server instance. This folder is secured using ACL settings. You can specify a different location for the trace directory. </p>
+        <p class="Body">The SQLcompliance Agent compresses the trace files and sends them to the Collection Server. After a trace file is successfully sent, the SQLcompliance Agent deletes the file. </p>
+        <p class="Body">You can configure how the SQLcompliance Agent manages these trace files. For example, you can set the maximum trace directory size to limit how much storage space is consumed by unprocessed audit data. When the directory size is reached, the SQLcompliance Agent stops the SQL trace until the existing trace files can be sent to the Collection Server.</p>
+        <p class="Body">By default, the SQLcompliance Agent communicates with the Collection Server every 5 minutes. This communication is a heartbeat. During a heartbeat, the SQLcompliance Agent confirms its health and receives audit setting updates. You can manually apply audit setting updates as needed using the Management Console.</p>
+        <p class="Body"><span class="If_Then_Statement">If the SQLcompliance Agent contin</span><span class="If_Then_Statement">ues to run without a heartbeat</span>, SQL&#160;compliance&#160;manager considers the agent to be unattended. By setting the unattended time limit, you can control how long traces are allowed to run until SQL Server stops the trace. Use this setting to automatically stop auditing when the SQLcompliance Agent is not responding or has been deleted.</p>
+        <p class="Body">When you deploy the SQLcompliance Agent, SQLcompliance installs the SQLcompliance Agent service on the computer hosting the target SQL Server instance. You can install the agent manually through the setup program or dynamically through the Management Console. </p>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> <![CDATA[ ]]></p>
+    </body>
+</html>

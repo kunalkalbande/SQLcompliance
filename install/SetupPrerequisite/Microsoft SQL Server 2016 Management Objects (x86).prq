@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SetupPrereq>
+	<conditions>
+		<condition Type="1" Comparison="2" Path="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{0F1C8E2F-199A-4946-B3BF-0906DACFD032}" FileName="" ReturnValue=""></condition>
+		<condition Type="2" Comparison="32" Path="HKEY_LOCAL_MACHINE\SOFTWARE\Idera\SQLCM" FileName="InstallPRQ" ReturnValue="FALSE"></condition>
+	</conditions>
+	<files>
+		<file LocalFile="&lt;ISProductFolder&gt;\SetupPrerequisites\Shared Management Objects\x86\SharedManagementObjects.msi" CheckSum="38CC8543B15223F67D2ED9579C517BFC" FileSize="0,5767168"></file>
+	</files>
+	<execute file="SharedManagementObjects.msi" cmdlinesilent="/qn " requiresmsiengine="1"></execute>
+	<properties Id="{56295A3A-11CF-4A6E-A273-2686217A583E}" Description="Microsoft SQL Server 2016 Management Objects (x86)"></properties>
+	<behavior Hidden="1"></behavior>
+</SetupPrereq>

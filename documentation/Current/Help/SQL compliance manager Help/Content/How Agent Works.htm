@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="2" MadCap:lastHeight="525" MadCap:lastWidth="943">
+    <head><title>How the SQLcompliance Agent Works</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">How the SQLcompliance Agent works</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">How the SQLcompliance Agent works</h2>
+        <p class="Body">
+            <MadCap:keyword term="SQLcompliance Agent:how it works;heartbeat:SQLcompliance Agent;trace directory: about;trace files:trace directory;trace files:about" />The SQLcompliance Agent runs under the SQLcompliance Agent Service account on each registered SQL Server computer that hosts the audited instances and databases. To audit events, the SQLcompliance Agent starts SQL Server traces that run on the target SQL Server. Once a trace starts, SQLcompliance copies events from the SQL trace to trace files, providing a raw audit record. </p>
+        <p class="Body">Trace files are stored in the AgentTraceFiles folder under the install directory (<code>C:\Program Files\Idera\SQLcompliance</code>) on the computer that hosts the SQL Server instance. This folder is secured using ACL settings. You can specify a different location for the trace directory. </p>
+        <p class="Body">The SQLcompliance Agent compresses the trace files and sends them to the Collection Server. After a trace file is successfully sent, the SQLcompliance Agent deletes the file. </p>
+        <p class="Body">You can configure how the SQLcompliance Agent manages these trace files. For example, you can set the maximum trace directory size to limit how much storage space is consumed by unprocessed audit data. When the directory size is reached, the SQLcompliance Agent stops the SQL trace until the existing trace files can be sent to the Collection Server.</p>
+        <p class="Body">By default, the SQLcompliance Agent communicates with the Collection Server every 5 minutes. This communication is a heartbeat. During a heartbeat, the SQLcompliance Agent confirms its health and receives audit setting updates. You can manually apply audit setting updates as needed using the Management Console.</p>
+        <p class="Body"><span class="If_Then_Statement">If the SQLcompliance Agent contin</span><span class="If_Then_Statement">ues to run without a heartbeat</span>, SQL&#160;compliance&#160;manager considers the agent to be unattended. By setting the unattended time limit, you can control how long traces are allowed to run until SQL Server stops the trace. Use this setting to automatically stop auditing when the SQLcompliance Agent is not responding or has been deleted.</p>
+        <p class="Body">When you deploy the SQLcompliance Agent, SQLcompliance installs the SQLcompliance Agent service on the computer hosting the target SQL Server instance. You can install the agent manually through the setup program or dynamically through the Management Console. </p>
+    </body>
+</html>

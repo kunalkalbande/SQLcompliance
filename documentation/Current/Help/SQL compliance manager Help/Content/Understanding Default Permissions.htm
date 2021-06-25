@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="2" MadCap:lastHeight="284" MadCap:lastWidth="1211">
+    <head><title>Understanding Default Permissions</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Understanding Default Permissions</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Understanding Default Permissions</h2>
+        <p class="Body" MadCap:conditions="">
+            <MadCap:keyword term="archives:permissions;auditing:archive permissions" />If your security policies require more granular access control, you can grant or deny SQL&#160;Compliance&#160;Manager permissions on each audited SQL Server instance and archive database. These permissions determine whether a user can view audited events and the corresponding SQL statements by default. </p>
+        <p class="Body">You can set default permissions when you register a SQL Server instance to audit. When you set default permissions, SQL&#160;CM grants read privileges to the guest account on the selected Repository databases. This setting allows a SQL Server login to view audit data collected from that registered SQL Server instance only.</p>
+        <p class="Body">You can also specify the appropriate permissions on each archive database that contains audit data. You can grant or deny access per database. When you set default permissions, SQL&#160;CM grants read privileges to the guest account on the selected archive database only.</p>
+        <p class="Body">As you assign permissions, keep in mind that permissions granted to a login are applied along side any default permissions you set at the server or database level.</p>
+    </body>
+</html>

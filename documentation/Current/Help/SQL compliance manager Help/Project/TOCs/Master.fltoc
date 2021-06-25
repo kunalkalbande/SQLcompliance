@@ -1,0 +1,1008 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="Access the Release Notes"
+    Link="/Content/Access RN.htm"></TocEntry>
+  <TocEntry
+    Title="Get Started"
+    Link="/Content/Getting Started.htm">
+    <TocEntry
+      Title="Upgrade to this build"
+      Link="/Content/Upgrading SQL compliance manager.htm">
+      <TocEntry
+        Title="Upgrade the product components"
+        Link="/Content/Upgrade Components.htm" />
+      <TocEntry
+        Title="Upgrade your product license key"
+        Link="/Content/Upgrade License.htm" />
+      <TocEntry
+        Title="Upgrade your deployed SQLcompliance Agents"
+        Link="/Content/Upgrade SQLcompliance Agent.htm" />
+      <TocEntry
+        Title="Upgrade from SQL CM 4.0 and older in a clustered environment"
+        Link="/Content/Upgrading 4-0 and older.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Welcome to SQL Compliance Manager"
+      Link="/Content/Start Help.htm">
+      <TocEntry
+        Title="What is SQL CM?"
+        Link="/Content/What Is CM.htm"></TocEntry>
+      <TocEntry
+        Title="How SQL CM helps"
+        Link="/Content/How SQLcm Helps You.htm" />
+      <TocEntry
+        Title="Find answers"
+        Link="/Content/Find Answers.htm">
+        <TocEntry
+          Title="Contact Idera"
+          Link="/Content/Contacting Idera.htm" />
+        <TocEntry
+          Title="Document conventions"
+          Link="/Content/Document Conventions.htm" />
+        <TocEntry
+          Title="How to use this Help system"
+          Link="/Content/Help System.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="About Idera"
+        Link="/Content/About Idera.htm">
+        <TocEntry
+          Title="Idera products"
+          Link="/Content/Idera Products.htm" />
+        <TocEntry
+          Title="Legal notice"
+          Link="/Content/Legal Notice.htm" />
+      </TocEntry>
+    </TocEntry>
+    <TocEntry
+      Title="Installation and deployment"
+      Link="/Content/Install and Deploy SQLcm.htm">
+      <TocEntry
+        Title="Product components and architecture"
+        Link="/Content/Architecture and Components.htm" />
+      <TocEntry
+        Title="Hardware requirements"
+        Link="/Content/Hardware Requirements.htm"></TocEntry>
+      <TocEntry
+        Title="Permissions requirements"
+        Link="/Content/Permissions Requirements.htm" />
+      <TocEntry
+        Title="Port requirements"
+        Link="/Content/Port Requirements.htm" />
+      <TocEntry
+        Title="Software requirements"
+        Link="/Content/Software Requirements.htm"></TocEntry>
+      <TocEntry
+        Title="Supported installation scenarios"
+        Link="/Content/Implementation Scenarios.htm"></TocEntry>
+      <TocEntry
+        Title="Deployment considerations"
+        Link="/Content/Implementation Considerations.htm">
+        <TocEntry
+          Title="Identify audit data volume"
+          Link="/Content/Identify Audit Data Volume.htm"></TocEntry>
+        <TocEntry
+          Title="Use a dedicated computer"
+          Link="/Content/Install Collection Server.htm" />
+        <TocEntry
+          Title="Optimize model settings"
+          Link="/Content/Optimize Model Settings.htm" />
+        <TocEntry
+          Title="Optimize tempdb settings"
+          Link="/Content/Optimize tempdb Settings.htm" />
+        <TocEntry
+          Title="Preserve audit data using archives"
+          Link="/Content/Preserve Audit Data Using.htm" />
+        <TocEntry
+          Title="Implement a disaster recovery strategy"
+          Link="/Content/Include Repository Databases.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="How to install SQL Compliance Manager"
+        Link="/Content/Installing SQL compliance.htm" />
+      <TocEntry
+        Title="Deploy SQL CM in a clustered environment"
+        Link="/Content/Deploying SQLcm in a Clustered Environment.htm">
+        <TocEntry
+          Title="Deploy SQL CM in a Windows Server 2003 clustered environment"
+          Link="/Content/Windows Server 2003 Clustered Environment.htm" />
+        <TocEntry
+          Title="Deploy SQL CM in a Windows Server 2008 clustered environment"
+          Link="/Content/Windows Server 2008 Clustered Environment.htm" />
+        <TocEntry
+          Title="Deploy SQL CM in a Windows Server 2012 clustered environment"
+          Link="/Content/Windows Server 2012 Clustered Environment.htm" />
+      </TocEntry>
+    </TocEntry>
+    <TocEntry
+      Title="Configure your deployment"
+      Link="/Content/Configure Deployment.htm">
+      <TocEntry
+        Title="Check the product version"
+        Link="/Content/Checking the Product Version.htm"></TocEntry>
+      <TocEntry
+        Title="Check the SQL Server version"
+        Link="/Content/Checking the SQL Server Version.htm" />
+      <TocEntry
+        Title="Export your audit settings"
+        Link="/Content/Exporting Your Audit Settings.htm" />
+      <TocEntry
+        Title="Import your audit settings"
+        Link="/Content/Importing Your Audit Settings.htm" />
+      <TocEntry
+        Title="Manage the SQLcompliance Agent"
+        Link="/Content/Managing the SQLcm Agent.htm">
+        <TocEntry
+          Title="How the SQLcompliance Agent works"
+          Link="/Content/How Agent Works.htm" />
+        <TocEntry
+          Title="SQLcompliance Agent version compatibility"
+          Link="/Content/SQLcompliance Agent Compatibility.htm" />
+        <TocEntry
+          Title="Deploy the SQLcompliance Agent manually"
+          Link="/Content/Deploying Agent Manually.htm" />
+        <TocEntry
+          Title="Deploy the SQLcompliance Agent through the Management Console"
+          Link="/Content/Deploying Agent Remotely.htm" />
+        <TocEntry
+          Title="Upgrade the SQLcompliance Agent locally"
+          Link="/Content/Upgrading Agent Locally.htm"></TocEntry>
+        <TocEntry
+          Title="Upgrade the SQLcompliance Agent remotely"
+          Link="/Content/Upgrading Agent Remotely.htm" />
+        <TocEntry
+          Title="Ensure the SQLcompliance Agent has current audit settings"
+          Link="/Content/Ensuring Current Audit Settings.htm" />
+        <TocEntry
+          Title="Check trace file integrity"
+          Link="/Content/Checking Trace File Integrity.htm" />
+        <TocEntry
+          Title="Check the SQLcompliance Agent status"
+          Link="/Content/Checking Agent Status.htm" />
+        <TocEntry
+          Title="Check the SQLcompliance Agent version"
+          Link="/Content/Checking Agent Version.htm" />
+        <TocEntry
+          Title="Configure trace file management"
+          Link="/Content/Configuring How the SQLcompliance.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="Licensing"
+        Link="/Content/Licensing.htm">
+        <TocEntry
+          Title="How licensing works"
+          Link="/Content/How Licensing Works.htm" />
+        <TocEntry
+          Title="Upgrade your license"
+          Link="/Content/Upgrading Your License.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="Register your SQL Servers"
+        Link="/Content/Registering Your SQL Servers.htm"></TocEntry>
+    </TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="Audit SQL Server Events"
+    Link="/Content/Auditing SQL Server Events.htm">
+    <TocEntry
+      Title="How auditing works"
+      Link="/Content/How Auditing Works.htm">
+      <TocEntry
+        Title="Audit collection levels"
+        Link="/Content/Understanding Audit Collection.htm" />
+      <TocEntry
+        Title="SQL Server events you can audit"
+        Link="/Content/SQL Server Events You Audit.htm">
+        <TocEntry
+          Title="Database-level audit settings"
+          Link="/Content/Understanding Database Audit.htm" />
+        <TocEntry
+          Title="Server-level audit settings"
+          Link="/Content/Understanding Server Audit.htm" />
+        <TocEntry
+          Title="User-defined events"
+          Link="/Content/Understanding User Defined.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="Comply with specific regulations"
+        Link="/Content/Comply with specific regulations.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Audit snapshots"
+      Link="/Content/Using Audit Snapshots.htm">
+      <TocEntry
+        Title="Capture an audit snapshot"
+        Link="/Content/Capturing an Audit Snapshot.htm" />
+      <TocEntry
+        Title="Schedule an audit snapshot"
+        Link="/Content/Scheduling an Audit Snapshot.htm" />
+      <TocEntry
+        Title="View the audit snapshot"
+        Link="/Content/Viewing the Audit Snapshot.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Control access to audit data"
+      Link="/Content/Controlling Access to Audit.htm" />
+    <TocEntry
+      Title="Enable auditing on a database"
+      Link="/Content/Enabling Auditing on a Database.htm" />
+    <TocEntry
+      Title="Enable auditing on a SQL Server"
+      Link="/Content/Enabling Auditing on a Server.htm" />
+    <TocEntry
+      Title="Event Filters"
+      Link="/Content/Using Event Filters.htm">
+      <TocEntry
+        Title="How Event Filters work"
+        Link="/Content/How Event Filters Work.htm"></TocEntry>
+      <TocEntry
+        Title="Create an Event Filter"
+        Link="/Content/Creating an Event Filter.htm" />
+      <TocEntry
+        Title="Use an Event Filter as a template"
+        Link="/Content/Using an Event Filter as a Template.htm" />
+      <TocEntry
+        Title="Export your Event Filters"
+        Link="/Content/Exporting Your Event Filters.htm" />
+      <TocEntry
+        Title="Import your Event Filters"
+        Link="/Content/Importing Your Event Filters.htm" />
+      <TocEntry
+        Title="Change which audit data the filter excludes"
+        Link="/Content/Changing Audit Type Exclude.htm" />
+      <TocEntry
+        Title="Enable an Event Filter"
+        Link="/Content/Enabling an Event Filter.htm" />
+      <TocEntry
+        Title="Disable an Event Filter"
+        Link="/Content/Disabling an Event Filter.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Disable auditing on a database"
+      Link="/Content/Disabling Auditing on a Database.htm" />
+    <TocEntry
+      Title="Disable auditing on a SQL Server"
+      Link="/Content/Disabling Auditing on a Server.htm" />
+    <TocEntry
+      Title="Fine tuning your audit settings"
+      Link="/Content/Fine Tuning Your Audit Settings.htm" />
+    <TocEntry
+      Title="Monitoring SQLcompliance Agent activities"
+      Link="/Content/Monitoring SQLcompliance Activities.htm" />
+    <TocEntry
+      Title="Reducing audit data to optimize performance"
+      Link="/Content/Reducing Audit Data Optimize Perf.htm" />
+    <TocEntry
+      Title="Enable self-auditing and monitoring"
+      Link="/Content/Understanding Self Auditing.htm" />
+    <TocEntry
+      Title="Test your audit settings"
+      Link="/Content/Testing Your Audit Settings.htm" />
+    <TocEntry
+      Title="Verify audit data integrity"
+      Link="/Content/Verifying Audit Data Integrity.htm"></TocEntry>
+    <TocEntry
+      Title="View audit data"
+      Link="/Content/Viewing Audit Data.htm">
+      <TocEntry
+        Title="Use custom views"
+        Link="/Content/Using Custom Views.htm" />
+      <TocEntry
+        Title="View your activity summary"
+        Link="/Content/Viewing Your Activity Summary.htm" />
+    </TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="Alert on Audit Data and Status"
+    Link="/Content/Alerting on Audit Data.htm">
+    <TocEntry
+      Title="Use Event Alerts to analyze audit data"
+      Link="/Content/Using Alerts to Analyze Audit Data.htm">
+      <TocEntry
+        Title="How Event Alerts work"
+        Link="/Content/How Alerting Works.htm" />
+      <TocEntry
+        Title="Create an Event Alert rule"
+        Link="/Content/Creating an Alert Rule.htm" />
+      <TocEntry
+        Title="Change which event triggers the alert"
+        Link="/Content/Changing Audit Type Trigger.htm" />
+      <TocEntry
+        Title="View the event that triggered an alert"
+        Link="/Content/Viewing the Event that Triggered Alert.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Use Status Alerts to ensure compliance"
+      Link="/Content/Use Status Alerts.htm">
+      <TocEntry
+        Title="How Status Alerts work"
+        Link="/Content/How Status Alerts Work.htm" />
+      <TocEntry
+        Title="Create a Status Alert"
+        Link="/Content/Create Status Alert.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Use Data Alerts to perform forensics"
+      Link="/Content/Use Data Alerts.htm">
+      <TocEntry
+        Title="How Data Alerts work"
+        Link="/Content/How Data Alerts Work.htm" />
+      <TocEntry
+        Title="Create a Data Alert"
+        Link="/Content/Create Data Alert.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Change the action an alert performs"
+      Link="/Content/Changing the Action an Alert.htm" />
+    <TocEntry
+      Title="Disable an alert"
+      Link="/Content/Disabling Alerting.htm" />
+    <TocEntry
+      Title="Enable an alert"
+      Link="/Content/Enabling Alerting.htm" />
+    <TocEntry
+      Title="Export your alert rules"
+      Link="/Content/Exporting Your Alert Rules.htm" />
+    <TocEntry
+      Title="Groom alerts"
+      Link="/Content/Grooming Alerts Concept.htm"></TocEntry>
+    <TocEntry
+      Title="Import your alert rules"
+      Link="/Content/Importing Your Alert Rules.htm" />
+    <TocEntry
+      Title="Receive alerts through e-mail"
+      Link="/Content/Receiving Alerts through Email.htm" />
+    <TocEntry
+      Title="Report on alerts"
+      Link="/Content/Reporting on Alerts.htm" />
+    <TocEntry
+      Title="Use an alert rule as a template"
+      Link="/Content/Using an Alert Rule as a Template.htm" />
+    <TocEntry
+      Title="View alerts"
+      Link="/Content/Viewing Alerts.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Secure Audit Data"
+    Link="/Content/Securing Audit Data.htm">
+    <TocEntry
+      Title="How console security works"
+      Link="/Content/How Console Security Works.htm">
+      <TocEntry
+        Title="Security and existing logins"
+        Link="/Content/Security and Existing Logins.htm" />
+      <TocEntry
+        Title="Security and login permissions"
+        Link="/Content/Security and Login Permissions.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Understanding Default Permissions"
+      Link="/Content/Understanding Default Permissions.htm" />
+    <TocEntry
+      Title="How to implement logins"
+      Link="/Content/Implementing Logins.htm" />
+    <TocEntry
+      Title="Available login permissions"
+      Link="/Content/Available Login Permissions.htm"
+      FrameName=""
+      StartSection="false"
+      StartChapter="false"
+      VolumeNumberReset="same"
+      SectionNumberReset="continue"
+      ChapterNumberReset="continue"
+      ComputeToc="false"
+      ReplaceMergeNode="false" />
+    <TocEntry
+      Title="Create a login"
+      Link="/Content/Creating a Login.htm"
+      ReplaceMergeNode="false"
+      FrameName="" />
+    <TocEntry
+      Title="Assign permissions to a login"
+      Link="/Content/Assigning Permissions Login.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Report on Audit Data"
+    Link="/Content/Reporting on Audit Data.htm">
+    <TocEntry
+      Title="How Reports work"
+      Link="/Content/How Reports Work.htm" />
+    <TocEntry
+      Title="Available Reports"
+      Link="/Content/Available Reports.htm" />
+    <TocEntry
+      Title="Customize Reports"
+      Link="/Content/Customizing Reports.htm" />
+    <TocEntry
+      Title="Generate Reports in the Management Console"
+      Link="/Content/Generating Reports Console.htm" />
+    <TocEntry
+      Title="Generate Reports with Reporting Services"
+      Link="/Content/Generating Reports MSRS.htm">
+      <TocEntry
+        Title="Reporting Services requirements"
+        Link="/Content/Reporting Services Requirements.htm" />
+      <TocEntry
+        Title="Deploy Reports to Reporting Services"
+        Link="/Content/Deploying Reports to Microsoft.htm" />
+      <TocEntry
+        Title="Test Reports deployment"
+        Link="/Content/Testing Deployment.htm" />
+      <TocEntry
+        Title="Change the Reporting Services data source"
+        Link="/Content/Change RS Data Source.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Use Reports to analyze trends over time"
+      Link="/Content/Using Reports to Analyze Trends.htm" />
+    <TocEntry
+      Title="Use Reports to establish and maintain compliance"
+      Link="/Content/Using Reports to Establish Compliance.htm" />
+    <TocEntry
+      Title="Use Report Cards to track SQL Server activity"
+      Link="/Content/Using Report Cards to Track.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Manage Audit Data"
+    Link="/Content/Managing Audit Data.htm">
+    <TocEntry
+      Title="How archives work"
+      Link="/Content/How Archives Work.htm" />
+    <TocEntry
+      Title="How grooming works"
+      Link="/Content/How Grooming Works.htm" />
+    <TocEntry
+      Title="Archive collected events"
+      Link="/Content/Archiving Events.htm">
+      <TocEntry
+        Title="Use the Management Console to archive events"
+        Link="/Content/Using the Management Console to Archive Events.htm" />
+      <TocEntry
+        Title="Use the CLI to archive events"
+        Link="/Content/Using the CLI to Archive Events.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Attach existing archives"
+      Link="/Content/Attaching Archives.htm" />
+    <TocEntry
+      Title="Automate audit data management"
+      Link="/Content/Automating Audit Data Management.htm" />
+    <TocEntry
+      Title="Groom alerts"
+      Link="/Content/Grooming Alerts Task.htm" />
+    <TocEntry
+      Title="Groom audit data"
+      Link="/Content/Grooming Audit Data.htm">
+      <TocEntry
+        Title="Use the Management Console to groom events"
+        Link="/Content/Using the Management Consol to Groom Events.htm" />
+      <TocEntry
+        Title="Use the CLI to groom events"
+        Link="/Content/Using the CLI to Groom Events.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Maintain the Repository databases"
+      Link="/Content/Maintaining the Repository.htm">
+      <TocEntry
+        Title="Back up event databases"
+        Link="/Content/Backing Up Event Databases.htm" />
+      <TocEntry
+        Title="Back up and restore archive databases"
+        Link="/Content/Backing Up and Restoring Archive.htm" />
+      <TocEntry
+        Title="Change the Repository recovery model"
+        Link="/Content/Changing the Repository Recovery.htm" />
+      <TocEntry
+        Title="Restore event databases"
+        Link="/Content/Restoring Event Databases.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Upgrade your archive databases"
+      Link="/Content/Upgrading Your Archive Databases.htm" />
+    <TocEntry
+      Title="Use the CLI to verify audit data integrity"
+      Link="/Content/Using the CLI to Verify Audit.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Management Console User Interface"
+    Link="/Content/Windows/Management Console User Interface.htm">
+    <TocEntry
+      Title="Activity Log Properties Window"
+      Link="/Content/Windows/Activity Log Properties Window.htm" />
+    <TocEntry
+      Title="Activity Log Tab"
+      Link="/Content/Windows/Activity Log Tab.htm" />
+    <TocEntry
+      Title="Add Privileged Users Window"
+      Link="/Content/Windows/Add Privileged Users Window.htm" />
+    <TocEntry
+      Title="Add User Tables Window (for Before-After auditing)"
+      Link="/Content/Windows/Add User Tables Window BAD.htm" />
+    <TocEntry
+      Title="Add User Tables Window (for DML auditing)"
+      Link="/Content/Windows/Add User Tables Window DML.htm"></TocEntry>
+    <TocEntry
+      Title="Add User Tables Window (for Sensitive Columns)"
+      Link="/Content/Windows/Add User Tables Window SC.htm" />
+    <TocEntry
+      Title="Alert Message Template Window"
+      Link="/Content/Windows/Alert Message Template Window.htm" />
+    <TocEntry
+      Title="Alert Rules Tab"
+      Link="/Content/Windows/Alert Rules Tab.htm" />
+    <TocEntry
+      Title="Archive Audit Data Now Window"
+      Link="/Content/Windows/Archive Audit Data Now Window.htm" />
+    <TocEntry
+      Title="Archive Preferences Window"
+      Link="/Content/Windows/Archive Preferences Window.htm" />
+    <TocEntry
+      Title="Archive Properties Window &gt; Default Permissions"
+      Link="/Content/Windows/Archive Properties Default Permissions.htm" />
+    <TocEntry
+      Title="Archive Properties Window &gt; General"
+      Link="/Content/Windows/Archive Properties General.htm" />
+    <TocEntry
+      Title="Archived Events Tab"
+      Link="/Content/Windows/Archived Events Tab.htm" />
+    <TocEntry
+      Title="Attach Archive Database Window"
+      Link="/Content/Windows/Attach Archive Database Window.htm" />
+    <TocEntry
+      Title="Audit Events Tab"
+      Link="/Content/Windows/Audit Events Tab.htm" />
+    <TocEntry
+      Title="Audit Reports"
+      Link="/Content/Windows/Audit Reports.htm" />
+    <TocEntry
+      Title="Audit Snapshot Preferences Window"
+      Link="/Content/Windows/Audit Snapshot Preferences.htm" />
+    <TocEntry
+      Title="Audited Database Properties Window &gt; Audited Activities"
+      Link="/Content/Windows/Database Properties Activities.htm" />
+    <TocEntry
+      Title="Audited Database Properties Window &gt; Before After Data"
+      Link="/Content/Windows/Database Properties BAD.htm" />
+    <TocEntry
+      Title="Audited Database Properties Window &gt; DML SELECT Filters"
+      Link="/Content/Windows/Database Properties DML Select.htm" />
+    <TocEntry
+      Title="Audited Database Properties Window &gt; General"
+      Link="/Content/Windows/Database Properties General.htm" />
+    <TocEntry
+      Title="Audited Database Properties Window &gt; Sensitive Columns"
+      Link="/Content/Windows/Database Properties Sensitive Columns.htm" />
+    <TocEntry
+      Title="Audited Database Properties Window &gt; Trusted Users"
+      Link="/Content/Windows/Database Properties Trusted Users.htm" />
+    <TocEntry
+      Title="Capture Audit Snapshot Window"
+      Link="/Content/Windows/Capture Audit Snapshot Window.htm" />
+    <TocEntry
+      Title="Change Log Properties Window"
+      Link="/Content/Windows/Change Log Properties Window.htm" />
+    <TocEntry
+      Title="Change Log Tab"
+      Link="/Content/Windows/Change Log Tab.htm" />
+    <TocEntry
+      Title="Check Repository Integrity Window"
+      Link="/Content/Windows/Check Repository Integrity.htm" />
+    <TocEntry
+      Title="Collection Server Properties Window"
+      Link="/Content/Windows/Collection Server Status Window.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Add Databases"
+      Link="/Content/Windows/Configuration Wizard Add Databases.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Add Server"
+      Link="/Content/Windows/Configuration Wizard Add Server.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Apply Regulation"
+      Link="/Content/Windows/Configuration Wizard Apply Regulation.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Audit Collection Level"
+      Link="/Content/Windows/Configuration Wizard Audit Level.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Database Audit Settings"
+      Link="/Content/Windows/Configuration Wizard Database Audit Settings.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Default Permissions"
+      Link="/Content/Windows/Configuration Wizard Default Permissions.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; DML and SELECT Audit Filters"
+      Link="/Content/Windows/Configuration Wizard DML and Select.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Enforce Regulation Guidelines"
+      Link="/Content/Windows/Configuration Wizard Enforce Regulation Guidelines.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Existing Audit Data"
+      Link="/Content/Windows/Configuration Wizard Existing Audit Data.htm"></TocEntry>
+    <TocEntry
+      Title="Configuration Wizard &gt; Existing Incompatible Database"
+      Link="/Content/Windows/Configuration Wizard Incomplete Database.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; License Limit Reached"
+      Link="/Content/Windows/Configuration Wizard License Limit.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Privileged Users"
+      Link="/Content/Windows/Configuration Wizard Privileged Users.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Privileged Users Audited Activity"
+      Link="/Content/Windows/Configuration Wizard Privileged Users Activity.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Regulation Details"
+      Link="/Content/Windows/Configuration Wizard Regulation Details.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Sensitive Columns"
+      Link="/Content/Windows/Configuration Wizard Sensitive Columns.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Server Audit Settings"
+      Link="/Content/Windows/Configuration Wizard Server Audit Settings.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; SQL Server Cluster"
+      Link="/Content/Windows/Configuration Wizard SQLServer Cluster.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; SQLcompliance Agent Deployment"
+      Link="/Content/Windows/Configuration Wizard SQLcompliance Agent Deployment.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; SQLcompliance Agent Service Account"
+      Link="/Content/Windows/Configuration Wizard Agent Service Account.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; SQLcompliance Agent Trace Directory"
+      Link="/Content/Windows/Configuration Wizard Trace Directory.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Summary"
+      Link="/Content/Windows/Configuration Wizard Summary.htm" />
+    <TocEntry
+      Title="Configuration Wizard &gt; Trusted Users"
+      Link="/Content/Windows/Configuration Wizard Trusted Users.htm" />
+    <TocEntry
+      Title="Configure Email Settings Window"
+      Link="/Content/Windows/Configure Email Settings Window.htm" />
+    <TocEntry
+      Title="Configure Repository Databases Window &gt; Databases"
+      Link="/Content/Windows/Configure Repository Databases.htm" />
+    <TocEntry
+      Title="Configure Repository Databases Window &gt; Recovery Model"
+      Link="/Content/Windows/Configure Repository Recovery Model.htm" />
+    <TocEntry
+      Title="Configure Table Auditing Window"
+      Link="/Content/Windows/Configure Table Auditing Window.htm" />
+    <TocEntry
+      Title="Connect to Repository Window"
+      Link="/Content/Windows/Connect to Repository Window.htm" />
+    <TocEntry
+      Title="Console Preferences Window &gt; Alert Views"
+      Link="/Content/Windows/Console Preferences Alert Views.htm" />
+    <TocEntry
+      Title="Console Preferences Window &gt;  Event Views"
+      Link="/Content/Windows/Console Preferences Event Views.htm" />
+    <TocEntry
+      Title="Data Alerts Tab"
+      Link="/Content/Windows/Data Alerts Tab.htm" />
+    <TocEntry
+      Title="Deploy SQLcompliance Agent Wizard &gt; SQLcompliance Agent Service Account"
+      Link="/Content/Windows/Deploy Agent Wizard Service Account.htm" />
+    <TocEntry
+      Title="Deploy SQLcompliance Agent Wizard &gt; Summary"
+      Link="/Content/Windows/Deploy Agent Wizard Summary.htm" />
+    <TocEntry
+      Title="Deploy SQLcompliance Agent Wizard &gt; SQLcompliance Agent Trace Directory"
+      Link="/Content/Windows/Deploy Agent Wizard Trace Directory.htm" />
+    <TocEntry
+      Title="Deploy Reports Wizard &gt; Connect to Reporting Services"
+      Link="/Content/Windows/Deploy Reports Wizard Connect.htm" />
+    <TocEntry
+      Title="Deploy Reports Wizard &gt; Report Deployment Location"
+      Link="/Content/Windows/Deploy Reports Wizard Location.htm" />
+    <TocEntry
+      Title="Deploy Reports Wizard &gt; SQL Compliance Manager Repository"
+      Link="/Content/Windows/Deploy Reports Wizard Repository.htm" />
+    <TocEntry
+      Title="Deploy Reports Wizard &gt; Summary"
+      Link="/Content/Windows/Deploy Reports Wizard Summary.htm"></TocEntry>
+    <TocEntry
+      Title="Deploy Reports Wizard &gt; Welcome"
+      Link="/Content/Windows/Deploy Reports Wizard Welcome.htm" />
+    <TocEntry
+      Title="Edit Data Alert Rule Wizard &gt; Alert Actions"
+      Link="/Content/Windows/Edit Data Alert Rule Wizard Actions.htm" />
+    <TocEntry
+      Title="Edit Data Alert Rule Wizard &gt; Data Alert Type"
+      Link="/Content/Windows/Edit Data Alert Rule Wizard Type.htm" />
+    <TocEntry
+      Title="Edit Data Alert Rule Wizard &gt; Finish Alert Rule"
+      Link="/Content/Windows/Edit Data Alert Rule Wizard Finish.htm" />
+    <TocEntry
+      Title="Edit Data Alert Rule Wizard &gt; SQL Server Object Type"
+      Link="/Content/Windows/Edit Data Alert Rule Wizard Object.htm" />
+    <TocEntry
+      Title="Edit Event Alert Rule Wizard &gt; Additional Event Filters"
+      Link="/Content/Windows/Edit Alert Rule Wizard Event Filters.htm" />
+    <TocEntry
+      Title="Edit Event Alert Rule Wizard &gt; Alert Actions"
+      Link="/Content/Windows/Edit Alert Rule Wizard Alert Actions.htm" />
+    <TocEntry
+      Title="Edit Event Alert Rule Wizard &gt; Finish Alert Rule"
+      Link="/Content/Windows/Edit Alert Rule Wizard Finish.htm" />
+    <TocEntry
+      Title="Edit Event Alert Rule Wizard &gt; SQL Server Event Type"
+      Link="/Content/Windows/Edit Alert Rule Wizard Event Type.htm" />
+    <TocEntry
+      Title="Edit Event Alert Rule Wizard &gt; SQL Server Object Type"
+      Link="/Content/Windows/Edit Alert Rule Wizard Object Type.htm" />
+    <TocEntry
+      Title="Edit Event Filter Wizard &gt; Finish Event Filter"
+      Link="/Content/Windows/Edit Event Filter Wizard Finish.htm" />
+    <TocEntry
+      Title="Edit Event Filter Wizard &gt; SQL Server Event Object Type"
+      Link="/Content/Windows/Edit Event Filter Wizard Event Object.htm" />
+    <TocEntry
+      Title="Edit Event Filter Wizard &gt; SQL Server Event Source"
+      Link="/Content/Windows/Edit Event Filter Wizard Event Source.htm" />
+    <TocEntry
+      Title="Edit Event Filter Wizard &gt; SQL Server Event Type"
+      Link="/Content/Windows/Edit Event Filter Wizard Event Type.htm" />
+    <TocEntry
+      Title="Edit Status Alert Wizard &gt; Alert Actions"
+      Link="/Content/Windows/Edit Status Alert Wizard Actions.htm" />
+    <TocEntry
+      Title="Edit Status Alert Wizard &gt; Finish Alert Rule"
+      Link="/Content/Windows/Edit Status Alert Wizard Finish.htm" />
+    <TocEntry
+      Title="Edit Status Alert Wizard &gt; Status Alert Type"
+      Link="/Content/Windows/Edit Status Alert Wizard Type.htm" />
+    <TocEntry
+      Title="Event Alerts Tab"
+      Link="/Content/Windows/Alerts Tab.htm" />
+    <TocEntry
+      Title="Event Filters Tab"
+      Link="/Content/Windows/Event Filters Tab.htm" />
+    <TocEntry
+      Title="Event Properties Window &gt; Data Change"
+      Link="/Content/Windows/Event Properties Window Data.htm" />
+    <TocEntry
+      Title="Event Properties Window &gt; Details"
+      Link="/Content/Windows/Event Properties Window Details.htm" />
+    <TocEntry
+      Title="Event Properties Window &gt; General"
+      Link="/Content/Windows/Event Properties Window General.htm" />
+    <TocEntry
+      Title="Explore Activity &gt; Audited SQL Servers Summary"
+      Link="/Content/Windows/Explore Activity Audited SQL Servers Summary.htm" />
+    <TocEntry
+      Title="Explore Activity &gt; Database Summary"
+      Link="/Content/Windows/Explore Activity Database.htm" />
+    <TocEntry
+      Title="Explore Activity &gt; Instance Summary"
+      Link="/Content/Windows/Explore Activity Instance.htm" />
+    <TocEntry
+      Title="Groom Alerts Now Window"
+      Link="/Content/Windows/Groom Alerts Now Window.htm" />
+    <TocEntry
+      Title="Groom Audit Data Now Window"
+      Link="/Content/Windows/Groom Audit Data Now Window.htm" />
+    <TocEntry
+      Title="Import Audit Settings &gt; Import Audit Settings"
+      Link="/Content/Windows/Import Audit Settings Import.htm"></TocEntry>
+    <TocEntry
+      Title="Import Audit Settings &gt; Select File to Import"
+      Link="/Content/Windows/Import Audit Settings Select.htm" />
+    <TocEntry
+      Title="Import Audit Settings &gt; Summary"
+      Link="/Content/Windows/Import Audit Settings Summary.htm" />
+    <TocEntry
+      Title="Import Audit Settings &gt; Target Databases"
+      Link="/Content/Windows/Import Audit Settings Target Databases.htm" />
+    <TocEntry
+      Title="Import Audit Settings &gt; Target Servers"
+      Link="/Content/Windows/Import Audit Settings Target Servers.htm" />
+    <TocEntry
+      Title="Integrity Check Results Window"
+      Link="/Content/Windows/Integrity Check Results Window.htm" />
+    <TocEntry
+      Title="Login Filtering Options Window"
+      Link="/Content/Windows/Login Filtering Options Window.htm" />
+    <TocEntry
+      Title="Login Properties Window &gt; Database Access"
+      Link="/Content/Windows/Login Properties Window Database.htm" />
+    <TocEntry
+      Title="Login Properties Window &gt; General"
+      Link="/Content/Windows/Login Properties Window General.htm" />
+    <TocEntry
+      Title="Manage SQL Compliance Manager Licenses Window"
+      Link="/Content/Windows/Manage Lincenses Window.htm" />
+    <TocEntry
+      Title="New Data Alert Rule Wizard &gt; Alert Actions"
+      Link="/Content/Windows/New Data Alert Rule Wizard Actions.htm" />
+    <TocEntry
+      Title="New Data Alert Rule Wizard &gt; Data Alert Type"
+      Link="/Content/Windows/New Data Alert Rule Wizard Type.htm" />
+    <TocEntry
+      Title="New Data Alert Rule Wizard &gt; Finish Alert Rule"
+      Link="/Content/Windows/New Data Alert Rule Wizard Finish.htm" />
+    <TocEntry
+      Title="New Data Alert Rule Wizard &gt; SQL Server Object Type"
+      Link="/Content/Windows/New Data Alert Rule Wizard Object.htm" />
+    <TocEntry
+      Title="New Event Alert Rule Wizard &gt; Additional Event Filters"
+      Link="/Content/Windows/New Alert Rule Wizard Event Filters.htm" />
+    <TocEntry
+      Title="New Event Alert Rule Wizard &gt; Alert Actions"
+      Link="/Content/Windows/New Alert Rule Wizard Actions.htm" />
+    <TocEntry
+      Title="New Event Alert Rule Wizard &gt; Finish Alert Rule"
+      Link="/Content/Windows/New Alert Rule Wizard Finish.htm" />
+    <TocEntry
+      Title="New Event Alert Rule Wizard &gt; SQL Server Event Type"
+      Link="/Content/Windows/New Alert Rule Wizard Event Type.htm" />
+    <TocEntry
+      Title="New Event Alert Rule Wizard &gt; SQL Server Object Type"
+      Link="/Content/Windows/New Alert Rule Wizard Object Type.htm" />
+    <TocEntry
+      Title="New Event Filter Wizard &gt; Finish Event Filter"
+      Link="/Content/Windows/New Event Filter Wizard Finish.htm" />
+    <TocEntry
+      Title="New Event Filter Wizard &gt; SQL Server Event Source"
+      Link="/Content/Windows/New Event Filter Wizard Event Source.htm" />
+    <TocEntry
+      Title="New Event Filter Wizard &gt; SQL Server Event Type"
+      Link="/Content/Windows/New Event Filter Wizard Event Type.htm"></TocEntry>
+    <TocEntry
+      Title="New Event Filter Wizard &gt; SQL Server Object Type"
+      Link="/Content/Windows/New Event Filter Wizard Object Type.htm" />
+    <TocEntry
+      Title="New SQL Server Login Wizard &gt; SQL Compliance Manager Permissions"
+      Link="/Content/Windows/New SQL Server Login Wizard Permissions.htm" />
+    <TocEntry
+      Title="New SQL Server Login Wizard &gt; SQL Server Windows Authentication"
+      Link="/Content/Windows/New SQL Server Login Wizard Authentication.htm" />
+    <TocEntry
+      Title="New SQL Server Login Wizard &gt; Summary"
+      Link="/Content/Windows/New SQL Server Login Wizard Summary.htm" />
+    <TocEntry
+      Title="New Status Alert Wizard &gt; Alert Actions"
+      Link="/Content/Windows/New Status Alert Wizard Actions.htm" />
+    <TocEntry
+      Title="New Status Alert Wizard &gt; Finish Alert Rule"
+      Link="/Content/Windows/New Status Alert Wizard Finish.htm" />
+    <TocEntry
+      Title="New Status Alert Wizard &gt; Status Alert Type"
+      Link="/Content/Windows/New Status Alert Wizard Type.htm" />
+    <TocEntry
+      Title="Registered SQL Server Properties Window &gt; Advanced"
+      Link="/Content/Windows/Registered SQL Server Properties Advanced.htm" />
+    <TocEntry
+      Title="Registered SQL Server Properties Window &gt; Audited Activities"
+      Link="/Content/Windows/Registered SQL Server Properties Audited Activities.htm" />
+    <TocEntry
+      Title="Registered SQL Server Properties Window &gt; Auditing Thresholds"
+      Link="/Content/Windows/Registered SQL Server Properties Auditing Thresholds.htm" />
+    <TocEntry
+      Title="Registered SQL Server Properties Window &gt; General"
+      Link="/Content/Windows/Registered SQL Server Properties General.htm" />
+    <TocEntry
+      Title="Registered SQL Server Properties Window &gt; Privileged User Auditing"
+      Link="/Content/Windows/Registered SQL Server Properties Privileged User.htm" />
+    <TocEntry
+      Title="Registered SQL Servers Tab"
+      Link="/Content/Windows/Registered SQL Servers Tab.htm" />
+    <TocEntry
+      Title="Select SQL Server Window"
+      Link="/Content/Windows/Select SQL Server Window.htm" />
+    <TocEntry
+      Title="Set Maintenance Schedule Window"
+      Link="/Content/Windows/Set Maintenance Schedule Window.htm" />
+    <TocEntry
+      Title="Specify Addresses Window"
+      Link="/Content/Windows/Specify Addresses Window.htm"></TocEntry>
+    <TocEntry
+      Title="Specify Alert Criteria Windows"
+      Link="/Content/Windows/Specify Alert Criteria Windows.htm" />
+    <TocEntry
+      Title="Specify Event Filter Criteria Windows"
+      Link="/Content/Windows/Specify Event Filter Criteria.htm" />
+    <TocEntry
+      Title="SQL Logins Tab"
+      Link="/Content/Windows/SQL Logins Tab.htm" />
+    <TocEntry
+      Title="SQLcompliance Agent Properties Window &gt; Deployment"
+      Link="/Content/Windows/SQLcompliance Agent Properties Deployment.htm" />
+    <TocEntry
+      Title="SQLcompliance Agent Properties Window &gt; General"
+      Link="/Content/Windows/SQLcompliance Agent Properties General.htm" />
+    <TocEntry
+      Title="SQLcompliance Agent Properties Window &gt; SQL Servers"
+      Link="/Content/Windows/SQLcompliance Agent Properties Servers.htm" />
+    <TocEntry
+      Title="SQLcompliance Agent Properties Window &gt; Trace Options"
+      Link="/Content/Windows/SQLcompliance Agent Properties Trace Options.htm" />
+    <TocEntry
+      Title="SQLcompliance Agent Trace Directory Window"
+      Link="/Content/Windows/SQLcompliance Agent Trace.htm" />
+    <TocEntry
+      Title="Status Alerts Tab"
+      Link="/Content/Windows/Status Alerts Tab.htm" />
+    <TocEntry
+      Title="Update Indexes Window"
+      Link="/Content/Windows/Update Indexes Window.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Cluster Configuration Console User Interface"
+    Link="/Content/Windows/Cluster Configuration Console UI.htm">
+    <TocEntry
+      Title="Add SQLcompliance Agent Service Wizard &gt; Collection Server"
+      Link="/Content/Windows/Add Agent Service Collection Server.htm" />
+    <TocEntry
+      Title="Add SQLcompliance Agent Service Wizard &gt; General"
+      Link="/Content/Windows/Add Agent Service General.htm" />
+    <TocEntry
+      Title="Add SQLcompliance Agent Service Wizard &gt; SQLcompliance Agent Service Account"
+      Link="/Content/Windows/Add Agent Service Account.htm" />
+    <TocEntry
+      Title="Add SQLcompliance Agent Service Wizard &gt; SQLcompliance Agent Trace Directory"
+      Link="/Content/Windows/Add Agent Service Trace Directory.htm" />
+    <TocEntry
+      Title="Add SQLcompliance Agent Service Wizard &gt; CLR Trigger Location"
+      Link="/Content/Windows/Add Agent Service CLR Directory.htm" />
+    <TocEntry
+      Title="Add SQLcompliance Agent Service Wizard &gt; Summary"
+      Link="/Content/Windows/Add Agent Service Summary.htm" />
+    <TocEntry
+      Title="Cluster Configuration Console Window"
+      Link="/Content/Windows/Cluster Configuration Console Window.htm" />
+    <TocEntry
+      Title="SQLcompliance Agent Details Window"
+      Link="/Content/Windows/SQLcompliance Agent Details.htm" />
+    <TocEntry
+      Title="Specify CLR Trigger Directory Window"
+      Link="/Content/Windows/Specify CLR Trigger Directory Window.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Upgrade SQL Server in Your Audited Environment"
+    Link="/Content/Upgrade Environment SS.htm">
+    <TocEntry
+      Title="Upgrade SQL Server on the Collection Server"
+      Link="/Content/Upgrade Collection Server SS.htm" />
+    <TocEntry
+      Title="Deploy second Collection Server"
+      Link="/Content/Deploy Second SQLcm.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Migrate the Collection Server"
+    Link="/Content/Migrate Collection Server.htm">
+    <TocEntry
+      Title="Prepare for your migration"
+      Link="/Content/Prepare Migration.htm" />
+    <TocEntry
+      Title="Restore the Repository databases"
+      Link="/Content/Restore Repository Databases.htm" />
+    <TocEntry
+      Title="Deploy the new Collection Server"
+      Link="/Content/Deploy Migrated Collection Server.htm" />
+    <TocEntry
+      Title="Configure SQLcompliance Agent connection"
+      Link="/Content/Configure Agent Connection.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Audit a Virtual SQL Server Instance"
+    Link="/Content/Audit Virtual Instance.htm">
+    <TocEntry
+      Title="Deploy SQLcompliance Agent to cluster nodes"
+      Link="/Content/Deploy Agent Cluster.htm" />
+    <TocEntry
+      Title="Add SQLcompliance Agent Service"
+      Link="/Content/Add SQLcompliance Agent Service.htm" />
+    <TocEntry
+      Title="Register the SQLcompliance Agent Service"
+      Link="/Content/Register SQLcompliance Agent with Cluster.htm" />
+    <TocEntry
+      Title="Start auditing the virtual SQL Server"
+      Link="/Content/Start Auditing Virtual SQL Server.htm" />
+    <TocEntry
+      Title="Stop auditing the virtual SQL Server"
+      Link="/Content/Stop Auditing Virtual SQL Server.htm" />
+  </TocEntry>
+</CatapultToc>

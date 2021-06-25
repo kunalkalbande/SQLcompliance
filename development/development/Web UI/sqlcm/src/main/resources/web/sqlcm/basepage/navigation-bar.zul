@@ -1,0 +1,69 @@
+<zk>
+	<vlayout spacing="0" hflex="1" height="36px" sclass="no-print"
+		apply="com.idera.sqlcm.ui.basepage.NavigationBarComposer">		
+	<style>.z-vlayout-inner{ padding-bottom:0px !important; }</style>
+		<hlayout valign="middle"
+			sclass="ccl-nav-bar ccl-margin-tb-0" style="height: 2.8125rem ;">
+
+			<a id="homePageLink" sclass="ccl-nav-bar-height ccl-nav-bar-link">
+				<div id="homePageNavDiv"
+					sclass="comp-wrapper">
+					<label sclass="ccl-nav-bar-label"
+						value="${idera:getUpperCaseLabel('SQLCM.Labels.nav-bar-dashboard-label')}" />
+				</div>
+			</a>
+
+			<a id="auditedInstancesLink" sclass="ccl-nav-bar-height ccl-nav-bar-link">
+
+				<div id="auditedInstancesNavDiv"
+					sclass="comp-wrapper">
+					<label sclass="ccl-nav-bar-label"
+						value="${idera:getUpperCaseLabel('SQLCM.Labels.audited-instance')}" />
+				</div>
+			</a>
+
+			<a id="instancesAlertsLink" sclass="ccl-nav-bar-height ccl-nav-bar-link">
+
+				<div id="instancesAlertsNavDiv"
+					 sclass="comp-wrapper">
+					<label sclass="ccl-nav-bar-label"
+						   value="${idera:getUpperCaseLabel('SQLCM.Labels.alerts')}" />
+				</div>
+			</a>
+			
+			<a id="eventFiltersLink" sclass="ccl-nav-bar-height ccl-nav-bar-link" visible="${sqlcm:canAccess()}">
+				<div id="eventFiltersNavDiv"
+					sclass="comp-wrapper">
+					<label sclass="ccl-nav-bar-label"
+						value="${idera:getUpperCaseLabel('SQLCM.Labels.event-filters')}" />
+				</div>
+			</a>
+			
+			<a id="logsViewLink" sclass="ccl-nav-bar-height ccl-nav-bar-link" visible="${sqlcm:canAccess()}">
+				<div id="logsViewNavDiv"
+					sclass="comp-wrapper">
+					<label sclass="ccl-nav-bar-label"
+						value="${idera:getUpperCaseLabel('SQLCM.Labels.logs-View')}" />
+				</div>
+			</a>
+
+			<a id="auditReportLink" sclass="ccl-nav-bar-height ccl-nav-bar-link">
+				<div id="auditReportNavDiv"
+					sclass="comp-wrapper">
+					<label sclass="ccl-nav-bar-label"
+						value="${idera:getUpperCaseLabel('SQLCM.Labels.audit-reports')}" />
+				</div>
+			</a>
+
+			<a id="administrationLink" sclass="ccl-nav-bar-height ccl-nav-bar-link" visible="${sqlcm:isAdmin()}">
+
+				<div id="administrationNavDiv"
+					 sclass="comp-wrapper">
+					<label sclass="ccl-nav-bar-label"
+						   value="${idera:getUpperCaseLabel('SQLCM.Labels.administration')}" />
+				</div>
+			</a>
+		</hlayout>
+		
+	</vlayout>
+</zk>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us">
+    <head><title>Login Filtering Options Window</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Login Filtering Options Window</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Login Filtering Options Window</h2>
+        <p class="Body">This window allows you to set login filtering. Login filtering reduces the number of login events stored in your audit data. When login filtering is enabled, the Collection Server searches the trace files sent by the SQLcompliance Agent for duplicate logins that occurred within the specified time period. Duplicate logins are logins with matching user, application, or host names. The Collection Server consolidates these logins into a single event entry in your audit data.</p>
+        <p class="Body">Login filtering is enabled when you audit login events on specific SQL Server instance. By default, the Collection Server searches for duplicate events with time stamps that are within an hour of each other. </p>
+        <p class="Body">Use login filtering to better audit login activity on SQL Server instances where applications, such as SQL Server 2005 Enterprise Studio, frequently open and close connections to SQL Server.</p>
+        <p class="Body">To set login filtering, select the provided checkbox, and specify the appropriate time period.</p>
+    </body>
+</html>

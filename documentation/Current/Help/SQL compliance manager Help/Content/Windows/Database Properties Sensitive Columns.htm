@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="8" MadCap:lastHeight="758" MadCap:lastWidth="1133">
+    <head>
+        <link href="../Resources/TableStyles/Tip.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Audited Database Properties Window Sensitive Columns</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Audited Database Properties Window</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Audited Database Properties Window &gt; </MadCap:conditionalText>Sensitive Columns</h2>
+        <p class="Body">
+            <MadCap:keyword term="sensitive column auditing:overview;auditing:sensitive columns;auditing:SELECT commands" />This tab allows you to choose the table columns for which you want to audit SELECT events. This data tells you which third-party application or database user accessed and read the specified columns.</p>
+        <p class="Body">Audit access to sensitive columns when it is critical to capture whether someone read the data in a specific table column. When this feature is enabled, you can review the SELECT&#160;events in the Audit Events view. Enabling this feature can impact your Collection Server and Management Console performance. You can audit sensitive columns on specific tables without enabling SELECT&#160;statement auditing at the database level.</p>
+        <table class="TableStyle_Tip" style="mc-table-style: url('../Resources/TableStyles/Tip.css');" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">To successfully audit specific columns on a table, ensure the table name does not contain the following special characters:&#160;\ / : * ? " |</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="TableStyle_Tip" style="mc-table-style: url('../Resources/TableStyles/Tip.css');" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">Sensitive Column auditing is supported by SQLcompliance Agent 3.5 or later. To use this feature, please ensure you upgrade your agent to at least version 3.5.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Specify tables for before and after data collection</p>
+        <p class="DefinitionListBody">Use <span class="GUI_Item">Add and Remove</span> to specify the tables for which you want to access to specific sensitive columns.</p>
+        <p class="DefinitionListTerm">Specify which columns to audit</p>
+        <p class="DefinitionListBody">Use <span class="GUI_Item">Edit </span>to specify which columns you want to audit. You can audit all columns or individual columns.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">Table Name</p>
+        <p class="DefinitionListBody">Provides the name of the table you are auditing on this database.</p>
+        <p class="DefinitionListTerm">Columns</p>
+        <p class="DefinitionListBody">Indicates the status of the columns associated with the audited tables. Typically, this field will display <span class="GUI_Item">All Columns</span> or list the individual columns that are being audited for SELECT&#160;events.</p>
+        <h2 class="Heading2">Set up auditing sensitive columns</h2>
+        <p class="Body">Sensitive column auditing occurs independently from your other database-level audit settings. </p>
+        <ol>
+            <li class="NumberedList">On the Sensitive Columns tab, click <span class="GUI_Item">Add </span>to choose which audited tables should also be audited at the column level when a user attempts to access this column.</li>
+            <li class="NumberedList">Choose the appropriate tables, and then click <span class="GUI_Item">OK</span>. By default, all columns are audited.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to audit specific columns</span>, select the table, and then click <span class="GUI_Item">Edit</span>.</li>
+        </ol>
+        <p class="Body">&#160;</p>
+    </body>
+</html>

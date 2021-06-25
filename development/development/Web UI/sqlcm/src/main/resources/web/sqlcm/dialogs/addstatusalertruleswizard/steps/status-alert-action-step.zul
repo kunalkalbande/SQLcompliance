@@ -1,0 +1,99 @@
+<zk>
+	<idera-cwf-dialog hflex="1" vflex="1" style="vertical-align:middle;"
+		apply="org.zkoss.bind.BindComposer" closable="true"
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addstatusalertruleswizard.steps.StatusAlertActionStepViewModel')">
+		<vlayout hflex="1" vflex="1">
+			<separator height="16px" />
+			<groupbox width="500px" height="380px">
+				<caption
+					label="${idera:getLabel('SQLCM.Label.sel-aletr-action-alert-rules')}" />
+				<vlayout hflex="1">
+					<hlayout hflex="1">
+						<vlayout hflex="1">
+							<idera-cwf-checkbox
+								id="chkEmailNotification"
+								label="${idera:getLabel('SQLCM.Label.email-notification-alert-rules')}"
+								name="${idera:getLabel('SQLCM.Label.email-notification-alert-rules')}"
+								onCheck="@command('onCheck', target=self, index=0,lstBox=null,lbl=messageAlertAction,lbl2 =specifiedAddresses,txt =null,txt2=null,spn = null)">
+							</idera-cwf-checkbox>
+							<div style="margin-left:20px;">
+								<idera-cwf-hyperlink
+									id="messageAlertAction"
+									label="${idera:getLabel('SQLCM.Label.alert-message-alert-rules')}"
+									onClick="@command('eventAlertRules',id=7)"
+									visible="${sqlcm:canAccess()}" disabled="true" />
+							</div>
+							<div style="margin-left:20px;">
+								<idera-cwf-hyperlink
+									id="specifiedAddresses"
+									label="${idera:getLabel('SQLCM.Label.spec-mail-address-alert-rules')}"
+									onClick="@command('eventAlertRules',id=8)"
+									visible="${sqlcm:canAccess()}" disabled="true" />
+							</div>
+							<idera-cwf-checkbox id="chkLogEntry"
+								label="${idera:getLabel('SQLCM.Label.win-log-entry-alert-rules')}"
+								name="${idera:getLabel('SQLCM.Label.win-log-entry-alert-rules')}"
+								onCheck="@command('onCheck', target=self, index=0,lstBox=eventLog,lbl=null, txt=null,txt2=null,spn = null)">
+							</idera-cwf-checkbox>
+							<div style="margin-left:20px;">
+								<hbox sclass="margin-lr-14" hflex="1">
+									<idera-cwf-dropdownlist mold="default" tabindex="8"
+										disabled="true" id="eventLog" readonly="true" value="${idera:getLabel('SQLCM.Labels.information')}"
+										onSelect="@command('selectEventSource', id=self.selectedItem.id)">
+										<comboitem id="INFORMATION"
+											width="150px"
+											label="${idera:getLabel('SQLCM.Labels.information')}"
+											value="${idera:getLabel('SQLCM.Labels.information')}"/>
+										<comboitem id="WARNING"
+											width="150px"
+											label="${idera:getLabel('SQLCM.Labels.warning')}"
+											value="${idera:getLabel('SQLCM.Labels.warning')}" />
+										<comboitem id="ERROR"
+											width="150px" label="${idera:getLabel('SQLCM.Labels.error')}"
+											value="${idera:getLabel('SQLCM.Labels.error')}" />
+									</idera-cwf-dropdownlist>
+								</hbox>
+							</div>
+							<idera-cwf-checkbox id="chkSNMPTrap"
+								label="${idera:getLabel('SQLCM.Label.snmp-trap-alert-rules')}"
+								name="${idera:getLabel('SQLCM.Label.snmp-trap-alert-rules')}"
+								onCheck="@command('onCheck', target=self, index=0,lstBox=null,lbl=null,txt=txtaddress,txt2=txtcommunity,spn =spnport)">
+							</idera-cwf-checkbox>
+							<hlayout>
+								<vlayout>
+									<div id="lblalertRulesaddress"
+										style="padding-bottom: 0.7em;margin-top: 5px;">
+										<label style="margin-left:20px;"
+											value="${idera:getLabel('SQLCM.Label.address-alert-rules')}" />
+									</div>
+									<div id="lblalertRuleport"
+										style="padding-bottom: 0.4em;">
+										<label style="margin-left:20px;"
+											value="${idera:getLabel('SQLCM.Label.port-alert-rules')}" />
+									</div>
+									<div id="lblalertRulescommunity">
+										<label style="margin-left:20px;"
+											value="${idera:getLabel('SQLCM.Label.community-alert-rules')}" />
+									</div>
+								</vlayout>
+								<vlayout>
+									<idera-cwf-textbox xmlns:w="client"
+										style="margin-left:20px;" id="txtaddress"
+										value="@bind(step_vm.address)" type="text" width="240px"
+										rows="1" disabled="true" maxlength="255" />
+									<spinner style="margin-left:20px;"
+										id="spnport" value="162"
+										constraint="no empty,min 0 max 49451: Value should be 0 to 49451"
+										maxlength="5" disabled="true" />
+									<idera-cwf-textbox
+										style="margin-left:20px;" id="txtcommunity" type="text"
+										value="public" width="240px" rows="1" disabled="true" />
+								</vlayout>
+							</hlayout>
+						</vlayout>
+					</hlayout>
+				</vlayout>
+			</groupbox>
+		</vlayout>
+	</idera-cwf-dialog>
+</zk>

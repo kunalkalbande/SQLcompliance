@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Manage Audit Data|Maintain the Repository databases">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Restoring Event Databases</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">Restore event databases</h1>
+        <p class="Body" data-mc-conditions=""><a name="kanchor131"></a>Restore the event databases to recover lost or damaged audit data, according to your established disaster recovery strategies. For best results, use the following guidelines:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet" value="1">Perform a full restore, including the transaction logs</li>
+            <li class="Bullet" value="2">Schedule the restore during off-hours, or times when you expect the least audit activity</li>
+            <li class="Bullet" value="3">Restore all event databases during the same restore procedure</li>
+            <li class="BulletLast" value="4">Restore the SQLcompliance database during the same restore procedure to ensure audit data integrity remains intact</li>
+        </ul>
+        <p class="StepIntro">To restore the event databases:</p>
+        <ol>
+            <li class="NumberedList" value="1">Use SQL Server Enterprise Manager or Management Studio to close any open connections to the SQLcompliance database.</li>
+            <li class="NumberedList" value="2">Use SQL Server Enterprise Manager or Management Studio to take the SQLcompliance database offline. <span class="If_Then_Statement">If you cannot take the SQLcompliance database offline</span>, stop the Collection Service.</li>
+            <li class="NumberedList" value="3">Use a tool such as Idera SQL Safe to restore the SQLcompliance database using the appropriate backup file, including transaction logs.</li>
+            <li class="NumberedList" value="4">Use a tool such as Idera SQL Safe to restore each event database using the appropriate backup file, including the transaction logs. Each registered SQL Server instance has a corresponding event database. For more information, see <a href="Architecture and Components.htm" target="_self">Understanding SQL&#160;Compliance&#160;Manager components</a>.</li>
+            <li class="NumberedList" value="5">Use SQL Server Enterprise Manager or Management Studio to bring the SQLcompliance database online.</li>
+        </ol>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> <![CDATA[ ]]></p>
+    </body>
+</html>

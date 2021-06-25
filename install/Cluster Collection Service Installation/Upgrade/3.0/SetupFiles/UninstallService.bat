@@ -1,0 +1,1 @@
+%systemroot%\Microsoft.NET\Framework\v2.0.50727\InstallUtil /u SQLcomplianceCollectionService.exe

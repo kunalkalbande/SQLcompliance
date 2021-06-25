@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="626" MadCap:lastWidth="945">
+    <head><title>Archive Audit Data Now Window</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Archive Audit Data Now Window</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Archive Audit Data Now Window</h2>
+        <p class="Body">This window allows you to archive audit data (collected SQL Server events). Archiving moves the collected audit data from the event database to an archive database for each registered SQL Server you select. <span class="If_Then_Statement">If an archive database does not exist for the selected SQL Server instance</span>, the Collection Server creates the archive database. You can continue to report on all audited events that you archive.</p>
+        <p class="Body">Your archive preferences determine which data is moved. Check your preferences before archiving the audit data.</p>
+        <p class="Body">When you archive audit data, you can choose to check the integrity of the collected events. <span class="If_Then_Statement">If the audit data for the selected SQL Server instance fails this integrity check</span>, SQL Compliance Manager does not archive the data. </p>
+        <p class="Body">To change your archive settings, click <span class="GUI_Item">Archive Preferences</span>.</p>
+        <p class="Body">To generate a CLI command that includes your archive preferences, click <span class="GUI_Item">Generate Script</span>.</p>
+        <p class="Body">To archive collected audit data now, select the appropriate SQL Servers, and then click <span class="GUI_Item">OK</span>.</p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Archive Preferences</p>
+        <p class="DefinitionListBody">Allows you to set the age at which audited events are archived, specify the time zone the Collection Server uses to determine when to partition an archive database, configure how the archive databases are named, and choose whether to perform an integrity check of the audit data. The Collection Server applies these settings whenever an archive operation is performed.</p>
+        <p class="DefinitionListTerm">Generate Script</p>
+        <p class="DefinitionListBody">Creates a CLI command that includes your archive preferences. You can save the command to a batch file or copy the command to another application. Use this command to schedule and automate your archive workflow through a third-party tool.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">Select SQL Servers to Archive</p>
+        <p class="DefinitionListBody">Allows you to archive audit data across all registered SQL Server instances or on a particular registered SQL Server instance.</p>
+    </body>
+</html>

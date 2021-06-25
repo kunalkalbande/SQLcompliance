@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="7" MadCap:lastHeight="402" MadCap:lastWidth="906">
+    <head><title>SQL CM Configuration Wizard Default Permissions</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Configuration Wizard</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Configuration  Wizard &gt; </MadCap:conditionalText>Default Permissions</h2>
+        <p class="Body">This window lets you specify the default permission settings on the Repository databases that contain audit data for this SQL Server instance in SQL&#160;Compliance Manager. Keep in mind that login permissions specified at the database take precedence over the default permissions set on this page. This window is available only when you are registering a SQL&#160;Server instance with SQL&#160;CM for the first time.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">Grant right to read events and their associated SQL&#160;statements</p>
+        <p class="DefinitionListBody">Grant users the right to read events and their associated SQL&#160;statements on the database containing audit data for this SQL&#160;Server instance.</p>
+        <p class="DefinitionListTerm">Grant right to read events only</p>
+        <p class="DefinitionListBody">Grant users the right to read events only. Users cannot read the associated SQL&#160;statements when you select this option. To allow users to view the associated SQL&#160;statements, you can explicitly grant users read access to the database containing audit data for this SQL&#160;Server instance.</p>
+        <p class="DefinitionListTerm">Deny read access by default</p>
+        <p class="DefinitionListBody">Deny users the right to read events or their associated SQL&#160;statements by default. To allow users to view events and the associated SQL statements, you can explicitly grant users read access to the database containing audit data for this SQL&#160;Server instance.</p>
+    </body>
+</html>

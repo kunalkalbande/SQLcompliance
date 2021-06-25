@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Management Console User Interface">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Integrity Check Results Window</title>
+        <link href="../Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.ScreenOnly">Integrity Check Results Window</h1>
+        <p class="Body">This window allows you to review the results of your audit data integrity check. </p>
+        <p class="Body"><span class="If_Then_Statement">If your audit data fails the integrity check</span>, the integrity check returns a list of events that have been inserted, modified, or deleted from the selected Repository or archive database. These events are considered compromised. The integrity check also analyzes the additional data associated with Before-After and Sensitive Column auditing of <code>DML</code>&#160;and <code>SELECT</code>&#160;events, and indicates whether this data has been compromised as well. </p>
+        <p class="Body">The integrity check results indicate:<br /></p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet" value="1">How many individual event entries have been compromised</li>
+            <li class="Bullet" value="2">How many entries of Before-After change data and column data has been compromised</li>
+            <li class="BulletLast" value="3">How many Sensitive Column entries have been compromised</li>
+        </ul>
+        <p class="Body">You can choose whether to mark each compromised event entry in the audit data. Marking these events changes the event class to reflect the compromise and changes the event category to Integrity Check. Use the marked audit data to help diagnose the issues and begin a forensic analysis.</p>
+        <table style="caption-side: top;mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Type of Compromise</p>
+                    </th>
+                    <th class="HeadE-Column2-Header1">
+                        <p class="TableHeadRow">New Event Class</p>
+                    </th>
+                    <th class="HeadD-Column1-Header1">
+                        <p class="TableHeadRow">New Event Category</p>
+                    </th>
+                </tr>
+            </thead>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Events were added to the audit data stream after archival, using another application</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">Events inserted</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText">Integrity Check</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Events stored in the selected Repository or archive database were modified using another application</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">Events modified</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText">Integrity Check</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Events previously stored in the selected Repository or archive database were deleted using another application</p>
+                </td>
+                <td class="BodyE-Column2-Body1">
+                    <p class="TableText">Missing events</p>
+                </td>
+                <td class="BodyD-Column1-Body1">
+                    <p class="TableText">Integrity Check</p>
+                </td>
+            </tr>
+        </table>
+        <p class="Body">To mark the compromised events as they occur in the audit data, click <span class="GUI_Item">Mark Events</span>.</p>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="../Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> <![CDATA[ ]]></p>
+    </body>
+</html>

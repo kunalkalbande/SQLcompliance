@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="2" MadCap:lastHeight="389" MadCap:lastWidth="1211">
+    <head><title>How Archives Work</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">How archives work</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">How archives work</h2>
+        <p class="Body">
+            <MadCap:keyword term="auditing:archived events;database archives;archives:how they work">
+            </MadCap:keyword>When you archive audit data, the Collection Server moves audited events from the Repository (typically, the event database) to an archive database. SQL&#160;Compliance&#160;Manager creates an archive database for each registered SQL Server instance, according to the file naming conventions and event age limit you specify. Each archive database contains events collected from the audited databases hosted on the SQL Server instance. You can archive event data across all registered SQL Server instances or for a selected instance.</p>
+        <p class="Body">To ensure you are archiving uncompromised audit data, SQL&#160;CM allows you to check the integrity of the collected events. <span class="If_Then_Statement">If the audit data fails this integrity check</span>, SQL&#160;CM does not archive the data.</p>
+        <p class="Body">
+            <MadCap:keyword term="Repository:maintenance;auditing:maintenance" />During the archival process, the audited events are temporarily written to the <code>tempdb </code>before being stored in the appropriate archive database. <span class="If_Then_Statement">If you are archiving a large number of events, such as one million events</span>, the <code>tempdb </code>may run out of available space, resulting in an incomplete archive.</p>
+        <p class="Body">To ensure optimal event handling and performance, archive your audit data frequently. Monitor your Repository database consumption over the first few days of collecting audit data, so you can develop a maintenance strategy that best suits your needs. For more information, see <a href="Backing Up and Restoring Archive.htm" target="_self">Backing Up and Restoring Archive Databases</a>.</p>
+        <p class="Body">For more information on how to archive events, see <a href="Archiving Events.htm">Archiving Events</a>.</p>
+        <p class="Body">Also consider grooming older audit data. Grooming allows you to minimize your storage requirements and ensure your audit data remains relevant to your compliance needs. For more information, see <a href="How Grooming Works.htm" target="_self">How Grooming Works</a>.</p>
+    </body>
+</html>

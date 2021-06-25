@@ -1,0 +1,829 @@
+<?xml version="1.0"?>
+<project name="SQLcompliance" default="Build.Dev" basedir="..">
+
+	<!-- ***************************************************************************** -->
+	<!--                            Build Targets                                      -->
+	<!-- ***************************************************************************** -->
+	
+	<!-- ********* -->
+	<!-- Build.Dev -->
+	<!-- ********* -->
+	<target name="Build.Dev">
+		<call target="Perforce.Sync" />
+		<call target="BuildBinaries" />
+		<call target="BuildInstallers" />
+		<call target="CopyBuildToDevShare" />
+	</target>
+	
+	<!-- ************** -->
+	<!-- Build.Official -->
+	<!-- ************** -->
+	<target name="Build.Official">	
+		<call target="Perforce.Sync" />
+		<call target="BuildBinaries" />
+		<call target="BuildInstallers" />
+		<call target="Perforce.Label" />
+		<call target="CopyBuildToDevShare" />
+		<call target="Archive" />
+	</target>
+	
+	<!-- ***************** -->
+	<!-- Build.DocOnly -->
+	<!-- ***************** -->
+	<target name="Build.DocOnly">	
+		<call target="FetchArchive" />
+		<call target="Perforce.Sync" />
+		<call target="Perforce.Sync.Doc" />
+		<call target="BuildInstallers" />
+		<call target="BuildDocVersion" />
+		<call target="Perforce.Label" />
+		<call target="CopyBuildToDevShare" />
+		<call target="Archive" />
+	</target>
+	
+	<!-- ***************** -->
+	<!-- Build.DocInstallOnly -->
+	<!-- ***************** -->
+	<target name="Build.DocInstallOnly">	
+		<call target="FetchArchive" />
+		<call target="Perforce.Sync" />
+		<call target="Perforce.Sync.Doc" />
+		<call target="Perforce.Sync.Install" />
+		<call target="BuildInstallers" />
+		<call target="BuildDocVersion" />
+		<call target="Perforce.Label" />
+		<call target="CopyBuildToDevShare" />
+		<call target="Archive" />
+	</target>
+	
+
+	<!-- ***************************************************************************** -->
+	<!--                            Setup Nant build properties                        -->
+	<!-- ***************************************************************************** -->
+	<!-- Use TStamp to set a proerty to the the current datetime defining the format -->
+	<tstamp property="Build.DateTime" pattern="MM-dd-yyyy.HHmm" verbose="true" />
+	<setenv name="SQLCM_ROOT" value="${project::get-base-directory()}"/>
+
+	<!-- Nant Properties -->
+	<property name="Framework.Version" value="v4.0.30319"/>
+	<property name="Framework.Install" value="c:/Windows/Microsoft.NET/Framework/${Framework.Version}"/>
+	<property name="nant.settings.currentframework" value="net-4.0"/>
+
+	<property name="Build.Config" value="Release" unless="${property::exists('Build.Config')}" />
+	<property name="Build.Obfuscate" value="true" unless="${property::exists('Build.Obfuscate')}" />
+
+	<property name="Build.StartDate" value="11/14/2012"/>
+
+	<!-- Project Directories -->
+	<property name="SQLcm.Root" value="development/Idera/SQLcompliance"/>
+	<property name="SQLcm.Core.ProjectDir" value="${SQLcm.Root}/Core"/>
+	<property name="SQLcm.GUI.ProjectDir" value="${SQLcm.Root}/Application/GUI"/>
+	<property name="SQLcm.CLI.ProjectDir" value="${SQLcm.Root}/Application/CLI"/>
+	<property name="SQLcm.ClusterGUI.ProjectDir" value="${SQLcm.Root}/Cluster"/>
+	<property name="SQLcm.CollectionService.ProjectDir" value="${SQLcm.Root}/CollectionService"/>
+	<property name="SQLcm.AgentService.ProjectDir" value="${SQLcm.Root}/AgentService"/>
+	<property name="SQLcm.TriggerCore.ProjectDir" value="${SQLcm.Root}/TriggerCore"/>
+	<property name="SQLcm.TraceManager.ProjectDir" value="${SQLcm.Root}/Utility/TraceManager"/>
+	<property name="SQLcm.TraceRegister.ProjectDir" value="${SQLcm.Root}/Utility/TraceRegister"/>
+	<property name="SQLcm.ReportsInstaller.ProjectDir" value="development/Idera/Common/ReportsInstaller"/>
+	<property name="SQLcm.ReportsImages.Dir" value="${SQLcm.Root}/Report"/>
+	<property name="SQLcm.SupportedRDL.Dir" value="${SQLcm.Root}/Report/Reports/Supported"/>
+	<property name="SQLcm.InstallUtilLib.ProjectDir" value="${SQLcm.Root}/Unmanaged"/>
+	<property name="SQLcm.Build.Root" value="Build"/>
+	<property name="SQLcm.Build.Output" value="${SQLcm.Build.Root}/Output" />
+	<property name="SQLcm.Build.Temp" value="${SQLcm.Build.Root}/Temp" />
+	<property name="SQLcm.Install.ProjectDir" value="install"/>
+	<property name="SQLcm.Documentation.ProjectDir" value="documentation/ForBuild"/>
+	<property name="SQLcm.ThirdParty" value="lib"/>
+	<property name="SQLcm.version.final" value="${SQLcm.version}"  if="${property::exists('SQLcm.version')}"/>
+	<property name="SQLcm.SqlScripts" value="install/Script Files"/>
+
+	<!-- Common Assembly Info -->
+	<property name="AssemblyInfo.Company" value="IDERA, Inc." />
+	<property name="AssemblyInfo.Product" value="SQL Compliance Manager" />
+	<property name="AssemblyInfo.Copyright" value="Copyright (C) 2004-2021 IDERA, Inc., All Rights Reserved." />
+	
+	<!-- File Names -->
+	<property name="File.Core" value="SQLcomplianceCore.dll"/>
+	<property name="File.GUI" value="SQLcompliance.exe"/>
+	<property name="File.GUI.config" value="SQLcompliance.exe.config"/>
+	<property name="File.CLI" value="SQLcmCmd.exe"/>
+	<property name="File.ClusterGUI" value="SQLcomplianceClusterGUI.exe"/>
+	<property name="File.CollectionService" value="SQLcomplianceCollectionService.exe"/>
+	<property name="File.AgentService" value="SQLcomplianceAgent.exe"/>
+	<property name="File.TriggerCore" value="SQLcomplianceTriggerCore_1.dll"/>
+	<property name="File.TraceManager" value="TraceManager.exe"/>
+	<property name="File.TraceRegister" value="TraceRegister.exe"/>
+		
+	<property name="FullPath.Install.Agent" value="${SQLcm.Install.ProjectDir}/x86/SQLcomplianceAgentMSI/Release 1/DiskImages/DISK1/SQLcomplianceAgent.msi"/>
+	<property name="FullPath.Install.Agent.x64" value="${SQLcm.Install.ProjectDir}/x64/SQLcomplianceAgent-x64/Release 1/DiskImages/DISK1/SQLcomplianceAgent-x64.msi"/>
+	<property name="FullPath.Install.Full" value="${SQLcm.Install.ProjectDir}/x86/SQLcompliance/Release 1/DiskImages/DISK1/SQLcompliance.exe"/>
+	<property name="FullPath.Install.Full.x64" value="${SQLcm.Install.ProjectDir}/x64/SQLcompliance-x64/Release 1/DiskImages/DISK1/SQLcompliance-x64.exe"/>
+	<property name="FullPath.Install.Cluster" value="${SQLcm.Install.ProjectDir}/x86/SQLcomplianceCluster/SQL compliance manager Cluster Support/Release 1/DiskImages/DISK1/SQLcomplianceClusterSetup.exe"/>
+	<property name="FullPath.Install.Cluster.x64" value="${SQLcm.Install.ProjectDir}/x64/SQLcomplianceCluster-x64/SQL compliance manager Cluster Support/Release 1/DiskImages/DISK1/SQLcomplianceClusterSetup-x64.exe"/>
+	<property name="FullPath.Install.Reports" value="${SQLcm.Install.ProjectDir}/x86/SQLcomplianceReports/SQL compliance manager Reports/Release 1/DiskImages/DISK1/SQLcomplianceReports.exe"/>
+	<property name="FullPath.Install.Web" value="${SQLcm.Install.ProjectDir}/x86/SQLcomplianceInstallationKit/Release 1/DiskImages/DISK1/IderaSQLcomplianceInstallationKit.exe"/>
+
+	<!-- Custom MergeModule needs to be in this location on the build machine -->
+	<property name="Environment.MergeModule.Source" value="${SQLcm.Install.ProjectDir}/MergeModules/WSH56.msm"/>
+	<property name="Environment.MergeModule.Target" value="C:\Program Files\Common Files\Merge Modules\"/>
+
+	<!-- Redistributables -->
+	<property name="SQLdm.Redist" value="Redist"/>
+	
+	<!-- Output Directories -->
+	<!-- x86 -->
+	<property name="SQLcm.Compile.Output" value="bin/${Build.Config}"/>
+	<property name="SQLcm.Obfuscate.Output" value="${SQLcm.Compile.Output}/obfuscated"/>
+	<property name="SQLcm.Final.Output" value="bin/final"/>
+
+	<!-- x64 -->
+	<property name="SQLcm.Compile.Output.x64" value="bin/x64/${Build.Config}"/>
+	<property name="SQLcm.Obfuscate.Output.x64" value="${SQLcm.Compile.Output.x64}/obfuscated"/>
+	<property name="SQLcm.Final.Output.x64" value="bin/x64/final"/>
+
+	<!-- Final Output -->
+	<property name="SQLcm.DevShare" value="\\redhousefs-02\Development\SQLcompliance" />
+	<property name="SQLcm.DevShare.Builds" value="${SQLcm.DevShare}\Builds" />
+
+	<property name="Reports.Binary.Output" value="bin/reports"/>
+	<property name="Reports.RDL.Output" value="bin/reports/rdl"/>
+	
+	<property name="SQLcm.Development.Builds" value="//redhousefs-02/Development/SQLcompliance/Builds/"/>
+	<property name="SQLcm.Development.Archives" value="//redhousefs-02/Development/SQLcompliance/Archives/"/>
+	
+	<!-- Obfuscator information -->
+	<property name="RemoteSoft.Obfuscator" value="c:\program files\RemoteSoft\obfuscator\bin\obfuscator.exe"/>
+
+	<property name="Obfuscate.Core.Target" value="SQLcomplianceCoreObfuscateConfig.xml"/>
+	<property name="Obfuscate.GUI.Target" value="${File.GUI}"/>
+	<property name="Obfuscate.CLI.Target" value="${File.CLI}"/>
+	<property name="Obfuscate.ClusterGUI.Target" value="${File.ClusterGUI}"/>
+	<property name="Obfuscate.CollectionService.Target" value="${File.CollectionService}"/>
+	<property name="Obfuscate.AgentService.Target" value="${File.AgentService}"/>
+	<property name="Obfuscate.TraceManager.Target" value="${File.TraceManager}"/>
+	
+	<!-- InstallShield Information -->
+	<property name="InstallShield.Builder" value="C:/Program Files/Macrovision/IS 11.5 StandaloneBuild/IsSABld.exe"/>
+	<property name="installshield.mergemodules" value="C:/Program Files/Macrovision/IS 11.5 StandaloneBuild/Objects"/>
+	<property name="InstallShield.Agent.Project" value="SQLcomplianceAgent.ism"/>
+	<property name="InstallShield.Agent.x64.Project" value="SQLcomplianceAgent-x64.ism"/>
+	<property name="InstallShield.Full.Project" value="SQLcompliance.ism"/>
+	<property name="InstallShield.Full.x64.Project" value="SQLcompliance-x64.ism"/>
+	<property name="InstallShield.Reports.Project" value="SQLcomplianceReports.ism"/>
+	<property name="InstallShield.Cluster.Project" value="SQLcomplianceCluster.ism"/>
+	<property name="InstallShield.Cluster.Project.x64" value="SQLcomplianceCluster-x64.ism"/>
+	<property name="InstallShield.Web.Project" value="SQLcomplianceInstallationKit.ism"/>
+	<property name="BuildNumberPlaceholder" value="9.88.777.666" />
+	<property name="CombineScripts.Batch" value="${SQLcm.SqlScripts}/CombineSPScripts.bat"/>
+
+	<!-- Autorun Information -->
+	<property name="SQLcm.Install.Autorun" value="${SQLcm.Install.ProjectDir}/Autorun"/>
+
+	<!-- Code-signing information -->
+	<property name="Signing.Dir" value="${SQLcm.Install.ProjectDir}/CodeSigning"/>
+	<property name="Signing.Application" value="${Signing.Dir}/signtool.exe"/>
+	<property name="Signing.Key" value="${Signing.Dir}/ideracredentials.pfx"/>
+	<property name="Signing.TimeStamp" value="http://timestamp.verisign.com/scripts/timstamp.dll"/>
+	<property name="Signing.Password" value="$ik}7m@`C=R)"/>
+	<property name="Signing.Url" value="http://www.idera.com/"/>
+	<property name="Signing.Name" value=""/>
+	<property name="Signing.Target" value=""/>
+	
+		<!-- Email Properties -->
+	<property name="Email.Server" value="mx.bbstek.com" />
+	<property name="Email.BuildMaster" value="SQLcomplianceBuild@idera.com" />
+	<property name="Email.Developers" value="robert.wilkinson@idera.com" />
+	<property name="Email.From" value="${Email.BuildMaster}" />
+	<property name="Email.Success.To" value="${Email.Developers}" />
+	<property name="Email.Failure.To" value="${Email.Developers}" />
+	<property name="MailLogger.mailhost" value="${Email.Server}" />
+	<property name="MailLogger.from" value="${Email.From}" />
+	<property name="MailLogger.success.to" value="${Email.Success.To}" />
+	<property name="MailLogger.failure.to" value="${Email.Failure.To}" />
+	<property name="MailLogger.success.subject" value="SQL Compliance Manager  Build ${SQLcm.version} Available" dynamic="true" />
+	<property name="MailLogger.failure.subject" value="SQL Compliance Manager Build ${SQLcm.version} Failed on ${Build.DateTime}"  dynamic="true" />
+	<property name="MailLogger.success.notify" value="true" />
+	<property name="MailLogger.failure.notify" value="true" />
+	
+	<!-- Perforce Information -->
+	<property name="Perforce.Sync.Force" value="true"/>
+	<property name="Perforce.TargetLabel" value="latest"/>
+	<property name="Perforce.Branch" value="//sqlcm/main"/>
+	<property name="Perforce.View" value="${Perforce.Branch}/..."/>
+	
+	<!-- Utility -->	
+	<property name="Utility.Sed" value="build/sed.exe"/>
+	<property name="Utility.WinZip" value="C:\Program Files\WinZip"/>
+
+	<!-- ***************************************************************************** -->
+	<!--                            Build Steps                                        -->
+	<!-- ***************************************************************************** -->
+
+	<!-- ************ -->
+	<!-- PerforceSync -->
+	<!-- ************ -->
+	<target name="Perforce.Sync">
+		<if test="${Perforce.TargetLabel=='latest'}">
+			<echo message="Fetching latest source"/>
+			<p4sync force="${Perforce.Sync.Force}"  view="${Perforce.View}"/>
+		</if>
+		<ifnot test="${Perforce.TargetLabel=='latest'}">
+			<echo message="Fetching label:  ${Perforce.TargetLabel}"/>
+			<p4sync force="${Perforce.Sync.Force}" label="${Perforce.TargetLabel}"/>
+		</ifnot>
+		<!--  Always get the latest build.number to avoid resolves during version submission.  Also need newest scripts -->
+		<p4sync view="${Perforce.Branch}/build/..."/>
+	</target>
+	
+	<!-- ***************** -->
+	<!-- Perforce.Sync.Doc -->
+	<!-- ***************** -->
+	<target name="Perforce.Sync.Doc">
+		<p4sync force="true"  view="${Perforce.Branch}/${SQLcm.Documentation.ProjectDir}/..."/>
+	</target>
+	
+	<!-- ***************** -->
+	<!-- Perforce.Sync.Doc -->
+	<!-- ***************** -->
+	<target name="Perforce.Sync.Install">
+		<p4sync force="true"  view="${Perforce.Branch}/install/..."/>
+	</target>
+	
+	<!-- ************* -->
+	<!-- BuildBinaries -->
+	<!-- ************* -->
+	<target name="BuildBinaries">
+		<call target="UpdateVersion" />
+		<call target="GenerateCommonAssemblyInfo" />
+		<call target="CompileBinaries" />
+		<call target="Obfuscate" />
+		<call target="CopyFiles" />
+	</target>
+	
+	<!-- *************** -->
+	<!-- BuildInstallers -->
+	<!-- *************** -->
+	<target name="BuildInstallers">
+		<call target="Combine.StoredProcs"/>
+	  <call target="ApplyVersionToInstallers" />
+		<call target="CreateInstallers" />
+		<call target="CreateCDImage" />
+		<call target="CreateWebInstaller" />
+	</target>
+	
+	<!-- ************* -->
+	<!-- UpdateVersion -->
+	<!-- ************* -->
+	<target name="UpdateVersion">
+		<!-- Set the build.number file to read-write -->
+		<loadtasks assembly="lib/BuildUtilities.dll" />
+		<p4edit view="${Perforce.Branch}/build/build.number"/>
+		
+		<!-- Generate the build/revision number -->
+		<version path="build/build.number" startdate="${Build.StartDate}" prefix="SQLcm" buildtype="MonthDay" revisiontype="Increment" />
+		<p4submit changelist="Update build number" view="${Perforce.Branch}/build/build.number"/>		
+		<property name="SQLcm.version.final" value = "${SQLcm.version}"/>
+	</target>
+	
+	<!-- ************************** -->
+	<!-- GenerateCommonAssemblyInfo -->
+	<!-- ************************** -->
+	<target name="GenerateCommonAssemblyInfo">
+		<property name="CommonAssemblyInfo" value="${SQLcm.Root}/CommonAssemblyInfo.cs" />
+	
+		<!-- Set the common assembly info file to read-write -->
+		<attrib file="${CommonAssemblyInfo}" readonly="false" />
+		
+		<!-- Generate common assembly info -->
+		<asminfo output="${CommonAssemblyInfo}" language="CSharp">
+			<imports>
+				<import namespace="System.Reflection" />
+			</imports>
+			<attributes>
+				<attribute type="AssemblyCompanyAttribute" value="${AssemblyInfo.Company}" />
+				<attribute type="AssemblyProductAttribute" value="${AssemblyInfo.Product}" />
+				<attribute type="AssemblyCopyrightAttribute" value="${AssemblyInfo.Copyright}" />
+				<attribute type="AssemblyVersionAttribute" value="${SQLcm.version}" />		
+			</attributes>
+		</asminfo>
+		
+		<!-- Set the common assembly info file to read-only -->
+		<attrib file="${CommonAssemblyInfo}" readonly="true" />
+	</target>	
+	
+	<!-- ************************** -->
+	<!-- CompileBinaries            -->
+	<!-- ************************** -->
+	<target name="CompileBinaries">
+		<!-- Build the Primary C# solution -->
+		<msbuild project="development/SQLcompliance.sln">
+			<property name="Configuration" value="${Build.Config}"/>
+			<property name="Platform" value = "Any CPU"/>
+		</msbuild>
+
+		<!-- Build the Primary C# solution for x64 
+		<msbuild project="development/SQLcompliance.sln">
+			<property name="Configuration" value="${Build.Config}"/>
+			<property name="Platform" value = "x64"/>
+		</msbuild> -->
+
+		<!-- Build the Cluster solution -->
+		<msbuild project="development/SQLcomplianceCluster.sln">
+			<property name="Configuration" value="${Build.Config}"/>
+			<property name="Platform" value = "Any CPU"/>
+		</msbuild>
+
+		<!-- Build the Utilities solution -->
+		<msbuild project="development/SQLcomplianceUtilities.sln">
+			<property name="Configuration" value="${Build.Config}"/>
+			<property name="Platform" value = "Any CPU"/>
+		</msbuild>
+
+		<!-- Build the Reporting Services Project -->
+		<msbuild project="development/SQLcomplianceReports.sln">
+			<property name="Configuration" value="${Build.Config}"/>
+			<property name="Platform" value = "Any CPU"/>
+		</msbuild>
+	</target>	
+	
+	<!-- ************************** -->
+	<!-- Obfuscate                  -->
+	<!-- ************************** -->
+	<target name="Obfuscate" if="${Build.Obfuscate}" unless="${Build.Config == 'Debug'}">
+		<!-- Execute obfuscation for each subproject -->
+		<exec program="${RemoteSoft.Obfuscator}" workingdir="${SQLcm.Core.ProjectDir}">
+			<arg value="-d"/>
+			<arg value="${SQLcm.Obfuscate.Output}"/>
+			<arg value="-nc"/>
+			<arg value="nondisplayable"/>
+			<arg value="SQLcomplianceCoreObfuscateConfig.xml"/>
+		</exec>   
+
+		<!-- x64 
+		<exec program="${RemoteSoft.Obfuscator}" workingdir="${SQLcm.Core.ProjectDir}">
+			<arg value="-d"/>
+			<arg value="${SQLcm.Obfuscate.Output.x64}"/>
+			<arg value="-nc"/>
+			<arg value="nondisplayable"/>
+			<arg value="SQLcomplianceCoreObfuscateConfig.xml"/>
+		</exec>   -->
+	</target>
+	
+	
+	<!-- ************************** -->
+	<!-- CopyFiles                  -->
+	<!-- ************************** -->
+	<target name="CopyFiles">
+		<mkdir dir="${SQLcm.Final.Output}"/>
+		<mkdir dir="${SQLcm.Final.Output.x64}"/>
+	
+		<!-- Determine where to copy from -->
+		<property name="Temp.SourceDir" value="${SQLcm.Compile.Output}"/>
+		<property name="Temp.SourceDir.x64" value="${SQLcm.Compile.Output.x64}"/>
+		<if test="${property::get-value('Build.Obfuscate') == 'true'}" unless="${Build.Config == 'Debug'}">
+			<property name="Temp.SourceDir" value="${SQLcm.Obfuscate.Output}"/>
+			<property name="Temp.SourceDir.x64" value="${SQLcm.Obfuscate.Output.x64}"/>
+		</if>
+		
+		<!-- x86 -->
+		<copy todir="${SQLcm.Final.Output}" flatten="true">
+			<fileset>
+				<!-- Copy Built files -->
+				<include name="${SQLcm.Core.ProjectDir}/${Temp.SourceDir}/${File.Core}"/>
+				<include name="${SQLcm.GUI.ProjectDir}/${SQLcm.Compile.Output}/${File.GUI}"/>
+				<include name="${SQLcm.GUI.ProjectDir}/${SQLcm.Compile.Output}/${File.GUI.config}"/>
+				<include name="${SQLcm.CLI.ProjectDir}/${SQLcm.Compile.Output}/${File.CLI}"/>
+				<include name="${SQLcm.ClusterGUI.ProjectDir}/${SQLcm.Compile.Output}/${File.ClusterGUI}"/>
+				<include name="${SQLcm.CollectionService.ProjectDir}/${SQLcm.Compile.Output}/${File.CollectionService}"/>
+				<include name="${SQLcm.AgentService.ProjectDir}/${SQLcm.Compile.Output}/${File.AgentService}"/>
+				<include name="${SQLcm.TriggerCore.ProjectDir}/${SQLcm.Compile.Output}/${File.TriggerCore}"/>
+				<include name="${SQLcm.TraceManager.ProjectDir}/${SQLcm.Compile.Output}/${File.TraceManager}"/>
+				
+			</fileset>
+		</copy>
+
+		<!-- x64 -->
+		<copy todir="${SQLcm.Final.Output.x64}" flatten="true">
+			<fileset>
+				<!-- Copy Built files -->
+				<include name="${SQLcm.Core.ProjectDir}/${Temp.SourceDir}/${File.Core}"/>
+				<include name="${SQLcm.GUI.ProjectDir}/${SQLcm.Compile.Output}/${File.GUI}"/>
+				<include name="${SQLcm.GUI.ProjectDir}/${SQLcm.Compile.Output}/${File.GUI.config}"/>
+				<include name="${SQLcm.CLI.ProjectDir}/${SQLcm.Compile.Output}/${File.CLI}"/>
+				<include name="${SQLcm.ClusterGUI.ProjectDir}/${SQLcm.Compile.Output}/${File.ClusterGUI}"/>
+				<include name="${SQLcm.CollectionService.ProjectDir}/${SQLcm.Compile.Output}/${File.CollectionService}"/>
+				<include name="${SQLcm.AgentService.ProjectDir}/${SQLcm.Compile.Output}/${File.AgentService}"/>
+				<include name="${SQLcm.TriggerCore.ProjectDir}/${SQLcm.Compile.Output}/${File.TriggerCore}"/>
+				<include name="${SQLcm.TraceManager.ProjectDir}/${SQLcm.Compile.Output}/${File.TraceManager}"/>
+				
+			</fileset>
+		</copy>
+
+		<!-- Copy Report Files -->
+		<copy todir="${Reports.Binary.Output}" flatten="true">
+			<fileset>
+				<include name="${SQLcm.ReportsInstaller.ProjectDir}/${SQLcm.Compile.Output}/ReportsInstaller.exe"/>
+				<include name="${SQLcm.ReportsInstaller.ProjectDir}/${SQLcm.Compile.Output}/ReportsInstaller.exe.config"/>
+				<include name="${SQLcm.ReportsImages.Dir}/introSplash.png"/>
+				<include name="${SQLcm.ReportsImages.Dir}/SQLcm.ico"/>
+				<include name="${SQLcm.ReportsImages.Dir}/about.png"/>
+				<include name="${SQLcm.ReportsImages.Dir}/Warning_48.ico"/>
+				<include name="${SQLcm.ReportsImages.Dir}/scroll_48.ico"/>
+			</fileset>
+		</copy>
+		<copy todir="${Reports.RDL.Output}" flatten="true">
+			<fileset>
+				<include name="${SQLcm.SupportedRDL.Dir}/*.rdl"/>
+				<include name="${SQLcm.SupportedRDL.Dir}/rdl.xml"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ************************** -->
+	<!-- CreateInstallers           -->
+	<!-- ************************** -->
+	<target name="CreateInstallers" >
+		<copy todir="${Environment.MergeModule.Target}" file="${Environment.MergeModule.Source}"/>
+
+		<!-- note: have to build agent msi first since  -->
+		<!--       it is included in full install       -->
+
+		<!-- x86  agent -->		
+		<exec program="${InstallShield.Builder}" workingdir="${SQLcm.Install.ProjectDir}/x86">
+			<arg value="-c"/>
+			<arg value="COMP"/>
+			<arg value="-p"/>
+			<arg value="${InstallShield.Agent.Project}"/>
+			<arg value="-o"/>
+			<arg value="${installshield.mergemodules}"/>
+		</exec>
+		<property name="Signing.Name" value="SQL Compliance Agent"/>
+		<property name="Signing.Target" value="${FullPath.Install.Agent}"/>
+
+		<!-- x64  agent -->
+		<exec program="${InstallShield.Builder}" workingdir="${SQLcm.Install.ProjectDir}/x64">
+			<arg value="-c"/>
+			<arg value="COMP"/>
+			<arg value="-p"/>
+			<arg value="${InstallShield.Agent.x64.Project}"/>
+			<arg value="-o"/>
+			<arg value="${installshield.mergemodules}"/>
+		</exec>
+		<property name="Signing.Name" value="SQL Compliance Agent x64"/>
+		<property name="Signing.Target" value="${FullPath.Install.Agent.x64}"/>
+	
+		<!-- Full Install -->
+		<!-- x86 -->
+		<exec program="${InstallShield.Builder}" workingdir="${SQLcm.Install.ProjectDir}/x86">
+			<arg value="-c"/>
+			<arg value="COMP"/>
+			<arg value="-p"/>
+			<arg value="${InstallShield.Full.Project}"/>
+			<arg value="-o"/>
+			<arg value="${installshield.mergemodules}"/>
+			<arg value="-e"/>
+			<arg value="Y"/>
+		</exec>
+		<property name="Signing.Name" value="SQL Compliance Manager"/>
+		<property name="Signing.Target" value="${FullPath.Install.Full}"/>
+		<call target="SignCode"/>
+
+		<!-- x64 -->
+		<exec program="${InstallShield.Builder}" workingdir="${SQLcm.Install.ProjectDir}/x64">
+			<arg value="-c"/>
+			<arg value="COMP"/>
+			<arg value="-p"/>
+			<arg value="${InstallShield.Full.x64.Project}"/>
+			<arg value="-o"/>
+			<arg value="${installshield.mergemodules}"/>
+			<arg value="-e"/>
+			<arg value="Y"/>
+		</exec>
+		<property name="Signing.Name" value="SQL Compliance Manager x64"/>
+		<property name="Signing.Target" value="${FullPath.Install.Full.x64}"/>
+		<call target="SignCode"/>
+
+		<!-- Cluster Installer -->
+		<exec program="${InstallShield.Builder}" workingdir="${SQLcm.Install.ProjectDir}/x86">
+			<arg value="-p"/>
+			<arg value="${InstallShield.Cluster.Project}"/>
+			<arg value="-e"/>
+			<arg value="Y"/>
+		</exec>
+		<property name="Signing.Name" value="SQL Compliance Cluster Manager"/>
+		<property name="Signing.Target" value="${FullPath.Install.Cluster}"/>
+		<call target="SignCode"/>
+
+		<!-- Cluster Installer x64 -->
+		<exec program="${InstallShield.Builder}" workingdir="${SQLcm.Install.ProjectDir}/x64">
+			<arg value="-p"/>
+			<arg value="${InstallShield.Cluster.Project.x64}"/>
+			<arg value="-e"/>
+			<arg value="Y"/>
+		</exec>
+		<property name="Signing.Name" value="SQL Compliance Cluster Manager"/>
+		<property name="Signing.Target" value="${FullPath.Install.Cluster.x64}"/>
+		<call target="SignCode"/>		
+	</target>
+	
+	
+	<!-- ************* -->
+	<!-- CreateCDImage -->
+	<!-- ************* -->
+	<target name="CreateCDImage">
+			<!-- get the SQLsecure help values from the webhelp.ini file-->
+		<foreach item="Line" in="${SQLcm.ThirdParty}/webhelp.ini" delim="=" property="setting,setting.val" trim="Both">
+			<if test="${string::starts-with(setting, 'Version')}">
+				<property name="help.version" value="${setting.val}"/>
+			</if>
+			<if test="${string::starts-with(setting, 'Online')}">
+				<property name="help.url" value="${setting.val}"/>
+			</if>
+		</foreach>
+		
+		<!-- x86 -->
+		<!-- Copy Installers -->
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version}/x86/Full/x86" flatten="true">
+			<fileset>
+				<include name="${FullPath.Install.Full}" />
+				<include name="${FullPath.Install.Agent}"/>
+				<include name="${FullPath.Install.Cluster}" />
+			</fileset>
+		</copy>
+		<!-- Copy Autorun -->
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version}/x86/Full" flatten="true"
+		  file="${SQLcm.Install.Autorun}/setup.hta" >
+		  <filterchain>
+			<replacestring from="{platform}" to="x86" ignorecase="true" />
+			<replacestring from="{copyright}" to="${AssemblyInfo.Copyright}" ignorecase="true" />
+			<replacestring from="{appversion}" to="${SQLcm.version}" ignorecase="true" />
+			<replacestring from="{helpversion}" to="${help.version}" ignorecase="true" />
+			<replacestring from="{helpurl}" to="${help.url}" ignorecase="true" />
+		  </filterchain>
+		</copy>
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version}/x86/Full/Images" flatten="true">
+		  <fileset>
+			<include name="${SQLcm.Install.Autorun}/Images/*"/>
+		  </fileset>
+		</copy>		
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version}/x86/Full" flatten="true">
+			<fileset>
+				<include name="${SQLcm.Install.Autorun}/autorun.inf"/>
+				<include name="${SQLcm.Install.Autorun}/setup.exe"/>
+			</fileset>
+		</copy>
+		<!-- Copy Redist -->
+		<!-- Windows Installer is only needed for x86, 64 bit comes with 3.0 or 3.1 -->
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version}/x86/Full/Redist/Windows Installer 3.1" flatten="true">
+			<fileset>
+				<include name="${SQLdm.Redist}/Windows Installer 3.1/*"/>
+			</fileset>
+		</copy>
+		
+		<!-- x64 -->
+		<!-- Copy Installers -->
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version}/x64/Full/x64" flatten="true">
+			<fileset>
+				<include name="${FullPath.Install.Full.x64}" />
+				<include name="${FullPath.Install.Agent.x64}"/>
+				<include name="${FullPath.Install.Cluster.x64}" />
+			</fileset>
+		</copy>
+		<!-- Copy Autorun -->
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version}/x64/Full" flatten="true"
+		  file="${SQLcm.Install.Autorun}/setup.hta" >
+		  <filterchain>
+			<replacestring from="{platform}" to="x64" ignorecase="true" />
+			<replacestring from="{copyright}" to="${AssemblyInfo.Copyright}" ignorecase="true" />
+			<replacestring from="{appversion}" to="${SQLcm.version}" ignorecase="true" />
+			<replacestring from="{helpversion}" to="${help.version}" ignorecase="true" />
+			<replacestring from="{helpurl}" to="${help.url}" ignorecase="true" />
+		  </filterchain>
+		</copy>
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version}/x64/Full/Images" flatten="true">
+		  <fileset>
+			<include name="${SQLcm.Install.Autorun}/Images/*"/>
+		  </fileset>
+		</copy>		
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version}/x64/Full" flatten="true">
+			<fileset>
+				<include name="${SQLcm.Install.Autorun}/autorun.inf"/>
+				<include name="${SQLcm.Install.Autorun}/setup.exe"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ****************** -->
+	<!-- CreateWebInstaller -->
+	<!-- ****************** -->
+	<target name="CreateWebInstaller">
+		<mkdir dir="${SQLcm.Build.Temp}"/>
+		<!-- Zip the full solutions-->
+		<exec program="${Utility.WinZip}\wzzip">
+			<arg value="-a"/>
+			<arg value="-p"/>
+			<arg value="-r"/>
+			<arg value="${SQLcm.Build.Temp}\SQLcm.zip"/>
+			<arg value="${SQLcm.Build.Output}/${SQLcm.version}/x86/Full/*.*"/>
+		</exec>
+		<exec program="${Utility.WinZip}\wzzip">
+			<arg value="-a"/>
+			<arg value="-p"/>
+			<arg value="-r"/>
+			<arg value="${SQLcm.Build.Temp}\SQLcm-x64.zip"/>
+			<arg value="${SQLcm.Build.Output}/${SQLcm.version}/x64/Full/*.*"/>
+		</exec>
+		
+		<!-- Build absolute packager -->
+		<exec program="InstallationKit.bat" workingdir="${SQLcm.Build.Root}"/>
+		<exec program="InstallationKit-x64.bat" workingdir="${SQLcm.Build.Root}"/>
+		
+		<!-- Sign the absolute packager exes -->
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager"/>
+		<property name="Signing.Target" value="${SQLcm.Build.Temp}\IderaSQLcmInstallationKit.exe"/>
+		<call target="SignCode"/>
+		<property name="Signing.Name" value="IDERA SQL Compliance Manager"/>
+		<property name="Signing.Target" value="${SQLcm.Build.Temp}\IderaSQLcmInstallationKit-x64.exe"/>
+		<call target="SignCode"/>
+		
+		<!-- Copy files to the output folder -->
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version}/x86/Web" flatten="true">
+			<fileset>
+				<include name="${SQLcm.Build.Temp}\IderaSQLcmInstallationKit.exe"/>
+			</fileset>
+		</copy>
+		<copy todir="${SQLcm.Build.Output}/${SQLcm.version}/x64/Web" flatten="true">
+			<fileset>
+				<include name="${SQLcm.Build.Temp}\IderaSQLcmInstallationKit-x64.exe"/>
+			</fileset>
+		</copy>
+		
+		<!-- *********************************************************** -->
+		<!-- Create Web download zip fiel containing self-extracting EXE -->
+		<!-- *********************************************************** -->
+		<exec program="${Utility.WinZip}\wzzip">
+			<arg value="-a"/>
+			<arg value="${SQLcm.Build.Output}/${SQLcm.version}/x86/Web/IderaSQLcmInstallationKit.zip"/>
+			<arg value="${SQLcm.Build.Output}/${SQLcm.version}/x86/Web/IderaSQLcmInstallationKit.exe"/>
+		</exec>
+		
+		<exec program="${Utility.WinZip}\wzzip">
+			<arg value="-a"/>
+			<arg value="${SQLcm.Build.Output}/${SQLcm.version}/x64/Web/IderaSQLcmInstallationKit-x64.zip"/>
+			<arg value="${SQLcm.Build.Output}/${SQLcm.version}/x64/Web/IderaSQLcmInstallationKit-x64.exe"/>
+		</exec>
+	</target>
+
+	<!-- ******************* -->
+	<!-- CopyBuildToDevShare -->
+	<!-- ******************* -->
+	<target name="CopyBuildToDevShare">
+		<copy todir="${SQLcm.DevShare.Builds}/${SQLcm.version.final}" flatten="false">
+			<fileset basedir="${SQLcm.Build.Output}/${SQLcm.version}">
+				<include name="**"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ******************* -->
+	<!-- SignCode            -->
+	<!-- ******************* -->
+	<target name="SignCode">
+		<!-- Sign web installation kit -->
+		<exec program="${Signing.Application}">
+			<arg value="sign"/>
+			<arg value="-d"/>
+			<arg value="${Signing.Name}"/>
+			<arg value="-du"/>
+			<arg value="${Signing.Url}"/>
+			<arg value="-f"/>
+			<arg value="${Signing.Key}"/>
+			<arg value="-p"/>
+			<arg value="${Signing.Password}"/>
+			<arg value="-t"/>
+			<arg value="${Signing.TimeStamp}"/>
+			<arg value="${Signing.Target}"/>
+		</exec>
+	</target>
+
+	<!-- ******************* -->
+	<!-- Perforce.Label      -->
+	<!-- ******************* -->
+	<target name="Perforce.Label">
+		<p4label label="sqlcm_${SQLcm.version.final}" view="${Perforce.View}"/>
+		<p4labelsync label="sqlcm_${SQLcm.version.final}"  view="${Perforce.View}"/>
+		<exec workingdir="build" program="LockLabel.bat" commandline="sqlcm_${SQLcm.version.final}"/>
+	</target>
+
+	<!-- ******************* -->
+	<!-- Combine.StoredProcs -->
+	<!-- ******************* -->
+	<target name="Combine.StoredProcs">
+		<exec workingdir="${SQLcm.SqlScripts}" program="${CombineScripts.Batch}"/>
+	</target>
+	
+	<!-- ************************** -->
+	<!-- ApplyVersionToInstallers   -->
+	<!-- ************************** -->
+	<target name="ApplyVersionToInstallers">
+		<!-- Replaces build number placeholder with real build number in ISM files -->
+		<!-- x86 -->
+		<foreach item="File" property="filename">
+			<in>
+				<items basedir="${SQLcm.Install.ProjectDir}/x86">
+					<include name="*.ism" />
+				</items>
+			</in>
+				<do>
+					<attrib file="${filename}" readonly="false"/>
+					<move file="${filename}" tofile="${filename}.old"   overwrite="true" />
+					<exec program="${Utility.Sed}">
+						<arg value="${filename}.old"/>
+						<arg value="${filename}"/>
+						<arg value="${BuildNumberPlaceholder}"/>
+						<arg value="${SQLcm.version}"/>
+					</exec>
+				</do>
+		</foreach>
+		
+		<!-- x64 -->
+		<foreach item="File" property="filename">
+			<in>
+				<items basedir="${SQLcm.Install.ProjectDir}/x64">
+					<include name="*.ism" />
+				</items>
+			</in>
+				<do>
+					<attrib file="${filename}" readonly="false"/>
+					<move file="${filename}" tofile="${filename}.old"   overwrite="true" />
+					<exec program="${Utility.Sed}">
+						<arg value="${filename}.old"/>
+						<arg value="${filename}"/>
+						<arg value="${BuildNumberPlaceholder}"/>
+						<arg value="${SQLcm.version}"/>
+					</exec>
+				</do>
+		</foreach>
+	</target>
+	
+	<!-- ******************* -->
+	<!-- Archive             -->
+	<!-- ******************* -->
+	<target name="Archive">
+		<!-- Zip up the SQLcm folder -->
+		<exec program="${Utility.WinZip}\wzzip">
+			<arg value="-a"/>
+			<arg value="-p"/>
+			<arg value="-r"/>
+			<arg value="-x*.ncb"/>
+			<arg value="-xbuild/*.*"/>
+			<arg value="../SQLcm_${SQLcm.version.final}.zip"/>
+			<arg value="*.*"/>
+		</exec>
+		<move file="../SQLcm_${SQLcm.version.final}.zip" tofile="${SQLcm.Development.Archives}/SQLcm_${SQLcm.version.final}.zip"/>
+		
+<!--	   <copy todir="${SQLcm.Development.Archives}/SQLcm-${SQLcm.version.final}">
+			<fileset>
+				<exclude name="**/*.ncb"/>
+				<exclude name="build/**/*"/>
+				<include name="**/*"/>
+			</fileset>
+		</copy> -->
+	</target>
+	
+	<!-- ******************* -->
+	<!-- FetchArchive        -->
+	<!-- ******************* -->
+	<target name="FetchArchive">
+		<copy todir="." overwrite="true">
+			<fileset basedir="${SQLcm.Development.Archives}/SQLcm-${SQLcm.version}">
+				<exclude name="SQLcompliance.build"/>
+				<exclude name="DoBuild.bat"/>
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- ******************* -->
+	<!-- BuildDocVersion     -->
+	<!-- ******************* -->
+	<target name="BuildDocVersion">
+		<property name="FriendlyDate" value="${datetime::get-month(datetime::now())}-${datetime::get-day(datetime::now())}-${datetime::get-year(datetime::now())}"/>
+		<property name="FriendlyTime" value="${datetime::get-hour(datetime::now())}.${datetime::get-minute(datetime::now())}.${datetime::get-second(datetime::now())}"/>
+		<property name="SQLcm.version.final" value="${SQLcm.version}_${FriendlyDate}_${FriendlyTime}"/>
+	</target>
+	
+	<!-- - - - -->
+	<!-- CLEAN -->
+	<!-- - - - -->
+	<!-- Clean the build directories -->
+	<target name="Build.Clean">
+		<delete failonerror="false">
+	 		<fileset basedir="${SQLcm.Root}">
+	  		<include name="**/bin/**/*" />
+	  		<include name="**/obj/**/*" />
+	 		</fileset>
+		</delete>
+	</target>
+</project>

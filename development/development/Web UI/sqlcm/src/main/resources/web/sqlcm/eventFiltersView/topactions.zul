@@ -1,0 +1,78 @@
+<zk>
+<hlayout valign="bottom">
+	<grid hflex="1">
+		<columns>
+			<column hflex="min"></column>
+			<column hflex="min"></column>
+			<column hflex="min"></column>
+		</columns>
+		<rows>
+			<row>
+				
+			</row>
+		</rows>
+	</grid>
+<div hflex = "1" style="text-align: right;">
+	<hlayout valign="middle"> 	 		
+					<idera-cwf-button label="${idera:getLabel('SQLCM.Labels.add-new-filter')}" width="85px"
+						height="36px" onClick="@command('newEventAlert')"
+						visible="${sqlcm:getConfigValue('auditEventFilters','add' )}" >
+					</idera-cwf-button>
+						<!-- <comboitem id="SelectFilter"
+							label="${idera:getLabel('SQLCM.Labels.add-new-filter')}"
+							value="${idera:getLabel('SQLCM.Labels.add-new-filter')}"
+							/> -->
+						<!-- <comboitem id="NEW"
+							label="${idera:getLabel('SQLCM.Labels.new')}"
+							value="${idera:getLabel('SQLCM.Labels.event-alert')}" />
+					</idera-cwf-dropdownlist> -->
+				 <!--  Refresh button -->
+					<idera-cwf-button id="makeReportLink" width="85px" height="36px"
+						style="{color: black;} :hover {color: white}"
+						label="${idera:getLabel('Labels.export')}" 
+						popup="reportsMenuPopup, position=after_end">
+					</idera-cwf-button>
+					<!-- <image
+							src="${idera:getImageURLWithoutSize('arrow_down_dark_gray')}"
+							sclass="padding-lr-4" /> -->
+					<menupopup id="reportsMenuPopup" 
+						sclass="sql-cm-export-menu">
+						<menuitem id="createPDFMenuItem"
+							label="${idera:getLabel('Labels.export-as-pdf')}"
+							onClick="@command('exportToPdf')" />
+						<menuitem id="createXLSMenuItem"
+							label="${idera:getLabel('Labels.export-as-xls')}"
+							onClick="@command('exportToExcel')" />
+						<menuitem id="createXMLMenuItem"
+							label="${idera:getLabel('Labels.export-as-xml')}"
+							onClick="@command('exportToXml')" />
+					</menupopup>
+				<!-- <div>
+					<label
+						value="${idera:getLabel('Labels.sql-cm.vertical-separator')}"
+						sclass="H5" />
+				</div> -->
+			<!--	<div>
+					 <idera-cwf-button id="refreshLink" sclass="idera-button-primary"
+					 	style="{color: black;} :hover {color: white}"
+						label="${idera:getLabel('SQLCM.Labels.refresh')}"
+						onClick="@command('refreshEvents')" visible="true" />
+				</div> -->	
+					<script>
+						jq.alert = function (msg, opts) { zAu.send(new
+						zk.Event(zk.Widget.$(jq('$windowComponent')[0]),
+						'onErrorMessage', msg)); }
+					</script>
+		
+					<button id="uploadButton" upload="true" height="36px" width="68px"
+						sclass="idera-button-primary" 
+						label="${idera:getUpperCaseLabel('SQLCM.Labels.import')}" style="font-weight:bold;color:#473E2E !important;"
+						onUpload="@command('uploadFile')"
+						visible="${sqlcm:getConfigValue('auditEventFilters','import' )}" />
+					<separator width="5px"></separator>
+					
+					<image src="~./sqlcm/images/refresh-icon.png" height="20px" onClick="@command('refreshEvents')" style="display:block;" ></image>
+		</hlayout>
+	</div>
+</hlayout>
+</zk>

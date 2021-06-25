@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="NewPage" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>How to Audit a Virtual SQL Server Instance</title>
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1">How to Audit a Virtual SQL Server Instance</h1>
+        <p class="Body"><a name="kanchor147"></a>SQL&#160;Compliance Manager supports auditing a virtual SQL&#160;Server instance including the local instance on a cluster running the Collection Server. Use the following checklist to help you deploy and configure SQL Compliance Manager in a clustered environment.</p>
+        <table class="TableStyle-Idera_Table_Stylesheet" style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxChecked.png" />
+                        </p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p>Follow these steps ...</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Installing SQL compliance.htm" target="_self">Install SQL Compliance Manager</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Identify which virtual SQL Server instances you want to audit.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Identify which cluster nodes host each virtual SQL Server instance. Make sure that you identify the currently active node as well as any passive nodes in the same cluster.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">On each cluster node, open port 5200 for SQLcompliance Agent communication.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">For each cluster node, identify the folder you want to use for the SQLcompliance Agent trace directory. <span class="If_Then_Statement">If a cluster node hosts more than one virtual SQL Server instance</span>, identify a trace directory for each additional instance you want to audit.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">For each cluster node, identify the account you want to use for the SQLcompliance Agent Service. Verify that this account can access the computer where you installed the Collection Server. Also make sure that this account belongs to the Administrators group on each node. Review the SQLcompliance Agent Service <a href="Permissions Requirements.htm" target="_self">permission requirements</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Deploy Agent Cluster.htm" target="_self">Deploy the SQLcompliance Agent</a> to each cluster node using the Cluster Configuration setup program.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Add SQLcompliance Agent Service.htm" target="_self">Add the SQLcompliance Agent Service</a> on each cluster node using the Cluster Configuration Console.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Register SQLcompliance Agent with Cluster.htm" target="_self">Register the SQLcompliance Agent Service</a> as a generic service using the Microsoft Cluster Administrator tool.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Registering Your SQL Servers.htm" target="_self">Register each virtual SQL Server instance</a> with SQL Compliance Manager using the Management Console. Note that you must choose manual deployment for the SQLcompliance Agent.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><a href="Start Auditing Virtual SQL Server.htm" target="_self">Specify the SQL Server events you want to audit</a> on each registered virtual SQL Server instance using the Management Console.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Run SQL Compliance Manager. Use <a href="Using Report Cards to Track.htm" target="_self">Report Cards</a> and the <a href="Windows/Audit Events Tab.htm" target="_self">Audit Events tab</a> to ensure you are auditing the correct SQL&#160;Server events.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="Body">&#160;</p>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">  <![CDATA[ ]]></p>
+    </body>
+</html>

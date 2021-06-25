@@ -1,0 +1,106 @@
+<zk>
+	<idera-cwf-dialog height="700px" width="690px" closable="true"
+		border="none" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.userTables.UserTablesForSensitiveColumnsViewModel')"
+		contentSclass="modal-dialog-window customize-dba-modal"
+		style="border-radius: 0" position="center,middle"
+		id="userTablesWindow"
+		title="${idera:getLabel('SQLCM.Html.sql-cm.select-tables-to-audit-dialog.tips')}">
+		<style>
+			.z-window-highlighted-cnt-noborder{padding:0px !important}
+		</style>
+		<attribute name="onBind"><![CDATA[
+			zk.afterMount(function () {
+				zWatch.fireDown('onSize', self);
+			});
+		]]></attribute>
+		
+		
+        <vlayout id="mainVlayout" height="620px" width="690px">
+        	<separator height="20px" />
+        	<hlayout>
+                            
+                    <vlayout height="620px" width="635px" style="margin-left:30px">
+                    	<div style="font-family: Source Sans Pro;
+								  height: 18px;
+								  font-size: 18px;
+								  font-weight: 600;
+								  font-style: normal;
+								  font-stretch: normal;
+								  color: #4e4e4e;">
+                    		  <html content="${idera:getLabel('SQLCM.Html.sql-cm.select-tables-to-audit-dialog.tips')}" />
+						 </div>
+						<div style="margin-right:30px;">
+                    		 <html sclass="z-label" content="@load(vm.lableText)"  />                    		 
+                		</div>
+                		<separator width="" sclass = "separator-bgcolor"/>
+                        <hlayout height="400px">
+                            <vlayout width="230px" height="405px">
+                            <label style="padding-left:6px" value="${idera:getLabel('SQLCM.Label.select-tables-to-audit-dialog.available-tables')}"/>
+                                <div hflex="1">                            
+                                	 <div style="float:left"><idera-cwf-textbox instant="true" style="width:150px;padding-bottom: 0.3em;height: 37px;" value="@bind(vm.filterText)" onOK="@command('filterClick')"/></div>
+                                     <div style="float:left"><image src="~./sqlcm/images/search-icon.png" onClick="@command('filterClick')"  width="20px" height="20px" style="margin-left:6px; margin-top:10px;"/> </div>     
+                                </div>                              
+                                <div style="float:left">
+                                <idera-cwf-listbox id="lbAvailableDatabases" sclass="idera-grid z-listbox" style="border: 1px solid #9D9D9D; margin-top: 13px; word-wrap:break-word;" width="228px" height="300px"
+                                         multiple="true" checkmark="false" mold="paging" paginal="${listBoxPageId}" model="@load(vm.candidateListModelList)">
+                                    <listhead>
+                                        <listheader />
+                                    </listhead>
+                                    <template name="model">
+                                        <listitem>
+                                            <listcell label="@load(each.fullTableName)"/>
+                                        </listitem>
+                                    </template>
+                                    <listfoot>
+                                        <listfooter span="8" align="center" sclass="idera-grid-footer">
+                                            <vbox align="center">
+                                                <paging id="listBoxPageId"/>
+                                            </vbox>
+                                        </listfooter>
+                                    </listfoot> 
+                            
+                                </idera-cwf-listbox>
+                                </div>
+                                 </vlayout>  
+                            <vlayout width="130px" vflex="1" style="padding-top: 120px;">
+                                <idera-cwf-button id="addButton" onClick="@command('addCommand')" style="width: 115px"                                       
+                                        label="${idera:getLabel('SQLCM.Label.add-server-wizard.button.add-arrow')}" />
+                                <idera-cwf-button id="removeButton" onClick="@command('removeCommand')" style="width: 115px; text-transform: capitalize;"                                        
+                                        label="${idera:getLabel('SQLCM.Label.add-server-wizard.button.remove-arrow')}" />
+                            </vlayout>
+                            
+                            <vlayout width="230px" height="405px">                                
+                                <label  value="${idera:getLabel('SQLCM.Label.select-tables-to-audit-dialog.selected-tables')}"/>
+                                <separator height="52px" />
+                                <idera-cwf-listbox id="lbSelectedDatabases"  sclass="idera-grid z-listbox" style="border: 1px solid #9D9D9D; word-wrap:break-word;" width="228px" height="300px"
+                                         multiple="true" checkmark="false" model="@load(vm.chooseListModelList)">
+                                    <listhead>
+                                        <listheader />
+                                    </listhead>
+                                    <template name="model">
+                                        <listitem>
+                                            <listcell label="@load(each.fullTableName)"/>
+                                        </listitem>
+                                    </template>
+                                </idera-cwf-listbox>
+                            </vlayout>
+                        </hlayout>
+                               <div vflex="min">
+                                  <hbox>                                   
+                                      <label value="${idera:getLabel('SQLCM.Label.select-tables-to-audit-dialog.records-per-page')}"/>
+                                      <spinner id="listBoxRowsBox" value="10" maxlength="3"
+                                              onChange="@command('setGridRowsCount')" onOK="@command('setGridRowsCount')" />                             
+	                               </hbox>
+                               </div>
+                   <div style="text-align: right; padding-right: 25px;">						
+					<idera-cwf-button id="okButton" onClick="@command('okCommand')" 
+                                          width="85px" label="${idera:getLabel('SQLCM.Labels.ok')}"/>
+                    <idera-cwf-button id="closeButton" onClick="@command('closeCommand')" 
+                                          width="85px" label="${idera:getLabel('SQLCM.Labels.cancel')}"/>
+					</div>
+                </vlayout>
+                </hlayout>
+        </vlayout>
+    </idera-cwf-dialog>
+</zk>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="8" MadCap:lastHeight="778" MadCap:lastWidth="893">
+    <head><title>SQL CM Configuration Wizard Database Audit Settings</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <link href="../Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Configuration Wizard</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Configuration  Wizard &gt; </MadCap:conditionalText>Database Audit Settings</h2>
+        <p class="Body">This window allows you to specify which types of SQL Server events you want to audit on the selected databases in SQL&#160;Compliance Manager. This window is available when you choose the Custom audit collection level.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">Audited Activity</p>
+        <p class="DefinitionListBody">Allows you select the type of activity you want to audit. Based on your selections, SQL CM collects and processes the corresponding SQL Server events.</p>
+        <p class="DefinitionListTerm">Access Check Filter</p>
+        <p class="DefinitionListBody">Allows you to refine your audit trail for SQL Server login data by collecting events that better reflect your auditing requirements for security and user processes. </p>
+        <p class="DefinitionListBody">SQL Server validates login permissions and access rights when a user attempts to execute an operation or SQL statement on the audited SQL Server instance. <span class="If_Then_Statement">If the access check filter is enabled for a database on a registered instance</span>, SQL CM collects access check events at the database level. </p>
+        <p class="DefinitionListBody">Select this filter to help identify logins that may have inappropriate access rights or permissions. This filter may also help reduce the size of your audit data.</p>
+        <table style="caption-side: top;mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Type of Event Filter</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Passed</p>
+                </td>
+                <td class="BodyD-Column2-Body1">
+                    <p class="TableText">Omits events that track failed access checks performed by SQL Server</p>
+                </td>
+            </tr>
+            <tr class="Body-Body1">
+                <td class="BodyE-Column1-Body1">
+                    <p class="TableText">Failed</p>
+                </td>
+                <td class="BodyD-Column2-Body1">
+                    <p class="TableText">Omits events that track passed access checks performed by SQL Server</p>
+                </td>
+            </tr>
+        </table>
+        <p class="DefinitionListTerm">Capture SQL statements for DML and SELECT activities</p>
+        <p class="DefinitionListBody">Allows you to specify whether you want to collect SQL statements associated with audited DML and SELECT activities. To capture these statements, you must also enable DML or SELECT&#160;auditing.</p>
+        <p class="DefinitionListBody"> Ensure the Collection Server and the target SQL Server computers have ample resources to handle the additional data collection, storage, and processing. Because this setting can significantly increase resource requirements and negatively impact performance, choose this setting only when your compliance policies require you to audit SQL statements.</p>
+        <p class="DefinitionListTerm">Capture transaction status for DML&#160;activity</p>
+        <p class="DefinitionListBody">Allows you to specify whether you want to collect the status of all DML&#160;transactions that are executed by T-SQL scripts run on your audited database. This setting captures begin, commit, rollback, and savepoint statuses. To capture these statuses, you must enable DML auditing.</p>
+        <p class="DefinitionListBody">Ensure the Collection Server and the target SQL Server computers have ample resources to handle the additional data collection, storage, and processing. Because this setting can significantly increase resource requirements and negatively impact performance, choose this setting only when your compliance policies require you to audit transaction status, such as rollbacks.</p>
+    </body>
+</html>

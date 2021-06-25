@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6065875C-FF47-4325-876D-50C34A4345FA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SQLcomplianceCwfAddin</RootNamespace>
+    <AssemblyName>SQLcomplianceCwfAddin</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ChartFX.WinForms, Version=7.0.4962.20751, Culture=neutral, PublicKeyToken=a1878e2052c08dce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\ChartFX.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Idera.LicenseManager.ProductPlugin">
+      <HintPath>..\..\lib\Idera.LicenseManager.ProductPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="License4Net">
+      <HintPath>..\..\lib\License\x64\License4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PluginAddInView">
+      <HintPath>..\..\lib\CoreServicesLibrary\PluginAddInView.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PluginCommon">
+      <HintPath>..\..\lib\CoreServicesLibrary\PluginCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AddIn" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TracerX">
+      <HintPath>..\..\lib\TracerX\TracerX.exe</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddInPlugin.cs" />
+    <Compile Include="Errors\LicenseManagerException.cs" />
+    <Compile Include="Helpers\AddServerStatusData.cs" />
+    <Compile Include="Helpers\Agent\AgentConnectionDetails.cs" />
+    <Compile Include="Helpers\CredentialsValidationHelper.cs" />
+    <Compile Include="Helpers\DateTimeHelper.cs" />
+    <Compile Include="Helpers\Agent\AgentControl.cs" />
+    <Compile Include="Helpers\Agent\AgentManagerHelper.cs" />
+    <Compile Include="Helpers\Agent\Agents.cs" />
+    <Compile Include="Helpers\Archives\ArchiveDbHelper.cs" />
+    <Compile Include="Helpers\AuditServerHelper.cs" />
+    <Compile Include="Helpers\Events\EventsManagerHelper.cs" />
+    <Compile Include="Helpers\InstanceSynchronizationHelper.cs" />
+    <Compile Include="Helpers\LicenseSummary.cs" />
+    <Compile Include="Helpers\ManagedServerInstance.cs" />
+    <Compile Include="Helpers\PathHelper.cs" />
+    <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Helpers\Regulations\RegulationSettingsHelper.cs" />
+    <Compile Include="Helpers\PrimaryStatusForInstanceManager.cs" />
+    <Compile Include="Helpers\ServerStatusMessages.cs" />
+    <Compile Include="Helpers\SQLComplianceLogHelper.cs" />
+    <Compile Include="Helpers\Stats\StatsHelper.cs" />
+    <Compile Include="Helpers\Validator.cs" />
+    <Compile Include="Repository\RepositoryHelper.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\ColumnDetails.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\ColumnTableSummary.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\DatabaseSummary.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\DatabaseTableSummary.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\RegulationCustomDetail.cs" />
+    <Compile Include="RestService\DataContracts\v1\AlertRulesExportData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AlertRulesExportRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AlertRulesExportResponce.cs" />
+    <Compile Include="RestService\DataContracts\v1\AlertRules\GetDataAlertCheckDataResponce.cs" />
+    <Compile Include="RestService\DataContracts\v1\AlertRules\InsertStatusAlertRulesRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AllImportSettingDetails.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditEventExportData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditEventExportRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditEventExportResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditEventFilter.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditEventFilterRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditEventFilterResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ApplicationActivityData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ApplicationActivityRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ApplicationActivityResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ConfigurationCheckJSONServer.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ConfigurationCheckProcedureData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ConfigurationCheckProcedureResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ConfigurationCheckRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ConfigurationCheckResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ConfigurationCheckSettingResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ConfigurationSettingDefaultResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ConfigurationSettingKeyValue.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\DMLActivityData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\DMLActivityRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\DMLActivityResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\LoginCreationHistoryData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\LoginCreationHistoryRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\LoginCreationHistoryResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\LoginDeletionHistoryData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\LoginDeletionHistoryRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\LoginDeletionHistoryResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ObjectActivityData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ObjectActivityRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\ObjectActivityResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\PermissionDeniedActivityData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\PermissionDeniedActivityRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\PermissionDeniedActivityResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\RegulatoryComplianceRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\RegulatoryComplianceData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\RegulatoryComplianceResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\RegulatoryComplianceRowData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\RowCountData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\RowCountRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\RowCountResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\UserActivityData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\UserActivityRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditReports\UserActivityResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\CategoryResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\CheckAgentStatusRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\CheckAgentStatusResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\CategoryRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\DatabaseDetails.cs" />
+    <Compile Include="RestService\DataContracts\v1\DatabaseTableDetailsFilter.cs" />
+    <Compile Include="RestService\DataContracts\v1\DatabaseTableDetailsForAllFilter.cs" />
+    <Compile Include="RestService\DataContracts\v1\getSNMPConfigResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\License\LicenseDetails.cs" />
+    <Compile Include="RestService\DataContracts\v1\SensitiveColumnDetails.cs" />
+    <Compile Include="RestService\DataContracts\v1\SensitiveColumnInfo.cs" />
+    <Compile Include="RestService\DataContracts\v1\SensitiveColumnsTableRecord.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerDetails.cs" />
+    <Compile Include="RestService\DataContracts\v1\SNMPConfigData.cs" />
+    <Compile Include="RestService\DataContracts\v1\TargetDatabaseDetail.cs" />
+    <Compile Include="RestService\DataContracts\v1\ViewNameRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\ViewNameResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\DataAlertRulesInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RestService\DataContracts\v1\EnableAuditEventFilter.cs" />
+    <Compile Include="RestService\DataContracts\v1\EnableAlertRules.cs" />
+    <Compile Include="RestService\DataContracts\v1\AlertRulesRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AlertRulesResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AlertRules\AlertRulesGroup.cs" />
+    <Compile Include="RestService\DataContracts\v1\AlertRules\AlertRulesInfo.cs" />
+    <Compile Include="RestService\DataContracts\v1\EnableAlertRulesRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerAlertRules.cs" />
+    <Compile Include="RestService\DataContracts\v1\ActivityLogs\ActivityLogsGroup.cs" />
+    <Compile Include="RestService\DataContracts\v1\ActivityLogs\ActivityLogsInfo.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\ServerSettingsData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddServer\AddServerStatus.cs" />
+    <Compile Include="Helpers\Server\ServerManagerHelper.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddServer\AuditServerSettings.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddServer\AgentDeployStatus.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddServer\AgentDeploymentProperties.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddServer\AuditedServerInfo.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddServer\CheckInstanceRegisteredRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddServer\ExistingAuditData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddServer\ImportInstanceListRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddServer\InstanceRegisteredStatus.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddServer\RegisteredStatus.cs" />
+    <Compile Include="RestService\DataContracts\v1\AgentProperties\AgentAuditSettings.cs" />
+    <Compile Include="RestService\DataContracts\v1\AgentProperties\AgentDeployment.cs" />
+    <Compile Include="RestService\DataContracts\v1\AgentProperties\AgentGeneralProperties.cs" />
+    <Compile Include="RestService\DataContracts\v1\AgentProperties\AgentProperties.cs" />
+    <Compile Include="RestService\DataContracts\v1\AgentProperties\AgentSettings.cs" />
+    <Compile Include="RestService\DataContracts\v1\AgentProperties\LoggingLevel.cs" />
+    <Compile Include="RestService\DataContracts\v1\AgentProperties\SQLServerInfo.cs" />
+    <Compile Include="RestService\DataContracts\v1\AgentProperties\AgentTraceOptions.cs" />
+    <Compile Include="RestService\DataContracts\v1\Alerts\AlertsGroup.cs" />
+    <Compile Include="RestService\DataContracts\v1\Alerts\DismissAlertsGroupRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\Archives\ArchiveInstanceRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\Archives\ArchiveProperties.cs" />
+    <Compile Include="RestService\DataContracts\v1\Archives\ArchivePropertiesRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\Archives\ArchiveRecord.cs" />
+    <Compile Include="RestService\DataContracts\v1\Archives\ArchiveUpdateRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\BeforeAfterDataEventResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\ChangeLogs\ChangeLogsGroup.cs" />
+    <Compile Include="RestService\DataContracts\v1\ChangeLogs\ChangeLogsInfo.cs" />
+    <Compile Include="RestService\DataContracts\v1\Credentials.cs" />
+    <Compile Include="RestService\DataContracts\v1\DatabaseProperties\ClrStatus.cs" />
+    <Compile Include="Helpers\AuditDabaseHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RestService\DataContracts\v1\DataAlertRulesDetail.cs" />
+    <Compile Include="Helpers\CheckSupportsHelper.cs" />
+    <Compile Include="Helpers\Converter.cs" />
+    <Compile Include="Helpers\PermissionCheckHelper.cs" />
+    <Compile Include="Helpers\ProxyObjecHelper.cs" />
+    <Compile Include="Helpers\ServerUpdate.cs" />
+    <Compile Include="Helpers\Singleton.cs" />
+    <Compile Include="Helpers\SQL\DatabaseObjectRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\SQL\SqlCmConfigurationHelper.cs" />
+    <Compile Include="Helpers\SQL\SqlCmRecordReader.cs" />
+    <Compile Include="Helpers\SQL\SqlDirect.cs" />
+    <Compile Include="Helpers\Stats\StatsAggregator.cs" />
+    <Compile Include="Helpers\SQL\SQLRepository.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestService\DataContracts\v1\DatabaseProperties\AuditDatabaseProperties.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\AuditActivity.cs" />
+    <Compile Include="RestService\DataContracts\v1\DatabaseProperties\AuditBeforeAfterData.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\AuditCollectionLevel.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\AuditDatabaseSettings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\AuditRegulationSettings.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\AuditUserTables.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\AvailabilityGroup.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\CheckStatus.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\DmlSelectFilters.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\ObjectType.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\DatabaseObject.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\PermissionChecksStatus.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\PermissionCheck.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\ServerLogin.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\ServerRole.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\ServerRolesAndUsers.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddLicenseResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\AlertStatus.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditedDatabase.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditedDatabaseActivityResult.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditedServerStatus.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditedServer.cs" />
+    <Compile Include="RestService\DataContracts\v1\AuditEvent.cs" />
+    <Compile Include="RestService\DataContracts\v1\CmLicense.cs" />
+    <Compile Include="RestService\DataContracts\v1\AddDatabase\AuditedDatabaseInfo.cs" />
+    <Compile Include="RestService\DataContracts\v1\DatabaseProperties\SensitiveColumnTableData.cs" />
+    <Compile Include="RestService\DataContracts\v1\DatabaseReindexRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\DatabaseTableFilter.cs" />
+    <Compile Include="RestService\DataContracts\v1\DetachArchiveRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\DetaliedAuditEvent.cs" />
+    <Compile Include="RestService\DataContracts\v1\DetaliedEventsResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\EnableAuditForDatabases.cs" />
+    <Compile Include="RestService\DataContracts\v1\EnableAuditForServers.cs" />
+    <Compile Include="RestService\DataContracts\v1\EnvironmentDetailsForInstancesAndDatabases.cs" />
+    <Compile Include="RestService\DataContracts\v1\EnvironmentObject.cs" />
+    <Compile Include="RestService\DataContracts\v1\EventDistributionForDatabaseResult.cs" />
+    <Compile Include="RestService\DataContracts\v1\EventProperties.cs" />
+    <Compile Include="RestService\DataContracts\v1\EventsResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\Events\BeforeAfterValue.cs" />
+    <Compile Include="RestService\DataContracts\v1\Events\EventBeforeAfterData.cs" />
+    <Compile Include="RestService\DataContracts\v1\Events\EventPropertiesRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\FilteredActivityLogsViewRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\FilteredActivityLogsViewResponce.cs" />
+    <Compile Include="RestService\DataContracts\v1\FilteredAlertRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\FilteredAlertsResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\FilteredChangeLogsViewRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\FilteredChangeLogsViewResponce.cs" />
+    <Compile Include="RestService\DataContracts\v1\FilteredEventRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\FilteredRegisteredInstancesStatusRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\IdCollection.cs" />
+    <Compile Include="RestService\DataContracts\v1\EnvironmentDetails.cs" />
+    <Compile Include="RestService\DataContracts\v1\EnvironmentAlertStatus.cs" />
+    <Compile Include="RestService\DataContracts\v1\InsertStatusEventFilterRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\InstanceAvailableResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\InstanceRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\ManagedInstances\Credentials\BatchInstancesCredentialsRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\ManagedInstances\DataCollectionSettings.cs" />
+    <Compile Include="RestService\DataContracts\v1\ManagedInstances\ManagedInstanceForEditResponce.cs" />
+    <Compile Include="RestService\DataContracts\v1\ManagedInstances\ManagedInstanceProperties.cs" />
+    <Compile Include="RestService\DataContracts\v1\ManagedInstances\ManagedInstance.cs" />
+    <Compile Include="RestService\DataContracts\v1\ManagedInstances\ManagedInstanceResponce.cs" />
+    <Compile Include="RestService\DataContracts\v1\ManagedInstances\PaginationRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\ManagedInstances\SqlServerSecurityModel.cs" />
+    <Compile Include="RestService\DataContracts\v1\ManagedCredentials.cs" />
+    <Compile Include="RestService\DataContracts\v1\ManagedInstances\CredentialValidationResult.cs" />
+    <Compile Include="RestService\DataContracts\v1\RegulationSettings\RestRegulation.cs" />
+    <Compile Include="RestService\DataContracts\v1\RegulationSettings\RestRegulationSection.cs" />
+    <Compile Include="RestService\DataContracts\v1\RegulationSettings\RestRegulationType.cs" />
+    <Compile Include="RestService\DataContracts\v1\RemoveDatabaseRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\RemoveServers\RemoveServersRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\RemoveServers\RemoveServerStatus.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerActivityLogs.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerAlert.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerChangeLogs.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerProperties\ArchiveCheckStatus.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerProperties\AuditServerProperties.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerProperties\DatabaseReadAccessLevel.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerProperties\IntegrityCheckStatus.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerProperties\ReportCard.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerProperties\ServerAdvancedProperties.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerProperties\ServerGeneralProperties.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerProperties\ServerStatus.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerProperties\ThresholdsData.cs" />
+    <Compile Include="RestService\DataContracts\v1\ServerProperties\UpdateAuditConfigurationRequest.cs" />
+    <Compile Include="Errors\ErrorHandler.cs" />
+    <Compile Include="Errors\ErrorHandlerBehavior.cs" />
+    <Compile Include="Errors\JsonExceptionWrapper.cs" />
+    <Compile Include="RestService\DataContracts\v1\CmCombinedLicense.cs" />
+    <Compile Include="Helpers\EncryptionHelper.cs" />
+    <Compile Include="Helpers\QueryBuilder.cs" />
+    <Compile Include="Helpers\QueryExecutor.cs" />
+    <Compile Include="Helpers\QueryRouter.cs" />
+    <Compile Include="Helpers\Transformer.cs" />
+    <Compile Include="RestService\DataContracts\v1\Stats\RestStatsCategory.cs" />
+    <Compile Include="RestService\DataContracts\v1\Stats\RestStatsData.cs" />
+    <!--<Compile Include="RestService\DataContracts\v1\UpgradeAgent\UpgradeAgentRequest.cs" />-->
+    <Compile Include="RestService\DataContracts\v1\UpdateSmtpConfigurationRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\UpdateSnmpConfigurationRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\UpdateWindowsLogEntryRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\UpgradeAgent\UpgradeAgentRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\UpgradeAgent\UpgradeAgentResponse.cs" />
+    <Compile Include="RestService\DataContracts\v1\UpgradeAgent\UpgradeAgentType.cs" />
+    <Compile Include="RestService\DataContracts\v1\UserSettings\DeleteUserSettingsRequest.cs" />
+    <Compile Include="RestService\DataContracts\v1\UserSettings\UserSettingsModel.cs" />
+    <Compile Include="RestService\DataContracts\v1\ViewSettings.cs" />
+    <Compile Include="RestService\RestServiceConstants.cs" />
+    <Compile Include="RestService\RestServiceHost.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\ActivityLogsViewService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\AgentService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\AlertRulesService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\AlertService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\ArchivesService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\AuditReportService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\ChangeLogsViewService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Cipher.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\DatabasesService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\EnvironmentService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\EventService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\InstanceService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\IActivityLogsViewService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\IAgentService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\IAlertRules.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\IAuditReportService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\IChangeLogsViewService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\ILicenseManager.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\IUserSettingsService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\IAlertService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\IArchivesService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\IDatabasesService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\IEnvironmentService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\IEventService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\IInstanceService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\ILicenseService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\IServerService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Interfaces\ISettingService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\IRestService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\IUtility.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\LicenseManager.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\LicenseService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\RestService.cs" />
+    <Compile Include="Helpers\WebHttpBehaviourEx.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\RestServiceConfiguration.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\ServerService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\SettingService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\SqlHelper.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\UserSettingsService.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\UserToken.cs" />
+    <Compile Include="RestService\ServiceContracts\v1\Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Idera\SQLcompliance\Core\SQLcomplianceCore.csproj">
+      <Project>{aeed7e07-280d-4c04-9536-557a84f65b3e}</Project>
+      <Name>SQLcomplianceCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

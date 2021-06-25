@@ -1,0 +1,65 @@
+<zk>
+	<window border="none" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('com.idera.sqlcm.ui.instances.InstanceAlertsViewModel', 
+			entityType=entityType)" sclass="lnk-container">
+		<vlayout vflex="1" style="min-height: 360px;">
+			<grid sclass="styled-list" mold="paging"
+				model="@load(vm.entities)" pageSize="10"
+				emptyMessage="@load(vm.emptyMessage)">
+				<auxhead>
+					<auxheader sclass="H3" colspan="5" >
+						<label sclass="margin-r-16"
+							value="${idera:getUpperCaseLabel('SQLCM.Labels.audited-sql-server-alerts')}" />
+									<radiogroup
+										id="alertTypes">
+										<idera-cwf-radio
+											sclass="margin-lr-24" selected="true"
+											label="${idera:getLabel('SQLCM.Labels.event')}"
+											onClick="@command('reloadAlerts', type='Event')" />
+										<idera-cwf-radio
+											sclass="margin-lr-24"
+											label="${idera:getLabel('SQLCM.Labels.status')}"
+											onClick="@command('reloadAlerts', type='Status')" />
+										<idera-cwf-radio
+											sclass="margin-lr-24"
+											label="${idera:getLabel('SQLCM.Labels.data')}"
+											onClick="@command('reloadAlerts', type='Data')" />
+									</radiogroup>
+					</auxheader>
+				</auxhead>
+				<columns>
+					<extcolumn
+						label="${idera:getLabel('SQLCM.Labels.time')}"
+						hflex="1" sortAscending="@load(vm.sortByTimeAsc)"
+						sortDescending="@load(vm.sortByTimeDesc)" />
+					<extcolumn
+						label="${idera:getLabel('SQLCM.Labels.sql-server')}" hflex="1"
+						sortAscending="@load(vm.sortByInstanceNameAsc)"
+						sortDescending="@load(vm.sortByInstanceNameDesc)" />
+					<extcolumn
+						label="${idera:getLabel('SQLCM.Labels.alert-status')}" hflex="1"
+						sortAscending="@load(vm.sortByAlertStatusAsc)"
+						sortDescending="@load(vm.sortByAlertStatusDesc)" />
+					<extcolumn
+						label="${idera:getLabel('SQLCM.Labels.alert-type')}" hflex="1"
+						sortAscending="@load(vm.sortByAlertTypeAsc)"
+						sortDescending="@load(vm.sortByAlertTypeDesc)" />
+					<extcolumn
+						label="${idera:getLabel('SQLCM.Labels.source-rule')}"
+						hflex="1" sortAscending="@load(vm.sortBySourceRuleAsc)"
+						sortDescending="@load(vm.sortBySourceRuleDesc)" />
+				</columns>
+				<template name="model" var="entity">
+					<row>
+						<label value="@bind(entity.time) @converter('com.idera.sqlcm.ui.converter.DateConverter')" />
+						<label sclass="link-no-size" value="@bind(entity.instanceName)"
+							onClick="@command('navigateInastanceDetails',entity=entity)" />
+						<label value="@bind(entity.alertStatus)" />
+						<label value="@bind(entity.alertType)" />
+						<label value="@bind(entity.sourceRule)" />
+					</row>
+				</template>
+			</grid>
+		</vlayout>
+	</window>
+</zk>

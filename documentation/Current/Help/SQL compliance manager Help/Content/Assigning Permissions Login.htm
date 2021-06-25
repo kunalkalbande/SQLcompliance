@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="368" MadCap:lastWidth="945">
+    <head><title>Assigning Permissions to a Login</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Assign permissions to a login</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Assign permissions to a login</h2>
+        <p class="Body">
+            <MadCap:keyword term="logins:permissions;security:grant SQL role" />You can assign SQL&#160;Compliance&#160;Manager permissions to any login. When you assign SQL&#160;Compliance Manager permissions, SQL&#160;CM applies the appropriate SQL Server privileges to the login. For more information, see <a href="Available Login Permissions.htm" target="_self">Available Login Permissions</a>.</p>
+        <p class="Body">Because you are granting SQL Server privileges, applying permissions to a login also applies the same permissions in SQL Server. You can assign login permissions when you create a login, or modify permissions for existing logins. The following procedure allows you to modify permissions for existing logins.</p>
+        <p class="StepIntro">To assign SQL&#160;Compliance&#160;Manager permissions:</p>
+        <ol>
+            <li class="NumberedList">Select <span class="GUI_Item">Logins</span> in the Administration tree.</li>
+            <li class="NumberedList">Select the login you would like to assign permissions to in the list and click <span class="GUI_Item">View Login Properties</span>.</li>
+            <li class="NumberedList">On the General tab, select the appropriate permissions.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If your internal security policies require more granular access control</span>, use the Database Access tab to select the appropriate permissions on each database that contains audit data.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">OK</span>.</li>
+        </ol>
+    </body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Get Started|Installation and deployment">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Software Requirements</title>
+        <link href="Resources/TableStyles/Tip.css" rel="stylesheet" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1">Software requirements</h1>
+        <p class="Body" data-mc-conditions=""><a name="kanchor11"></a>The following sections provide the software requirements for each SQL&#160;Compliance&#160;Manager component. For more information, see <a href="Architecture and Components.htm" target="_self">Understanding SQL&#160;Compliance&#160;Manager components</a>.</p>
+        <p class="Body"><a name="kanchor12"></a>Support for MS SQL Server software includes case-sensitive servers and databases. Support for Windows operating systems includes English and international versions. <span class="If_Then_Statement">If an operating system service pack is not mentioned</span>, a service pack is not required for that version of the operating system.</p>
+        <p class="Body">All SQL CM components require .Net 2.0 or later. </p>
+        <table class="TableStyle_Tip" style="mc-table-style: url('Resources/TableStyles/Tip.css');" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">SQL Compliance Manager 4.4 does not support installations on Windows 2000 or the .Net 2.0 framework. While SQL CM 4.2 and prior versions continue to operate with Windows 2000, SQL CM 4.4 and later releases require the .Net 4.0 framework.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="TableStyle_Tip" style="mc-table-style: url('Resources/TableStyles/Tip.css');" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">Sensitive Column auditing is supported by SQLcompliance Agent 3.5 or later. To use this feature, please ensure you upgrade your agent to at least version 3.5.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">SQL Compliance Manager Windows clusters support</h2>
+        <p class="Body">You can install SQL&#160;CM on a Windows Server 2003, 2008, or 2012 cluster. For more information, review the <a href="Implementation Scenarios.htm">supported installation scenarios</a> and <a href="Audit Virtual Instance.htm">How to Audit a Virtual&#160;SQL&#160;Server Instance.</a></p>
+        <h2 class="Heading2">Audited SQL&#160;Server</h2>
+        <p class="Body"><a name="kanchor13"></a>The audited SQL Server computer should meet or exceed the software requirements recommended by Microsoft to run and manage SQL Server databases.&#160;</p>
+        <p class="Body">In a clustered environment with virtual SQL Servers, the audited SQL Server is the virtual SQL Server. However, each node (physical computer) in the cluster that hosts the virtual SQL Server must meet or exceed these requirements.</p>
+        <p class="Body">SQL&#160;Compliance&#160;Manager supports auditing the following Microsoft SQL Server versions.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');margin-left: 0;margin-right: auto;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1">
+            </col>
+            <col class="Column-Column2">
+            </col>
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">SQL&#160;Server Version</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Operating System</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">MS&#160;SQL&#160;Server 2012 SP1</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Windows Server 2008 SP2</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">MS SQL Server 2008 R2 Standard and Enterprise Editions</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Windows Server 2008 R2, Windows Server 2008</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">MS SQL Server 2008 Standard and Enterprise Editions</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Windows Server 2008, Windows Server 2003, or Windows 2000 Server SP4 or later</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">MS SQL Server 2005 Standard and Enterprise Editions</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Windows Server 2003 or Windows 2000 Server SP4 or later</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">MS SQL Server 2000 Standard Edition SP3 or later *</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Windows Server 2003</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">MS SQL Server 2000 Standard Edition SP2 or later *</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Windows 2000 Server SP4 or later</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">MS SQL Server 2000 Enterprise Edition *</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Windows 2000 Server SP4 or later</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyA-Column1-Body1" colspan="2">
+                        <p class="TableText"><em>* SQL Compliance Manager does not support Before-After data auditing on SQL&#160;Server 2000 instances. This feature is available only for instances using SQL&#160;Server 2005 and above</em>.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Collection Server</h2>
+        <p class="Body"><a name="kanchor14"></a>Ensure each Collection Server computer meets or exceeds the following software requirements. The Collection Server hosts the Collection Service and the Repository databases, which store SQL&#160;CM configuration and audit data.</p>
+        <p class="Body"><span class="If_Then_Statement">If you plan to audit instances running SQL Server 2005 or later</span>, install the Collection Server on a computer hosting the highest version of SQL&#160;Server running in your environment. For example, to accept event data from audited instances running SQL Server 2012 SP1, the Repository databases must reside on a SQL Server 2012 SP1 instance.</p>
+        <table class="TableStyle_Tip" style="mc-table-style: url('Resources/TableStyles/Tip.css');" cellspacing="0">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">The Repository must reside on a version of SQL&#160;Server that is greater than or equal to the highest audited SQL&#160;Server version.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Software Type</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Requirement</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Operating System</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">The Collection Server requires one of the following operating systems:</p>
+                        <ul style="list-style-type: circle;">
+                            <li value="1">Windows Server 2008 R2</li>
+                            <li value="2">Windows Server 2008 SP1</li>
+                            <li value="3">	Windows Server 2003 SP2</li>
+                            <li value="4">Windows 2000 SP4</li>
+                            <li value="5">	Windows XP SP3</li>
+                            <li value="6">Windows Vista SP2+</li>
+                            <li value="7">Windows 7 SP1+</li>
+                            <li value="8">Windows 8</li>
+                            <li value="9">Windows 2012</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Microsoft SQL&#160;Server</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">The Collection Server requires one of the following versions of Microsoft SQL Server:</p>
+                        <ul style="list-style-type: circle;">
+                            <li value="1">MS&#160;SQL&#160;Server 2012 SP1</li>
+                            <li value="2">MS SQL Server 2008 R2 Standard and Enterprise Editions</li>
+                            <li value="3">MS SQL Server 2008 Standard and Enterprise Editions</li>
+                            <li value="4">MS SQL Server 2005 Standard and Enterprise Editions</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Management Console</h2>
+        <p class="Body">Ensure each console computer meets or exceeds the following software requirements. You can install the console on the Collection Server computer, or any client computer for remote access to your audit data.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" style="width: 138px;" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Software Type</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Requirement</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Operating System</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">The Collection Server requires one of the following operating systems:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet" value="1">Windows Server 2008 R2	</li>
+                            <li class="Bullet" value="2">Windows Server 2008 SP1</li>
+                            <li class="Bullet" value="3">Windows Server 2003 SP2</li>
+                            <li class="Bullet" value="4">Windows 2000 SP4</li>
+                            <li class="Bullet" value="5">Windows XP SP3</li>
+                            <li class="Bullet" value="6">Windows Vista SP2+</li>
+                            <li class="Bullet" value="7">Windows 7 SP1+</li>
+                            <li class="Bullet" value="8">Windows 8</li>
+                            <li class="BulletLast" value="9">Windows 2012</li>
+                        </ul>
+                        <p class="TableText">The Management Console computer also requires Microsoft Data Access Components (MDAC) 2.6 or later. If you plan to audit SQL Server 2005 instances, upgrade to MDAC 2.8 or later. SQL Server 2005 requires MDAC 2.8 to communicate with other applications.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Documentation</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Internet Explorer 7.0 or later</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Agent</h2>
+        <p class="Body">Ensure the computer where the agent resides meets or exceeds the following software requirements.</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" style="width: 138px;" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Software Type</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Requirement</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Operating System</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">The agent requires one of the following operating systems:</p>
+                        <ul style="list-style-type: circle;">
+                            <li class="Bullet" value="1">Windows Server 2008 R2	</li>
+                            <li class="Bullet" value="2">Windows Server 2008 SP1</li>
+                            <li class="Bullet" value="3">Windows Server 2003 SP2</li>
+                            <li class="Bullet" value="4">Windows 2000 SP4</li>
+                            <li class="Bullet" value="5">Windows XP SP3</li>
+                            <li class="Bullet" value="6">Windows Vista SP2+</li>
+                            <li class="Bullet" value="7">Windows 7 SP1+</li>
+                            <li class="Bullet" value="8">Windows 8</li>
+                            <li class="BulletLast" value="9">Windows 2012</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Documentation</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Internet Explorer 7.0 or later</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="Body">&#160;</p>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">  <![CDATA[ ]]></p>
+    </body>
+</html>

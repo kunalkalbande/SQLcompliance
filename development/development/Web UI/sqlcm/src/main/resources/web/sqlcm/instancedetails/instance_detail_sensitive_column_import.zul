@@ -1,0 +1,160 @@
+<!-- Start SQLCm-5.4 
+	Requirement - 4.1.3.1. 
+-->
+
+<idera-cwf-dialog height="620px" width="880px" closable="true"
+	border="none" apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('com.idera.sqlcm.ui.instancedetails.ImportSensitiveColumnsWizard')"
+	style="border-radius: 0"
+	contentSclass="modal-dialog-window customize-dba-modal"
+	position="center,middle" id="import_CSV"
+	title="${idera: getLabel('SQLCM.labels.import-sensitive-columns-from-csv')}">
+	<vlayout>
+		<separator height="8px" />
+		<hlayout spacing="20px"
+			style="padding-left: 30px; padding-right: 30px;">
+			<label id="sensitive_text" width="150px"
+				value="${idera:getLabel('SQLCM.labels.import-sensitive-text')}" />
+		</hlayout>
+		<separator height="8px" />
+		<hlayout spacing="20px"
+			style="padding-left: 30px; padding-right: 30px;">
+			<label
+				value="Database1, Table1, Column1, Column2 (Valid Row)"
+				width="150px" />
+		</hlayout>
+		<hlayout spacing="20px"
+			style="padding-left: 30px; padding-right: 30px;">
+			<label value="Database2, Table2 (Valid Row)" width="150px" />
+		</hlayout>
+		<hlayout spacing="20px"
+			style="padding-left: 30px; padding-right: 30px;">
+			<label value="Database3 (Invalid Row)" width="150px" />
+		</hlayout>
+		<separator style="width:730px;"></separator>
+		<hlayout spacing="20px"
+			style="padding-left: 30px; padding-right: 30px;">
+			<script>
+				jq.alert = function (msg, opts) { zAu.send(new
+				zk.Event(zk.Widget.$(jq('$windowComponent')[0]),
+				'onErrorMessage', msg)); }
+			</script>
+			<label value="CSV File: " width="150px" />
+			<idera-cwf-textbox id="importedFile" width="500px" />
+			<button id="uploadButton" upload="true" focus="true"
+				sclass="idera-button-primary"
+				label="${idera:getUpperCaseLabel('SQLCM.Labels.browse')}" style="font-weight:bold;color:#473E2E !important;"
+				onUpload="@command('uploadFile', saveButton=saveButton, importedFile=importedFile)" />
+		</hlayout>
+		<hlayout spacing="20px"
+			style="padding-left: 30px; padding-right: 30px;">
+			<label id="sensitive_text1" width="150px"
+				value="${idera:getLabel('SQLCM.labels.import-sensitive-text1')}" />
+		</hlayout>
+		<separator></separator>
+		<hlayout spacing="20px"
+			style="padding-left: 30px; padding-right: 30px;">
+			<style>
+				div.z-listbox-body .z-listcell{ padding : 0px
+				!important; border: 0px solid white !important; }
+
+				tr.z-listitem-over>td.z-listcell{ border-top: 0px solid
+				white !important; border-bottom: 0px solid white
+				!important; } .idera-checkbox
+				input[type=checkbox]+label::before { margin : .0rem
+				!important; margin-bottom : .2rem !important;
+				margin-right : .1rem !important; }
+
+				img { border: 0; padding-bottom: 2px !important }
+			</style>
+			<div height = "200px" style="overflow: auto; border:1px solid #939393; background-color:white">
+			<listbox id="instanceListbox" model="@load(vm.databaseList)"
+				style="padding-top: 5px;padding-left:5px;background-color: white; background-image:none !important;border:0px !important">
+				<template name="model">
+					<listitem>
+						<listcell
+							style="background-color: white;border=0px !important;">
+							<hlayout>
+								<zk when="${each.expand== false}">
+									<a
+										image="~./sqlcm/images/expand-plus.gif"
+										onClick="@command('expandDbCheck',DbData = each)" />
+								</zk>
+								<zk when="${each.expand== true}">
+									<a
+										image="~./sqlcm/images/collapse-minus.gif"
+										onClick="@command('expandDbCheck',DbData = each)" />
+								</zk>
+								<idera-cwf-checkbox
+									label="@load(each.name)" checked="@bind(each.selected)"
+									onCheck="@command('onDbCheck',DbData = each,target = self)" />
+							</hlayout>
+							<listbox visible="@load(each.expand)"
+								model="@bind(each.tableDetails)" style="border-color:white">
+								<template name="model">
+									<listitem>
+										<listcell
+											style="padding-left:15px !important;border=0px !important;background-color: white;">
+											<hlayout>
+												<zk
+													when="${each.expand== false}">
+													<a
+														image="~./sqlcm/images/expand-plus.gif"
+														onClick="@command('expandTableCheck', tableId = each)" />
+												</zk>
+												<zk
+													when="${each.expand== true}">
+													<a
+														image="~./sqlcm/images/collapse-minus.gif"
+														onClick="@command('expandTableCheck', tableId = each)" />
+												</zk>
+												<idera-cwf-checkbox
+													label="@load(each.name)" checked="@bind(each.selected)"
+													onCheck="@command('onTableCheck',tableData = each,target = self)" />
+											</hlayout>
+											<listbox
+												visible="@load(each.expand)" style="border-color:white;"
+												model="@load(each.columList)">
+												<template
+													name="model">
+													<listitem>
+														<listcell
+															style="padding-left:30px !important;border=0px !important;background-color: white;">
+															<idera-cwf-checkbox
+																label="@load(each.name)" checked="@bind(each.selected)"
+																onCheck="@command('onColumnCheck',columnData = each,target = self)" />
+														</listcell>
+													</listitem>
+												</template>
+											</listbox>
+										</listcell>
+									</listitem>
+								</template>
+							</listbox>
+						</listcell>
+					</listitem>
+				</template>
+			</listbox>
+			</div>
+		</hlayout>
+
+		<hlayout sclass="padding-lr-24">
+			<div hflex="1" />
+			<div hflex="min">
+				<idera-cwf-button id="saveButton"
+					sclass="orange-text-light-gray-button"
+					label="${idera:getUpperCaseLabel('SQLCM.db-props.ok-button')}"
+					visible="${sqlcm:canAccess()}"
+					onClick="@command('OkayButton',comp=import_CSV)" disabled="true" />
+			</div>
+			<div hflex="min">
+				<idera-cwf-button id="cancelButton"
+					sclass="orange-text-light-gray-button"
+					label="${idera:getUpperCaseLabel('SQLCM.db-props.cancel-button')}"
+					visible="${sqlcm:canAccess()}"
+					onClick="@command('closeDialog', comp=import_CSV)" />
+			</div>
+		</hlayout>
+	</vlayout>
+
+</idera-cwf-dialog>

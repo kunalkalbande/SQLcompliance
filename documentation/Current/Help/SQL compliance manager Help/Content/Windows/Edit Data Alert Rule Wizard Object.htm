@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="7" MadCap:lastHeight="597" MadCap:lastWidth="878">
+	<head><title>Edit Data Alert Rule Wizard</title>
+		<link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+	</head>
+    <body>
+        <h1 class="Heading1">Edit Data Alert Rule Wizard</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Edit Data Alert Rule Wizard &gt; </MadCap:conditionalText>SQL&#160;Server Object Type</h2>
+        <p class="Body">This tab allows you to change the type of SQL Server object that should be monitored by this alert rule. You can generate alerts for objects on currently audited databases and SQL Server instances.</p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Select the object that triggers this alert</p>
+        <p class="DefinitionListBody">Allows you to specify the SQL Server object type that should trigger this alert. When the Collection Server processes audit data associated with the specified object type, the alert rule is run to see whether the identified data matches the other alert rule criteria.</p>
+        <p class="DefinitionListBody">By default, the alert rule will apply your alert criteria against audit data from any audited SQL Server instance. </p>
+        <p class="DefinitionListBody">You can control the level at which you want SQL compliance manager to apply this alert:
+                <ul style="list-style-type: circle;"><li class="Bullet">SQL Server instance</li><li class="Bullet">Database</li><li class="Bullet">Table</li><li class="Bullet">Column</li></ul></p>
+        <p class="DefinitionListBody">For example, you can specify the following objects:<ul style="list-style-type: circle;"><li class="Bullet">Any column in any table on any database hosted by the <code class="Code_1_1">Chicago</code> instance</li><li class="Bullet">Any column in any table on the <code class="Code_1_1">HR01</code> database hosted by the <code class="Code_1_1">Chicago</code> instance</li><li class="Bullet">Any column in the <code>Employees </code>table on the <code class="Code_1_1">HR01</code> database hosted by the <code class="Code_1_1">Chicago</code> instance</li><li class="BulletLast">The <code class="Code_1_1">SSN</code> column in the <code>Employees </code>table on the <code class="Code_1_1">HR01</code> database hosted by the <code class="Code_1_1">Chicago</code> instance</li></ul></p>
+        <p class="DefinitionListTerm">Edit rule details</p>
+        <p class="DefinitionListBody">Allows you specify which SQL&#160;Server objects the alert rule should use to identify audit data  to alert on.</p>
+        <p class="DefinitionListBody">The rule details pane also allows you to change your specified alert rule criteria at any time as you create your new alert rule. As you specify criteria using the New Data Alert Rule wizard, the rule details grows to include these additional settings. To edit previously set criteria, click the corresponding setting.</p>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SetupPrereq>
+	<conditions>
+		<condition Type="1" Comparison="2" Path="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{84C23ECA-FE4D-494F-9247-3EBAD57E7F0C}" FileName="" ReturnValue=""></condition>
+		<condition Type="2" Comparison="32" Path="HKEY_LOCAL_MACHINE\SOFTWARE\Idera\SQLCM" FileName="InstallPRQ" ReturnValue="FALSE"></condition>
+	</conditions>
+	<files>
+		<file LocalFile="&lt;ISProductFolder&gt;\SetupPrerequisites\SQL CLR Types\x86\SQLSysClrTypes.msi" CheckSum="92A5B3DD6E04D6F66BA461E28358B63F" FileSize="0,2740224"></file>
+	</files>
+	<execute file="SQLSysClrTypes.msi" cmdlinesilent="/qn " requiresmsiengine="1"></execute>
+	<properties Id="{5C278D0D-8C76-4716-A670-93EB714973BA}" Description="Microsoft System CLR Types for SQL Server 2016 (x86)"></properties>
+	<behavior Hidden="1"></behavior>
+</SetupPrereq>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="5" MadCap:lastHeight="468" MadCap:lastWidth="932">
+    <head><title>Understanding Audit Collection Levels</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Audit collection levels</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Audit collection levels</h2>
+        <p class="Body">
+            <MadCap:keyword term="collection level;audit collection level;Typical audit collection level;Custom audit collection level;auditing:collection levels;auditing:typical settings;auditing:custom settings" />When you add a database to audit, you can select the Default, Custom, or Regulation audit collection level. Use the audit collection level to control which SQL Server events you audit at the database level.</p>
+        <p class="DefinitionListTerm">Default collection level</p>
+        <p class="DefinitionListBody">Allows you to collect the SQL Server events most commonly requested by auditors. This collection level audits the following activities and SQL events:<ul style="list-style-type: circle;"><li class="Bullet">Security changes</li><li class="Bullet">Database Definition (DDL)</li><li class="Bullet">Administrative Actions</li><li class="BulletLast">Successful operations only (operations that pass the SQL access check)</li></ul></p>
+        <p class="DefinitionListTerm">Custom collection level</p>
+        <p class="DefinitionListBody">Allows you to select the specific activities and SQL events you want to audit on these databases. The Custom collection level is recommended for advanced users, or for cases in which only one type of data is required for compliance. Before using the Custom collection level, review the event data gathered by the Default collection level. </p>
+        <p class="DefinitionListTerm">Regulation</p>
+        <p class="DefinitionListBody">Configures your audit settings to collect the event data required by specific <a href="Comply with specific regulations.htm">regulatory guidelines</a>, such as PCI&#160;DSS&#160;or HIPAA. You can review a list of the collected events on the Regulation Guidelines window of the SQL Compliance Manager Configuration wizard. On the Summary window at the end of the wizard, click <b>View the Regulation Guideline Details</b> to review a summary of all the regulation guidelines applied to the selected database.</p>
+    </body>
+</html>

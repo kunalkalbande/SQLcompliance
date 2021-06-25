@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="2687" MadCap:lastWidth="945">
+    <head><title>Audit Events Tab</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Audit Events Tab</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Audit Events Tab</h2>
+        <p class="Body" MadCap:conditions="">
+            <MadCap:keyword term="Before-After data;auditing:before-after data" />This tab allows you to sort and analyze SQL events collected from the SQL Server instances and databases you are auditing. </p>
+        <h2 class="Heading2" MadCap:conditions="">Available actions</h2>
+        <p class="DefinitionListTerm">View Before-After data</p>
+        <p class="DefinitionListBody">Allows you to view before and after data for DML events, according to the affected table or column. You can also change the display from a multi-level grid to a flat grid by clicking <span class="GUI_Item">Flatten Data</span>.</p>
+        <p class="DefinitionListBody">For more information about collecting before and after data, see the <a href="Database Properties BAD.htm" target="_self">Before-After Data tab</a> on the Audited Database Properties window. </p>
+        <p class="DefinitionListTerm">Page through events</p>
+        <p class="DefinitionListBody">Allows you to page through the list of audited events. Use the previous and next arrows to navigate from page to page, up and down the list.</p>
+        <p class="DefinitionListTerm">Create customized view</p>
+        <p class="DefinitionListBody">Allows you to create a custom version of this tab. You can change the data that is displayed by selecting different columns. You also can save your customizations to view later.</p>
+        <p class="DefinitionListTerm">Filters</p>
+        <p class="DefinitionListBody">Allows you to filter the listed events by time span (for example, last seven days) or event category (for example, security).</p>
+        <p class="DefinitionListTerm">Enable Groups</p>
+        <p class="DefinitionListBody">Allows you to group events by a specific property, such as the audited SQL Servers affected by the events or the times the events occurred. Enable groups when you want to sort the events or focus on a particular event attribute.</p>
+        <p class="DefinitionListTerm">Refresh</p>
+        <p class="DefinitionListBody">Allows you to update the events list with current data.</p>
+        <p class="DefinitionListTerm">Event Properties</p>
+        <p class="DefinitionListBody">Allows you to view details about the selected event.</p>
+        <h2 class="Heading2" MadCap:conditions="">Default columns</h2>
+        <p class="DefinitionListTerm">Icon</p>
+        <p class="DefinitionListBody">Provides a visual indication of the event category associated with the event so you can quickly scan the listed events for a specific type, such as a security event.</p>
+        <p class="DefinitionListTerm">Category</p>
+        <p class="DefinitionListBody">Provides the name of the event category. The event category corresponds to the activity you are auditing. For example, if you are auditing EXECUTE events on stored procedures, the event category is DML. </p>
+        <p class="DefinitionListTerm">Event</p>
+        <p class="DefinitionListBody">Provides the type of event that occurred.</p>
+        <p class="DefinitionListTerm">Date</p>
+        <p class="DefinitionListBody">Provides the date that the event occurred.</p>
+        <p class="DefinitionListTerm">Time</p>
+        <p class="DefinitionListBody">Provides the time that the event occurred. </p>
+        <p class="DefinitionListTerm">Login</p>
+        <p class="DefinitionListBody">Provides the name of the SQL login that applied the change, using the format <span class="Code">DomainName\LogonName</span>. </p>
+        <p class="DefinitionListTerm">Database</p>
+        <p class="DefinitionListBody">Provides the name of the database on which the event occurred.</p>
+        <p class="DefinitionListTerm">Target Object</p>
+        <p class="DefinitionListBody">Provides the name of the database object targeted by the T-SQL statement associated with this event. </p>
+        <p class="DefinitionListTerm">Details</p>
+        <p class="DefinitionListBody">Provides the text description of the event.</p>
+        <h2 class="Heading2" MadCap:conditions="">Before-After audit columns</h2>
+        <p class="DefinitionListTerm">Action</p>
+        <p class="DefinitionListBody">Provides the type of DML event that caused the table column to change (UPDATE, INSERT, or DELETE). </p>
+        <p class="DefinitionListTerm">Date</p>
+        <p class="DefinitionListBody">Provides the date that the change occurred.</p>
+        <p class="DefinitionListTerm">Time</p>
+        <p class="DefinitionListBody">Provides the time that the change occurred. </p>
+        <p class="DefinitionListTerm">Columns Updated</p>
+        <p class="DefinitionListBody">Provides the number of columns that were changed by this event. </p>
+        <p class="DefinitionListTerm">Audited Updates</p>
+        <p class="DefinitionListBody">Provides the number of updated columns for which audit data was collected. To collect different data, <a href="Database Properties BAD.htm" target="_self">change your audit settings</a>.</p>
+        <p class="DefinitionListTerm">Primary Key</p>
+        <p class="DefinitionListBody">Provides the name of the column that uniquely identifies this table. For more information about primary keys, see Microsoft Books Online. </p>
+        <p class="DefinitionListTerm">Table</p>
+        <p class="DefinitionListBody">Provides the name of the table affected by this event. </p>
+        <p class="DefinitionListTerm">After Value</p>
+        <p class="DefinitionListBody">Provides the value before this column was changed.</p>
+        <p class="DefinitionListTerm">Before Value</p>
+        <p class="DefinitionListBody">Provides the value after this column was changed. </p>
+        <p class="DefinitionListTerm">Column</p>
+        <p class="DefinitionListBody">Provides the name of the column affected by the event.</p>
+        <p class="DefinitionListTerm">Login</p>
+        <p class="DefinitionListBody">Provides the name of the SQL login that applied the change, using the format <span class="Code">DomainName\LogonName</span>.</p>
+        <h2 class="Heading2" MadCap:conditions="">Sensitive Column audit columns</h2>
+        <p class="DefinitionListTerm">Action</p>
+        <p class="DefinitionListBody">Displays the SELECT&#160;event that read the table column. </p>
+        <p class="DefinitionListTerm">Application</p>
+        <p class="DefinitionListBody">Provides the name of the application that initiated this event.</p>
+        <p class="DefinitionListTerm">Database</p>
+        <p class="DefinitionListBody">Provides the name of the database on which the event occurred.</p>
+        <p class="DefinitionListTerm">Date</p>
+        <p class="DefinitionListBody">Provides the date that the change occurred.</p>
+        <p class="DefinitionListTerm">Time</p>
+        <p class="DefinitionListBody">Provides the time that the change occurred. </p>
+        <p class="DefinitionListTerm">Column</p>
+        <p class="DefinitionListBody">Provides the name of the column affected by the event.</p>
+        <p class="DefinitionListTerm">Login</p>
+        <p class="DefinitionListBody">Provides the name of the SQL login that read the column, using the format <span class="Code">DomainName\LogonName</span>. </p>
+        <p class="DefinitionListTerm">Host</p>
+        <p class="DefinitionListBody">Provides the name of the computer where the event was initiated.</p>
+        <h2 class="Heading2" MadCap:conditions="">Additional columns</h2>
+        <p class="Body">You can add any of these columns to this tab using the <span class="GUI_Item">Select Column</span> action. After you add a new column, you can save the tab as a custom view to reference later.</p>
+        <p class="DefinitionListTerm">Access Check</p>
+        <p class="DefinitionListBody">Indicates whether this event passed or failed the SQL Server access check.</p>
+        <p class="DefinitionListTerm">Application</p>
+        <p class="DefinitionListBody">Provides the name of the application that initiated this event.</p>
+        <p class="DefinitionListTerm">Database User</p>
+        <p class="DefinitionListBody">Provides the name of the database user who executed this event.</p>
+        <p class="DefinitionListTerm">Host</p>
+        <p class="DefinitionListBody">Provides the name of the computer where the event was initiated.</p>
+        <p class="DefinitionListTerm">Object</p>
+        <p class="DefinitionListBody">Provides the name of the database object affected by this event.</p>
+        <p class="DefinitionListTerm">Owner</p>
+        <p class="DefinitionListBody">Provides the name of the owner of the database affected by this event.</p>
+        <p class="DefinitionListTerm">Privileged User</p>
+        <p class="DefinitionListBody">Indicates whether the user who initiated this event was a privileged user.</p>
+        <p class="DefinitionListTerm">Role</p>
+        <p class="DefinitionListBody">Provides the type of SQL Server role assigned to the user who initiated this event.</p>
+        <p class="DefinitionListTerm">Server</p>
+        <p class="DefinitionListBody">Provides the name of the SQL Server affected by this event.</p>
+        <p class="DefinitionListTerm">Session Login</p>
+        <p class="DefinitionListBody">Provides the login credentials used to open the corresponding session with SQL Server.</p>
+        <p class="DefinitionListTerm">SPID</p>
+        <p class="DefinitionListBody">Provides the SQL Server internal process ID of the object affected by the event.</p>
+        <p class="DefinitionListTerm">Target Login</p>
+        <p class="DefinitionListBody">Provides the name of the SQL Server login targeted by the T-SQL statement associated with this event.</p>
+        <p class="DefinitionListTerm">Target User</p>
+        <p class="DefinitionListBody">Provides the name of the database user targeted by the T-SQL statement associated with this event.</p>
+    </body>
+</html>

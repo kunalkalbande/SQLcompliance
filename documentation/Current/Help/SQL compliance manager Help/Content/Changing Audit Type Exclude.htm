@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="361" MadCap:lastWidth="1185">
+    <head><title>Changing the Type of Audit Data the Filter Excludes</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Change which audit data the filter excludes</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Change which audit data the filter excludes</h2>
+        <p class="Body">
+            <MadCap:keyword term="event filters:change data excluded" />Based on the criteria defined in your Event Filters, SQL&#160;Compliance&#160;Manager excludes events from your audit data stream. You can exclude events based on the event type (category), the SQL Server instance or database object affected by the event, or the software application or SQL Server login that initiated the event. For more information, see <a href="How Event Filters Work.htm" target="_self">how event filters work</a>.</p>
+        <p class="Body">By changing the filter criteria, you can change the type of audit data that is excluded. You can also copy an existing Alert Rule and use it as a template to create a new rule. </p>
+        <p class="StepIntro">To change the type of audit data that an event filter excludes:</p>
+        <ol>
+            <li class="NumberedList">Navigate to <span class="GUI_Item">Event Filters</span> in the <span class="GUI_Item">Administration </span>tree.</li>
+            <li class="NumberedList">Select the filter you want to change, and then click <span class="GUI_Item">View Details</span> from the <span class="GUI_Item">Action</span> ribbon.</li>
+            <li class="NumberedList">Select the type of event (event category) that you want to exclude from your audit data, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Select the type of object affected by the selected event type, and then click <span class="GUI_Item">Next</span>. By default, the event filter will exclude events that occur on any registered SQL Server instance, database, or database object. Use the links provided in the filter details pane to narrow your event filter to specific objects or objects that match a naming convention.</li>
+            <li class="NumberedList">Select the software application or SQL Server login that originates the event you want to filter, and then click <span class="GUI_Item">Next</span>. </li>
+            <li class="NumberedList">Click <span class="GUI_Item">Finish</span>.</li>
+        </ol>
+    </body>
+</html>

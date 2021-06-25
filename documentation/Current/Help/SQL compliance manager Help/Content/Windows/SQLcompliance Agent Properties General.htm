@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="896" MadCap:lastWidth="917">
+    <head><title>SQLcompliance Agent Properties Window General</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">SQLcompliance Agent Properties Window</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">SQLcompliance Agent Properties Window &gt; </MadCap:conditionalText>General</h2>
+        <p class="Body">This tab allows you to monitor the health of the SQLcompliance Agent that is auditing the selected SQL Server instance. </p>
+        <p class="Body"><span class="If_Then_Statement">If you modifying properties for a SQLcompliance Agent that is auditing a virtual SQL Server</span>, SQL compliance manager applies your changes to the active node in the cluster hosting the virtual SQL Server. SQLcompliance Agent properties are later replicated from the active node to the passive nodes.</p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Update now</p>
+        <p class="DefinitionListBody">Allows you to send any audit setting changes to the SQLcompliance Agent. The SQLcompliance Agent service applies your updates immediately.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">SQLcompliance Agent Computer</p>
+        <p class="DefinitionListBody">Provides the name of the computer on which the SQLcompliance Agent is installed. This computer hosts the selected SQL Server instance and audited databases.</p>
+        <p class="DefinitionListTerm">Agent Status</p>
+        <p class="DefinitionListBody">Provides the status of the agent, such as OK or Not deployed.</p>
+        <p class="DefinitionListTerm">Agent version</p>
+        <p class="DefinitionListBody">Provides the version number for the agent. This version number should reflect the product version number.</p>
+        <p class="DefinitionListTerm">Agent port</p>
+        <p class="DefinitionListBody">Provides the port number used by the agent to communicate with the Collection Server. </p>
+        <p class="DefinitionListTerm">Last heartbeat</p>
+        <p class="DefinitionListBody">Provides the last date and time when the agent successfully communicated with the Collection Server.</p>
+        <p class="DefinitionListTerm">Heartbeat interval</p>
+        <p class="DefinitionListBody">Allows you to specify the interval (in minutes) at which the SQLcompliance Agent calls the Collection service and receives audit setting updates. By default, the heartbeat interval is 5 minutes.</p>
+        <p class="DefinitionListTerm">Logging level</p>
+        <p class="DefinitionListBody">Allows you to select the logging level at which the SQLcompliance Agent writes events to the Application log on the computer hosting the registered SQL Server instance.</p>
+        <p class="DefinitionListTerm">Last agent update</p>
+        <p class="DefinitionListBody">Provides the last date and time when the agent received audit setting updates.</p>
+        <p class="DefinitionListTerm">Audit settings status</p>
+        <p class="DefinitionListBody">Indicates whether the agent is using the most current audit settings available.</p>
+        <p class="DefinitionListTerm">Audit settings level at agent</p>
+        <p class="DefinitionListBody">Provides the version of the audit settings applied at the agent. <span class="If_Then_Statement">If the agent audit settings level does not match the current audit settings level</span>, consider performing an immediate update.</p>
+        <p class="DefinitionListTerm">Current audit settings level</p>
+        <p class="DefinitionListBody">Provides the version of the audit settings available at the Collection Server.</p>
+    </body>
+</html>

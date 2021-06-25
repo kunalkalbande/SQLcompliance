@@ -1,0 +1,20 @@
+<zk>
+    <div hflex="1" vflex="1"
+         apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addserverwizard.steps.AgentTraceDirectoryStepViewModel')">
+        <vlayout width="510px" vflex="1">
+            <radiogroup id="rgAgentTraceDir" onCheck="@command('onItemChecked')" orient="vertical" model="@load(step_vm.traceDirOptionListModelList)">
+                <template name="model">
+                    <idera-cwf-radio label="@load(each.label)" radiogroup="rgAgentTraceDir" />
+                </template>
+            </radiogroup>
+            <vlayout style="padding-left: 20px">
+                <idera-cwf-textbox id="tbTraceDir" width="335px"  value="@bind(step_vm.traceDirPath)" />
+                <label value="${idera:getLabel('SQLCM.Label.add-server-wizard.agent-trace-dir.note')}" />
+            </vlayout>
+            <vlayout style="margin-top: 150px">
+                <label value="${idera:getLabel('SQLCM.Label.add-server-wizard.agent-trace-dir.use-default-note')}" />
+            </vlayout>
+        </vlayout>
+    </div>
+</zk>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultTarget
+  Version="1"
+  Comment="SQL CM Help (Offline)"
+  Type="HtmlHelp"
+  Destinations=""
+  GlossaryTermConversion="marked"
+  DefaultUrl="/Content/Start Help.htm" 
+  ConditionTagExpression="include[Default.ScreenOnly] exclude[Default.Google or &quot;Default.Internal Use Only&quot; or Default.PrintOnly or Default.SEO] "
+  Skin="/Project/Skins/Default.flskn"
+  MasterToc="/Project/TOCs/Master.fltoc"></CatapultTarget>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Migrate the Collection Server">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Configure the SQLcompliance Agent connection</title>
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1">Configure the SQLcompliance Agent connection</h1>
+        <p class="Body">To ensure you successfully continue auditing your registered SQL Servers, configure each SQLcompliance Agent to communicate with the new Collection Server.</p>
+        <p class="Body">Apply this update by changing the Server value of the following registry key on the computer that hosts the registered SQL Server instance:</p>
+        <p class="Body"><code>HKEY_LOCAL_MACHINE\SOFTWARE\Idera\ SQLcompliance\SQLcomplianceAgent</code>
+        </p>
+        <p class="Body">You can manually apply this update at each registered SQL Server or automate this update using a script. This procedure demonstrates how to use a script, such as a Visual Basic script, to configure the SQLcompliance Agent to communicate to the new Collection Server. </p>
+        <p class="Body">Use this procedure to develop a script that suits your environment. You can run a script locally to update one agent at a time, or remotely to update all agents at the same time.</p>
+        <p class="StepIntro">To configure the SQLcompliance Agent using a script:</p>
+        <ol>
+            <li class="NumberedList" value="1">Define variables for the computers that host the SQLcompliance Agent and the new Collection Server.
+	<p class="Body">For example, if you plan to run a Visual Basic script locally on the computer that hosts the SQL Server, your script may include the following code:</p><p class="Body"><code>' Define the SQL compliance manager Agent server</code><br /><code>strComputer = "SQLServer01"</code><br /><code>strNewCollectionServer = "CollectionServer02"</code></p></li>
+            <li class="NumberedList" value="2">Declare the SQLcompliance Agent and registry objects.
+	        <p class="Body">For example, if you plan to run a Visual Basic script locally on the computer that hosts the SQL&#160;Server, your script may include the following code:</p><p class="Body"><code>' Get the SQLcompliance Agent and registry  objects</code><br /><code>Set objComplianceAgent =  GetObject("winmgmts:{impersonationLevel=impersonate}!\\" _</code><br /><code>&amp;  strComputer &amp;  "\root\cimv2:Win32_Service='SQLcomplianceAgent'")</code><br /><code>Set objReg =  GetObject("winmgmts:{impersonationLevel=impersonate}!\\" _</code><br /><code>&amp;  strComputer &amp; "\root\default:StdRegProv")</code></p></li>
+            <li class="NumberedList" value="3">Stop the SQLcompliance Agent Service.
+		<p class="Body">For example, if you plan to run a Visual Basic script locally on the computer that hosts the SQL Server, your script may include the following code:</p><p class="Body"><code>' Stop the SQLcompliance Agent</code><br /><code>Set flgStopStatus = objComplianceAgent.ExecMethod_("StopService")</code></p></li>
+            <li class="NumberedList" value="4">Change the registry key.
+        <p class="Body">For example, if you plan to run a Visual Basic script locally on  the computer that hosts the SQL Server, your script may include the following  code:</p><p class="Body"><code>' Change the location of the Collection Server in the  registry</code><br /><code>const HKEY_LOCAL_MACHINE =  &amp;H80000002</code><br /><code>strRegAgentPath =  "SOFTWARE\Idera\SQLcompliance\SQLcomplianceAgent"</code><br /><code>strServerValName  = "Server"</code><br /><code>objReg.GetStringValue HKEY_LOCAL_MACHINE,  strRegAgentPath, strServerValName,  strOldServer</code><br /><code>objReg.SetStringValue HKEY_LOCAL_MACHINE,  strRegAgentPath,strServerValName,  strNewCollectionServer</code><br /><code>WScript.Echo "Changed collection server  from " &amp; strOldServer &amp; " to " &amp; strNewCollectionServer</code></p></li>
+            <li class="NumberedList" value="5">Start the SQLcompliance Agent Service.
+		<p class="Body">For example, if you plan to run a Visual Basic script locally on the computer that hosts the SQL Server, your script may include the following code:</p><p class="Body"><code>' Restart the SQLcompliance Agent</code><br /><code>Set flgStartStatus = objComplianceAgent.ExecMethod_("StartService")</code></p></li>
+            <li class="NumberedList" value="6">Using an administrator account, run your script to update each SQLcompliance Agent deployed to your registered SQL Servers.</li>
+        </ol>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/Support/Service.aspx" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL Compliance Manager audits all activity on your server. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqlcompliancemanager/freetrialsubscriptionform" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://www.idera.com/partnerportal" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2017 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"> </p>
+    </body>
+</html>

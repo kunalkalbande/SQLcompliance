@@ -1,0 +1,2 @@
+Wix 3.7
+Files from "WIX Toolset 3.7\SDK\VS2012"

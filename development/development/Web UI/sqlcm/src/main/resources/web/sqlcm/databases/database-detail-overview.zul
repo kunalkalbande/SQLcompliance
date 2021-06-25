@@ -1,0 +1,90 @@
+<zk>
+    <div id="databaseOverview" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('databaseOverview') @init('com.idera.sqlcm.ui.databases.DatabaseOverview')">
+         <!-- SQLCM 5.4 Start -->	<timer id="timer" repeats="true" delay="@load(databaseOverview.refreshDuration)" onTimer="@command('refreshEvents')"/> <!-- SQLCM 5.4 end --> 
+        <vlayout width="355px" style = " background-color: #e1dcd1;">
+            <!-- Audited Activity -->
+            <vlayout>
+                <grid id="environmentGrid" style = " background-color: #e1dcd1; border:none;">
+                    <auxhead>
+                        <auxheader sclass="H3"  colspan="2" style= "background-color:  #e1dcd1;color: #483e2f;"
+                                   label="${idera:getUpperCaseLabel('SQLCM.Labels.audited-activity')}"/>
+                    </auxhead>
+                  <columns>
+                    </columns>
+                    <rows>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                            <label sclass="font-status"
+                                   value="${idera:getLabel('SQLCM.Label.enhanced.database.regulation.guidelines')}"/>
+                            <label sclass="font-status" 
+                                   value="@load(databaseOverview.cmAuditedActivity.regulationGuidelines)"/>
+                        </row>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                        	<label></label>
+                        	<idera-cwf-hyperlink sclass="font-status" style="text-decoration:none;"
+                                   label = "${idera:getLabel('SQLCM.Labels.apply_guidelines')}"
+                                   onClick="@command('addApplyRegulationClick')"
+                                   visible="${sqlcm:getConfigValue('databaseDetailOverview','applyGuidelines' )}"/>
+                        </row>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                            <label sclass="font-status"
+                                   value="${idera:getLabel('SQLCM.Label.enhanced.database')}"/>
+                            <label sclass="font-status"
+                                   value="@load(databaseOverview.cmAuditedActivity.enhancedDatabase)"/>
+                        </row>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                            <label sclass="font-status"
+                                   value="${idera:getLabel('SQLCM.Label.enhanced.database.before-after')}"/>
+                            <label sclass="font-status"
+                                   value="@load(databaseOverview.cmAuditedActivity.beforeAfter)"/>
+                        </row>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                            <label sclass="font-status"
+                                   value="${idera:getLabel('SQLCM.Label.enhanced.database.sensitive-columns')}"/>
+                            <label sclass="font-status"
+                                   value="@load(databaseOverview.cmAuditedActivity.sensitiveColumns)"/>
+                        </row>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                            <label sclass="font-status"
+                                   value="${idera:getLabel('SQLCM.Label.enhanced.database.trusted-users')}"/>
+                            <label sclass="font-status"
+                                   value="@load(databaseOverview.cmAuditedActivity.trustedUsers)"/>
+                        </row>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                            <label sclass="font-status"
+                                   value="${idera:getLabel('SQLCM.Label.enhanced.database.event-filters')}"/>
+                            <label sclass="font-status"
+                                   value="@load(databaseOverview.cmAuditedActivity.eventFilters)"/>
+                        </row>
+                    </rows>
+                </grid>
+            </vlayout>
+<separator sclass = "separator-linecolor"/>
+            <!-- Audited Databases -->
+           
+            <vlayout style = " background-color: #e1dcd1;">
+            <label sclass="H3" style= "background-color: #e1dcd1;font-size:16px;"
+                value="${idera:getUpperCaseLabel('SQLCM.Labels.audited-database')}"/>
+                <div style="background-color: #e1dcd1;height:344px;width:330px;overflow:auto;">
+                <grid id="auditedDatabases" model="@load(databaseOverview.databasesModel)">
+                    <columns>
+                         <column id="statusColumn" width="30px"/>
+                        <column id="databaseNameColumn"/>
+                    </columns> 
+                    <template name="model">
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                            <image src="@load(each) @converter(databaseOverview.iconURLConverter)"/>
+                            <idera-cwf-hyperlink disabled="@load(each.id eq databaseOverview.databaseId ? 'true' : 'false')"
+                              style="color:#006089;font-size:16px;"
+                               label="@load(each.name)" tooltiptext="@load(each.name)"
+                               onClick="@command('openEnhancedDatabaseView', id=each.id)"/>
+                        </row>
+                    </template>
+                </grid>
+               </div>
+            </vlayout>
+            
+        </vlayout>
+        
+    </div>
+</zk>

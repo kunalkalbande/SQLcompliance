@@ -1,0 +1,329 @@
+<zk>
+	<vlayout spacing="0" vflex="1" sclass="cwf-main-window">
+		<div vflex="1" apply="org.zkoss.bind.BindComposer"
+			viewModel="@id('vm') @init('com.idera.sqlcm.ui.instancesAlertsRule.InstancesAlertsRuleGridViewModel')">
+
+			<hlayout vflex="1">
+				<vlayout vflex="true" width="322px"
+					style="overflow: auto">
+					<idera-cwf-sidebar id="sidebar" width="322px">
+						<vlayout width="315px">
+							<include self="@define(sqlcm-maincontent)"
+								src="basepage/save-load-view.zul" />
+							<idera-cwf-groupbox id="viewsGroupBox"
+								mold="3d" width="305px" contentStyle="border: 0px;" open="false"
+								onOpen="@command('changeOpenCloseState')">
+								<caption label="Views"
+									sclass=" open-false" />
+
+								<vbox align="left">
+									<separator width="8px" />
+									<label
+										value="${idera:getLabel('SQLCM.Labels.select-column-title')}" />
+								</vbox>
+								<separator width="5px" />
+								<vbox hflex="1"
+									sclass="padding-b-12 padding-l-8">
+									<grid id="columnsVisibilityGrid"
+										width="340px" style="margin-left: -27px;"
+										sclass="idera-invisible-grid"
+										model="@load(vm.alertsRuleColumnsListModelList)">
+										<template name="model">
+											<row align="left"
+												hflex="3">
+												<idera-cwf-checkbox
+													width="340px" hflex="true" vflex="true"
+													checked="@load(each.visible)" label="@load(each.label)"
+													tooltiptext="@load(each.label)"
+													onCheck="@command('changeColumnVisibility', checked=self.checked, columnId=each.columnId)">
+												</idera-cwf-checkbox>
+											</row>
+										</template>
+									</grid>
+								</vbox>
+							</idera-cwf-groupbox>
+						</vlayout>
+						<sqlcm-filterselector id="filterSelector"
+							filters="@init(vm.filtersModel)" sclass="cwf-alert-sidebar vertical-overflow"/>
+					</idera-cwf-sidebar>
+				</vlayout>
+
+				<vlayout hflex="1" vflex="1" sclass="padding-lr-16"
+					style="overflow: auto">
+					<separator height="8px" />
+					<hlayout>
+						<label value="Alert Rules"
+							sclass="H1 padding-r-8"
+							style="font-size: 18px; text-transform: none; font-weight: 600;  font-style: normal;  font-stretch: normal;  text-align: left;  color: #483e2f;  color: var(--greyish-brown);" />
+					</hlayout>
+					<!-- <separator height="8px" /> -->
+					<style>
+						text { width: 660px; height: 144px; object-fit:
+						contain; font-family: Source Sans Pro;
+						font-size: 16px; font-weight: normal;
+						font-style: normal; font-stretch: normal;
+						line-height: 1.5; text-align: left; color:
+						#363636; }
+					</style>
+					<separator sclass="separator-bgcolor" />
+					<separator sclass="separator-linecolor" />
+					<vlayout spacing="16px"><!--TODO AS fill header-->
+						<hlayout spacing="100px" valign="top">
+							<separator width="270px"></separator>
+							<!--  <label sclass="H5 padding-b-4"
+								value="@bind(vm.instancesAlertsSummary)" /> -->
+							<div hflex="1"
+								sclass="position-relative-top-5">
+								<label id="filteredByLabel"
+									value="${idera:getLabel('SQLCM.Labels.filtered-by')}"
+									visible="false"
+									style="line-height: 20pt ; background-color:#e1dcd0   ; text-color:#363636; text-font:sans-serif ; text-size:16px" />
+								<div
+									id="currentlySelectedFiltersComponentDiv" />
+							</div>
+						</hlayout>
+					</vlayout>
+					<!-- <separator height="8px" /> -->
+
+						<include self="@define(sqlcm-maincontent)"
+							src="instanceAlertsRule/topactions.zul" />
+						<!-- SQLCM 5.4 Start -->
+						<timer id="timer" repeats="true"
+							delay="@load(vm.refreshDuration)"
+							onTimer="@command('refreshEvents')" />
+						<!-- SQLCM 5.4 end -->
+					
+					<vlayout spacing="0" vflex="true">
+						<div id="configComment">
+							<label value="${idera:getLabel('SQLCM.Label.configuration-edit-message')}" />
+						</div>
+						<div hflex="1" sclass="text-align-center"
+							visible="false">
+							<label id="errorLabel"
+								sclass="idera-bold-red"
+								value="${idera:getLabel('SQLCM.Labels.failed-to-load-data')}" />
+						</div>
+
+						<div id="containerDiv" hflex="true"
+							vflex="true">
+							<style>
+								tr.z-listfoot td.z-listfooter { padding:
+								4px 10px 0px 8px !important; height:
+								45px !important; } div.z-listbox-header,
+								div.z-listbox-header tr,
+								div.z-listbox-footer { border: 0; width:
+								100%; height: 45px; }
+								div.z-listheader-cnt{ padding-top:0px
+								!important; padding-bottom:0px
+								!important; } div.z-listcell-cnt{
+								padding-top:0px !important;
+								padding-bottom: 0px !important; }
+								div.z-listbox-body .z-listcell { height:
+								44px; } .z-paging { border-width: 0 0
+								0px !important;} .z-listheader-sort-img{
+								position: static; }
+							</style>
+							<idera-cwf-listbox id="entitiesListBox"
+								sclass="idera-grid z-listbox" model="@load(vm.entitiesModel)"
+								onSelect="@command('doCheckAll')" vflex="true" mold="paging"
+								paginal="${listBoxPageId}"
+								selectedItems="@bind(vm.selectedEntities)" hflex="1"
+								height="30px"  multiple="true">
+
+								<listhead>
+									<!-- <listheader width="40px" /> -->
+									<listheader id="iconColumn"
+										width="40px" />
+									<extlistheader
+										label="${idera:getLabel('SQLCM.Labels.rule')}"
+										tooltiptext="${idera:getLabel('SQLCM.Labels.rule')}"
+										id="alertRuleColumn" hflex="1" sort="auto(LOWER(name))" />
+									<extlistheader
+										label="${idera:getLabel('SQLCM.Labels.rule-type')}"
+										tooltiptext="${idera:getLabel('SQLCM.Labels.rule-type')}"
+										id="alertRuleTypeColumn" hflex="1"
+										sort="auto(LOWER(ruleType))" />
+									<extlistheader
+										label="${idera:getLabel('SQLCM.Labels.server')}"
+										tooltiptext="${idera:getLabel('SQLCM.Labels.server')}"
+										id="alertRuleServerColumn" hflex="1"
+										sort="auto(LOWER(targetInstances))" />
+									<extlistheader
+										label="${idera:getLabel('SQLCM.Labels.level')}"
+										tooltiptext="${idera:getLabel('SQLCM.Labels.level')}"
+										id="alertRuleLevelColumn" width="100px"
+										sort="auto(LOWER(levelUI))" />
+									<extlistheader
+										label="${idera:getLabel('SQLCM.Labels.alertsRule.email-column')}"
+										tooltiptext="${idera:getLabel('SQLCM.Labels.alertsRule.email-column')}"
+										id="alertRuleEmailColumn" width="100px"
+										sort="auto(LOWER(emailMessage))" />
+									<extlistheader
+										label="${idera:getLabel('SQLCM.alertsRule.event_log')}"
+										tooltiptext="${idera:getLabel('SQLCM.alertsRule.event_log')}"
+										id="alertRuleEventLogColumn" hflex="1"
+										sort="auto(LOWER(logMessage))" />
+									<extlistheader
+										label="${idera:getLabel('SQLCM.alertsRule.snmp_trap')}"
+										tooltiptext="${idera:getLabel('SQLCM.alertsRule.snmp_trap')}"
+										id="alertRuleSNMPTrapColumn" hflex="1"
+										sort="auto(LOWER(snmpTrap))" />
+									<listheader
+										label="${idera:getLabel('SQLCM.Labels.events.options-column')}"
+										tooltiptext="${idera:getLabel('SQLCM.Labels.events.options-column')}"
+										id="options" width="100px"
+										visible="${sqlcm:getConfigValue('instancesAlertRule','options' )}"
+										 />
+								</listhead>
+
+								<template name="model" status="s">
+									<listitem sclass="Line"
+										onClick="@command('doCheck', checked=self.selected, picked=each)">
+										<!-- <listcell></listcell> -->
+										<listcell
+											style="text-align: center">
+											<zk
+												when="${each.ruleValidation > 0}">
+												<image
+													src="~./sqlcm/images/AlertRuleIgnored_16.png" width="20px"
+													height="20px" align="left" />
+											</zk>
+											<zk
+												when="${each.ruleValidation == 0}">
+												<image
+													src="@load(each) @converter(vm.enableIconURLConverter)"
+													width="20px" height="20px" align="left" />
+											</zk>
+										</listcell>
+										<listcell>
+											<zk
+												when="${each.ruleValidation > 0}">
+												<label
+													value="${each.names} (Invalid Rule)"
+													tooltiptext="${each.names} (Invalid Rule)"
+													style="text-transform:none;">
+												</label>
+											</zk>
+											<zk
+												when="${each.ruleValidation == 0}">
+												<label
+													value="${each.names}" tooltiptext="${each.names}"
+													style="text-transform:none;">
+												</label>
+											</zk>
+										</listcell>
+										<listcell
+											label="@load(each.ruleType)"
+											tooltiptext="@load(each.ruleType)" />
+										<listcell>
+											<idera-cwf-hyperlink
+												style="font-size: 1rem" label="@load(each.targetInstances)"
+												tooltiptext="@load(each.targetInstances)"
+												onClick="@command('openInstance', instanceId=each.instanceId)" />
+										</listcell>
+										<listcell
+											label="@load(each.levelUI)"
+											tooltiptext="@load(each.levelUI)" />
+										<listcell
+											label="@load(each) @converter(vm.messageURLConverter)"
+											tooltiptext="@load(each) @converter(vm.messageURLConverter)" />
+										<listcell
+											label="@load(each) @converter(vm.logMessageURLConverter)"
+											tooltiptext="@load(each) @converter(vm.logMessageURLConverter)" />
+										<listcell
+											label="@load(each) @converter(vm.snmpTrapURLConverter)"
+											tooltiptext="@load(each) @converter(vm.snmpTrapURLConverter)" />
+										<listcell
+											sclass="text-align-center" visible="${sqlcm:getConfigValue('instancesAlertRule','options' )}">
+											<div
+												style="white-space:nowrap">
+												<a
+													id="makeAlertActionLink${each.ruleId}"
+													style="margin-left:17px;" sclass="link action-link"
+													popup="eventActionsMenuPopup${each.ruleId}, position=after_end">
+													<image style="width: 16px; height: 16px;"
+														src="${sqlcm:getImageURLWithoutSize('gray-gear-16x16')}"
+														align="center" />
+												</a>
+												<menupopup
+													id="eventActionsMenuPopup${each.ruleId}">
+													<zk
+														when="${each.ruleValidation > 0 and each.alertType == 1}">
+														<menuitem
+															label="${idera:getLabel('SQLCM.Labels.alertRules.enable')}"
+															onClick="@command('enableAlertRules', ruleId=each.ruleId, enable=true)"
+															disabled="true" visible="${sqlcm:canAccess()}" />
+														<menuitem
+															label="${idera:getLabel('SQLCM.Labels.alertRules.disable')}"
+															onClick="@command('enableAlertRules', ruleId=each.ruleId, enable=false)"
+															disabled="true" visible="${sqlcm:canAccess()}" />
+													</zk>
+													<zk
+														when="${each.ruleValidation == 0 or each.alertType == 2 or each.alertType == 3}">
+														<menuitem
+															label="${idera:getLabel('SQLCM.Labels.alertRules.enable')}"
+															onClick="@command('enableAlertRules', ruleId=each.ruleId, enable=true)"
+															disabled="@load(each.enabled)"
+															visible="${sqlcm:canAccess()}" />
+														<menuitem
+															label="${idera:getLabel('SQLCM.Labels.alertRules.disable')}"
+															onClick="@command('enableAlertRules', ruleId=each.ruleId, enable=false)"
+															disabled="@load(!each.enabled)"
+															visible="${sqlcm:canAccess()}" />
+													</zk>
+													<menuitem
+														label="${idera:getLabel('SQLCM.Labels.alertRules.delete')}"
+														onClick="@command('deleteAlertRules', ruleId=each.ruleId)"
+														visible="${sqlcm:canAccess()}" />
+													<menuitem
+														label="${idera:getLabel('SQLCM.Labels.export')}"
+														onClick="@command('exportAlertEvents', ruleId=each.ruleId)" />
+													<menuitem
+														label="${idera:getLabel('SQLCM.Labels.refresh')}"
+														onClick="@command('refreshEvents')" />
+													<menuitem
+														label="${idera:getLabel('SQLCM.Labels.alertRule.edit')}"
+														onClick="@command('editAlertRules', ruleId=each.ruleId)" />
+													<menuitem
+														label="${idera:getLabel('SQLCM.Labels.copy')}"
+														onClick="@command('fromExistingAlertRules', ruleId=each.ruleId)" />
+												</menupopup>
+											</div>
+										</listcell>
+									</listitem>
+								</template>
+
+								<listfoot visible="@{pagingMold}"
+									vflex="min">
+									<listfooter span="99" align="middle"
+										sclass="idera-grid-footer">
+										<hbox align="center">
+											<label
+												value="@load(vm.totalSize)" style="float:left" />
+											<label value="Total items"
+												style="float:left" />
+											<spinner id="listBoxRowsBox"
+												style="text-align: center"
+												width="50px" placeholder="#" maxlength="3"
+												onChange="@command('setGridRowsCount')"
+												onOK="@command('setGridRowsCount')"
+												constraint="no empty,no negative, no zero: ${idera:getLabel('Labels.sql-cm-listbox.page-size-error')}" />
+
+											<label
+												value="${idera:getLabel('Labels.sql-cm-listbox.pagination-items-per-page')}" />
+											<separator width="400px"></separator>
+											<label
+												value="${idera:getLabel('Labels.sql-cm-listbox.showing-page')}" />
+											<paging id="listBoxPageId" />
+										</hbox>
+									</listfooter>
+								</listfoot>
+							</idera-cwf-listbox>
+						</div>
+					</vlayout>
+				</vlayout>
+			</hlayout>
+		</div>
+	</vlayout>
+
+</zk>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="7" MadCap:lastHeight="463" MadCap:lastWidth="878">
+    <head><title>Registered SQL Server Properties Window Advanced</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Registered SQL Server Properties Window</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Registered SQL Server Properties Window &gt; </MadCap:conditionalText>Advanced</h2>
+        <p class="Body">This tab allows you to configure the following settings:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Control the default permission settings on the databases that contain audit data for this SQL Server instance.</li>
+            <li class="BulletLast">Indicate whether collected SQL statements should be truncated if they pass the specified character limit. This option is only available if you are auditing SQL statements executed at the server level on this instance. </li>
+        </ul>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">Default Database Permissions</p>
+        <p class="DefinitionListBody">Allows you to set the default permissions on the databases that contain audit data for this instance. Keep in mind that login permissions specified at the database are applied along with the default permissions you set here. You can select one of the following default permissions:<ul style="list-style-type: circle;"><li class="Bullet-Def-Body">Grant permission to view events and associated SQL statements</li><li class="Bullet-Def-Body">Grant permission to view events only</li><li class="Bullet-Def-Body-Last">Deny permission to view events or SQL statements</li></ul></p>
+        <p class="DefinitionListTerm">SQL Statement Limit</p>
+        <p class="DefinitionListBody">Allows you to specify whether you want to truncate collected SQL statements associated with audited events. You can set the character limit for collected SQL statements. By default, this limit is 512 characters. The Collection Server truncates SQL statements that are longer than the specified character limit.</p>
+    </body>
+</html>

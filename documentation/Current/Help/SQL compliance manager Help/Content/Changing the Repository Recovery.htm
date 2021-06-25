@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="365" MadCap:lastWidth="1185">
+    <head><title>Changing the Repository Recovery Model</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Change the Repository recovery model</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Change the Repository recovery model</h2>
+        <p class="Body">
+            <MadCap:keyword term="Repository:recovery model">
+            </MadCap:keyword>You can select which database recovery model you want the Collection Server to configure when creating databases to store audit data in the Repository. Typically, the recovery model is set on the model system database on the host SQL Server instance.</p>
+        <p class="Body">Changes made to the recovery model used by the Repository databases should reflect your disaster recovery strategies. You may need to change the Repository recovery model to address the following situations:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">You are moving SQL&#160;Compliance&#160;Manager into a production environment and now need to implement a full recovery model</li>
+            <li class="BulletLast">You no longer need to back up transaction logs for the Repository databases and can use a simple recovery model</li>
+        </ul>
+        <p class="Body">Configure the model system database before installing the Repository. For more information, see <a href="Implementation Considerations.htm" target="_self">Implementation considerations</a>. By default, the setup program installs the Repository on the Collection Server computer.</p>
+        <p class="StepIntro">To change the Repository recovery model:</p>
+        <ol>
+            <li class="NumberedList">Click <span class="GUI_Item">Auditing</span> on the menu bar, and then select <span class="GUI_Item">Configure Repository Databases</span>.</li>
+            <li class="NumberedList">Specify the appropriate recovery model, and then click <span class="GUI_Item">OK</span>. For more information, see Microsoft SQL Server Books Online.</li>
+        </ol>
+    </body>
+</html>

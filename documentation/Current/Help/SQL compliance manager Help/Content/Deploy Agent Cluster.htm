@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="373" MadCap:lastWidth="945">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Deploy SQLcompliance Agent to cluster nodes</h1>
+        <p class="Body">Deploying the SQLcompliance Agent allows you to audit SQL traces written by the virtual SQL Server instance. Complete the following procedure on each cluster node that hosts a virtual SQL Server instance, including the currently active node as well as any passive nodes in the same cluster. </p>
+        <p class="Body">This task installs the SQLcompliance Agent and the Cluster Configuration Console. </p>
+        <p class="StepIntro">To deploy the SQLcompliance Agent:</p>
+        <ol>
+            <li class="NumberedList">Log on to the cluster node using an administrator account. Remember that you must repeat these steps on each cluster node that hosts a virtual SQL&#160;Server instance.</li>
+            <li class="NumberedList">Run <code>Setup.exe</code> in the root of the installation kit.</li>
+            <li class="NumberedList">Under the Install heading, click <span class="GUI_Item">Cluster Configuration Console</span>.</li>
+            <li class="NumberedList">Read the Welcome window, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Review and accept the license agreement by clicking <span class="GUI_Item">I accept the terms in the license agreement</span>, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Accept the default installation folder, or click <span class="GUI_Item">Change </span>to specify a different folder.</li>
+            <li class="NumberedList">Select whether you want the Cluster Configuration Console to be available to all users who log on to this computer, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Install</span>.</li>
+            <li class="NumberedList">The Cluster Configuration Console starts. Use this console to <a href="Add SQLcompliance Agent Service.htm" target="_self">add the SQLcompliance Agent Service</a> to the cluster node.</li>
+        </ol>
+    </body>
+</html>

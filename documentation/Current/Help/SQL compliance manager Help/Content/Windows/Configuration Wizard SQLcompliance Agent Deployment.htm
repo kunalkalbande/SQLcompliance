@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="593" MadCap:lastWidth="945">
+    <head><title>SQL CM Configuration Wizard SQLcompliance Agent Deployment</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Configuration Wizard</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Configuration Wizard &gt; </MadCap:conditionalText>SQLcompliance Agent Deployment</h2>
+        <p class="Body">This window allows you to choose when and how you want to deploy the SQLcompliance Agent to the target SQL Server instance. You can deploy the SQLcompliance Agent now or later using the SQL&#160;Compliance Manager Management Console, or manually using the setup program.</p>
+        <p class="Body"><span class="If_Then_Statement">If you are auditing a virtual SQL Server</span>, you must manually deploy the SQLcompliance Agent to each cluster node hosting the server. Use the Cluster Configuration Console to deploy and configure the SQLcompliance Agent. For more information about installing and configuring the SQLcompliance Agent for a virtual SQL Server, see <a href="../Audit Virtual Instance.htm" target="_self">How to audit a virtual&#160;SQL&#160;Server instance</a>.</p>
+        <p class="Body"><span class="If_Then_Statement">If you are auditing a SQL Server instance hosted by a computer that belongs to a non-trusted domain or a workgroup</span>, you must manually deploy the SQLcompliance Agent to the host computer using the SQL compliance manager setup program.</p>
+        <p class="Body">Choose the deployment option that is appropriate for your environment, and then click <span class="GUI_Item">Next</span>.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">Deploy Now</p>
+        <p class="DefinitionListBody">Installs the SQLcompliance Agent when you complete the wizard. You must have a connection between the SQL&#160;Server that you want to audit and the Management Console.</p>
+        <p class="DefinitionListTerm">Deploy Later</p>
+        <p class="DefinitionListBody">Does not install the SQLcompliance Agent. Select this option when you plan to install the SQLcompliance Agent later using the Management Console, such as installing during off-hours.</p>
+        <p class="DefinitionListTerm">Manually Deploy</p>
+        <p class="DefinitionListBody">Does not install the SQLcompliance Agent. Select this option when you want to manually install the agent directly on the physical computer hosting the SQL&#160;Server instance. Note that this option is required for virtual SQL&#160;Server instances and instances located across a domain trust boundary.</p>
+        <p class="DefinitionListTerm">Already Deployed</p>
+        <p class="DefinitionListBody"><em>Display only</em>. Informs you that the SQLcompliance Agent is already deployed on the computer hosting this SQL&#160;Server instance.</p>
+    </body>
+</html>

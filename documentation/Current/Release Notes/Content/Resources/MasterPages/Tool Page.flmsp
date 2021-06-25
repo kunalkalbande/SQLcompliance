@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="../TableStyles/banner.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <table style="width: 100%;mc-table-style: url('../TableStyles/banner.css');border-left-style: none;border-left-width: 0px;border-left-color: #000000;border-right-style: none;border-right-width: 0px;border-right-color: #000000;border-top-style: solid;border-top-width: 1pt;border-top-color: #dcdcdc;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #dcdcdc;" class="TableStyle_banner" cellspacing="0">
+            <col style="width: 100%;" />
+            <thead>
+                <tr>
+                    <th class="TableStyle_banner_Head_0_0_ColEnd"><span style="color: #ff0000;">Tool Logo Goes Here</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="TableStyle_banner_Body_0_0_RowEnd_ColEnd" style="padding: 0px;">
+                        <table style="width: 100%;caption-side: top;mc-table-style: url('../TableStyles/banner.css');border-left-style: none;border-left-width: 0px;border-left-color: #000000;border-right-style: none;border-right-width: 0px;border-right-color: #000000;border-top-style: solid;border-top-width: 1pt;border-top-color: #808080;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #808080;" class="TableStyle_banner" cellspacing="0">
+                            <col />
+                            <col />
+                            <col />
+                            <tbody>
+                                <tr>
+                                    <td class="TableStyle_banner_Body_0_0_RowEnd_ColSep" style="color: #ffffff;font-weight: bold;">Configure</td>
+                                    <td class="TableStyle_banner_Body_0_0_RowEnd_ColSep" style="color: #ffffff;font-weight: bold;">FAQ</td>
+                                    <td class="TableStyle_banner_Body_0_0_RowEnd_ColEnd" style="color: #ffffff;font-weight: bold;">Customer Support</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <MadCap:bodyProxy />
+        <p>&#160;</p>
+    </body>
+</html>

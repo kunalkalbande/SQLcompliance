@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="8" MadCap:lastHeight="796" MadCap:lastWidth="1133">
+    <head><title>Alerting on Audit Data</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Alert on Audit Data and Status</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Alert on Audit Data and Status</h2>
+        <p class="Body">
+            <MadCap:keyword term="alerts:how to set up;auditing:alert on audit data;auditing:alert on status" />
+            <MadCap:keyword term="alerting:event checklist;alerting:preparation for;alerting:status checklist" />You can receive alerts when SQL Compliance Manager detects a specific event or operational status Alerting on event data collected from your audited SQL Server instances and databases provides the information you need to immediately correct issues that threaten your compliance with federal and corporate security and privacy policies. Alerting on operational status allows you proactively identify performance issues before your SQL Compliance Manager deployment is impacted.</p>
+        <p class="Body">You can also generate reports on alert activity, allowing you to provide forensic information and demonstrate policy enforcement. For more information, see <a href="Reporting on Audit Data.htm" target="_self">Report on audit data</a>.</p>
+        <h2 class="Heading2">Event alerting checklist</h2>
+        <p class="Body">Use the following checklist to help you prepare your environment to successfully use Event Alerts to analyze audit data collected from your SQL Server instances and databases.&#160;</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <img src="Resources/Images/ChklistBoxChecked.png" />
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Follow these steps ...</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td style="text-align: center;" class="BodyE-Column1-Body1">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Ensure your Windows logon account has sysadmin privileges on the SQL Server instances hosting the Collection Server.  For more information, see <a href="Hardware Requirements.htm">Hardware Requirements</a>.<a href="Hardware Requirements.htm"></a></p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Review how the alert process works and which SQL events you can detect using alerts. For more information, see <a href="How Alerting Works.htm">How Event Alerts Work</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Identify the types of audit data you want to be alerted on. Determine which events should generate alerts and the conditions under which the alert should be generated. Also consider whether you want an alert message written to the event log or emailed to a specific account.  For more information, see <a href="Using Alerts to Analyze Audit Data.htm">Use Alerts to Analyze Audit Data</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">For each type of audit data you want to alert on, create an alert rule using the criteria you identified.  For more information, see <a href="Creating an Alert Rule.htm">Create an Event Alert Rule</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><span class="If_Then_Statement">If you want to receive alert notifications through your email account</span>, test your email configuration settings to ensure SQL Compliance Manager can access your SMTP server. 
+For more information, see
+<a href="Receiving Alerts through Email.htm">Receive Alerts through Email</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Review how you can implement Reports in your SQL Server environment.  For more information, see
+<a href="Reporting on Audit Data.htm">Report on Audit Data</a>.
+</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Status alerting checklist</h2>
+        <p class="Body">Use the following checklist to help you prepare your environment to successfully use Status Alerts to identify performance or operational issues in your SQL&#160;Compliance Manager deployment.&#160;</p>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <img src="Resources/Images/ChklistBoxChecked.png" />
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Follow these steps ...</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td style="text-align: center;" class="BodyE-Column1-Body1">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Ensure your Windows logon account has sysadmin privileges on the SQL Server instances hosting the Collection Server.  For more information, see <a href="Hardware Requirements.htm">Hardware Requirements</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Review how the Status Alert process works and which performance and operation metrics you can detect using alerts. For more information, see <a href="How Status Alerts Work.htm">How Status Alerts Works</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Identify the <a href="Architecture and Components.htm">product components</a> whose status you want to audit.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">For each type of status you want to alert on, create an alert rule using the criteria you identified.  For more information, see <a href="Create Status Alert.htm">Create a Status Alert Rule</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><span class="If_Then_Statement">If you want to receive alert notifications through your email account</span>, test your email configuration settings to ensure SQL Compliance Manager can access your SMTP server. 
+For more information, see
+<a href="Receiving Alerts through Email.htm">Receive Alerts through Email</a>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1" style="text-align: center;">
+                        <img src="Resources/Images/ChklistBoxClear.png" />
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Review how you can implement Reports in your SQL Server environment.  For more information, see
+<a href="Reporting on Audit Data.htm">Report on Audit Data</a>.
+</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="Body">&#160;</p>
+    </body>
+</html>

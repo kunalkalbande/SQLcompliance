@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="7" MadCap:lastHeight="683" MadCap:lastWidth="906">
+    <head><title>SQLcompliance Agent Properties Window Trace Options</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">SQLcompliance Agent Properties Window</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">SQLcompliance Agent Properties Window &gt; </MadCap:conditionalText>Trace Options</h2>
+        <p class="Body">This tab allows you to configure how the SQLcompliance Agent manages the trace files that contain collected events for auditing. </p>
+        <p class="Body"><span class="If_Then_Statement">If you are modifying properties for a SQLcompliance Agent that is auditing a virtual SQL Server</span>, SQL Compliance Manager applies your changes to the active node in the cluster hosting the virtual SQL Server. SQLcompliance Agent properties are later replicated from the active node to the passive nodes.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">SQLcompliance Agent Trace Directory</p>
+        <p class="DefinitionListBody">Provides the directory path under which the SQLcompliance Agent stores trace files.</p>
+        <p class="DefinitionListTerm">Trace Collection Options</p>
+        <p class="DefinitionListBody">Allows you to specify the following settings: <ul style="list-style-type: circle;"><li class="Bullet-Def-Body">The rollover size (MB) at which the SQLcompliance Agent should send the current trace file to the Collection Server, and create a new trace file to continue collecting events</li><li class="Bullet-Def-Body">Time interval (minutes) at which the SQLcompliance Agent should send full trace files to the Collection Server</li><li class="Bullet-Def-Body-Last">Maximum time (minutes) that should elapse before the SQLcompliance Agent sends existing trace files to the Collection Server (if no trace files have been received during the normal collection interval)</li><li class="Bullet-Def-Body-Last">Maximum time (seconds) that should elapse before the SQLcompliance Agent's attempt to stop or start a trace file times out and returns a failure. By default, the timeout value is 30 seconds.  Ensure this setting does not exceed the specified collection interval.</li></ul></p>
+        <p class="DefinitionListTerm">Trace Tamper Detection Options</p>
+        <p class="DefinitionListBody">Allows you to specify the amount of time (seconds) that should pass before the SQLcompliance Agent automatically restarts the SQL trace. The SQLcompliance Agent detects whether the trace has been stopped, modified, paused, or deleted by another application. After the specified tamper detection interval, the SQLcompliance Agent restarts the trace and records the trace status to the application event log.</p>
+        <p class="DefinitionListTerm">Trace Directory Size Limit</p>
+        <p class="DefinitionListBody">Allows you to specify the maximum size threshold (GB) for the directory where you are storing the trace files. The directory size is checked at each heartbeat. To effectively manage the directory size, ensure you allow ample room to accommodate your auditing needs and set the SQLcompliance Agent heartbeat interval at a low frequency.</p>
+        <p class="DefinitionListTerm">Unattended Auditing Time Limit</p>
+        <p class="DefinitionListBody">Allows you to specify the maximum time threshold (days) for allowing the SQLcompliance Agent to run without receiving a heartbeat.</p>
+    </body>
+</html>

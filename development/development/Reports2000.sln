@@ -1,0 +1,36 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Reports2000", "Idera\SQLcompliance\Report\Reports\Supported\Reports2000.rptproj", "{98D1D139-ABAB-49F8-A412-F14FDBE2FCDB}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccLocalPath0 = .
+		CanCheckoutShared = true
+		SolutionUniqueID = {DD7F7598-0B36-4C2D-860F-DBDD345472CC}
+		SccProjectUniqueName1 = Idera\\SQLcompliance\\Report\\Reports\\Supported\\Reports2000.rptproj
+		SccLocalPath1 = .
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection1 = Idera\\SQLcompliance\\Report\\Reports\\Supported\\
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		DebugLocal = DebugLocal
+		Production = Production
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{98D1D139-ABAB-49F8-A412-F14FDBE2FCDB}.Debug.ActiveCfg = Debug
+		{98D1D139-ABAB-49F8-A412-F14FDBE2FCDB}.Debug.Build.0 = Debug
+		{98D1D139-ABAB-49F8-A412-F14FDBE2FCDB}.Debug.Deploy.0 = Debug
+		{98D1D139-ABAB-49F8-A412-F14FDBE2FCDB}.DebugLocal.ActiveCfg = DebugLocal
+		{98D1D139-ABAB-49F8-A412-F14FDBE2FCDB}.DebugLocal.Build.0 = DebugLocal
+		{98D1D139-ABAB-49F8-A412-F14FDBE2FCDB}.Production.ActiveCfg = Production
+		{98D1D139-ABAB-49F8-A412-F14FDBE2FCDB}.Production.Build.0 = Production
+		{98D1D139-ABAB-49F8-A412-F14FDBE2FCDB}.Production.Deploy.0 = Production
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

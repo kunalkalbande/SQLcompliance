@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="8" MadCap:lastHeight="1521" MadCap:lastWidth="893">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Known issues</h1>
+        <p class="Body">
+            <MadCap:keyword term="known issues;Release Notes:known issues;issues in this release" />Idera strives to ensure our products provide quality solutions for your SQL Server needs. The following known issues are described in this section.<span class="If_Then_Statement"> If you need further assistance with any issue</span>, please contact Support (<a href="http://www.idera.com/support" target="_blank">www.idera.com/support</a>).</p>
+        <h2 class="Heading2">Installation and configuration issues</h2>
+        <p class="DefinitionListTerm">Phase out SQL CM Windows 2000 and .Net 2.0 support</p>
+        <p class="DefinitionListBody">SQL Compliance Manager is moving to no longer allow installations on Windows 2000 or the .Net 2.0 framework. While SQL CM 4.2 and prior versions continue to operate with Windows 2000, future releases will require the .Net 4.0 framework. For more information, see the <a href="http://www.idera.com/Help/SQLcm/4-4/Web/Default_CSH.htm#/Software Requirements.htm|WebHelpSkinSilver" target="_blank">software requirements</a>.</p>
+        <p class="DefinitionListTerm">Case-sensitivity required when specifying the Repository database name</p>
+        <p class="DefinitionListBody">When specifying the location and name of your Repository database, SQL Compliance Manager requires that you use proper capitalization.</p>
+        <p class="DefinitionListTerm">Upgrading from 2.1 to 3.3 or later results in SQL&#160;Server trace error</p>
+        <p class="DefinitionListBody">When you upgrade from SQL Compliance Manager version 2.1 to version 3.3 or later, you may receive warnings indicating that the trace has been altered unexpectedly. This issue is most likely to happen when: 
+</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Collection Server resides on a SQL Server 2005 instance</li>
+            <li class="BulletLast">SQL CM is configured for self-monitoring
+</li>
+        </ul>
+        <p class="DefinitionListBody">These warnings are incorrect and do not indicate a problem with your upgrade.</p>
+        <p class="DefinitionListTerm">SQL Compliance Manager Repository no longer supported on SQL Server 2000</p>
+        <p class="DefinitionListBody">In version 4.0 and later, SQL Compliance Manager no longer supports installing the Repository databases on an instance running SQL Server 2000.</p>
+        <p class="DefinitionListTerm">SQL Compliance Manager no longer supports Itanium operating systems</p>
+        <p class="DefinitionListBody">Idera is phasing out all Itanium support in SQL Compliance Manager 3.5 and all subsequent 3.x versions. While 3.x will continue to operate with Itanium, support has been discontinued as of November 2012. SQL CM 4.0 and later does not support the Itanium processor architecture. For more information, see the <a href="http://www.idera.com/Help/SQLcm/4-4/Web/Default_CSH.htm#/Software Requirements.htm|WebHelpSkinSilver" target="_blank">software requirements</a>.</p>
+        <h2 class="Heading2">Known issues in version 4.3</h2>
+        <p class="Body">There are no new known issues in version 4.3.</p>
+        <h2 class="Heading2">Previous known issues</h2>
+        <p class="DefinitionListTerm">Grooming alerts may result in an error when running the SQL CM Console on Windows 2012</p>
+        <p class="DefinitionListBody">
+            <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">PR3011679</MadCap:conditionalText>Users running the SQL Compliance Manager Console on Windows 2012 may receive an exception error when attempting to groom alerts. As a workaround, archive your alerts instead of using the Grooming feature.</p>
+        <p class="DefinitionListTerm">Invalid events may appear for the custom Server role on a SQL&#160;Server 2012 instance</p>
+        <p class="DefinitionListBody">
+            <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">PR3011671</MadCap:conditionalText>Users who create a custom Server role and give it permissions on a SQL&#160;Server 2012 instance may see events appearing as Invalid.</p>
+        <p class="DefinitionListTerm">Issues can occur when a table name contains a period (.)</p>
+        <p class="DefinitionListBody">
+            <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">PR3011153, 3011260, 3011417</MadCap:conditionalText>The following issues can occur if you have tables containing a period (.) in the name:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Columns may not appear in the Before-After Data selection.</li>
+            <li class="Bullet">Importing audit configuration containing Before-After Data settings may fail.</li>
+            <li class="BulletLast">Users cannot select Before-After Data and Sensitive Columns for audit.</li>
+        </ul>
+        <p class="DefinitionListTerm">Auditing sensitive columns does not capture events executed by encrypted stored procedures or linked servers</p>
+        <p class="DefinitionListBody">The Collection Server is unable to process SELECT events that have been executed by encrypted stored procedures or queries from linked servers. This issue is most likely to affect the audit data trail for specific, sensitive columns.</p>
+        <p class="DefinitionListTerm">Column-level auditing is limited to tables</p>
+        <p class="DefinitionListBody">Auditing of SELECT events at the column level is limited to columns located in tables. For example, you cannot audit specific columns located in views.  However, to audit SELECT commands performed on views, you can enable SELECT auditing at the database level and choose to capture the corresponding T-SQL statements.</p>
+        <p class="DefinitionListTerm">Auditing of before-after data is not supported on databases that use SQL Server replication</p>
+        <p class="DefinitionListBody">You cannot audit before-after data, and their corresponding transactions, on databases that have SQL Server replication enabled. SQL Server replication is available for instances running SQL Server 2005 or later. </p>
+        <p class="DefinitionListTerm">Events statistics may not display in charts</p>
+        <p class="DefinitionListBody">SQL Compliance Manager now displays event statistics on the new Enterprise, SQL Server Instance, and Database Summary tabs. Because this information was not collected in previous versions, the new graphs does not display event statistics for audit data collected by SQL CM 2.1 or earlier.</p>
+        <p class="DefinitionListTerm">Filters do not support audit data collected by version 2.1 or earlier</p>
+        <p class="DefinitionListBody">SQL Compliance Manager includes many new filters in the enhanced Management Console views. These filters will not sort or filter events collected with SQL CM version 2.1 or earlier.</p>
+        <p class="DefinitionListTerm">Encrypted trace files not supported</p>
+        <p class="DefinitionListBody">SQL Compliance Manager does not support collecting and processing events from encrypted SQL Server trace files. This issue is most likely to occur in environments that use third-party encryption software. For example, some applications can be configured to automatically encrypt all new files created on a specific computer. If you are running encryption software in your SQL Server environment, verify the encryption settings to ensure the application does not encrypt trace files on the audited SQL Server instances.</p>
+        <p class="DefinitionListTerm">Alerts include raw variable data if undefined</p>
+        <p class="DefinitionListBody">SQL Compliance Manager now includes alert messages for all alerts. If you have not defined an alert message and an alert is generated, the alert message will display raw variable information without any corresponding values. Configuring your alert messages and defining the variables to include will allow you to customize what you see in alert messages. For more information on alerts, see the online Help.</p>
+        <p class="DefinitionListTerm">Adding BLOB data type to table definition prevents updates</p>
+        <p class="DefinitionListBody">When you change the definition of a table you are auditing to include BLOB data types, the Before-After data trigger prevents the table from being modified by UPDATE, DELETE, and INSERT operations, such as through stored procedures or third party applications. This issue is most likely to occur when you are auditing all the columns in the target table.</p>
+        <p class="DefinitionListBody">This issue occurs because Before-After auditing does not support BLOB data types (such as text, image data, or XML code). To correct this issue, change the data definition of the table.</p>
+    </body>
+</html>

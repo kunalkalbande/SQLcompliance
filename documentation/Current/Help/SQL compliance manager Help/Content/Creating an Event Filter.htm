@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="358" MadCap:lastWidth="945">
+    <head><title>Creating an Event Filter</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Create an Event Filter</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Create an Event Filter</h2>
+        <p class="Body">An Event Filter allows you to exclude specific events from your audit data. This approach helps you collect only the audit data you need. Event Filters can also help performance by reducing the size of the Repository databases and the processing load on the Collection Server.</p>
+        <p class="StepIntro">To create an Event Filter:</p>
+        <ol>
+            <li class="NumberedList">Navigate to <span class="GUI_Item">Event Filters</span> in the <span class="GUI_Item">Administration </span>tree.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">New Event Filter</span> on the <span class="GUI_Item">Actions</span> ribbon.</li>
+            <li class="NumberedList">Select the type of event (event category) that you want to exclude from your audit data, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Select the type of object affected by the selected event type, and then click <span class="GUI_Item">Next</span>. By default, the event filter will exclude events that occur on any registered SQL Server instance, database, or database object. Use the links provided in the filter details pane to narrow your event filter to specific objects or objects that match a naming convention.</li>
+            <li class="NumberedList">Select the software application or SQL Server login that originates the event you want to filter, and then click <span class="GUI_Item">Next</span>. </li>
+            <li class="NumberedList">Specify a name and description for this filter, review the summary, and then click <span class="GUI_Item">Finish</span>. By default, the new event filter is enabled.</li>
+        </ol>
+    </body>
+</html>

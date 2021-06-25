@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="4" MadCap:lastHeight="746" MadCap:lastWidth="945">
+    <head><title>SQL CM Configuration Wizard Privileged Users Audited Activity</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.ScreenOnly">Configuration Wizard</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Configuration Wizard &gt; </MadCap:conditionalText>Privileged Users Audited Activity</h2>
+        <p class="Body">This window allows you to specify which activities (events) you want to audit when the selected privileged users perform certain actions. You can choose to audit event categories and user defined events using SQL&#160;Compliance Manager. An event category includes related SQL Server events that occur at the server level. A user-defined event is a custom event you create and track using the<code> sp_trace_generateevent</code> stored procedure.</p>
+        <p class="Body">For example, you can audit all activities or only the activities related to specific types of events and actions, such as logins or database modifications (DMLs). </p>
+        <p class="Body">You can also audit activities that either failed or passed the required access check. For example, auditing failed activities allows you to track when a privileged user attempts to execute an action for which the login does not have the appropriate permissions.</p>
+        <p class="Body">Select the activities you want to audit, and then click <span class="GUI_Item">Next</span>.</p>
+        <h2 class="Heading2">Available actions</h2>
+        <p class="DefinitionListTerm">Audit all activities done by privileged users</p>
+        <p class="DefinitionListBody">Allows you to audit all activities involving your privileged users.</p>
+        <p class="DefinitionListTerm">Audit selected activities done by privileged users</p>
+        <p class="DefinitionListBody">Allows you to select the privileged user activities you want audited.</p>
+        <h2 class="Heading2">Available fields</h2>
+        <p class="DefinitionListTerm">Audited Activity</p>
+        <p class="DefinitionListBody">Allows you to specify which activities (events) you want to audit for the selected privileged users.</p>
+        <p class="DefinitionListTerm">Capture SQL statements for DML and SELECT activities</p>
+        <p class="DefinitionListBody">Allows you to specify whether you want to collect SQL statements associated with audited DML and SELECT activities. To capture these statements, you must also enable DML or SELECT&#160;auditing.</p>
+        <p class="DefinitionListBody">Ensure the Collection Server and the target SQL Server computers have ample resources to handle the additional data collection, storage, and processing. Because this setting can significantly increase resource requirements and negatively impact performance, choose this setting only when your compliance policies require you to audit SQL statements.</p>
+        <p class="DefinitionListTerm">Capture transaction status for DML&#160;activity</p>
+        <p class="DefinitionListBody">Allows you to specify whether you want to collect the status of all DML&#160;transactions that are executed by T-SQL scripts run on your audited database. This setting captures begin, commit, rollback, and savepoint statuses. To capture these statuses, you must enable DML auditing.</p>
+        <p class="DefinitionListBody">Ensure the Collection Server and the target SQL Server computers have ample resources to handle the additional data collection, storage, and processing. Because this setting can significantly increase resource requirements and negatively impact performance, choose this setting only when your compliance policies require you to audit transaction status, such as rollbacks.</p>
+    </body>
+</html>

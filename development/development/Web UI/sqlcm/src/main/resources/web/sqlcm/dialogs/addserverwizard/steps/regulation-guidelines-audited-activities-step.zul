@@ -1,0 +1,90 @@
+<zk>
+<div hflex="1" vflex="1"
+         style="vertical-align:middle;"
+         apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addserverwizard.steps.RegulationGuidelinesAuditedActivitiesStepViewModel')">
+  
+  <vlayout spacing="10px">    
+    <groupbox width="550px" closable="false">
+      <caption label="${idera:getLabel('SQLCM.db-props.aa.audited-activities')}"/>
+      <hlayout hflex="1" vflex="1" valign="middle" style="vertical-align:middle;">
+	      <vlayout spacing="3px" width="270px" sclass="padding-l-10">
+	        <idera-cwf-checkbox checked="@bind(step_vm.auditedActivities.auditDDL)" 
+	        onCheck="@command('onCheckedDbDefinition')"  
+	        name = "${idera:getLabel('SQLCM.Labels.regulation.custom.db.event.ddl')}"
+	        label="${idera:getLabel('SQLCM.db-props.aa.database-definition')}"/>
+	        <idera-cwf-checkbox checked="@bind(step_vm.auditedActivities.auditSecurity)" 
+	        onCheck="@command('onCheck', target=self)" 
+	        name = "${idera:getLabel('SQLCM.Labels.regulation.custom.db.event.security')}"
+	        label="${idera:getLabel('SQLCM.db-props.aa.security-changes')}"/>	
+	        <idera-cwf-checkbox checked="@bind(step_vm.auditedActivities.auditAdmin)" 
+	        onCheck="@command('onCheck', target=self)"
+	        name = "${idera:getLabel('SQLCM.Labels.regulation.custom.db.event.Administrative-activity')}"
+	        label="${idera:getLabel('SQLCM.db-props.aa.administrative-activities')}"/>
+	        <idera-cwf-checkbox checked="@bind(step_vm.auditedActivities.auditDML)" 
+	        onCheck="@command('onCheckedDbModification')"
+	        name = "${idera:getLabel('SQLCM.Labels.regulation.custom.db.event.dml')}"
+	        label="${idera:getLabel('SQLCM.db-props.aa.database-modification')}"/>
+	      </vlayout>
+	      <vlayout spacing="3px" width="270px" sclass="padding-l-10">
+	      	<idera-cwf-checkbox checked="@bind(step_vm.auditedActivities.auditSELECT)" 
+	      	onCheck="@command('onCheckedDbSelects')"  
+	      	name = "${idera:getLabel('SQLCM.Labels.regulation.custom.db.event.select')}"
+	      	label="${idera:getLabel('SQLCM.db-props.aa.database-select-operations')}"/>
+	        <idera-cwf-checkbox checked="@bind(step_vm.auditedActivities.auditSensitiveColumns)" 
+	        onCheck="@command('onCheck', target=self)"
+	        name = "${idera:getLabel('SQLCM.Labels.regulation.custom.db.event.sensitive-cloumn')}"
+	        label="${idera:getLabel('SQLCM.Label.add-database-wizard.reg-guide-apply.sens-col-auditing')}"/>
+	        <idera-cwf-checkbox checked="@bind(step_vm.auditedActivities.auditBeforeAfter)" 
+	        onCheck="@command('onCheck', target=self)"
+	        name = "${idera:getLabel('SQLCM.Labels.regulation.custom.db.event.before-after-data')}"
+	        label="${idera:getLabel('SQLCM.Label.add-database-wizard.reg-guide-apply.before-after-data-auditing')}"/>
+	        <idera-cwf-checkbox id="dbPrivUserRegulation" checked="@bind(step_vm.auditedActivities.auditPrivilegedUsers)" 
+	        onCheck="@command('onCheck', target=self)"
+	        name = "${idera:getLabel('SQLCM.Labels.regulation.custom.db.event.privileged-user')}"
+	        label="${idera:getLabel('SQLCM.Label.add-database-wizard.reg-guide-apply.privileged-user-user-events')}"/>
+	      </vlayout>
+      </hlayout>
+    </groupbox>    
+    <groupbox width="510px">
+            <caption label="${idera:getLabel('SQLCM.Label.add-server-wizard.audit-settings.access-check-filter')}"/>
+            <grid sclass="idera-invisible-grid">
+            <columns>
+            	<column></column>
+            </columns>
+            <rows>
+            <row>
+                <idera-cwf-checkbox checked="@bind(step_vm.filterEventsAccessChecked)"
+                          onCheck="@command('onCheckedFilterEventsAccessCheck')"
+                          label="${idera:getLabel('SQLCM.Label.add-server-wizard.audit-settings.filter-events')}" ></idera-cwf-checkbox>
+                          </row>
+                <row>
+                <radiogroup id="rgAudits" orient="vertical" onCheck="@command('onCheckedAudit')" model="@load(step_vm.accessCheckOptionListModelList)">               
+                    <template name="model">
+                        <idera-cwf-radio height= "48px" style="font-weight: 400;"
+                               disabled="@load(not step_vm.filterEventsAccessChecked)"
+                               label="@load(each.label)" radiogroup="rgAudits" />
+                    </template>
+                </radiogroup>
+                </row>
+                </rows>
+            </grid>
+     </groupbox>
+    <vlayout width="460px" sclass="padding-l-10">
+    <idera-cwf-checkbox checked="@bind(step_vm.auditedActivities.auditCaptureSQL)"
+                      disabled="@load(step_vm.captureSqlDisabled)" onCheck="@command('onAuditCaptureSQLCheck', checked=self.checked)"
+                      label="${idera:getLabel('SQLCM.Label.add-server-wizard.audit-settings.capture-sql')}" ></idera-cwf-checkbox>
+    <idera-cwf-checkbox checked="@bind(step_vm.auditedActivities.auditCaptureTrans)"
+     				  onCheck="@command('onCheck', target=self)" 
+                      disabled="@load(step_vm.captureTransactionDisabled)"
+                      label="${idera:getLabel('SQLCM.Label.add-server-wizard.audit-settings.capture-transaction')}" 
+                      name="${idera:getLabel('SQLCM.Label.add-server-wizard.audit-settings.capture-transaction')}"></idera-cwf-checkbox>
+    <idera-cwf-checkbox checked="@bind(step_vm.auditedActivities.auditUserCaptureDDL)"
+     				  onCheck="@command('onCheck', target=self)" 
+    				  disabled="@load(step_vm.captureDDLActivitiesDisabled)"
+                      label="${idera:getLabel('Labels.sql-cm.privileged-ddl-activities')}" 
+                      name="${idera:getLabel('Labels.sql-cm.privileged-ddl-activities')}" ></idera-cwf-checkbox>
+    </vlayout>   
+  </vlayout>
+  </div>
+</zk>

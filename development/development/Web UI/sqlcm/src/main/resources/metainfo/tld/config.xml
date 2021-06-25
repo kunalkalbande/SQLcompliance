@@ -1,0 +1,11 @@
+<config>
+
+    <taglib>
+
+        <taglib-uri>http://sqlcm/taglib</taglib-uri>
+
+        <taglib-location>/metainfo/tld/sqlcm.tld</taglib-location>
+
+    </taglib>
+
+</config>

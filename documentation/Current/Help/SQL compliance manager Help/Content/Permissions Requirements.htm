@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" xml:lang="en-us" MadCap:lastBlockDepth="8" MadCap:lastHeight="1265" MadCap:lastWidth="893">
+    <head><title>Permissions Requirements</title>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1">Permissions requirements</h1>
+        <p class="Body">SQL&#160;Compliance&#160;Manager requires specific permissions and rights to successfully audit events. By default, the setup program assigns the Collection Service and SQLcompliance Agent Service accounts read and write permissions on the respective trace directory.</p>
+        <h2 class="Heading2">Management Console user permissions</h2>
+        <table style="caption-side: top;mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Actions</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Permissions Requirements</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Administer SQL compliance manager and configure audit settings</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">sysadmin rights on the Repository databases</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Generate and view audit reports</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Read permissions (public rights) on the Repository databases</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Deploy SQLcompliance Agent to registered SQL Server instance</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Administrator permissions on the computer hosting the target instance</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Connect to the SQL Server that hosts the Repository databases</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">SQL Server login</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Operating system permissions</h2>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Actions</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Permissions Requirements</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Store audit settings and manage archive databases in the Repository</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">sysadmin rights on each Repository database</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Process trace files</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Read, write, and delete permissions on the Collection Server trace directory</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Manage trace directory</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Local Administrator permissions on the computer that hosts the Collection Service</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Run as a service</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Log on as a Service right on the computer that is running the audited SQL Server instance</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">SQLcompliance Agent service permissions</h2>
+        <table style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');caption-side: top;" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Actions</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Permissions Requirements</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Starting and stopping traces, and managing SQLcompliance stored procedures</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">sysadmin rights on the audited SQL Server instance or database</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Manage trace files</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Read, write, and delete permissions on the SQLcompliance Agent trace directory</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Manage trace directory for an audited SQL Server instance</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Local Administrator permissions on the computer that hosts the registered SQL Server</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Manage trace directory for an audited virtual SQL Server</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Administrator permissions on each node in the cluster hosting the virtual SQL Server</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Run as a service</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Log on as a Service right on the computer that is running the audited SQL Server instance</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">SQL&#160;Server service permissions on the Collection Server</h2>
+        <table style="caption-side: top;mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Actions</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Permissions Requirements</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Load trace files so the Collection Server can process these events</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Read permissions on the Collection Server trace directory</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">SQL&#160;Server service permissions on the registered SQL&#160;Server</h2>
+        <table style="caption-side: top;mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Actions</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Permissions Requirements</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Write events to trace files for the registered SQL Server instance and audited databases</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Write permissions on the SQLcompliance Agent trace directory</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Using Windows Authentication</h2>
+        <p class="Body">The SQL&#160;Compliance&#160;Manager Managment Console and Agent require Windows authentication. Windows authentication uses the logged on user account to establish trusted connections through the operating system. The credentials of the logged on user account are passed to the SQL Server database servers. Your database server then verifies the user matches an established SQL Server login account that has the appropriate permissions. Only after verification will a connection open.</p>
+        <p class="Body">When using Windows authentication, the account logged on to the Management Console computer must have the appropriate SQL&#160;compliance&#160;manager permissions.</p>
+        <h2 class="Heading2">Using SQL&#160;Server Authentication</h2>
+        <p class="Body">The SQLcompliance Collection Service leverages existing SQL Server logins that have been granted the appropriate SQL privileges. However, SQL&#160;Compliance&#160;Manager does not support SQL Server authentication.</p>
+    </body>
+</html>

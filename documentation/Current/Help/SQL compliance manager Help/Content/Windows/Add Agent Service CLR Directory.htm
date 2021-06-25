@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="2" MadCap:lastHeight="269" MadCap:lastWidth="971">
+    <head>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1 class="Heading1">Add SQLcompliance Agent Service Wizard</h1>
+        <h2 class="Heading2">
+            <MadCap:conditionalText MadCap:conditions="Default.PrintOnly">Add SQLcompliance Agent Service Wizard &gt; </MadCap:conditionalText>CLR Trigger Location</h2>
+        <p class="Body">This tab lets you specify which folder should be used to store the CLR&#160;trigger assembly files required to audit before and after data. These assemblies are created by SQL&#160;Compliance Manager when you enable before-after auditing for a specific SQL&#160;Server database. The SQLcompliance Agent uses the CLR trigger to collect the before and after values of a database object affected by an audited DML&#160;event.</p>
+        <p class="Body">Because you are auditing databases hosted by instances running on  Windows server cluster nodes, the CLR&#160;trigger assemblies must be associated with the same cluster resource group as the audited SQL&#160;Server so that before-after auditing can continue when a failover occurs. Thus, the specified folder must be located on a shared data disk for the specified virtual SQL Server. Ensure you specify the same directory path for each node in the cluster hosting the virtual SQL Server.</p>
+        <p class="Body">Specify the folder where the SQLcompliance Agent should store CLR trigger assembly files, and then click <span class="GUI_Item">Next</span>.</p>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="10" MadCap:lastHeight="651" MadCap:lastWidth="867">
+    <head>
+        <link href="Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1">Deploy second Collection Server</h1>
+        <p class="Body">Deploy a second Collection Server when you need to audit separate homogeneous environments of SQL Server instances, such as a SQL Server 2005 environment and a SQL Server 2008 environment. For example, you could deploy one Collection Server to dedicated SQL&#160;Server 2005 instance in one environment and a second Collection Server to a dedicated SQL&#160;Server 2008 instance in another environment. Use the following checklist and instructions to successfully deploy a second Collection Server.</p>
+        <h2 class="Heading2">Deployment checklist</h2>
+        <table class="TableStyle-Idera_Table_Stylesheet" style="mc-table-style: url('Resources/TableStyles/Idera Table Stylesheet.css');" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxChecked.png" />
+                        </p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p>Follow these steps ...</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Determine whether you want to upgrade to the latest version of SQL&#160;Compliance Manager. To verify whether you are running the latest version, click <span class="GUI_Item">Check for Updates</span> on the Help menu.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                        <p>&#160;</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Choose the appropriate <a href="Upgrade Environment SS.htm" target="_self">upgrade strategy</a> for your environment and your auditing needs.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p>
+                            <img src="Resources/Images/ChklistBoxClear.png" />
+                        </p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Ensure the computer that will host the new Collection Server:</p>
+                        <ul style="list-style-type: circle;">
+                            <li>Has trusted access to the computers hosting the SQL Server instances you want to audit. </li>
+                            <li>Hosts the same version of SQL&#160;Server as the upgraded instances. For example, if some instances were recently upgraded to SQL&#160;Server 2008, install the Collection Server on computer hosting SQL&#160;Server 2008.</li>
+                            <li>Meets the product <a href="Hardware Requirements.htm" target="_self">hardware</a>, <a href="Software Requirements.htm" target="_self">software</a>, and <a href="Permissions Requirements.htm" target="_self">permissions</a> requirements.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Deploy new Collection Server after the SQL&#160;Server on an audited instance has been upgraded</h2>
+        <ol>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to use the latest version of SQL Compliance Manager</span>, <a href="Upgrading SQL compliance manager.htm" target="_self">upgrade your deployment</a>.</li>
+            <li class="NumberedList">Use Custom install in the SQL&#160;CM setup program to install the new Collection Server.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you upgraded SQL Compliance Manager to the latest version</span>, also <a href="Upgrading Agent Remotely.htm" target="_self">upgrade the SQLcompliance Agents</a> deployed to the upgraded instances you are auditing.</li>
+            <li class="NumberedList"><a href="Configure Agent Connection.htm" target="_self">Configure the SQLcompliance Agent</a> to communicate with the new Collection Server.</li>
+        </ol>
+        <h2 class="Heading2">Deploy new Collection Server to audit new instances</h2>
+        <ol>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to use the latest version of SQL Compliance Manager</span>, <a href="Upgrading SQL compliance manager.htm" target="_self">upgrade your deployment</a>.</li>
+            <li class="NumberedList">Use the Custom install in the SQL&#160;CM setup program to install the new Collection Server.</li>
+            <li class="NumberedList"><a href="Registering Your SQL Servers.htm" target="_self">Register the instances</a> you want to audit.</li>
+            <li class="NumberedList"><a href="Auditing SQL Server Events.htm" target="_self">Begin auditing</a> your new SQL&#160;Server instances.</li>
+        </ol>
+    </body>
+</html>
