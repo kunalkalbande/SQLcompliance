@@ -930,7 +930,7 @@ IIF(System.DateTime.Now.Subtract(Globals!ExecutionTime).Seconds = 1, "", "s")</V
     <DataSet Name="Login">
       <Query>
         <DataSourceName>SQL_Compliance_Manager_Data_Source</DataSourceName>
-        <CommandText>SELECT name, sid FROM master..syslogins WHERE sid &lt;&gt; 0</CommandText>
+        <CommandText>SELECT distinct u.loginName as name,l.uid as sid FROM Users u join Logins l on u.loginName=l.name where u.loginName is not NULL </CommandText>
       </Query>
       <Fields>
         <Field Name="name">
@@ -995,7 +995,7 @@ IIF(System.DateTime.Now.Subtract(Globals!ExecutionTime).Seconds = 1, "", "s")</V
     <DataSet Name="Role">
       <Query>
         <DataSourceName>SQL_Compliance_Manager_Data_Source</DataSourceName>
-        <CommandText>select v2.name,  v1.number from master..spt_values v1, master..spt_values v2 where v1.low = 0 and v1.type = 'SRV' and v2.low = -1 and v2.type = 'SRV' and v1.number = v2.number</CommandText>
+        <CommandText>select v2.name,  v1.number from master..spt_values v1, master..spt_values v2 where v1.low = 0 and v1.type = 'SRV' and v2.low = -1 and v2.type = 'SRV' and v1.number = v2.number  UNION select role.name,role.principal_id from sys.server_principals role where role.name not in (SELECT v1.name FROM master..spt_values v1, master..spt_values v2 where v1.low = 0 and v1.type = 'SRV' and v2.low = -1 and v2.type = 'SRV' and v1.number = v2.number) and role.type = 'R' and role.name &lt;&gt; 'public'</CommandText>
       </Query>
       <Fields>
         <Field Name="name">

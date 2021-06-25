@@ -1790,6 +1790,33 @@ namespace Idera.SQLcompliance.Core
                         }
                     }
                 }
+                try
+                {
+                    cmdstr = "select name,principal_id,name from master.sys.server_principals where type='R' and name<>'public'";
+
+                    using (SqlCommand cmd = new SqlCommand(cmdstr, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            //roleList = new ArrayList();
+
+                            var list = roleList.Cast<RawRoleObject>();
+                            while (reader.Read())
+                            {
+                                RawRoleObject raw = new RawRoleObject();
+                                raw.name = SQLHelpers.GetString(reader, 0);
+                                raw.roleid = SQLHelpers.GetInt32(reader, 1);
+                                raw.fullName = SQLHelpers.GetString(reader, 2);
+                                if (list.FirstOrDefault(l => l.name == raw.name) == null)
+                                    roleList.Add(raw);
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+
+                }
             }
             catch (Exception ex)
             {

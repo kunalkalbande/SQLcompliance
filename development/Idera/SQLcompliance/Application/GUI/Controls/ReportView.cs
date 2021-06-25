@@ -2132,7 +2132,8 @@ namespace Idera.SQLcompliance.Application.GUI.Controls
         {
             using (SqlConnection conn = Globals.Repository.GetPooledConnection())
             {
-                using (SqlCommand cmd = new SqlCommand(string.Format("SELECT '<ALL>' as name, 0 as sid UNION SELECT name, sid FROM master..syslogins WHERE sid <> 0"), conn))
+                //using (SqlCommand cmd = new SqlCommand(string.Format("SELECT '<ALL>' as name, 0 as sid UNION SELECT name, sid FROM master..syslogins WHERE sid <> 0"), conn))
+                using (SqlCommand cmd = new SqlCommand(string.Format("SELECT '<ALL>' as name, 0 as sid UNION SELECT distinct u.loginName,l.uid FROM Users u join Logins l on u.loginName = l.name where u.loginName is not NULL"),conn))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandTimeout = CoreConstants.sqlcommandTimeout;
@@ -2156,7 +2157,7 @@ namespace Idera.SQLcompliance.Application.GUI.Controls
         {
             using (SqlConnection conn = Globals.Repository.GetPooledConnection())
             {
-                using (SqlCommand cmd = new SqlCommand(string.Format("SELECT '<ALL>' as name, 0 as number UNION SELECT v2.name, v1.number FROM master..spt_values v1, master..spt_values v2 where v1.low = 0 and v1.type = 'SRV' and v2.low = -1 and v2.type = 'SRV' and v1.number = v2.number"), conn))
+                using (SqlCommand cmd = new SqlCommand(string.Format("SELECT '<ALL>' as name, 0 as number UNION SELECT v2.name, v1.number FROM master..spt_values v1, master..spt_values v2 where v1.low = 0 and v1.type = 'SRV' and v2.low = -1 and v2.type = 'SRV' and v1.number = v2.number UNION select role.name,role.principal_id from sys.server_principals role where role.name not in (SELECT v1.name FROM master..spt_values v1, master..spt_values v2 where v1.low = 0 and v1.type = 'SRV' and v2.low = -1 and v2.type = 'SRV' and v1.number = v2.number) and role.type = 'R' and role.name <> 'public'"), conn))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandTimeout = CoreConstants.sqlcommandTimeout;

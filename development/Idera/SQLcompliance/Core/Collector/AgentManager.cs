@@ -1993,7 +1993,7 @@ namespace Idera.SQLcompliance.Core.Collector
                     {
                         foreach (Login defaultLogin in defaultTrustedUserList.Logins)
                         {
-                            if (login.name.Equals(defaultLogin.Name))
+                            if (login.name.Equals(defaultLogin.Name, StringComparison.OrdinalIgnoreCase))
                             {
                                 trustedUserList.AddLogin(login.name, login.sid);
                                 break;
@@ -2001,7 +2001,7 @@ namespace Idera.SQLcompliance.Core.Collector
                         }
                         foreach (Login defaultLogin in defaultPrivilegedUserList.Logins)
                         {
-                            if (login.name.Equals(defaultLogin.Name))
+                            if (login.name.Equals(defaultLogin.Name, StringComparison.OrdinalIgnoreCase))
                             {
                                 privilegedUserList.AddLogin(login.name, login.sid);
                                 break;
@@ -2012,7 +2012,7 @@ namespace Idera.SQLcompliance.Core.Collector
                         foreach (var prvLogin in srvDefaultPrivilegedUserList.Logins)
                         {
                             var rawLogin = (RawLoginObject)login;
-                            if (rawLogin.name.Equals(prvLogin.Name))
+                            if (rawLogin.name.Equals(prvLogin.Name, StringComparison.OrdinalIgnoreCase))
                             {
                                 privilegedUserList.AddLogin(prvLogin);
                                 break;
@@ -2022,7 +2022,7 @@ namespace Idera.SQLcompliance.Core.Collector
                         foreach (var trustedLogin in srvDefaultTrustedUserList.Logins)
                         {
                             var rawLogin = (RawLoginObject)login;
-                            if (rawLogin.name.Equals(trustedLogin.Name))
+                            if (rawLogin.name.Equals(trustedLogin.Name, StringComparison.OrdinalIgnoreCase))
                             {
                                 trustedUserList.AddLogin(trustedLogin);
                                 break;
@@ -2033,7 +2033,7 @@ namespace Idera.SQLcompliance.Core.Collector
                         foreach (var prvLogin in actualServerPrivUsers.Logins)
                         {
                             var rawLogin = (RawLoginObject)login;
-                            if (rawLogin.name.Equals(prvLogin.Name))
+                            if (rawLogin.name.Equals(prvLogin.Name, StringComparison.OrdinalIgnoreCase))
                             {
                                 privilegedUserList.AddLogin(prvLogin);
                                 break;
@@ -2043,7 +2043,7 @@ namespace Idera.SQLcompliance.Core.Collector
                         foreach (var trustedLogin in actualServerTrustedUsers.Logins)
                         {
                             var rawLogin = (RawLoginObject)login;
-                            if (rawLogin.name.Equals(trustedLogin.Name))
+                            if (rawLogin.name.Equals(trustedLogin.Name, StringComparison.OrdinalIgnoreCase))
                             {
                                 trustedUserList.AddLogin(trustedLogin);
                                 break;
