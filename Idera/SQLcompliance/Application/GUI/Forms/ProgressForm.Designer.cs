@@ -1,0 +1,93 @@
+namespace Idera.SQLcompliance.Application.GUI.Forms
+{
+   partial class ProgressForm
+	{
+      /// <summary>
+      /// Required designer variable.
+      /// </summary>
+      private System.ComponentModel.Container components = null;
+
+      /// <summary>
+      /// Clean up any resources being used.
+      /// </summary>
+      protected override void Dispose(bool disposing)
+      {
+         if (disposing)
+         {
+            if (components != null)
+            {
+               components.Dispose();
+            }
+         }
+         base.Dispose(disposing);
+      }
+
+      #region Windows Form Designer generated code
+      /// <summary>
+      /// Required method for Designer support - do not modify
+      /// the contents of this method with the code editor.
+      /// </summary>
+      private void InitializeComponent()
+      {
+         this.progressBar1 = new System.Windows.Forms.ProgressBar();
+         this.tbMessage = new System.Windows.Forms.TextBox();
+         this.buttonClose = new System.Windows.Forms.Button();
+         this.SuspendLayout();
+         // 
+         // progressBar1
+         // 
+         this.progressBar1.Location = new System.Drawing.Point(8, 48);
+         this.progressBar1.Name = "progressBar1";
+         this.progressBar1.Size = new System.Drawing.Size(392, 23);
+         this.progressBar1.TabIndex = 0;
+         // 
+         // tbMessage
+         // 
+         this.tbMessage.BackColor = System.Drawing.SystemColors.Control;
+         this.tbMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+         this.tbMessage.Location = new System.Drawing.Point(16, 16);
+         this.tbMessage.Multiline = true;
+         this.tbMessage.Name = "tbMessage";
+         this.tbMessage.Size = new System.Drawing.Size(384, 24);
+         this.tbMessage.TabIndex = 1;
+         this.tbMessage.TabStop = false;
+         this.tbMessage.Text = "Deploying SQLcompliance Agent...";
+         // 
+         // buttonClose
+         // 
+         this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+         this.buttonClose.Location = new System.Drawing.Point(312, 80);
+         this.buttonClose.Name = "buttonClose";
+         this.buttonClose.Size = new System.Drawing.Size(88, 23);
+         this.buttonClose.TabIndex = 2;
+         this.buttonClose.Text = "Cancel";
+         this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+         // 
+         // ProgressForm
+         // 
+         this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+         this.CancelButton = this.buttonClose;
+         this.ClientSize = new System.Drawing.Size(408, 110);
+         this.Controls.Add(this.buttonClose);
+         this.Controls.Add(this.tbMessage);
+         this.Controls.Add(this.progressBar1);
+         this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+         this.MaximizeBox = false;
+         this.MinimizeBox = false;
+         this.Name = "ProgressForm";
+         this.ShowInTaskbar = false;
+         this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+         this.Text = "SQLcompliance Agent deployment in progress...";
+         //this.TopMost = true;
+         this.ResumeLayout(false);
+
+      }
+      #endregion
+
+
+      private System.Windows.Forms.Button buttonClose;
+      private System.Windows.Forms.Timer poller;
+      private System.Windows.Forms.ProgressBar progressBar1;
+      private System.Windows.Forms.TextBox tbMessage;
+   }
+}

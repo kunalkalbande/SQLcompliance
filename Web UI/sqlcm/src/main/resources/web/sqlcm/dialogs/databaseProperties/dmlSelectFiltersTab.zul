@@ -1,0 +1,84 @@
+<zk>
+  <vlayout spacing="10px">
+  <style>
+		.idera-dialog .z-window-highlighted-cnt-noborder { padding-left: 20px !important; }
+	</style>
+ 
+    <radiogroup id="auditDatabaseObjectsRG" onCheck="@command('onCheckAuditDBObjects', rg=auditDatabaseObjectsRG)" >
+     </radiogroup>
+    <grid sclass="idera-invisible-grid">
+    	<columns>
+    		<column></column>
+    	</columns>
+    	<rows>
+    		<row>
+    			<idera-cwf-radio
+    				label="${idera:getLabel('SQLCM.db-props.dml.audit-all-database-objects')}"
+    				radiogroup="auditDatabaseObjectsRG"
+    				selected="@load(vm.databaseProperties.dmlSelectFilters.auditDmlAll)"
+    				disabled="@load(vm.disableDMLSelect)" style="float:left; font-weight:400" />
+    		</row>
+    		<row>
+
+    			<idera-cwf-radio
+    				label="${idera:getLabel('SQLCM.db-props.dml.audit-following-database-objects')}"
+    				radiogroup="auditDatabaseObjectsRG"
+    				selected="@load(!vm.databaseProperties.dmlSelectFilters.auditDmlAll)"
+    				disabled="@load(vm.disableDMLSelect)" style="float:left;font-weight:400" />
+    		</row>
+    	</rows>
+    </grid>
+
+    <separator height="10px"></separator> 
+      <vlayout width="855px" spacing="10px" sclass="padding-l-20">
+        <groupbox width="855px" closable="false">
+          <caption label="${idera:getLabel('SQLCM.db-props.dml.user-tables')}"/>
+          <radiogroup id="userTablesRG" orient="vertical" onCheck="@command('onCheckUserTables', rg=userTablesRG)">
+            <idera-cwf-radio label="${idera:getLabel('SQLCM.db-props.dml.user-tables-audit-all')}" radiogroup="userTablesRG"
+                   disabled="@load(vm.disableDMLSelectAuditAll)" style="float:left;"/>
+            <idera-cwf-radio label="${idera:getLabel('SQLCM.db-props.dml.user-tables-audit-following')}" radiogroup="userTablesRG"
+                     disabled="@load(vm.disableDMLSelectAuditAll)" style="float:left;"/>
+           <separator height="30px"></separator>          
+            <vlayout>
+              <hlayout spacing="10px" sclass="padding-l-20">
+                <idera-cwf-listbox sclass="idera-grid z-listbox" id="userTablesLB" width="700px" height="150px" model="@load(vm.auditedUserTablesListModelList)" rows="5"
+                         onSelect="@command('enableRemoveUserTablesAuditingButton')" disabled="@load(vm.disableDMLSelectAuditFollowing)">
+                  <listhead hflex="1">
+                    <listheader/>
+                  </listhead>
+                  <template name="model">
+                    <listitem sclass="label" hflex="1" disabled="@load(vm.disableDMLSelectAuditFollowing)">
+                      <listcell label="@load(each.fullTableName)"/>
+                    </listitem>
+                  </template>
+                </idera-cwf-listbox>
+
+                <vlayout spacing="5px">
+                  <idera-cwf-button label="${idera:getLabel('Labels.add')}"  width="85px"
+                          onClick="@command('addDMLSelectTable')" disabled="@load(vm.disableDMLSelectAuditFollowing)"/>
+                  <idera-cwf-button id="removeUserTablesAuditingButton" label="${idera:getLabel('Labels.remove')}"
+                           width="85px" onClick="@command('removeDMLSelectTable')" disabled="true"/>
+                </vlayout>
+              </hlayout>
+            </vlayout>
+             <separator height="10px"></separator> 
+            <idera-cwf-radio label="${idera:getLabel('SQLCM.db-props.dml.user-tables-dont-audit')}" radiogroup="userTablesRG"
+                   disabled="@load(vm.disableDMLSelectAuditAll)"/>
+          </radiogroup>
+
+        </groupbox>
+        <groupbox closable="false">
+          <caption label="${idera:getLabel('SQLCM.db-props.dml.other-object-types')}"/>
+          <vlayout width="855px" sclass="padding-l-10">
+            <idera-cwf-checkbox label="${idera:getLabel('SQLCM.db-props.dml.audit-system-tables')}" disabled="@load(vm.disableDMLSelectAuditAll)"
+                      checked="@bind(vm.databaseProperties.dmlSelectFilters.auditSystemTables)" ></idera-cwf-checkbox>
+            <idera-cwf-checkbox label="${idera:getLabel('SQLCM.db-props.dml.audit-stored-procedures')}" disabled="@load(vm.disableDMLSelectAuditAll)"
+                      checked="@bind(vm.databaseProperties.dmlSelectFilters.auditStoredProcedures)" ></idera-cwf-checkbox>
+            <idera-cwf-checkbox label="${idera:getLabel('SQLCM.db-props.dml.audit-all-other')}" disabled="@load(vm.disableDMLSelectAuditAll)"
+                      checked="@bind(vm.databaseProperties.dmlSelectFilters.auditDmlOther)" ></idera-cwf-checkbox>
+          </vlayout>
+        </groupbox>
+        <label value="${idera:getLabel('SQLCM.db-props.dml.note')}" multiline="true"/>
+      </vlayout>
+  </vlayout>
+</zk>

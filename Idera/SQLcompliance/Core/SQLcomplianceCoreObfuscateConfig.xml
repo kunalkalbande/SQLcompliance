@@ -1,0 +1,171 @@
+<?xml version='1.0'?>
+<!DOCTYPE obfuscator SYSTEM "c:\Program Files\Remotesoft\Obfuscator\bin\obfuscator.dtd">
+<obfuscator>
+	<target>dll</target>
+	<module>  
+		<file>bin\release\SQLcomplianceCore.dll</file>
+		<name>SQLcomplianceCore</name>
+		<namespace>
+			<name>Idera.SQLcompliance.Core.Agent</name>
+			<class keepfields="true">				
+				<name>AgentVersion</name>
+			</class>
+			<class keepfields="true">				
+				<name>AgentConfiguration</name>
+			</class>
+			<class keepfields="true">				
+				<name>FileShipper</name>
+			</class>
+			<class keepfields="true">				
+				<name>ServerRecord</name>
+			</class>
+			<class keepfields="true">				
+				<name>TimerState</name>
+			</class>
+			<class keepfields="true">				
+				<name>TraceCollector</name>
+			</class>			
+			<class keepfields="true">				
+				<name>AgentCommand</name>
+			</class>			
+		</namespace>
+		<namespace>
+			<name>Idera.SQLcompliance.Core.Collector</name>
+			<class keepfields="true">				
+				<name>RemoteFile</name>
+			</class>
+			<class keepfields="true">				
+				<name>AgentManager</name>
+			</class>
+			<class keepfields="true">				
+				<name>RemoteCollector</name>
+			</class>
+			<class keepfields="true">				
+				<name>ServerManager</name>
+			</class>
+			<class keepfields="true">				
+				<name>TraceServer</name>
+			</class>
+		</namespace>
+		<namespace>
+			<name>Idera.SQLcompliance.Core</name>
+			<class keepfields="true">				
+				<name>CoreException</name>
+			</class>
+			<class keepfields="true">				
+				<name>UnregisteredInstanceException</name>
+			</class>
+			<class keepfields="true">				
+				<name>IncompatibleAgentRepositoryVersionException</name>
+			</class>
+			<class keepfields="true">				
+				<name>InvalidBackupArchiveDirectoryException</name>
+			</class>
+			<class keepfields="true">				
+				<name>RemoteUserList</name>
+			</class>
+			<class keepfields="true">				
+				<name>ServerRole</name>
+			</class>
+			<class keepfields="true">				
+				<name>Login</name>
+			</class>
+		</namespace>
+		<namespace>
+			<name>Idera.SQLcompliance.Core.Event</name>
+			<class keepfields="true">				
+				<name>AuditConfiguration</name>
+			</class>
+			<class keepfields="true">				
+				<name>DBAuditConfiguration</name>
+			</class>
+			<class keepfields="true">				
+				<name>DBObject</name>
+			</class>
+			<class keepfields="true">				
+				<name>EventRecord</name>
+			</class>
+			<class keepfields="true">				
+				<name>RemoteAuditConfiguration</name>
+			</class>
+			<class keepfields="true">				
+				<name>BaseAuditConfiguration</name>
+			</class>
+			<class keepfields="true">				
+				<name>UserRemoteAuditConfiguration</name>
+			</class>
+			<class keepfields="true">				
+				<name>DBRemoteAuditConfiguration</name>
+			</class>
+			<class keepfields="true">				
+				<name>ServerAuditConfiguration</name>
+			</class>
+			<class keepfields="true">				
+				<name>Trace</name>
+			</class>
+			<class keepfields="true">				
+				<name>TraceConfiguration</name>
+			</class>
+			<class keepfields="true">				
+				<name>TraceException</name>
+			</class>
+			<class keepfields="true">				
+				<name>InvalidColumnIdException</name>
+			</class>
+			<class keepfields="true">				
+				<name>InvalidEventIdException</name>
+			</class>
+			<class keepfields="true">				
+				<name>InvalidLogicalOpException</name>
+			</class>
+			<class keepfields="true">				
+				<name>InvalidColumnTypeException</name>
+			</class>
+			<class keepfields="true">				
+				<name>InvalidFilterTypeException</name>
+			</class>
+			<class keepfields="true">				
+				<name>IncompetibleComparisonOpException</name>
+			</class>
+			<class keepfields="true">				
+				<name>TraceFileExistsException</name>
+			</class>
+			<class keepfields="true">				
+				<name>TraceFilter</name>
+			</class>
+			<class keepfields="true">				
+				<name>TraceInfo</name>
+			</class>
+			<class keepfields="true">				
+				<name>RemoteAuditManager</name>
+			</class>
+		</namespace>
+		<namespace>
+			<name>Idera.SQLcompliance.Core.Security</name>
+			<class keepfields="true">				
+				<name>SqlComplianceSecurityException</name>
+			</class>
+			<class keepfields="true">				
+				<name>LocalSecurityException</name>
+			</class>
+			<class keepfields="true">				
+				<name>RemoteSecurityException</name>
+			</class>
+		</namespace>
+		<namespace>
+			<name>Idera.SQLcompliance.Core.Status</name>
+			<class keepfields="true">				
+				<name>AgentStatusMsg</name>
+			</class>
+			<class keepfields="true">				
+				<name>AgentErrorMsg</name>
+			</class>
+			<class keepfields="true">				
+				<name>InstanceStatus</name>
+			</class>
+			<class keepfields="true">				
+				<name>RemoteStatusLogger</name>
+			</class>
+		</namespace>
+	</module>
+</obfuscator>

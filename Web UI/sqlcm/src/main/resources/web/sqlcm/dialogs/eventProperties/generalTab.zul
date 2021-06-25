@@ -1,0 +1,149 @@
+<zk>
+    <vlayout spacing="7px">
+
+        <groupbox width="700px">
+            <caption label="${idera:getLabel('Labels.sql-cm.event-properties-dialog-event')}"/>
+            <hlayout>
+                <grid width="330px" sclass="idera-invisible-grid">
+                    <columns visible="false">
+                        <column width="100px"/>
+                        <column width="230px"/>
+                    </columns>
+                    <rows>
+                        <row>
+                            <label value="${idera:getLabel('Labels.sql-cm.event-properties-dialog-time')}"/>
+                            <idera-cwf-textbox type="text" value="@bind(vm.eventProperties.startTime) @converter('com.idera.sqlcm.ui.converter.SimpleDateConverter')"
+                             readonly="true" hflex="1" tooltiptext="@bind(vm.eventProperties.startTime) @converter('com.idera.sqlcm.ui.converter.SimpleDateConverter')"/>
+                        </row>
+                        <row>
+                            <label value="${idera:getLabel('Labels.sql-cm.event-properties-dialog-category')}"/>
+                            <idera-cwf-textbox type="text" value="@bind(vm.eventProperties.category)"
+                             readonly="true" hflex="1" tooltiptext="@bind(vm.eventProperties.category)"/>
+                        </row>
+                        <row>
+                            <label value="${idera:getLabel('Labels.sql-cm.event-properties-dialog-type')}"/>
+                            <idera-cwf-textbox type="text" value="@bind(vm.eventProperties.name)"
+                                     readonly="true" hflex="1" tooltiptext="@bind(vm.eventProperties.name)"/>
+                        </row>
+                        <row>
+                            <label value="${idera:getLabel('Labels.sql-cm.event-properties-dialog-application')}"/>
+                            <idera-cwf-textbox type="text" value="@bind(vm.eventProperties.applicationName)"
+                                     readonly="true" hflex="1" tooltiptext="@bind(vm.eventProperties.applicationName)"/>
+                        </row>
+                    </rows>
+                </grid>
+
+                <grid width="330px" sclass="idera-invisible-grid">
+                    <columns visible="false">
+                        <column width="100px"/>
+                        <column width="230px"/>
+                    </columns>
+                    <rows>
+                        <row>
+                            <label value="${idera:getLabel('Labels.sql-cm.event-properties-dialog-login')}"/>
+                            <idera-cwf-textbox type="text" value="@bind(vm.eventProperties.loginName)"
+                                     readonly="true" hflex="1" tooltiptext="@bind(vm.eventProperties.loginName)"/>
+                        </row>
+                        <row>
+                            <label value="${idera:getLabel('Labels.sql-cm.event-properties-dialog-database')}"/>
+                            <idera-cwf-textbox type="text" value="@bind(vm.eventProperties.databaseName)"
+                                     readonly="true" hflex="1" tooltiptext="@bind(vm.eventProperties.databaseName)"/>
+                        </row>
+                        <row>
+                            <label value="${idera:getLabel('Labels.sql-cm.event-properties-dialog-target')}"/>
+                            <idera-cwf-textbox type="text" value="@bind(vm.eventProperties.targetObject)"
+                                     readonly="true" hflex="1" tooltiptext="@bind(vm.eventProperties.targetObject)"/>
+                        </row>
+                        <row>
+                            <label value="${idera:getLabel('Labels.sql-cm.event-properties-dialog-event-details')}"/>
+                            <idera-cwf-textbox type="text" value="@bind(vm.eventProperties.details)"
+                                     readonly="true" hflex="1" tooltiptext="@bind(vm.eventProperties.details)"/>
+                        </row>
+                    </rows>
+                </grid>
+
+            </hlayout>
+        </groupbox>
+
+        <groupbox width="700px">
+            <caption label="${idera:getLabel('Labels.sql-cm.event-properties-dialog-before-after-data-summary')}"/>
+            <grid width="680px" sclass="idera-invisible-grid">
+                <columns visible="false">
+                    <column width="130px"/>
+                    <column width="200px"/>
+                </columns>
+                <rows>
+                    <row>
+                        <label value="${idera:getLabel('Labels.sql-cm.event-properties-dialog-rows-affected')}"/>
+                        <idera-cwf-textbox type="text" value="@bind(vm.eventProperties.category ne 'DML'
+                                                                ?idera:getLabel('Labels.sql-cm.event-properties-dialog-not-applicable')
+                                                                :(vm.eventProperties.startSequence eq -1 and vm.eventProperties.endSequence eq -1
+                                                                        ?idera:getLabel('Labels.sql-cm.event-properties-dialog-not-applicable')
+                                                                        :(vm.eventProperties.sqlVersion lt 9
+                                                                                ?idera:getLabel('Labels.sql-cm.event-properties-dialog-before-after-data-is-not-available')
+                                                                                :vm.eventProperties.rowsAffected
+                                                                        )
+                                                                )
+                                                        )"
+                                 readonly="true" hflex="1"/>
+                    </row>
+                </rows>
+            </grid>
+            <grid width="680px" sclass="idera-invisible-grid">
+                <columns visible="false">
+                    <column width="130px"/>
+                    <column width="530px"/>
+                </columns>
+                <rows>
+                    <row>
+                        <label value="${idera:getLabel('Labels.sql-cm.event-properties-dialog-column-affected')}"/>
+                        <idera-cwf-textbox type="text" value="@bind(vm.eventProperties.category ne 'DML'
+                                                                ?idera:getLabel('Labels.sql-cm.event-properties-dialog-not-applicable')
+                                                                :(vm.eventProperties.startSequence eq -1 and vm.eventProperties.endSequence eq -1
+                                                                        ?idera:getLabel('Labels.sql-cm.event-properties-dialog-not-applicable')
+                                                                        :(vm.eventProperties.sqlVersion lt 9
+                                                                                ?idera:getLabel('Labels.sql-cm.event-properties-dialog-before-after-data-is-not-available')
+                                                                                :vm.eventProperties.columnsAffected
+                                                                        )
+                                                                )
+                                                        )"
+                                 readonly="true" hflex="1"/>
+                    </row>
+                </rows>
+            </grid>
+        </groupbox>
+
+		<groupbox width="700px">
+            <caption label="${idera:getLabel('Labels.sql-cm.event-properties-row-count')}"/>
+            
+            <grid width="330px" sclass="idera-invisible-grid">
+                    <columns visible="false">
+                        <column width="100px"/>
+                        <column width="230px"/>
+                    </columns>
+                <rows>
+                    <row>
+                            <label value="${idera:getLabel('Labels.sql-cm.event-properties-row-count')}"/>
+                            <idera-cwf-textbox type="text" readonly="true"
+                            				value="@load(vm.rowCount)"/>
+                    </row>
+                </rows>
+            </grid>
+        </groupbox>
+        
+        <groupbox width="700px">
+            <caption label="${idera:getLabel('Labels.sql-cm.event-properties-dialog-sql-statement')}"/>
+            <grid width="670px" sclass="idera-invisible-grid">
+                <columns visible="false">
+                    <column width="660px"/>
+                </columns>
+                <rows>
+                    <row>
+                        <idera-cwf-textbox type="text" value="@bind(vm.eventProperties.sqlStatement)"
+                                 readonly="true" height="160px" rows="7" hflex="1"/>
+                    </row>
+                </rows>
+            </grid>
+        </groupbox>
+    </vlayout>
+</zk>

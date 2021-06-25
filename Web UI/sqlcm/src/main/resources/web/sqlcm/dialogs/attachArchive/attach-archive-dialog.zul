@@ -1,0 +1,101 @@
+<idera-cwf-dialog id="archiveProperties" closable="true" border="none" height="550px" width="600px"
+        apply="org.zkoss.bind.BindComposer" style="border-radius: 0" contentSclass="modal-dialog-window margin-all-0 padding-all-0"
+        viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.AttachArchiveViewModel')"
+        title="${idera: getLabel('Labels.sql-cm.archive-attach-header-message')}"  >
+    <vlayout hflex="min">
+    	<separator width="8px"/>
+        <label sclass="padding-l-8"
+               value="${idera:getLabel('Labels.sql-cm.archive-attach-title-message')}"/>
+        <grid width="520px" sclass="idera-invisible-grid padding-l-8">
+            <columns visible="false">
+                <column width="160px"/>
+                <column width="350px"/>
+            </columns>
+            <rows>
+                <row>
+                    <label value="${idera:getLabel('Labels.sql-cm.archive-properties-dialog-archive-database')}"/>
+                    <idera-cwf-dropdownlist mold="default" model="@load(vm.archivesListModelList)"
+                             width="340px" value = "Select Database"
+                             onSelect="@command('selectArchive', id=self.selectedItem.value)">
+                        <template name="model">
+                            <comboitem hflex="1" label="@load(each.name)"
+                                      value="@load(each.name)"/>
+                        </template>
+                    </idera-cwf-dropdownlist>
+                </row>
+                <row>
+                    <div/>
+                    <idera-cwf-checkbox id="showAllCheckBox"
+                              checked="false"
+                              label="${idera:getLabel('Labels.sql-cm.archive-attach-show-all-databases')}"
+                              onCheck="@command('reloadArchives')"></idera-cwf-checkbox>
+                </row>
+            </rows>
+        </grid>
+
+        <groupbox width="520px" height="250px" sclass="idera-invisible-grid padding-lr-12">
+            <caption
+                    label="${idera:getLabel('Labels.sql-cm.archive-properties-dialog-archive-information')}"/>
+            <grid width="550px" sclass="idera-invisible-grid padding-l-8">
+                <columns visible="false">
+                    <column width="100px"/>
+                    <column width="405px"/>
+                </columns>
+                <rows>
+                    <row>
+                        <label value="${idera:getLabel('Labels.sql-cm.archive-properties-dialog-display-name')}"/>
+                        <idera-cwf-textbox type="text" value="@bind(vm.archiveProperties.displayName)"
+                                 readonly="true" maxlength="128" hflex="1"/>
+                    </row>
+                    <row>
+                        <label value="${idera:getLabel('Labels.sql-cm.archive-properties-dialog-sql-server')}"/>
+                        <idera-cwf-textbox type="text" value="@load(vm.archiveProperties.instance)" readonly="true" hflex="1"/>
+                    </row>
+                    <row>
+                        <label value="${idera:getLabel('Labels.sql-cm.archive-properties-dialog-description')}"/>
+                        <idera-cwf-textbox type="text" value="@bind(vm.archiveProperties.description)" style="resize:none;height:65px"
+                                 readonly="true" rows="5" maxlength="255" hflex="1"/>
+                    </row>
+                </rows>
+            </grid>
+            <separator height="16px"/>
+            <grid width="510px" sclass="idera-invisible-grid padding-l-8">
+                <columns visible="false">
+                    <column width="130px"/>
+                    <column width="170px"/>
+                    <column width="30px"/>
+                    <column width="170px"/>
+                </columns>
+                <rows>
+                    <row>
+                        <label value="${idera:getLabel('Labels.sql-cm.archive-properties-dialog-event-time-span')}"/>
+                        <idera-cwf-textbox type="text"
+                                 value="@load(vm.archiveProperties.eventTimeSpanFrom)"
+                                 readonly="true"
+                                 width="160px" />
+                        <label value="${idera:getLabel('Labels.sql-cm.archive-properties-dialog-to')}"/>
+                        <idera-cwf-textbox type="text"
+                                 value="@load(vm.archiveProperties.eventTimeSpanTo)"
+                                 readonly="true"
+                                 width="160px" />
+                    </row>
+                </rows>
+            </grid>
+        </groupbox>
+
+        <hlayout sclass="padding-lr-12">
+            <div hflex="1"/>
+            <div>
+                <idera-cwf-button id="okButton"  height="36px" width="85px"
+                        label="${idera:getLabel('Labels.sql-cm.archive-properties-dialog-ok-button')}"
+                        disabled="@load(!vm.archiveProperties.validArchive)"
+                        onClick="@command('attachAction', comp=archiveProperties)"/>
+            </div>
+            <div>
+                <idera-cwf-button id="cancelButton" height="36px" width="85px"
+                        label="${idera:getLabel('Labels.sql-cm.archive-properties-dialog-close-button')}"
+                        onClick="@command('closeDialog', comp=archiveProperties)"/>
+            </div>
+        </hlayout>
+    </vlayout>
+</idera-cwf-dialog>

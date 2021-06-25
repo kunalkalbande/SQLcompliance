@@ -1,0 +1,101 @@
+<zk>
+	<idera-cwf-dialog hflex="1" vflex="1" style="vertical-align:middle;"
+		apply="org.zkoss.bind.BindComposer" closable="true"
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addstatusalertruleswizard.steps.DatabaseAuditSettingsStepViewModel')">
+		<vlayout hflex="1" vflex="1">
+			<separator height="16px" />
+			<groupbox width="500px">
+				<caption
+					label="${idera:getLabel('SQLCM.Label.sel-aletr-action-alert-rules')}" />
+				<vlayout hflex="1">
+					<hlayout hflex="1">
+						<vlayout hflex="1">
+							<idera-cwf-checkbox
+								label="${idera:getLabel('SQLCM.Label.email-notification-alert-rules')}"
+								name="${idera:getLabel('SQLCM.Label.email-notification-alert-rules')}"
+								onCheck="@command('onCheck', target=self, index=0,lstBox=null,lbl=messageAlertAction,txt =txtEmailAddress,txt2=null,spn = null)">
+							</idera-cwf-checkbox>
+							<div style="margin-left:20px;">
+								<idera-cwf-hyperlink id="messageAlertAction"
+									label="${idera:getLabel('SQLCM.Label.alert-message-alert-rules')}"
+									visible="${sqlcm:canAccess()}"
+									disabled="true" />
+							</div>
+							<label style="margin-left:20px;"
+								value="${idera:getLabel('SQLCM.Label.spec-mail-address-alert-rules')}" />
+							<div>
+
+								<idera-cwf-textbox
+									style="margin-left:20px;" id="txtEmailAddress"
+									value="@bind(step_vm.emailAddress)" type="text" width="335px"
+									rows="1" disabled="true"
+									constraint="/.+@.+\.[a-zA-Z]+/: Please enter an e-mail address" />
+							</div>
+							<idera-cwf-checkbox
+								label="${idera:getLabel('SQLCM.Label.win-log-entry-alert-rules')}"
+								name="${idera:getLabel('SQLCM.Label.win-log-entry-alert-rules')}"
+								onCheck="@command('onCheck', target=self, index=0,lstBox=eventLog,lbl=null, txt=null,txt2=null,spn = null)">
+							</idera-cwf-checkbox>
+							<div style="margin-left:20px;">
+								<hbox sclass="margin-lr-14" hflex="1">
+									<listbox mold="select" tabindex="8"
+										disabled="true" id="eventLog" readonly="true"
+										onSelect="@command('selectEventSource', id=self.selectedItem.id)">
+										<listitem id="INFORMATION"
+											width="150px"
+											label="${idera:getLabel('SQLCM.Labels.information')}"
+											value="${idera:getLabel('SQLCM.Labels.information')}"
+											selected="true" />
+										<listitem id="WARNING"
+											width="150px"
+											label="${idera:getLabel('SQLCM.Labels.warning')}"
+											value="${idera:getLabel('SQLCM.Labels.warning')}" />
+										<listitem id="ERROR"
+											width="150px" label="${idera:getLabel('SQLCM.Labels.error')}"
+											value="${idera:getLabel('SQLCM.Labels.error')}" />
+									</listbox>
+								</hbox>
+							</div>
+							<idera-cwf-checkbox
+								label="${idera:getLabel('SQLCM.Label.snmp-trap-alert-rules')}"
+								name="${idera:getLabel('SQLCM.Label.snmp-trap-alert-rules')}"
+								onCheck="@command('onCheck', target=self, index=0,lstBox=null,lbl=null,txt=txtaddress,txt2=txtcommunity,spn =spnport)">
+							</idera-cwf-checkbox>
+							<hlayout>
+								<vlayout>
+									<div id="lblalertRulesaddress"
+										style="padding-bottom: 0.4em;">
+										<label style="margin-left:20px;"
+											value="${idera:getLabel('SQLCM.Label.address-alert-rules')}" />
+									</div>
+									<div id="lblalertRuleport"
+										style="padding-bottom: 0.4em;">
+										<label style="margin-left:20px;"
+											value="${idera:getLabel('SQLCM.Label.port-alert-rules')}" />
+									</div>
+									<div id="lblalertRulescommunity">
+										<label style="margin-left:20px;"
+											value="${idera:getLabel('SQLCM.Label.community-alert-rules')}" />
+									</div>
+								</vlayout>
+								<vlayout>
+									<idera-cwf-textbox
+										style="margin-left:20px;" id="txtaddress"
+										value="@bind(step_vm.address)" type="text" width="240px"
+										rows="1" disabled="true" />
+									<spinner style="margin-left:20px;"
+										id="spnport" value="@bind(step_vm.port)"
+										constraint="no negative,no zero" disabled="true" />
+									<idera-cwf-textbox
+										style="margin-left:20px;" id="txtcommunity"
+										value="@bind(step_vm.community)" type="text" width="240px"
+										rows="1" disabled="true" />
+								</vlayout>
+							</hlayout>
+						</vlayout>
+					</hlayout>
+				</vlayout>
+			</groupbox>
+		</vlayout>
+	</idera-cwf-dialog>
+</zk>

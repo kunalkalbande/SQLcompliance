@@ -1,0 +1,27 @@
+<zk>
+	<div hflex="1" vflex="1"
+         style="vertical-align:middle;"
+         apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addregulationguidelinewizard.steps.RegulationGuidelineBeforeAfterStepViewModel')">        
+        <html content="${idera:getLabel('SQLCM.Html.regulation-guideline-before-after-column.tips')}" class="z-label" />
+    	<hlayout width="510px" vflex="1">		   
+           <tree id="tBadDatabases" width="400px" model="@load(step_vm.treeModel)" style="border: 1px solid #9D9D9D;" vflex="1">
+                <treecols sizable="true">
+                    <treecol/>
+                </treecols>
+                <template name="model">
+                    <treeitem>
+                        <treerow>
+                            <treecell label="@load(each.data.name)" onClick="@command('onTreeItemClick')"/>
+                        </treerow>
+                    </treeitem>
+                </template>
+            </tree>
+            <vlayout >
+                <idera-cwf-button width="100px" id="configureButton" 
+                        label="${idera:getLabel('SQLCM.Labels.regulation-guideline-configure-button')}"
+                        onClick="@command('onConfigureBtnClick')"/>
+            </vlayout>
+        </hlayout>
+    </div>
+</zk>

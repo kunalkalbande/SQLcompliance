@@ -1,0 +1,106 @@
+<zk>
+	<div id="containerDiv" height="100%" width="100%">
+		<listbox id="instanceListbox" model="@{instancesModel}"
+			vflex="1" hflex="1">
+			<!--????????????????-->
+			<!--<custom-attributes
+				org.zkoss.zul.listbox.rod="@{selectAllEnabled, converter='com.idera.sqlinventorymanager.ui.converter.BooleanReverseConverter'}" />-->
+			<!--?????????-->
+			<listhead>
+				<listheader width="30px" style="padding-left: 1px;"
+					visible="@{showCheckmarkColumn}" />
+				<listheader width="30px"
+					visible="@{showStatusIconColumn}" />
+				<sqlcm-extlistheader
+					label="${idera:getLabel('SQLCM.Labels.instances.instance-name-column')}"
+					hflex="1" visible="@{showInstanceNameColumn}"
+					sortAscending="@{instanceNameSortAsc}"
+					sortDescending="@{instanceNameSortDesc}" />
+				<listheader width="30px"
+					visible="@{showOptionMenuColumn}" />
+				<sqlcm-extlistheader
+					label="${idera:getLabel('SQLCM.Labels.instances.status-text-column')}"
+					hflex="1" visible="@{showStatusTextColumn}"
+					sortAscending="@{statusTextSortAsc}"
+					sortDescending="@{statusTextSortDesc}" />
+				<sqlcm-extlistheader
+					label="${idera:getLabel('SQLCM.Labels.instances.num-of-audited-dbs-column')}"
+					hflex="1" visible="@{showNumberOfAuditDBsColumn}"
+					sortAscending="@{numberOfAuditDBsSortAsc}"
+					sortDescending="@{numberOfAuditDBsSortDesc}" />
+				<sqlcm-extlistheader
+					label="${idera:getLabel('SQLCM.Labels.instances.sql-server-version-edition-column')}"
+					hflex="1" visible="@{showSqlServerVersionEditionColumn}"
+					sortAscending="@{sqlServerVersionEditionSortAsc}"
+					sortDescending="@{sqlServerVersionEditionSortDesc}" />
+				<sqlcm-extlistheader
+					label="${idera:getLabel('SQLCM.Labels.instances.audit-status-column')}"
+					width="100px" visible="@{showAuditStatusColumn}"
+					sortAscending="@{auditStatusSortAsc}"
+					sortDescending="@{auditStatusSortDesc}" />
+				<sqlcm-extlistheader
+					label="${idera:getLabel('SQLCM.Labels.instances.last-agent-contact-column')}"
+					hflex="1" visible="@{showLastAgentContactColumn}"
+					sortAscending="@{lastAgentContactSortAsc}"
+					sortDescending="@{lastAgentContactSortDesc}" />
+			</listhead>
+
+			<listitem self="@{each='instance'}"
+				value="@{instance.id}">
+
+				<listcell style="text-align: center" /><!-- listcell for the checkmark -->
+
+				<listcell style="text-align: center"
+					image="@{instance.statusIconUrl}" />
+
+				<listcell>
+					<!--<label visible="@{showNameAsLink, converter='com.idera.sqlinventorymanager.ui.converter.BooleanReverseConverter'}"
+						value="@{instance.name}" />-->
+					<a visible="@{showNameAsLink}" class="link"
+						label="@{instance.name}" href="@{instance.instanceDetailsUrl}" />
+				</listcell>
+
+				<listcell style="text-align: center">
+					<image id="actionIconImage"
+						sclass="hand-on-mouseover" src="@{instance.actionIconUrl}" />
+				</listcell>
+
+				<listcell label="@{instance.statusText}" />
+				<listcell label="@{instance.numberAuditedDB}" />
+				<listcell label="@{instance.sqlServerVersionEdition}" />
+				<listcell label="@{instance.auditStatus}" />
+				<listcell label="@{instance.lastAgentContact}" />
+
+			</listitem>
+
+			<listfoot visible="@{pagingMold}">
+				<listfooter span="99" align="middle">
+
+					<script src="js/jquery.maskedinput.min.js"
+						type="text/javascript">
+					</script>
+
+					<separator height="10px" />
+
+					<paging id="paginal" pageIncrement="1"
+						autohide="true" detailed="true" />
+
+					<separator height="10px" />
+
+					<hlayout valign="middle">
+						<label
+							value="${idera:getLabel('SQLCM.Labels.display')}:" />
+						<separator width="5px" />
+						<spinner 
+						style="text-align:center" id="pageSizeIntbox" width="37px"
+							maxlength="3" constraint="no negative,no empty, no zero" />
+						<separator width="10px" />
+						<a id="applyPageSizeLink"
+							label="${idera:getLabel('SQLCM.Labels.refresh')}" sclass="link" />
+					</hlayout>
+
+				</listfooter>
+			</listfoot>
+		</listbox>
+	</div>
+</zk>

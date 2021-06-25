@@ -1,0 +1,97 @@
+
+	<idera-cwf-dialog id="ConfigSearchChild" closable="true" border="none"
+		height="250px" width="570px" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.ConfigureSearchChildViewModel')"
+		>
+		<vlayout>
+			<!-- <div hflex="1"  height="8px" /> -->
+			<hlayout >
+				<div align="left" hflex="1" class="z-window-highlighted-header z-window-highlighted-header-move">
+					<vlayout>
+						<!-- <separator height="8px" /> -->
+						<label id="titleLabel"
+							style= "font-size: 1.6rem;"  value=""/>
+					</vlayout>
+				</div>
+			</hlayout>
+			<hlayout>
+				<listbox id="listboxOpenDeleteProfile" vflex="1" hflex="1" sclass="idera-grid z-listbox"
+					nonselectableTags="*" >
+					
+					<listitem>
+						<!-- <listcell style="background-color:#FFF;" /> -->
+						<listcell span="2"
+							style="background-color:#FFF;">
+							<idera-cwf-dropdownlist type="text"
+								id="comboboxOpenDeleteProfile" width="300px"
+								onChanging="@command('editProfileListCombobox',id=event.value)"
+								autocomplete="true" mold="default" readonly="true" value="Select a profile"
+								model="@load(vm.uniqueProfileList)">
+								<template name="model">
+									<comboitem value="@load(each)"
+										label="@load(each)" />
+								</template>
+							</idera-cwf-dropdownlist>
+						</listcell>
+						<listcell span="2"
+							style="background-color:#FFF;">
+							<idera-cwf-button id="btnDeleteProfile" width="85px" height="36px"
+								onClick="@command('deleteProfileCommand', comp=ConfigSearchChild)"
+								 label="Delete" />
+							<idera-cwf-button width="85px" height="36px"
+								id="btnOpenProfile"
+								onClick="@command('openProfileCommand', comp=ConfigSearchChild)"
+								 label="Open" />
+						</listcell>
+					</listitem>
+					
+					<listitem>					
+					</listitem>
+					<listitem>
+					<!-- <listcell span="1" /> -->
+						<listcell span="2">
+							<idera-cwf-button id="btnRestoreDefault" height="36px"
+								onClick="@command('restoreDefaultCommand', comp=ConfigSearchChild)"
+								
+								label="Restore Default Settings" />
+						</listcell>
+						
+						<listcell span="2">
+							<idera-cwf-button
+								id="btnOpenDeleteCancel" width="85px" height="36px"
+								 label="Cancel"
+								onClick="@command('closeCommand', comp=ConfigSearchChild)"
+								 />
+						</listcell>
+					</listitem>
+				
+				</listbox>
+				<grid id="listboxSaveNewProfile"
+					sclass="idera-invisible-grid" hflex="1">
+					<columns>
+						<column hflex="1"></column>
+						<column hflex="1"></column>
+					</columns>
+					<rows>
+						<row>
+							<idera-cwf-textbox id="txtNewProfileName"
+								maxlength="50" width="300px"
+								onChanging="@command('editNewProfileName',id=event.value)"
+								value="" />
+							<idera-cwf-button disabled="true"
+								width="85px" height="36px" id="btnSaveNewProfiles"
+								onClick="@command('saveNewProfileCommand', comp=ConfigSearchChild)"
+								label="Save" />
+						</row>
+						<row>
+							<label></label>
+							<idera-cwf-button
+								id="btnSaveNewProfileCancel" width="85px" height="36px"
+								label="Cancel"
+								onClick="@command('closeCommand', comp=ConfigSearchChild)" />
+						</row>
+					</rows>
+				</grid>
+			</hlayout>
+		</vlayout>
+	</idera-cwf-dialog>

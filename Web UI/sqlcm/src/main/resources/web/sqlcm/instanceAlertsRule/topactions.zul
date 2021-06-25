@@ -1,0 +1,82 @@
+<zk>
+	<hlayout valign="middle">
+	<style>
+			tr.z-row td.z-row-inner, tr.z-row .z-cell{ border: none
+			!important; background-image : none !important;
+			background-color: #e1dcd1; }
+	</style>
+	<grid hflex="1">
+		<columns>
+			<column hflex="min"></column>
+			<column hflex="min"></column>
+			<column hflex="min"></column>
+		</columns>
+		<rows>
+			<row
+				style="backgroud-color:red;backgroud-image:none !important">
+				View by:
+				<idera-cwf-dropdownlist mold="default" tabindex="8" width="150px"
+					readonly="true" onSelect="@command('instanceAlertsView', id=1)"
+					value="Alert Rules">
+					<comboitem id="ALERTS" label="Alerts" />
+				</idera-cwf-dropdownlist>
+				<label value="${idera:getLabel('SQLCM.Labels.instances.instance.alert.rule-add')}"
+				visible="${sqlcm:getConfigValue('alerts','addNewRules' )}" ></label>
+				<idera-cwf-dropdownlist mold="default" tabindex="8"  readonly="true"
+					onSelect="@command('addAlertRules', id=self.selectedItem.id)" width="150px"
+					value="${idera:getLabel('SQLCM.Labels.addNewAlertRule')}"
+					visible="${sqlcm:getConfigValue('alerts','addNewRules' )}">
+					<comboitem id="EVENT"
+						label="${idera:getLabel('SQLCM.Labels.event')}"
+						value="${idera:getLabel('SQLCM.Labels.event')}" />
+					<comboitem id="DATA"
+						label="${idera:getLabel('SQLCM.Labels.data')}"
+						value="${idera:getLabel('SQLCM.Labels.data')}" />
+					<comboitem id="STATUS"
+						label="${idera:getLabel('SQLCM.Labels.status')}"
+						value="${idera:getLabel('SQLCM.Labels.status')}" />
+				</idera-cwf-dropdownlist>
+			</row>
+		</rows>
+	</grid>
+			
+		<div hflex = "min" style="text-align: right;">	
+					<hlayout valign="middle">
+						<button id="uploadButton" upload="true"
+						sclass="idera-button-primary" style="font-weight:bold;color:#473E2E !important;margin:0px !important"
+						label="${idera:getUpperCaseLabel('SQLCM.Labels.import')}"
+						onUpload="@command('uploadFile')" height="36px"
+						visible="${sqlcm:getConfigValue('alerts','import' )}" />
+						<div hflex="min">
+							<idera-cwf-button id="makeReportLink"
+								label="${idera:getLabel('Labels.export')}"
+								popup="reportsMenuPopup, position=after_end" height="36px">
+
+							</idera-cwf-button>
+							<menupopup id="reportsMenuPopup"
+								sclass="sql-cm-export-menu">
+								<menuitem id="createPDFMenuItem"
+									label="${idera:getLabel('Labels.export-as-pdf')}"
+									onClick="@command('exportToPdf')" />
+								<menuitem id="createXLSMenuItem"
+									label="${idera:getLabel('Labels.export-as-xls')}"
+									onClick="@command('exportToExcel')" />
+								<menuitem id="createXMLMenuItem"
+									label="${idera:getLabel('Labels.export-as-xml')}"
+									onClick="@command('exportToXml')" />
+							</menupopup>
+						</div>
+						<image src="~./sqlcm/images/refresh-icon.png"
+							height="20px" width="20px" onClick="@command('refreshEvents')">
+						</image>
+					</hlayout>
+			</div>
+	</hlayout>
+	
+	<!-- 
+		<borderlayout width="950px" height="50px">
+		<north border="none">
+		
+		</north>
+		</borderlayout> -->
+</zk>

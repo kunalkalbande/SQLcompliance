@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AlertRulesDisabled_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlertRulesDisabled_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EventViews" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EventViews.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="UpArrow_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UpArrow_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AddAuditedDB_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddAuditedDB_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DisableAlertRule_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DisableAlertRule_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_DDL_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-DDL_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="operational_alertAdd16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\operational_alertAdd16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExportAlertRules_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExportAlertRules_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SendSettings_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SendSettings_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Save_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wizard_Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wizard_Login.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConfigureAlerting_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ConfigureAlerting_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlertHigh_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlertHigh_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GridGroupByBox_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GridGroupByBox_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LoginDetails_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LoginDetails_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExportAlertRules_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExportAlertRules_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExportEventFilter_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExportEventFilter_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewEventFilter_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewEventFilter_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewEventFilter_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewEventFilter_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ThresholdNotSpecified_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ThresholdNotSpecified_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImportSettings_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImportSettings_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShowHide_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ShowHide_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AgentProperties_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AgentProperties_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Refresh_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Refresh_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImportAlertRules_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImportAlertRules_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SplashScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SplashScreen.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_Security_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-Security_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Delete_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="column" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\column.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RemoveDB_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RemoveDB_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_Login_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-Login_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_Login_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-Login_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bug_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bug_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\copy.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Task_ConfigureAlerting_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Task_ConfigureAlerting_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CheckAgentStatus_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheckAgentStatus_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Administration_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Administration_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ApplyAuditTemplate32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ApplyAuditTemplate32x32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AddAuditedDB_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddAuditedDB_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ServerSettings_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ServerSettings_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_DML_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-DML_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Task_InvestigateActivity_32_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Task_InvestigateActivity_32_hover.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Task_MonitorLogs_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Task_MonitorLogs_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="About" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\About.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DataAlert_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataAlert_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UseAsTemplate_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UseAsTemplate_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExportSettings_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExportSettings_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DataAlert_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataAlert_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SQLcmHeader" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SQLcmHeader.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CollectAuditData_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CollectAuditData_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Task_InvestigateActivity_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Task_InvestigateActivity_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Administration_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Administration_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wizard_AlertRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wizard_AlertRules.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExpandAll_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExpandAll_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExploreActivities_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExploreActivities_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlertLow_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlertLow_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CollectAuditData_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CollectAuditData_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewAlertRule_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewAlertRule_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DownArrow_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DownArrow_16.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DisableAuditing_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DisableAuditing_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wizard_EventFilter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wizard_EventFilter.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DisabledGray_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DisabledGray_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Enabled_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Enabled_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_Select_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-Select_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RemoveServer_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RemoveServer_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wizard_AuditTemplate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wizard_AuditTemplate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DisableAuditing_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DisableAuditing_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StopSign_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StopSign_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reports_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reports_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImportEventFilter_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImportEventFilter_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewLogins_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewLogins_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Task_ConfigureAccess_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Task_ConfigureAccess_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlertRuleIgnored_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlertRuleIgnored_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlertSevere_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlertSevere_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ApplyAuditTemplate16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ApplyAuditTemplate16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NavigateLeft_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NavigateLeft_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UseAsTemplate_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UseAsTemplate_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DBSettings_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DBSettings_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EventFilterDisabled_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EventFilterDisabled_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImportSettings_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImportSettings_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Task_SelfAudit_32_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Task_SelfAudit_32_hover.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RowHotTracked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RowHotTracked.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EventFilterInvalid_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EventFilterInvalid_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusError_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusError_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DownArrow_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DownArrow_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImportAlertRules_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImportAlertRules_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusError_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusError_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_DML_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-DML_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Task_RegisterSQLServer_32_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Task_RegisterSQLServer_32_hover.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnableEventFilter_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnableEventFilter_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DisableAlertRule_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DisableAlertRule_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RemoveServer_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RemoveServer_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Task_SelfAudit_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Task_SelfAudit_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TrustedUsers_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TrustedUsers_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="time" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\time.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveAs_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SaveAs_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewLogins_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewLogins_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusGood_16_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusGood_16_ico.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StopSign_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StopSign_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EventFilterDetails_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EventFilterDetails_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConfigureEventFilter_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ConfigureEventFilter_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Disabled_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Disabled_16.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlertRule_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlertRule_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusGood_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusGood_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wizard_ImportAuditSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wizard_ImportAuditSettings.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImportEventFilter_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImportEventFilter_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusWarning_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusWarning_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Task_RegisterSQLServer_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Task_RegisterSQLServer_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_UserDefined_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-UserDefined_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusWarning_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusWarning_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ColumnChooserButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ColumnChooserButton.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DBSettings_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DBSettings_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CollapseAll_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CollapseAll_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrivilegedUsers_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PrivilegedUsers_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GoSign_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GoSign_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusGood_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusGood_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExportSettings_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExportSettings_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\login.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Disabled_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Disabled_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="table" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Task_MonitorLogs_32_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Task_MonitorLogs_32_hover.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ThresholdNotSpecified_16_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ThresholdNotSpecified_16_ico.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NavigateRight_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NavigateRight_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConfigureEventFilter_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ConfigureEventFilter_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnableEventFilter_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnableEventFilter_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DisableEventFilter_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DisableEventFilter_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Edit_Default_Audit_Settings_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Edit_Default_Audit_Settings_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apply_Default_Audit_Settings_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Apply_Default_Audit_Settings_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GridRow_Selected_ImageBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GridRow_Selected_ImageBackground.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ServerSettings_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ServerSettings_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WelcomeSideBar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WelcomeSideBar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveAs_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SaveAs_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusError_16_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusError_16_ico.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusWarning_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusWarning_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blank" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blank.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_Security_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-Security_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="operational_alertAdd32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\operational_alertAdd32x32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LoginDetails_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LoginDetails_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_Admin_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-Admin_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RemoveDB_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RemoveDB_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="host" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\host.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_DDL_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-DDL_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CheckAgentStatus_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CheckAgentStatus_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExploreActivities_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExploreActivities_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GridRow_Active_ImageBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GridRow_Active_ImageBackground.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_Select_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-Select_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Print_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Print_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlertMedium_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlertMedium_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TrustedUsers_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TrustedUsers_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnableAlertRule_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnableAlertRule_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SendSettings_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SendSettings_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deleteAlert32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deleteAlert32x32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UpArrow_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UpArrow_16.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EventFilterDetails_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EventFilterDetails_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wizard_DB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wizard_DB.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Save_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlertRuleDetails_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlertRuleDetails_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wizard_Server" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wizard_Server.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConfigureAlerting_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ConfigureAlerting_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Task_ConfigureAlerting_32_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Task_ConfigureAlerting_32_hover.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EnableAlertRule_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnableAlertRule_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrivilegedUsers_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PrivilegedUsers_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DisableEventFilter_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DisableEventFilter_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NavigateBeginning_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NavigateBeginning_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SQLcompliance_product_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SQLcompliance_product_ico.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_UserDefined_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-UserDefined_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reports_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reports_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Help_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Help_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Refresh_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Refresh_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Task_ConfigureAccess_32_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Task_ConfigureAccess_32_hover.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RowSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RowSelected.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NavigateEnd_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NavigateEnd_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExportEventFilter_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExportEventFilter_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="category" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\category.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="information" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\information.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlertRuleDetails_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlertRuleDetails_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Properties_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Properties_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StatusWarning_16_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StatusWarning_16_ico.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deleteAlert16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deleteAlert16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewAlertRule_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewAlertRule_32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AgentProperties_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AgentProperties_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EventFilter_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EventFilter_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="type" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\type.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GridColumnHeader_HotTracked_ImageBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GridColumnHeader_HotTracked_ImageBackground.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Event_Admin_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Event-Admin_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="information1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\information1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PagingFirst" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PagingFirst .png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PagingLast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PagingLast.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PagingNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PagingNext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PagingPrevious" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PagingPrevious.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="info_icon_normal_state" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\info-icon-normal-state.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TooltipTriangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TooltipTriangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ApplyDatabaseAuditSettingsActive32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ApplyDatabaseAuditSettingsActive32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ApplyServerAuditSettingsActive32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ApplyServerAuditSettingsActive32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditDatabaseAuditSettingsActive32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditDatabaseAuditSettingsActive32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditServerAuditSettingsActive32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditServerAuditSettingsActive32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

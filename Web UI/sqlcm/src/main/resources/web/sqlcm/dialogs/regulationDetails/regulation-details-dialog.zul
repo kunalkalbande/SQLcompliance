@@ -1,0 +1,41 @@
+<idera-cwf-dialog height="640px" width="670px" closable="true"
+	border="none" apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.regulationDetails.RegulationDetailsViewModel')"
+	contentSclass="modal-dialog-window customize-dba-modal"
+	style="border-radius: 0" position="center,middle"
+	id="regulationDetailsWindow"
+	title="${idera:getLabel('Labels.sql-cm.regulation-details-dialog-title')}">
+
+
+	<attribute name="onBind"><![CDATA[
+zk.afterMount(function () {
+				zWatch.fireDown('onSize', self);
+			});
+]]></attribute>	
+	<idera-cwf-panel id="mainPanel" height="595px" width="620px">
+		<panelchildren id="mainPanelChildren">		
+			<label value="${idera:getLabel('SQLCM.Label.regulation-empty-message')}" visible="@load(vm.onlyCustomApplied)"/>
+			<tabbox id="tbSections" height="500px">
+				<tabs id="tabs" width="250px" 
+					sclass="sql-cm-custom-tab-ul" />
+				<tabpanels id="tpSections" width="560px"
+					sclass="overflow-auto" />
+			</tabbox>
+		</panelchildren>
+		<toolbar hflex="1" height="60px" align="center"
+			sclass="wizard-button-toolbar padding-all-8"
+			style="border-top: 1px solid #E7E3E7;">
+			<hbox hflex="1" pack="stretch,start">
+				<cell hflex="1" />
+				<cell hflex="min" sclass="middle-center-align">
+					<hlayout valign="middle">
+						<div hflex="1" />
+						<idera-cwf-button id="closeButton"
+							onClick="@command('closeCommand')"
+							label="${idera:getLabel('Labels.sql-cm.regulation-details-dialog-close-button')}" />
+					</hlayout>
+				</cell>
+			</hbox>
+		</toolbar>
+	</idera-cwf-panel>
+</idera-cwf-dialog>

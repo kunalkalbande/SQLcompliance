@@ -1,0 +1,117 @@
+<zk>
+	<div hflex="1" vflex="1" style="vertical-align:middle;" apply="org.zkoss.bind.BindComposer" 
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.eventFilterWizard.steps.NewEventFilterStepViewModel')">
+		<vlayout hflex="1" vflex="1">
+			<style>.z-hlayout-inner {vertical-align:middle !important}</style>
+			<groupbox width="490px">
+				<caption
+					label="${idera:getLabel('SQLCM.Label.sql-server-objects-alert-rules')}" />
+				<vlayout>
+					<hlayout>
+						<vlayout hflex="1">
+							<idera-cwf-checkbox id="chkSQLServer"
+								label="${idera:getLabel('SQLCM.Label.sql-server-alert-rules')}"
+								name="${idera:getLabel('SQLCM.Label.sql-server-alert-rules')}"
+								onCheck="@command('onCheck', target=self, index=0, lstBox=null, lbl=specifySQL)" ></idera-cwf-checkbox>
+							<idera-cwf-checkbox id="chkObject"
+								label="${idera:getLabel('SQLCM.Label.object-name-alert-rules')}"
+								name="${idera:getLabel('SQLCM.Label.object-name-alert-rules')}"
+								onCheck="@command('onCheck', target=self, index=2, lstBox=null, lbl=specifyObject)" ></idera-cwf-checkbox>
+							<idera-cwf-checkbox id="chkDatabase"
+								label="${idera:getLabel('SQLCM.Label.database-name-alert-rules')}"
+								name="${idera:getLabel('SQLCM.Label.database-name-alert-rules')}"
+								onCheck="@command('onCheck', target=self, index=1, lstBox=null, lbl=specifyDatabase)" ></idera-cwf-checkbox>
+						</vlayout>
+
+						<vlayout hflex="1" style="margin-top:-14px">
+						<separator height="10px"/>
+							<div>
+								<idera-cwf-hyperlink id="specifySQL" label="${idera:getLabel('SQLCM.Labels.specified-sql-server')}"
+									onClick="@command('eventFilters',id=1)" disabled="true"
+									visible="${sqlcm:canAccess()}"/>
+							</div>
+							<separator height="27px"/>
+							<div>
+								<idera-cwf-hyperlink id="specifyObject" label="${idera:getLabel('SQLCM.Labels.specified-objects')}"
+									onClick="@command('eventFilters',id=3)" disabled="true"
+									visible="${sqlcm:canAccess()}"/>
+							</div>
+							<separator height="27px"/>
+							<div>
+								<idera-cwf-hyperlink id="specifyDatabase" label="${idera:getLabel('SQLCM.Labels.specified-databases')}"
+									onClick="@command('eventFilters',id=2)" disabled="true"
+									visible="${sqlcm:canAccess()}"/>
+							</div>
+						</vlayout>
+					</hlayout>
+				</vlayout>
+			</groupbox>
+			<!-- <separator height="16px" /> -->
+			<groupbox width="490px" style="font-size: 0rem;" height="290px">
+				<caption label="${idera:getLabel('SQLCM.Label.filter.events.generated.by')}" />
+				<vlayout>
+				<grid sclass="idera-invisible-grid">
+				<columns>
+				<column hflex="2"></column>
+				<column hflex="2"></column>
+				</columns>
+				<rows>
+					<row>
+						<idera-cwf-checkbox id="chkApplication"
+								label="${idera:getLabel('SQLCM.Label.application-name-alert-rules')}"
+								name="${idera:getLabel('SQLCM.Label.application-name-alert-rules')}"
+								onCheck="@command('onCheck', target=self, index=4, lstBox=null, lbl= specifyApplicationName)" ></idera-cwf-checkbox>
+						<idera-cwf-hyperlink style="font-weight:normal" id="specifyApplicationName" label="${idera:getLabel('SQLCM.Labels.specify-names')}"
+							onClick="@command('eventFilters',id=4)" disabled="true"
+							visible="${sqlcm:canAccess()}"/>
+					</row>
+					<row>
+						<idera-cwf-checkbox id="chkLoginName"
+									label="${idera:getLabel('SQLCM.Label.login-name-alert-rules')}"
+									name="${idera:getLabel('SQLCM.Label.login-name-alert-rules')}"
+									onCheck="@command('onCheck', target=self, index=5, lstBox=null, lbl=specifyLoginName)" ></idera-cwf-checkbox>
+						<idera-cwf-hyperlink style="font-weight:normal" id="specifyLoginName" label="${idera:getLabel('SQLCM.Labels.specify-names')}"
+									onClick="@command('eventFilters',id=5)" disabled="true"
+									visible="${sqlcm:canAccess()}"/>
+					</row>
+					<row>
+						<idera-cwf-checkbox id="chkHostName"
+									label="${idera:getLabel('SQLCM.Label.host-name-alert-rules')}"
+									name="${idera:getLabel('SQLCM.Label.host-name-alert-rules')}"
+									onCheck="@command('onCheck', target=self, index=6, lstBox=null, lbl=specifyHostName)" ></idera-cwf-checkbox>
+						<idera-cwf-hyperlink style="font-weight:normal" id="specifyHostName" label="${idera:getLabel('SQLCM.Labels.specify-words')}"
+									onClick="@command('eventFilters',id=6)" disabled="true"
+									visible="${sqlcm:canAccess()}"/>
+					
+					</row>
+					<row>
+						<idera-cwf-checkbox id="chkSessionLogin"
+								label="${idera:getLabel('SQLCM.Labels.session-login')}"
+								name="${idera:getLabel('SQLCM.Labels.session-login')}"
+								onCheck="@command('onCheck', target=self, index=7, lstBox=null, lbl=specifySessionLogin)" ></idera-cwf-checkbox>
+						<idera-cwf-hyperlink style="font-weight:normal" id="specifySessionLogin" label="${idera:getLabel('SQLCM.Labels.specify-words')}"
+									onClick="@command('eventFilters',id=7)" disabled="true"
+									visible="${sqlcm:canAccess()}"/>
+					</row>
+					<row>
+						<idera-cwf-checkbox id="chkPriviledgeUser"
+								label="${idera:getLabel('SQLCM.Label.is-privileged-type-alert-rules')}"
+								name="${idera:getLabel('SQLCM.Label.is-privileged-type-alert-rules')}"
+								onCheck="@command('onCheck', target=self, index=8, lstBox=privilegedUsers, lbl=null)" ></idera-cwf-checkbox>
+						<idera-cwf-dropdownlist id="privilegedUsers" disabled="true" readonly="true" style="margin-left:0px" width="110px"
+										tabindex="8" value="${idera:getLabel('SQLCM.Labels.true')}"
+										onSelect="@command('checkPrivilegedUser', id=self.selectedItem.id)">
+										<comboitem id="True" label="${idera:getLabel('SQLCM.Labels.true')}"
+											value="${idera:getLabel('SQLCM.Labels.true')}" />
+										<comboitem id="False"
+											label="${idera:getLabel('SQLCM.Labels.false')}" value="${idera:getLabel('SQLCM.Labels.false')}"
+											/>
+											</idera-cwf-dropdownlist>
+					</row>
+				</rows>
+				</grid>
+				</vlayout>
+			</groupbox>
+		</vlayout>
+	</div>
+</zk>

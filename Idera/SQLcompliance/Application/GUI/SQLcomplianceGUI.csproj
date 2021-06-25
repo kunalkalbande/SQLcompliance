@@ -1,0 +1,2048 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0577A985-D053-461F-9752-B6FEB2167191}</ProjectGuid>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>Resources\SQLcompliance_product_ico.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>SQLcompliance</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Idera.SQLcompliance.Application.GUI</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccAuxPath>
+    </SccAuxPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Itanium' ">
+    <PlatformTarget>Itanium</PlatformTarget>
+    <OutputPath>bin\Itanium\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Itanium' ">
+    <PlatformTarget>Itanium</PlatformTarget>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Itanium\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <Optimize>true</Optimize>
+    <DebugType>
+    </DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ChartFX.WinForms, Version=7.0.4962.20751, Culture=neutral, PublicKeyToken=a1878e2052c08dce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\ChartFX.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="ChartFX.WinForms.Adornments, Version=7.0.4962.20707, Culture=neutral, PublicKeyToken=a1878e2052c08dce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\ChartFX.WinForms.Adornments.dll</HintPath>
+    </Reference>
+    <Reference Include="ChartFX.WinForms.Base, Version=7.0.4962.20686, Culture=neutral, PublicKeyToken=a1878e2052c08dce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\ChartFX.WinForms.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="ChartFX.WinForms.Data, Version=7.0.4962.20801, Culture=neutral, PublicKeyToken=a1878e2052c08dce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\ChartFX.WinForms.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Shared.v14.2, Version=14.2.20142.2034, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\Infragistics4.Shared.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.Misc.v14.2, Version=14.2.20142.2034, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\Infragistics4.Win.Misc.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinDataSource.v14.2, Version=14.2.20142.2034, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\Infragistics4.Win.UltraWinDataSource.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinEditors.v14.2, Version=14.2.20142.2034, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\Infragistics4.Win.UltraWinEditors.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinExplorerBar.v14.2, Version=14.2.20142.2034, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\Infragistics4.Win.UltraWinExplorerBar.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinGrid.v14.2, Version=14.2.20142.2034, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\Infragistics4.Win.UltraWinGrid.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinListView.v14.2, Version=14.2.20142.2034, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\Infragistics4.Win.UltraWinListView.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinStatusBar.v14.2, Version=14.2.20142.2034, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\Infragistics4.Win.UltraWinStatusBar.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinTabControl.v14.2, Version=14.2.20142.2034, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\Infragistics4.Win.UltraWinTabControl.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinToolbars.v14.2, Version=14.2.20142.2034, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\Infragistics4.Win.UltraWinToolbars.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.v14.2, Version=14.2.20142.2034, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\Infragistics4.Win.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common">
+      <HintPath>..\..\..\..\..\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel">
+      <HintPath>..\..\..\..\..\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms">
+      <HintPath>..\..\..\..\..\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Qios.DevSuite.Components, Version=3.0.0.20, Culture=neutral, PublicKeyToken=3cc53827b79c92fa">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\lib\Qios.DevSuite.Components.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices">
+      <Name>System.DirectoryServices</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Remoting">
+      <Name>System.Runtime.Remoting</Name>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.ServiceProcess">
+      <Name>System.ServiceProcess</Name>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\..\Core\SQLcomplianceCore.csproj">
+      <Name>SQLcomplianceCore</Name>
+      <Project>{AEED7E07-280D-4C04-9536-557A84F65B3E}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <Reference Include="WebHelp, Version=2010.4.23.1400, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <ExecutableExtension>.exe</ExecutableExtension>
+      <HintPath>..\..\..\..\..\lib\WebHelp.exe</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AlertUIHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\ActivityLogView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ActivityLogView.Designer.cs">
+      <DependentUpon>ActivityLogView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AdminRibbonView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AdminRibbonView.Designer.cs">
+      <DependentUpon>AdminRibbonView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AlertRulesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AlertRulesView.Designer.cs">
+      <DependentUpon>AlertRulesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AlertView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AlertView.Designer.cs">
+      <DependentUpon>AlertView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BaseControl.Designer.cs">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChangeLogView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ChangeLogView.Designer.cs">
+      <DependentUpon>ChangeLogView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomCheckBoxDropDown\CheckBoxComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomCheckBoxDropDown\CheckBoxComboBox.designer.cs">
+      <DependentUpon>CheckBoxComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomCheckBoxDropDown\GripBounds.cs" />
+    <Compile Include="Controls\CustomCheckBoxDropDown\NativeMethods.cs" />
+    <Compile Include="Controls\CustomCheckBoxDropDown\Popup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomCheckBoxDropDown\Popup.designer.cs">
+      <DependentUpon>Popup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomCheckBoxDropDown\PopupComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomCheckBoxDropDown\PopupComboBox.designer.cs">
+      <DependentUpon>PopupComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomCheckBoxDropDown\Selection Wrappers\ListSelectionWrapper.cs" />
+    <Compile Include="Controls\CustomCheckBoxDropDown\Selection Wrappers\ObjectSelectionWrapper.cs" />
+    <Compile Include="Controls\DataAlertView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DataAlertView.Designer.cs">
+      <DependentUpon>DataAlertView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DataTableWrappers.cs" />
+    <Compile Include="Controls\DefaultSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DefaultSettings.Designer.cs">
+      <DependentUpon>DefaultSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FloatTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\IderaToolTip.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OptimizedListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PermissionsCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PermissionsCheck.Designer.cs">
+      <DependentUpon>PermissionsCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RegulationEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RegulationEntry.Designer.cs">
+      <DependentUpon>RegulationEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RoundedPanel.Designer.cs">
+      <DependentUpon>RoundedPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StatusAlertView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StatusAlertView.Designer.cs">
+      <DependentUpon>StatusAlertView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DatabaseSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DatabaseSummary.Designer.cs">
+      <DependentUpon>DatabaseSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DateSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DateSelector.designer.cs">
+      <DependentUpon>DateSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EnterpriseSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EnterpriseSummary.Designer.cs">
+      <DependentUpon>EnterpriseSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EventFiltersView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EventFiltersView.Designer.cs">
+      <DependentUpon>EventFiltersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EventView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EventView.Designer.cs">
+      <DependentUpon>EventView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FeatureButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FeatureButton.designer.cs">
+      <DependentUpon>FeatureButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GroupPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\GroupPanel.Designer.cs">
+      <DependentUpon>GroupPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Images.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Images.designer.cs">
+      <DependentUpon>Images.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LoginsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LoginsView.Designer.cs">
+      <DependentUpon>LoginsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NumericTextBox.Designer.cs">
+      <DependentUpon>NumericTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ReportCategoryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ReportCategoryView.designer.cs">
+      <DependentUpon>ReportCategoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ReportView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ReportView.designer.cs">
+      <DependentUpon>ReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RibbonView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RibbonView.Designer.cs">
+      <DependentUpon>RibbonView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ServerSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ServerSummary.Designer.cs">
+      <DependentUpon>ServerSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ServerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ServerView.Designer.cs">
+      <DependentUpon>ServerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TimeComboEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventArgs.cs" />
+    <Compile Include="FilterUIHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ConfigureSCActivity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ConfigureSCActivity.Designer.cs">
+      <DependentUpon>Form_ConfigureSCActivity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ConfirmDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ConfirmDialog.Designer.cs">
+      <DependentUpon>Form_ConfirmDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AlertDefaultDatabaseSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AlertDefaultDatabaseSettings.Designer.cs">
+      <DependentUpon>Form_AlertDefaultDatabaseSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AlertSaveDefaultDatabaseSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AlertSaveDefaultDatabaseSettings.Designer.cs">
+      <DependentUpon>Form_AlertSaveDefaultDatabaseSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ApplyDatabaseDefaultAuditSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ApplyDatabaseDefaultAuditSettings.Designer.cs">
+      <DependentUpon>Form_ApplyDatabaseDefaultAuditSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ApplyServerDefaultAuditSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ApplyServerDefaultAuditSettings.Designer.cs">
+      <DependentUpon>Form_ApplyServerDefaultAuditSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ConfirmDefaultAuditSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ConfirmDefaultAuditSettings.Designer.cs">
+      <DependentUpon>Form_ConfirmDefaultAuditSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AlertingDefaultAuditSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AlertingDefaultAuditSettings.Designer.cs">
+      <DependentUpon>Form_AlertingDefaultAuditSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_DefaultDatabaseProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_DefaultDatabaseProperties.Designer.cs">
+      <DependentUpon>Form_DefaultDatabaseProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_DisplayServerDefaultAuditSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_DisplayServerDefaultAuditSettings.Designer.cs">
+      <DependentUpon>Form_DisplayServerDefaultAuditSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SensitiveColumnsDeleteProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SensitiveColumnsDeleteProfile.Designer.cs">
+      <DependentUpon>Form_SensitiveColumnsDeleteProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SensitiveColumnsNewProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SensitiveColumnsNewProfile.Designer.cs">
+      <DependentUpon>Form_SensitiveColumnsNewProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SensitiveColumnsOpenProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SensitiveColumnsOpenProfile.Designer.cs">
+      <DependentUpon>Form_SensitiveColumnsOpenProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SensitiveColumnsSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SensitiveColumnsSearch.Designer.cs">
+      <DependentUpon>Form_SensitiveColumnsSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SensitiveColumnsAddToAudit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SensitiveColumnsAddToAudit.Designer.cs">
+      <DependentUpon>Form_SensitiveColumnsAddToAudit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SensitiveColumnsProfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SensitiveColumnsProfiles.Designer.cs">
+      <DependentUpon>Form_SensitiveColumnsProfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ServerDefaultPropertise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ServerDefaultPropertise.Designer.cs">
+      <DependentUpon>Form_ServerDefaultPropertise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SelectionLogicDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SelectionLogicDialog.Designer.cs">
+      <DependentUpon>Form_SelectionLogicDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Linq_ErrorBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Linq_ErrorBox.Designer.cs">
+      <DependentUpon>Linq_ErrorBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_About.Designer.cs">
+      <DependentUpon>Form_About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ActivityLogProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ActivityLogProperties.Designer.cs">
+      <DependentUpon>Form_ActivityLogProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AddDataAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AddDataAlert.Designer.cs">
+      <DependentUpon>Form_AddDataAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AddLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AddLicense.Designer.cs">
+      <DependentUpon>Form_AddLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AddStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AddStatus.Designer.cs">
+      <DependentUpon>Form_AddStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AddStatusAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AddStatusAlert.Designer.cs">
+      <DependentUpon>Form_AddStatusAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AgentMajorUpgrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AgentMajorUpgrade.Designer.cs">
+      <DependentUpon>Form_AgentMajorUpgrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AgentProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AgentProperties.Designer.cs">
+      <DependentUpon>Form_AgentProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AgentTraceDirectory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AgentTraceDirectory.Designer.cs">
+      <DependentUpon>Form_AgentTraceDirectory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AlertGroomProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AlertGroomProgress.Designer.cs">
+      <DependentUpon>Form_AlertGroomProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AlertingOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AlertingOptions.Designer.cs">
+      <DependentUpon>Form_AlertingOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AlertingOptions_Snmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AlertingOptions_Snmp.Designer.cs">
+      <DependentUpon>Form_AlertingOptions_Snmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AlertLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AlertLevel.Designer.cs">
+      <DependentUpon>Form_AlertLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AlertMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AlertMessage.Designer.cs">
+      <DependentUpon>Form_AlertMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AlertPermissionsCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AlertPermissionsCheck.Designer.cs">
+      <DependentUpon>Form_AlertPermissionsCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AlertRuleWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AlertRuleWizard.Designer.cs">
+      <DependentUpon>Form_AlertRuleWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Archive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Archive.Designer.cs">
+      <DependentUpon>Form_Archive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ArchiveImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ArchiveImport.Designer.cs">
+      <DependentUpon>Form_ArchiveImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ArchiveOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ArchiveOptions.Designer.cs">
+      <DependentUpon>Form_ArchiveOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ArchiveProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ArchiveProgress.Designer.cs">
+      <DependentUpon>Form_ArchiveProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ArchiveProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ArchiveProperties.Designer.cs">
+      <DependentUpon>Form_ArchiveProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AuditSettingsImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AuditSettingsImport.designer.cs">
+      <DependentUpon>Form_AuditSettingsImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_BeforeAfterRegulationGuidelines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_BeforeAfterRegulationGuidelines.Designer.cs">
+      <DependentUpon>Form_BeforeAfterRegulationGuidelines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Boolean.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Boolean.Designer.cs">
+      <DependentUpon>Form_Boolean.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ChangeThreshold.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ChangeThreshold.Designer.cs">
+      <DependentUpon>Form_ChangeThreshold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ConfigureSensitiveColumn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ConfigureSensitiveColumn.Designer.cs">
+      <DependentUpon>Form_ConfigureSensitiveColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Connect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Connect.Designer.cs">
+      <DependentUpon>Form_Connect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Connecting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Connecting.Designer.cs">
+      <DependentUpon>Form_Connecting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_CreateIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_CreateIndex.Designer.cs">
+      <DependentUpon>Form_CreateIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_DataAlertColumns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_DataAlertColumns.Designer.cs">
+      <DependentUpon>Form_DataAlertColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_DatabaseProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_DatabaseProperties.Designer.cs">
+      <DependentUpon>Form_DatabaseProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ChangeComparison.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ChangeComparison.Designer.cs">
+      <DependentUpon>Form_ChangeComparison.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_DeployReportsWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_DeployReportsWizard.designer.cs">
+      <DependentUpon>Form_DeployReportsWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_EmailList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_EmailList.Designer.cs">
+      <DependentUpon>Form_EmailList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_EmailTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_EmailTemplate.Designer.cs">
+      <DependentUpon>Form_EmailTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_EventCategorySelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_EventCategorySelector.Designer.cs">
+      <DependentUpon>Form_EventCategorySelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_EventFilterWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_EventFilterWizard.Designer.cs">
+      <DependentUpon>Form_EventFilterWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_EventLogType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_EventLogType.Designer.cs">
+      <DependentUpon>Form_EventLogType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_EventProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_EventProperties.Designer.cs">
+      <DependentUpon>Form_EventProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_EventSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_EventSelector.Designer.cs">
+      <DependentUpon>Form_EventSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_EventTypeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_EventTypeList.Designer.cs">
+      <DependentUpon>Form_EventTypeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Groom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Groom.Designer.cs">
+      <DependentUpon>Form_Groom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_GroomAlerts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_GroomAlerts.Designer.cs">
+      <DependentUpon>Form_GroomAlerts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_GroomingProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_GroomingProgress.Designer.cs">
+      <DependentUpon>Form_GroomingProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ImportSensitiveColumnsFromCSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ImportSensitiveColumnsFromCSV.Designer.cs">
+      <DependentUpon>Form_ImportSensitiveColumnsFromCSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_IndexProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_IndexProgress.Designer.cs">
+      <DependentUpon>Form_IndexProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_IndexSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_IndexSchedule.Designer.cs">
+      <DependentUpon>Form_IndexSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_InstanceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_InstanceList.Designer.cs">
+      <DependentUpon>Form_InstanceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_IntegrityCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_IntegrityCheck.Designer.cs">
+      <DependentUpon>Form_IntegrityCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_IntegrityFailure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_IntegrityFailure.Designer.cs">
+      <DependentUpon>Form_IntegrityFailure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_IntegrityProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_IntegrityProgress.Designer.cs">
+      <DependentUpon>Form_IntegrityProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_LaunchWebConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_LaunchWebConsole.Designer.cs">
+      <DependentUpon>Form_LaunchWebConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_License.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_License.Designer.cs">
+      <DependentUpon>Form_License.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_LoginFilterOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_LoginFilterOptions.Designer.cs">
+      <DependentUpon>Form_LoginFilterOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_LoginNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_LoginNew.Designer.cs">
+      <DependentUpon>Form_LoginNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_LoginProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_LoginProperties.Designer.cs">
+      <DependentUpon>Form_LoginProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_LogProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_LogProperties.Designer.cs">
+      <DependentUpon>Form_LogProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Main2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Main2.Designer.cs">
+      <DependentUpon>Form_Main2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_MaxRows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_MaxRows.Designer.cs">
+      <DependentUpon>Form_MaxRows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_AlertPermissionsCheckFailed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_AlertPermissionsCheckFailed.Designer.cs">
+      <DependentUpon>Form_AlertPermissionsCheckFailed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_MessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_MessageBox.Designer.cs">
+      <DependentUpon>Form_MessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Preferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Preferences.Designer.cs">
+      <DependentUpon>Form_Preferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PrivUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PrivUser.Designer.cs">
+      <DependentUpon>Form_PrivUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_RegisterWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_RegisterWizard.Designer.cs">
+      <DependentUpon>Form_RegisterWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_RegulationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_RegulationDetails.Designer.cs">
+      <DependentUpon>Form_RegulationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_RepositoryOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_RepositoryOptions.Designer.cs">
+      <DependentUpon>Form_RepositoryOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_RowCounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_RowCounts.Designer.cs">
+      <DependentUpon>Form_RowCounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SaveFileDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SaveFileDialog.Designer.cs">
+      <DependentUpon>Form_SaveFileDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Script.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Script.Designer.cs">
+      <DependentUpon>Form_Script.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ServerDeploy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ServerDeploy.Designer.cs">
+      <DependentUpon>Form_ServerDeploy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ServerOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ServerOptions.Designer.cs">
+      <DependentUpon>Form_ServerOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ServerProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ServerProperties.Designer.cs">
+      <DependentUpon>Form_ServerProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ServiceProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ServiceProgress.Designer.cs">
+      <DependentUpon>Form_ServiceProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SmtpTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SmtpTest.designer.cs">
+      <DependentUpon>Form_SmtpTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Snapshot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Snapshot.Designer.cs">
+      <DependentUpon>Form_Snapshot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SnapshotOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SnapshotOptions.Designer.cs">
+      <DependentUpon>Form_SnapshotOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SplashScreen.Designer.cs">
+      <DependentUpon>Form_SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_SQLServerBrowse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_SQLServerBrowse.Designer.cs">
+      <DependentUpon>Form_SQLServerBrowse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_StringSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_StringSearch.Designer.cs">
+      <DependentUpon>Form_StringSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_TableAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_TableAdd.Designer.cs">
+      <DependentUpon>Form_TableAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_TableConfigure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_TableConfigure.Designer.cs">
+      <DependentUpon>Form_TableConfigure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_TimeSpan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_TimeSpan.Designer.cs">
+      <DependentUpon>Form_TimeSpan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_UnhandledError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_UnhandledError.Designer.cs">
+      <DependentUpon>Form_UnhandledError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_UserBrowse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_UserBrowse.Designer.cs">
+      <DependentUpon>Form_UserBrowse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_ViewName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ViewName.designer.cs">
+      <DependentUpon>Form_ViewName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Welcome.designer.cs">
+      <DependentUpon>Form_Welcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PermissionsCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PermissionsCheck.Designer.cs">
+      <DependentUpon>Form_PermissionsCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProgressForm.Designer.cs">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UidPwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UidPwdForm.Designer.cs">
+      <DependentUpon>UidPwdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Globals.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HelpAlias.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\ActivityLogViewFilter.cs" />
+    <Compile Include="Helper\ActivityLogViewSettings.cs" />
+    <Compile Include="Helper\AgentControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\AlertViewFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\AlertViewSettings.cs" />
+    <Compile Include="Helper\ArchiveRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\ChangeLogViewFilter.cs" />
+    <Compile Include="Helper\ChangeLogViewSettings.cs" />
+    <Compile Include="Helper\ChartHelper.cs" />
+    <Compile Include="Helper\DataAlertViewSettings.cs" />
+    <Compile Include="Helper\DefaultAuditSettingsHelper.cs" />
+    <Compile Include="Helper\GUIRemoteObjectsProvider.cs" />
+    <Compile Include="Helper\LoginReports.cs" />
+    <Compile Include="Helper\NotSynchronizedException.cs" />
+    <Compile Include="Helper\SelectionLogic.cs" />
+    <Compile Include="Helper\DeselectionManager.cs" />
+    <Compile Include="Helper\SensitiveColumnAddToAuditHelper.cs" />
+    <Compile Include="Helper\SensitiveColumnProfileHelper.cs" />
+    <Compile Include="Helper\SensitiveColumnSearchHelper.cs" />
+    <Compile Include="Helper\ServerTreeNodeHelper.cs" />
+    <Compile Include="Helper\StatusAlertViewSettings.cs" />
+    <Compile Include="Helper\CustomTime.cs" />
+    <Compile Include="Helper\DatabaseObjectRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\DatabaseRecordGUI.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\DateTimeComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\ErrorMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\EventViewFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\EventViewSettings.cs" />
+    <Compile Include="Helper\GridColumnSettings.cs" />
+    <Compile Include="Helper\GridHelper.cs" />
+    <Compile Include="Helper\GridRows.cs" />
+    <Compile Include="Helper\IntegrityCheck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\ListViewItemComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\LocalDateTime.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\LoginDatabase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\RecentlyUsedList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\ReportsRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\Server.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\ServerUpdate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\SQLcomplianceTreeNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\StringComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\UIUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LinkString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Splasher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SQLcmApplicationContext.cs" />
+    <Compile Include="SQL\SQLDirect.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SQL\SQLRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ToolFinder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UIConstants.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web References\ReportService2005\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Content Include="App.ico" />
+    <Content Include="Resources\ApplyAuditTemplate16x16.png" />
+    <Content Include="Resources\ApplyAuditTemplate32x32.png" />
+    <None Include="packages.config" />
+    <None Include="Resources\information1.png" />
+    <None Include="Resources\PagingFirst .png" />
+    <None Include="Resources\PagingLast.png" />
+    <None Include="Resources\PagingNext.png" />
+    <None Include="Resources\PagingPrevious.png" />
+    <None Include="Resources\Search.png" />
+    <None Include="Resources\info-icon-normal-state.png" />
+    <Content Include="Resources\Apply_Default_Audit_Settings_32.png" />
+    <Content Include="Resources\Edit_Default_Audit_Settings_16.png" />
+    <Content Include="Resources\Edit_Default_Audit_Settings_32.png" />
+    <Content Include="Resources\info-icon-selected-state.png" />
+    <None Include="Resources\TooltipTriangle.png" />
+    <Content Include="Resources\Wizard_AuditTemplate.png" />
+    <None Include="Resources\DataAlert_32x32.png" />
+    <None Include="Resources\DataAlert_16x16.png" />
+    <None Include="Resources\operational_alertAdd16x16.png" />
+    <None Include="Resources\operational_alertAdd32x32.png" />
+    <None Include="Resources\deleteAlert16x16.png" />
+    <None Include="Resources\deleteAlert32x32.png" />
+    <None Include="Resources\copy.png" />
+    <None Include="Resources\information.png" />
+    <None Include="Resources\time.png" />
+    <None Include="Resources\table.png" />
+    <None Include="Resources\login.png" />
+    <None Include="Resources\host.png" />
+    <None Include="Resources\column.png" />
+    <None Include="Resources\category.png" />
+    <None Include="Resources\blank.png" />
+    <None Include="Resources\application.png" />
+    <None Include="Resources\type.png" />
+    <None Include="Resources\EventViews.txt" />
+    <None Include="Resources\GridRow_Active_ImageBackground.png" />
+    <None Include="Resources\GridRow_Selected_ImageBackground.png" />
+    <None Include="Resources\GridColumnHeader_HotTracked_ImageBackground.png" />
+    <None Include="Resources\WelcomeSideBar.png" />
+    <None Include="Resources\ThresholdNotSpecified_16_ico.ico" />
+    <None Include="Resources\Disabled_16.ico" />
+    <None Include="Resources\DisabledGray_16.png" />
+    <None Include="Resources\ThresholdNotSpecified_16.png" />
+    <None Include="Resources\Event-UserDefined_16.png" />
+    <None Include="Resources\Event-Select_32.png" />
+    <None Include="Resources\Event-Select_16.png" />
+    <None Include="Resources\Event-Security_32.png" />
+    <None Include="Resources\Event-Security_16.png" />
+    <None Include="Resources\Event-Login_32.png" />
+    <None Include="Resources\Event-Login_16.png" />
+    <None Include="Resources\Event-DML_32.png" />
+    <None Include="Resources\Event-DML_16.png" />
+    <None Include="Resources\Event-DDL_32.png" />
+    <None Include="Resources\Event-DDL_16.png" />
+    <None Include="Resources\Event-Admin_32.png" />
+    <None Include="Resources\Event-Admin_16.png" />
+    <None Include="Resources\Event-UserDefined_32.png" />
+    <None Include="Resources\UseAsTemplate_16.png" />
+    <None Include="Resources\ServerSettings_32.png" />
+    <None Include="Resources\ServerSettings_16.png" />
+    <None Include="Resources\NewLogins_32.png" />
+    <None Include="Resources\NewLogins_16.png" />
+    <None Include="Resources\NewEventFilter_32.png" />
+    <None Include="Resources\NewEventFilter_16.png" />
+    <None Include="Resources\NewAlertRule_32.png" />
+    <None Include="Resources\NewAlertRule_16.png" />
+    <None Include="Resources\LoginDetails_32.png" />
+    <None Include="Resources\LoginDetails_16.png" />
+    <None Include="Resources\ImportSettings_32.png" />
+    <None Include="Resources\ImportSettings_16.png" />
+    <None Include="Resources\ImportEventFilter_32.png" />
+    <None Include="Resources\ImportEventFilter_16.png" />
+    <None Include="Resources\ImportAlertRules_32.png" />
+    <None Include="Resources\ImportAlertRules_16.png" />
+    <None Include="Resources\ExportSettings_32.png" />
+    <None Include="Resources\ExportSettings_16.png" />
+    <None Include="Resources\ExportEventFilter_32.png" />
+    <None Include="Resources\ExportEventFilter_16.png" />
+    <None Include="Resources\ExportAlertRules_32.png" />
+    <None Include="Resources\ExportAlertRules_16.png" />
+    <None Include="Resources\EventFilterDetails_32.png" />
+    <None Include="Resources\EventFilterDetails_16.png" />
+    <None Include="Resources\EnableEventFilter_32.png" />
+    <None Include="Resources\EnableEventFilter_16.png" />
+    <None Include="Resources\EnableAlertRule_32.png" />
+    <None Include="Resources\EnableAlertRule_16.png" />
+    <None Include="Resources\DisableEventFilter_32.png" />
+    <None Include="Resources\DisableEventFilter_16.png" />
+    <None Include="Resources\DisableAlertRule_32.png" />
+    <None Include="Resources\DisableAlertRule_16.png" />
+    <None Include="Resources\DBSettings_32.png" />
+    <None Include="Resources\DBSettings_16.png" />
+    <None Include="Resources\CheckAgentStatus_32.png" />
+    <None Include="Resources\CheckAgentStatus_16.png" />
+    <None Include="Resources\AlertRuleDetails_32.png" />
+    <None Include="Resources\AlertRuleDetails_16.png" />
+    <None Include="Resources\UseAsTemplate_32.png" />
+    <None Include="Resources\TrustedUsers_16.png" />
+    <None Include="Resources\SendSettings_32.png" />
+    <None Include="Resources\SendSettings_16.png" />
+    <None Include="Resources\SaveAs_32.png" />
+    <None Include="Resources\SaveAs_16.png" />
+    <None Include="Resources\Save_32.png" />
+    <None Include="Resources\Save_16.png" />
+    <None Include="Resources\RemoveServer_32.png" />
+    <None Include="Resources\RemoveServer_16.png" />
+    <None Include="Resources\RemoveDB_32.png" />
+    <None Include="Resources\RemoveDB_16.png" />
+    <None Include="Resources\PrivilegedUsers_32.png" />
+    <None Include="Resources\PrivilegedUsers_16.png" />
+    <None Include="Resources\DisableAuditing_32.png" />
+    <None Include="Resources\DisableAuditing_16.png" />
+    <None Include="Resources\ConfigureEventFilter_32.png" />
+    <None Include="Resources\ConfigureEventFilter_16.png" />
+    <None Include="Resources\ConfigureAlerting_32.png" />
+    <None Include="Resources\ConfigureAlerting_16.png" />
+    <None Include="Resources\CollectAuditData_32.png" />
+    <None Include="Resources\CollectAuditData_16.png" />
+    <None Include="Resources\AgentProperties_32.png" />
+    <None Include="Resources\AgentProperties_16.png" />
+    <None Include="Resources\AddAuditedDB_32.png" />
+    <None Include="Resources\AddAuditedDB_16.png" />
+    <None Include="Resources\TrustedUsers_32.png" />
+    <None Include="Resources\RowHotTracked.png" />
+    <None Include="Resources\RowSelected.png" />
+    <None Include="Resources\ColumnChooserButton.png" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\StopSign_32.png" />
+    <None Include="Resources\UpArrow_16.png" />
+    <None Include="Resources\ShowHide_16.png" />
+    <None Include="Resources\ExpandAll_16.png" />
+    <None Include="Resources\EventFilterInvalid_16.png" />
+    <None Include="Resources\EventFilterDisabled_16.png" />
+    <None Include="Resources\EventFilter_16.png" />
+    <None Include="Resources\DownArrow_16.png" />
+    <None Include="Resources\CollapseAll_16.png" />
+    <None Include="Resources\AlertSevere_16.png" />
+    <None Include="Resources\AlertRulesDisabled_16.png" />
+    <None Include="Resources\AlertRuleIgnored_16.png" />
+    <None Include="Resources\AlertRule_16.png" />
+    <None Include="Resources\AlertMedium_16.png" />
+    <None Include="Resources\AlertLow_16.png" />
+    <None Include="Resources\AlertHigh_16.png" />
+    <None Include="Resources\Wizard_ImportAuditSettings.png" />
+    <None Include="Resources\GoSign_48.png" />
+    <None Include="Resources\StopSign_48.png" />
+    <None Include="Resources\StatusWarning_32.png" />
+    <None Include="Resources\Refresh_48.png" />
+    <None Include="Resources\Reports_16.png" />
+    <None Include="Resources\ExploreActivities_48.png" />
+    <None Include="Resources\ExploreActivities_16.png" />
+    <None Include="Resources\Administration_48.png" />
+    <None Include="Resources\Administration_16.png" />
+    <None Include="Resources\Reports_48.png" />
+    <None Include="Resources\Wizard_Login.jpg" />
+    <None Include="Resources\DownArrow_16.ico" />
+    <None Include="Resources\UpArrow_16.ico" />
+    <None Include="Resources\About.png" />
+    <None Include="Resources\Wizard_DB.jpg" />
+    <None Include="Resources\SQLcmHeader.png" />
+    <None Include="Resources\Task_SelfAudit_32.png" />
+    <None Include="Resources\Task_RegisterSQLServer_32_hover.png" />
+    <None Include="Resources\Task_RegisterSQLServer_32.png" />
+    <None Include="Resources\Task_MonitorLogs_32_hover.png" />
+    <None Include="Resources\Task_MonitorLogs_32.png" />
+    <None Include="Resources\Task_InvestigateActivity_32_hover.png" />
+    <None Include="Resources\Task_InvestigateActivity_32.png" />
+    <None Include="Resources\Task_ConfigureAlerting_32_hover.png" />
+    <None Include="Resources\Task_ConfigureAlerting_32.png" />
+    <None Include="Resources\Task_ConfigureAccess_32_hover.png" />
+    <None Include="Resources\Task_ConfigureAccess_32.png" />
+    <None Include="Resources\Task_SelfAudit_32_hover.png" />
+    <None Include="Resources\Wizard_EventFilter.png" />
+    <None Include="Resources\Wizard_AlertRules.png" />
+    <None Include="Resources\Wizard_Server.jpg" />
+    <None Include="Resources\SQLcompliance_product_ico.ico" />
+    <None Include="Resources\SplashScreen.png" />
+    <None Include="Resources\Disabled_24.png" />
+    <None Include="Resources\Enabled_24.png" />
+    <None Include="Resources\StatusGood_16_ico.ico" />
+    <None Include="Resources\StatusError_16_ico.ico" />
+    <None Include="Resources\StatusWarning_16_ico.ico" />
+    <None Include="Resources\Bug_16.png" />
+    <None Include="Resources\StatusGood_16.png" />
+    <None Include="Resources\StatusError_16.png" />
+    <None Include="Resources\Refresh_16.png" />
+    <None Include="Resources\Delete_16.png" />
+    <None Include="Resources\StatusWarning_16.png" />
+    <None Include="Resources\StatusGood_48.png" />
+    <None Include="Resources\StatusError_48.png" />
+    <None Include="Resources\Properties_16.png" />
+    <None Include="Resources\Print_16.png" />
+    <None Include="Resources\NavigateRight_16.png" />
+    <None Include="Resources\NavigateLeft_16.png" />
+    <None Include="Resources\NavigateEnd_16.png" />
+    <None Include="Resources\NavigateBeginning_16.png" />
+    <None Include="Resources\Help_16.png" />
+    <None Include="Resources\GridGroupByBox_16.png" />
+    <None Include="Resources\StatusWarning_48.png" />
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="Controls\CustomCheckBoxDropDown\PopupComboBox.resx">
+      <DependentUpon>PopupComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DataAlertView.resx">
+      <DependentUpon>DataAlertView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DefaultSettings.resx">
+      <DependentUpon>DefaultSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IderaToolTip.resx">
+      <DependentUpon>IderaToolTip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PermissionsCheck.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PermissionsCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RegulationEntry.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RegulationEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AlertDefaultDatabaseSettings.resx">
+      <DependentUpon>Form_AlertDefaultDatabaseSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AlertSaveDefaultDatabaseSettings.resx">
+      <DependentUpon>Form_AlertSaveDefaultDatabaseSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ApplyDatabaseDefaultAuditSettings.resx">
+      <DependentUpon>Form_ApplyDatabaseDefaultAuditSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ApplyServerDefaultAuditSettings.resx">
+      <DependentUpon>Form_ApplyServerDefaultAuditSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ConfigureSCActivity.resx">
+      <DependentUpon>Form_ConfigureSCActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ConfirmDefaultAuditSettings.resx">
+      <DependentUpon>Form_ConfirmDefaultAuditSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AlertingDefaultAuditSettings.resx">
+      <DependentUpon>Form_AlertingDefaultAuditSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ConfirmDialog.resx">
+      <DependentUpon>Form_ConfirmDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_DefaultDatabaseProperties.resx">
+      <DependentUpon>Form_DefaultDatabaseProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_DisplayServerDefaultAuditSettings.resx">
+      <DependentUpon>Form_DisplayServerDefaultAuditSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SensitiveColumnsAddToAudit.resx">
+      <DependentUpon>Form_SensitiveColumnsAddToAudit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SensitiveColumnsDeleteProfile.resx">
+      <DependentUpon>Form_SensitiveColumnsDeleteProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SensitiveColumnsNewProfile.resx">
+      <DependentUpon>Form_SensitiveColumnsNewProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SensitiveColumnsOpenProfile.resx">
+      <DependentUpon>Form_SensitiveColumnsOpenProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SensitiveColumnsProfiles.resx">
+      <DependentUpon>Form_SensitiveColumnsProfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SensitiveColumnsSearch.resx">
+      <DependentUpon>Form_SensitiveColumnsSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ServerDefaultPropertise.resx">
+      <DependentUpon>Form_ServerDefaultPropertise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SelectionLogicDialog.resx">
+      <DependentUpon>Form_SelectionLogicDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Linq_ErrorBox.resx">
+      <DependentUpon>Linq_ErrorBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AddDataAlert.resx">
+      <DependentUpon>Form_AddDataAlert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AddStatus.resx">
+      <DependentUpon>Form_AddStatus.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AlertingOptions_Snmp.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_AlertingOptions_Snmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AlertPermissionsCheck.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_AlertPermissionsCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AlertPermissionsCheckFailed.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_AlertPermissionsCheckFailed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_BeforeAfterRegulationGuidelines.resx">
+      <DependentUpon>Form_BeforeAfterRegulationGuidelines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ChangeComparison.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_ChangeComparison.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ConfigureSensitiveColumn.resx">
+      <DependentUpon>Form_ConfigureSensitiveColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_DataAlertColumns.resx">
+      <DependentUpon>Form_DataAlertColumns.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ImportSensitiveColumnsFromCSV.resx">
+      <DependentUpon>Form_ImportSensitiveColumnsFromCSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_LaunchWebConsole.resx">
+      <DependentUpon>Form_LaunchWebConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_MessageBox.resx">
+      <DependentUpon>Form_MessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_RegisterWizard.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_RegisterWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_RegulationDetails.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_RegulationDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PermissionsCheck.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_PermissionsCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_RowCounts.resx">
+      <DependentUpon>Form_RowCounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SaveFileDialog.resx">
+      <DependentUpon>Form_SaveFileDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Styles\Office2007Black.isl" />
+    <None Include="Web References\ReportService2005\ActiveState.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\CatalogItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\DataRetrievalPlan.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\DataSetDefinition.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\DataSource.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\DataSourceDefinition.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\DataSourcePrompt.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\Event.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\ExecutionSettingEnum.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\ExpirationDefinition.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\Extension.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\ExtensionParameter.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\ExtensionSettings.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\ItemTypeEnum.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\Job.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\ModelCatalogItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\ModelDrillthroughReport.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\ModelItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\ParameterValue.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\ParameterValueOrFieldReference.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\Policy.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\Property.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ReportService2005\ReportHistorySnapshot.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\ReportParameter.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\ReportService2005.wsdl">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ReportService2005\Role.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\Schedule.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\ScheduleDefinitionOrReference.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\Subscription.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\Task.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ReportService2005\Warning.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Controls\StatusAlertView.resx">
+      <DependentUpon>StatusAlertView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TimeComboEditor.resx">
+      <DependentUpon>TimeComboEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ActivityLogProperties.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_ActivityLogProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AddStatusAlert.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_AddStatusAlert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ChangeThreshold.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_ChangeThreshold.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_DeployReportsWizard.resx">
+      <DependentUpon>Form_DeployReportsWizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_IndexSchedule.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_IndexSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_MaxRows.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_MaxRows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_TableConfigure.resx">
+      <DependentUpon>Form_TableConfigure.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Styles\Office2007Blue.isl" />
+    <EmbeddedResource Include="Controls\AdminRibbonView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AdminRibbonView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FeatureButton.resx">
+      <DependentUpon>FeatureButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RibbonView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RibbonView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AddLicense.resx">
+      <DependentUpon>Form_AddLicense.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_License.resx">
+      <DependentUpon>Form_License.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Welcome.resx">
+      <DependentUpon>Form_Welcome.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ActivityLogView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ActivityLogView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AlertRulesView.resx">
+      <DependentUpon>AlertRulesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AlertView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AlertView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BaseControl.resx">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ChangeLogView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ChangeLogView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DatabaseSummary.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DatabaseSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DateSelector.resx">
+      <DependentUpon>DateSelector.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EnterpriseSummary.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EnterpriseSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EventFiltersView.resx">
+      <DependentUpon>EventFiltersView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EventView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EventView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Images.resx">
+      <DependentUpon>Images.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LoginsView.resx">
+      <DependentUpon>LoginsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NumericTextBox.resx">
+      <DependentUpon>NumericTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ReportCategoryView.resx">
+      <DependentUpon>ReportCategoryView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ReportView.resx">
+      <DependentUpon>ReportView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ServerSummary.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ServerSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ServerView.resx">
+      <DependentUpon>ServerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_About.resx">
+      <DependentUpon>Form_About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AgentMajorUpgrade.resx">
+      <DependentUpon>Form_AgentMajorUpgrade.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AgentProperties.resx">
+      <DependentUpon>Form_AgentProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AgentTraceDirectory.resx">
+      <DependentUpon>Form_AgentTraceDirectory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AlertGroomProgress.resx">
+      <DependentUpon>Form_AlertGroomProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AlertingOptions.resx">
+      <DependentUpon>Form_AlertingOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AlertLevel.resx">
+      <DependentUpon>Form_AlertLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AlertMessage.resx">
+      <DependentUpon>Form_AlertMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AlertRuleWizard.resx">
+      <DependentUpon>Form_AlertRuleWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Archive.resx">
+      <DependentUpon>Form_Archive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ArchiveImport.resx">
+      <DependentUpon>Form_ArchiveImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ArchiveOptions.resx">
+      <DependentUpon>Form_ArchiveOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ArchiveProgress.resx">
+      <DependentUpon>Form_ArchiveProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ArchiveProperties.resx">
+      <DependentUpon>Form_ArchiveProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_AuditSettingsImport.resx">
+      <DependentUpon>Form_AuditSettingsImport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Boolean.resx">
+      <DependentUpon>Form_Boolean.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Connect.resx">
+      <DependentUpon>Form_Connect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Connecting.resx">
+      <DependentUpon>Form_Connecting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_CreateIndex.resx">
+      <DependentUpon>Form_CreateIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_DatabaseProperties.resx">
+      <DependentUpon>Form_DatabaseProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_EmailList.resx">
+      <DependentUpon>Form_EmailList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_EmailTemplate.resx">
+      <DependentUpon>Form_EmailTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_EventCategorySelector.resx">
+      <DependentUpon>Form_EventCategorySelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_EventFilterWizard.resx">
+      <DependentUpon>Form_EventFilterWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_EventLogType.resx">
+      <DependentUpon>Form_EventLogType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_EventProperties.resx">
+      <DependentUpon>Form_EventProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_EventSelector.resx">
+      <DependentUpon>Form_EventSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_EventTypeList.resx">
+      <DependentUpon>Form_EventTypeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Groom.resx">
+      <DependentUpon>Form_Groom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_GroomAlerts.resx">
+      <DependentUpon>Form_GroomAlerts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_GroomingProgress.resx">
+      <DependentUpon>Form_GroomingProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_IndexProgress.resx">
+      <DependentUpon>Form_IndexProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_InstanceList.resx">
+      <DependentUpon>Form_InstanceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_IntegrityCheck.resx">
+      <DependentUpon>Form_IntegrityCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_IntegrityFailure.resx">
+      <DependentUpon>Form_IntegrityFailure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_IntegrityProgress.resx">
+      <DependentUpon>Form_IntegrityProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_LoginFilterOptions.resx">
+      <DependentUpon>Form_LoginFilterOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_LoginNew.resx">
+      <DependentUpon>Form_LoginNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_LoginProperties.resx">
+      <DependentUpon>Form_LoginProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_LogProperties.resx">
+      <DependentUpon>Form_LogProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Main2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_Main2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Preferences.resx">
+      <DependentUpon>Form_Preferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PrivUser.resx">
+      <DependentUpon>Form_PrivUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_RepositoryOptions.resx">
+      <DependentUpon>Form_RepositoryOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Script.resx">
+      <DependentUpon>Form_Script.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ServerDeploy.resx">
+      <DependentUpon>Form_ServerDeploy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ServerOptions.resx">
+      <DependentUpon>Form_ServerOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ServerProperties.resx">
+      <DependentUpon>Form_ServerProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ServiceProgress.resx">
+      <DependentUpon>Form_ServiceProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SmtpTest.resx">
+      <DependentUpon>Form_SmtpTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Snapshot.resx">
+      <DependentUpon>Form_Snapshot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SnapshotOptions.resx">
+      <DependentUpon>Form_SnapshotOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SplashScreen.resx">
+      <DependentUpon>Form_SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_SQLServerBrowse.resx">
+      <DependentUpon>Form_SQLServerBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_StringSearch.resx">
+      <DependentUpon>Form_StringSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_TableAdd.resx">
+      <DependentUpon>Form_TableAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_TimeSpan.resx">
+      <DependentUpon>Form_TimeSpan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_UnhandledError.resx">
+      <DependentUpon>Form_UnhandledError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_UserBrowse.resx">
+      <DependentUpon>Form_UserBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ViewName.resx">
+      <DependentUpon>Form_ViewName.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProgressForm.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UidPwdForm.resx">
+      <DependentUpon>UidPwdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://hisr-hyd-01:492/ReportServerSSRS/ReportService2005.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ReportService2005\</RelPath>
+      <UpdateFromURL>http://hisr-hyd-01:492/ReportServerSSRS/ReportService2005.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SQLcompliance_ReportService2005_ReportingService2005</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

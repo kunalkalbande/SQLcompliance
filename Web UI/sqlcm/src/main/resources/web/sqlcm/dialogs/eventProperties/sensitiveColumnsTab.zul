@@ -1,0 +1,18 @@
+<zk>
+    <vlayout spacing="7px">
+        <idera-cwf-listbox model="@load(vm.sensitiveColumnsModelList)" width="698px" height="451px" sclass="idera-grid z-listbox">
+            <listhead>
+                <extlistheader
+                        label="${idera:getLabel('Labels.sql-cm.event-properties-dialog-column')}" sort="auto" />
+                <extlistheader
+                        label="${idera:getLabel('Labels.sql-cm.event-properties-row-count')}" style="text-align:right" sort="auto"/>
+            </listhead>
+            <template name="model">
+                <listitem>
+                    <listcell label="@load(each)"/>
+                    <listcell label="@load(vm.rowCount)" style="text-align:right"/>
+                </listitem>
+            </template>
+        </idera-cwf-listbox>
+    </vlayout>
+</zk>

@@ -1,0 +1,93 @@
+<idera-cwf-dialog height="700px" width="980px" closable="true" border="none"
+			apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.addregulationguidelinewizard.steps.BeforeAfterConfigureViewModel')"
+            style="border-radius: 0" 
+            position="center,middle"
+            id="beforeAfterConfigureWindow"
+            title="${idera: getLabel('SQLCM.Label.regulation-guideline-dialog.title')}" >
+
+        <attribute name="onBind"><![CDATA[
+			zk.afterMount(function () {
+				zWatch.fireDown('onSize', self);
+			});
+		]]></attribute>
+    <div sclass="text-align-center" visible="false">
+        <label id="beforeAfterDataErrorLabel"
+               value="@load(vm.databaseProperties.auditBeforeAfterData.statusMessage)"/>
+    </div>
+    <vlayout id="beforeAfterDataMainContent">
+        <vlayout visible="@load(vm.enableBeforeAfterData)">
+            <label value="${idera:getLabel('SQLCM.db-props.before-after-data.tables-audited-before-after')}"/>
+            <hlayout spacing="10px">
+            <div width="780px">
+             <style>.idera-grid.z-listbox
+							div.z-listbox-body:hover { overflow: auto; }</style> 
+             <idera-cwf-listbox width="780px" height="330px" disabled="${!sqlcm:canAccess()}" sclass="idera-grid z-listbox"
+                         model="@load(vm.beforeAfterDataTablesListModelList)" rows="7"
+                         onSelect="@command('enableRemoveEditBADTables')">
+                <listhead sizable="true" >
+                        <listheader hflex="3" label="${idera:getLabel('SQLCM.db-props.before-after-data.table-name')}"/>
+                        <listheader hflex="3" label="${idera:getLabel('SQLCM.db-props.before-after-data.maximum-rows')}"/>
+                        <listheader hflex="3" label="${idera:getLabel('SQLCM.db-props.before-after-data.columns')}"/>
+                    </listhead>
+                    <template name="model">
+                        <listitem sclass="label" hflex="1" disabled="@load(vm.disableBeforeAfterData)">
+                            <listcell label="@load(each.value.fullTableName)"/>
+                            <listcell label="@load(each.value.rowLimitString)"/>
+                            <listcell label="@load(each.value.columnListString)"/>
+                        </listitem>
+                    </template>
+                </idera-cwf-listbox>
+	</div>
+                <vlayout spacing="5px">
+                    <idera-cwf-button id="addBADTableButton"  width="85px"
+                            visible="${sqlcm:canAccess()}"
+                            onClick="@command('addBeforeAfterDataTable')"
+                            label="${idera:getLabel('SQLCM.db-props.before-after-data.add')}"
+                            disabled="@load(vm.disableBeforeAfterData ? true : !vm.databaseProperties.auditBeforeAfterData.clrStatus.enable)"/>
+                    <idera-cwf-button id="removeBADTableButton"  width="85px"
+                            visible="${sqlcm:canAccess()}" disabled="true"
+                            onClick="@command('removeBeforeAfterDataTable')"
+                            label="${idera:getLabel('SQLCM.db-props.before-after-data.remove')}"/>
+                    <idera-cwf-button id="editBADTableButton"  width="85px"
+                            visible="${sqlcm:canAccess()}" disabled="true"
+                            onClick="@command('editBeforeAfterDataTable')"
+                            label="${idera:getLabel('SQLCM.db-props.before-after-data.edit')}"/>
+                </vlayout>
+            </hlayout>
+
+            <div height="10px"/>
+            <label value="${idera:getLabel('SQLCM.db-props.before-after-data.note')}" multiline="true"/>
+
+            <div height="20px"/>
+            <groupbox closable="false" width="830px" height="108px">
+                <caption label="${idera:getLabel('SQLCM.db-props.before-after-data.clr-status')}"/>
+                <hlayout>
+                    <image src="~./sqlcm/images/status-ok-48x48.png" sclass="padding-all-8"
+                           visible="@load(vm.databaseProperties.auditBeforeAfterData.clrStatus.enable)"/>
+                    <image src="~./sqlcm/images/status-high-48x48.png" sclass="padding-all-8"
+                           visible="@load(!vm.databaseProperties.auditBeforeAfterData.clrStatus.enable)"/>
+                    <vlayout vflex="true" sclass="padding-l-10">
+                        <label value="@load(vm.databaseProperties.auditBeforeAfterData.clrStatus.statusMessage)"/>
+                        <idera-cwf-button label="${idera:getLabel('SQLCM.db-props.before-after-data.enable-clr')}"
+                                sclass="orange-text-light-gray-button"
+                                disabled="@load(vm.disableBeforeAfterData ? true : vm.databaseProperties.auditBeforeAfterData.clrStatus.enable)"
+                                onClick="@command('enableCLR')"/>
+                    </vlayout>
+                </hlayout>
+            </groupbox>
+            <separator height="5px"/>
+
+        </vlayout>
+
+        <vlayout visible="@load(!vm.enableBeforeAfterData)">
+            <label value="${idera:getLabel('SQLCM.messages.user-tables-must-be-audited')}"/>
+        </vlayout>
+        <div align="right" hflex="1">  
+        <hlayout valign="middle">
+          <idera-cwf-button id="okConfgure" label="${idera:getLabel('SQLCM.Labels.ok')}" onClick="@command('okCommand',comp=beforeAfterConfigureWindow)"/>
+          <idera-cwf-button id="cancelConfgure" label="${idera:getLabel('SQLCM.Labels.cancel')}" onClick="@command('closeDialog',comp=beforeAfterConfigureWindow)"/>
+        </hlayout>
+        </div>
+    </vlayout>
+</idera-cwf-dialog>

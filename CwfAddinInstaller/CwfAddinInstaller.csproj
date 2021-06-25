@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{97603F6B-E074-4027-8D3C-BB6969D073A6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CwfAddinInstaller</RootNamespace>
+    <AssemblyName>AddInInstaller</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PluginCommon">
+      <HintPath>..\..\lib\CoreServicesLibrary\PluginCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Idera\SQLcompliance\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\SQLcomplianceCwfAddin\RestService\RestServiceConstants.cs">
+      <Link>RestServiceConstants.cs</Link>
+    </Compile>
+    <Compile Include="Enumerators.cs" />
+    <Compile Include="FormInstaller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInstaller.Designer.cs">
+      <DependentUpon>FormInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormServers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServers.Designer.cs">
+      <DependentUpon>FormServers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JsonHelper.cs" />
+    <Compile Include="CwfHelper.cs" />
+    <Compile Include="Products.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="RestClient.cs" />
+    <Compile Include="WizardPageBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPageInfo.cs" />
+    <Compile Include="WizardPages\PageConfiguringCWFDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageConfiguringCWFDashboard.Designer.cs">
+      <DependentUpon>PageConfiguringCWFDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageConfiguringSQLCM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageConfiguringSQLCM.Designer.cs">
+      <DependentUpon>PageConfiguringSQLCM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageDashboardLocation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageDashboardLocation.Designer.cs">
+      <DependentUpon>PageDashboardLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageError.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageError.Designer.cs">
+      <DependentUpon>PageError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageFinish.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageFinish.Designer.cs">
+      <DependentUpon>PageFinish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageInstall.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageInstall.Designer.cs">
+      <DependentUpon>PageInstall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageReadyToInstall.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageReadyToInstall.Designer.cs">
+      <DependentUpon>PageReadyToInstall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageInstanceName.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageInstanceName.Designer.cs">
+      <DependentUpon>PageInstanceName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageLicenseAgreement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageLicenseAgreement.Designer.cs">
+      <DependentUpon>PageLicenseAgreement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageRepositoryDatabase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageRepositoryDatabase.Designer.cs">
+      <DependentUpon>PageRepositoryDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WizardPages\PageWelcome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WizardPages\PageWelcome.Designer.cs">
+      <DependentUpon>PageWelcome.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormInstaller.resx">
+      <DependentUpon>FormInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServers.resx">
+      <DependentUpon>FormServers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="WizardPages\PageConfiguringCWFDashboard.resx">
+      <DependentUpon>PageConfiguringCWFDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageConfiguringSQLCM.resx">
+      <DependentUpon>PageConfiguringSQLCM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageDashboardLocation.resx">
+      <DependentUpon>PageDashboardLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageError.resx">
+      <DependentUpon>PageError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageFinish.resx">
+      <DependentUpon>PageFinish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageInstall.resx">
+      <DependentUpon>PageInstall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageReadyToInstall.resx">
+      <DependentUpon>PageReadyToInstall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageInstanceName.resx">
+      <DependentUpon>PageInstanceName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageLicenseAgreement.resx">
+      <DependentUpon>PageLicenseAgreement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageRepositoryDatabase.resx">
+      <DependentUpon>PageRepositoryDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardPages\PageWelcome.resx">
+      <DependentUpon>PageWelcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\Idera - Software License Agreement.rtf" />
+    <None Include="Resources\Idera - Trial Software License Agreement.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.ico" />
+    <Content Include="Readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

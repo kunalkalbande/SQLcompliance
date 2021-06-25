@@ -1,0 +1,47 @@
+<zk>
+    <div hflex="1" vflex="1"
+         style="vertical-align:middle;"
+         apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addserverwizard.steps.SummaryStepViewModel')">
+
+        <hlayout width="510px" vflex="min" style="padding-bottom: 10px;">
+            <div width="80px">
+                <label id="lblAuditLevel"
+                       value="${idera:getLabel('SQLCM.Label.add-server-wizard.summary.audit-level')}" />
+            </div>
+            <div hflex="1">
+                <label id="lblAuditLevelValue" value="@load(step_vm.auditLevelName)" />
+            </div>
+            <div visible="@load(step_vm.regGuideDetailLinkVisibility)">
+                <a label="${idera:getLabel('SQLCM.Label.add-server-wizard.summary.reg-guide-details')}"
+                   onClick="@command('onOpenRegulationDetailClick')" />
+            </div>
+        </hlayout>
+
+        <hlayout width="510px" vflex="min"  style="padding-bottom: 10px;">
+            <div width="80px">
+                <label id="lblServer"
+                       value="${idera:getLabel('SQLCM.Label.add-server-wizard.summary.server')}" />
+            </div>
+            <label id="lblServerValue" value="@load(step_vm.serverName)" />
+        </hlayout>
+
+        <hlayout width="510px" vflex="1"  style="padding-bottom: 10px;">
+            <div width="80px">
+                <label id="lblDatabases"
+                        value="${idera:getLabel('SQLCM.Label.add-server-wizard.summary.databases')}" />
+            </div>
+            <idera-cwf-listbox id="lbSelectedDatabases" sclass="idera-grid z-listbox"
+                     model="@load(step_vm.selectedDatabaseList)" width="390px" vflex="1" >
+                <listhead>
+                    <listheader />
+                </listhead>
+                <template name="model">
+                    <listitem>
+                        <listcell label="@load(each.name)"/>
+                    </listitem>
+                </template>
+            </idera-cwf-listbox>
+        </hlayout>
+    </div>
+</zk>

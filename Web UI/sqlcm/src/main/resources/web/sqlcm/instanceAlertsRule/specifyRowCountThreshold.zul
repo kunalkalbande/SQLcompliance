@@ -1,0 +1,87 @@
+<idera-cwf-dialog id="rowCountThreshold" closable="true" border="none"
+	height="500px" width="620px" apply="org.zkoss.bind.BindComposer" style="border-radius: 0" contentSclass="modal-dialog-window margin-all-0 padding-all-0"
+	viewModel="@id('vm') @init('com.idera.sqlcm.ui.instancesAlertsRule.SpecifyRowCountThresholdViewModel')"
+	 title="${idera: getLabel('SQLCM.Labels.specify-row-count-threshold')}"  >
+	<div hflex="1" vflex="1" style="vertical-align:middle;">
+		
+		
+		<vlayout vflex="1">
+			<hlayout width="500px" height="50px" style="margin-left: 3em;margin-right: 3em;margin-top: 3em;">
+			<label value="${idera:getLabel('SQLCM.Label.specify-row-count')}" style="padding-right: 2.3em;"/>
+				<idera-cwf-dropdownlist id="rowCountDropDown" value= "@load(vm.compOpr)" readonly="true" width="90px" height="30px" style="margin-left: 0.3em; padding-right: 2.3em;">
+										<comboitem id="FIRSTDEFAULT"
+										label="&lt;"
+										value="&lt;" />
+										<comboitem id="SECOND"
+										label="&lt;="
+										value="&lt;="/>										
+										<comboitem id="THIRD"
+										label="="
+										value="="/>										
+										<comboitem id="FOURTH"
+										label="&gt;"
+										value="&gt;"/>										
+										<comboitem id="FIFTH"
+										label="&gt;="
+										value="&gt;="/>
+			</idera-cwf-dropdownlist>
+			<idera-cwf-textbox id="rowCountTextBox" xmlns:w="client" width="85px" value= "@load(vm.rowCount)" height="36px" style="margin-left: 0.3em;">
+			<attribute w:name="doKeyDown_"><![CDATA[
+			function (evt) {
+				var keyCode = evt.keyCode;
+				if( keyCode == 8 // back space
+					|| keyCode == 13 // enter
+					|| keyCode == 16 // enter
+					|| (keyCode >= 35 && keyCode <= 40) // home, end, arrows
+					|| keyCode == 46) { // Delete
+					this.$doKeyDown_(evt);
+				} else if ( !evt.shiftKey &&  // only do without shift key
+					(keyCode >= 48 && keyCode <= 57)
+					|| (keyCode >= 96 && keyCode <= 105)) {// number range
+					this.$doKeyDown_(evt);
+				} else {
+					evt.stop();
+					return;
+				}
+			}
+		]]></attribute>
+			</idera-cwf-textbox>
+			
+			</hlayout>
+			
+			<separator height="30px" /> 
+			
+			<hlayout width="500px" height="120px" style="margin-left: 3em;margin-right: 3em;">
+			<div style="border:1px solid black; padding: 0.25cm 0.25cm">
+			<label value="${idera:getLabel('SQLCM.Label.specify-time-frame')}"/>
+			</div>
+			</hlayout>
+				
+			<separator height="8px" />
+			<hlayout width="400px" height="60px" style="margin-left: 3em;margin-right: 3em;margin-top: 1em;">
+			<label value="${idera:getLabel('SQLCM.Label.time-frame-hours')}" style="padding-right: 2.3em;"/>
+			<decimalbox id="timeFrame" width="85px" format="##.###" height="26px" value= "@load(vm.timeInterval)" style="margin-left: 0.3em;">
+			
+			</decimalbox>
+			</hlayout>	
+
+			<separator height="16px" />
+			<vlayout sclass="padding-lr-24 padding-top-10">
+				<hlayout>
+					<div hflex="1"></div>
+					<div hflex="min">
+						<idera-cwf-button id="OKButton" width="85px"
+							visible="${sqlcm:canAccess()}" onClick="@command('submitChoice',rowCountDropDown=rowCountDropDown,rowCountTextBox=rowCountTextBox,timeFrame=timeFrame,comp=rowCountThreshold)"
+							label="${idera:getLabel('SQLCM.Labels.ok')}" />
+
+					</div>
+					<div hflex="min">
+						<idera-cwf-button id="cancelButton" width="85px"
+							visible="${sqlcm:canAccess()}" onClick="@command('closeDialog', comp=rowCountThreshold)"
+							label="${idera:getLabel('Labels.sql-cm.instance-properties-dialog-cancel-button')}" />
+					</div>
+				</hlayout>
+			</vlayout>
+		</vlayout>
+	</div>
+</idera-cwf-dialog>

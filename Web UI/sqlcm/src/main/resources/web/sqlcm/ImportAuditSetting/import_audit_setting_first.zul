@@ -1,0 +1,39 @@
+<zk>
+	<!-- //TODO IR : move this zul to add database package. create wizard example 
+		zul instead -->
+	<idera-cwf-dialog height="640px" width="660px" closable="true" border="none"
+		apply="org.zkoss.bind.BindComposer" 
+		viewModel="@id('vm') @init('com.idera.sqlcm.ui.importAuditSetting.AddImportAuditWizardViewModel')"
+		style="border-radius: 0" position="center,middle" 
+		id="wizardImportWindow"
+		title="${idera: getLabel('SQLCM.Labels.import-audit-setting')}" onClose = "@command('cancelCommand')">		
+		<style>
+		.idera-dialog .z-window-highlighted-cnt-noborder{padding-left:0px;}
+		</style>
+		
+		<idera-cwf-panel id="mainPanel" height="590px" width="660px">
+			<panelchildren id="mainPanelChildren" />
+			<toolbar height="50px" align="center" style="padding-left: 90px;"
+				sclass="wizard-button-toolbar ">
+				<hbox hflex="1" pack="stretch,start">
+					<cell hflex="min" sclass="middle-center-align" style = "padding-bottom:20px;padding-left: 120px;">
+						<hlayout valign="middle">
+							<idera-cwf-button id="prevButton" width="85px"
+								onClick="@command('prevCommand')" 								
+								label="${idera:getLabel('SQLCM.Label.wizard.button.prev')}" />
+							<idera-cwf-button id="nextButton" width="85px"
+								onClick="@command('nextCommand')"								
+								label="${idera:getLabel('SQLCM.Label.wizard.button.next')}" disabled="true"/>
+							<idera-cwf-button id="saveButton" width="85px"
+								onClick="@command('saveCommand')"								
+								label="${idera:getLabel('SQLCM.Label.wizard.button.finish')}" disabled="true"/>
+							<idera-cwf-button id="cancelButton" width="85px"
+								onClick="@command('cancelCommand')"								
+								label="${idera:getLabel('SQLCM.Label.wizard.button.cancel')}" />
+						</hlayout>
+					</cell>
+				</hbox>
+			</toolbar>
+		</idera-cwf-panel>
+	</idera-cwf-dialog>
+</zk>

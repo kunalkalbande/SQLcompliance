@@ -1,0 +1,29 @@
+<zk>
+	<div hflex="1" vflex="1" style="vertical-align:middle;" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.adddatabasewizard.steps.SelectDatabasesStepViewModel')">
+		<hlayout width="510px" vflex="1">
+			<idera-cwf-listbox id="lbDatabases" style="border: 1px solid #9D9D9D;"
+				model="@load(step_vm.databaseList)" width="400px" vflex="1" sclass="idera-grid z-listbox"
+				multiple="true" checkmark="true">
+				<listhead>
+					<listheader />
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell onClick="@command('selectClick')" label="@load(each.name)" />
+					</listitem>
+				</template>
+			</idera-cwf-listbox>
+			<vlayout width="110px" style="padding-left: 10px; padding-top: 10px;">
+				<idera-cwf-button width="100px" id="selectAllButton"
+					
+					label="${idera:getLabel('SQLCM.Label.add-database-wizard.select-databases.select-all-button')}" style="text-transform: capitalize;"
+					onClick="@command('selectAllClick')" />
+				<idera-cwf-button width="100px" id="unSelectAllButton"
+					
+					label="${idera:getLabel('SQLCM.Label.add-database-wizard.select-databases.unselect-all-button')}" style="text-transform: capitalize;"
+					onClick="@command('unSelectAllClick')" />
+			</vlayout>
+		</hlayout>
+	</div>
+</zk>

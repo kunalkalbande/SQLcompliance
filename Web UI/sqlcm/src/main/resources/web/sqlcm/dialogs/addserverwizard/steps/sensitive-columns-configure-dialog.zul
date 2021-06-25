@@ -1,0 +1,72 @@
+<idera-cwf-dialog height="650px" width="980px" closable="true" border="none"
+			apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.addserverwizard.steps.SensitiveColumnsConfigureViewModel')"
+            position="center,middle"
+            id="sensitiveColumnsConfigureWindow"
+            title="${idera: getLabel('SQLCM.Label.regulation-guideline-dialog.sensitive-column-title')}" >
+
+        <attribute name="onBind"><![CDATA[
+			zk.afterMount(function () {
+				zWatch.fireDown('onSize', self);
+			});
+		]]></attribute>
+    <div sclass="text-align-center" visible="false">
+        <label id="sensitiveColumnErrorLabel"
+               value="@load(vm.databaseProperties.sensitiveColumnTableData.statusMessage)"/>
+    </div>
+    <vlayout id="sensitiveColumnMainContent" style="padding:1.88rem !important">        
+            <label value="${idera:getLabel('SQLCM.db-props.before-after-data.tables-audited-sensitive-columns')}"/>
+            <hlayout spacing="10px">
+            <div width="780px">
+             <style>.idera-grid.z-listbox
+							div.z-listbox-body:hover { overflow: auto; }</style> 
+             <idera-cwf-listbox width="780px" height="330px" disabled="${!sqlcm:canAccess()}" sclass="idera-grid z-listbox"
+                     model="@load(vm.sensitiveColumnsTablesListModelList)" rows="10"
+                     onSelect="@command('enableRemoveEditSCTables')">
+                <listhead sizable="true" >
+                    <listheader hflex="3" label="${idera:getLabel('SQLCM.db-props.before-after-data.table-name')}"/>
+                    <listheader hflex="3" label="${idera:getLabel('SQLCM.db-props.before-after-data.columns')}"/>
+                    <listheader hflex="3" label="${idera:getLabel('SQLCM.db-props.before-after-data.type')}"/>
+                </listhead>
+                <template name="model" var="sensitiveObject">
+                    <listitem sclass="label">
+                        <listcell label="@load(sensitiveObject.key)"/>
+                        <listcell label="@load(sensitiveObject.fullColumnListString)"/>
+                        <listcell label="@load(sensitiveObject.type)"/>
+                    </listitem>
+                </template>
+            </idera-cwf-listbox>
+	</div>
+            <vlayout spacing="5px">
+                <idera-cwf-button id="addSCTableButton"  width="115px"
+                        visible="${sqlcm:canAccess()}"
+                        onClick="@command('addSensitiveColumnsTable', selection = 'Individual')"
+                        label="${idera:getLabel('SQLCM.db-props.before-after-data.add-column')}"/>
+                <idera-cwf-button id="addSCDatasetButton"  width="115px"
+                        visible="${sqlcm:canAccess()}"
+                        onClick="@command('addDatasetSensitiveColumnsTable', selection = 'Dataset')"
+                        label="${idera:getLabel('SQLCM.db-props.before-after-data.add-dataset')}"/>
+                <idera-cwf-button id="removeSCTableButton"  width="115px"
+                        visible="${sqlcm:canAccess()}" disabled="true"
+                        onClick="@command('removeSensitiveColumnsTable')"
+                        label="${idera:getLabel('SQLCM.db-props.before-after-data.remove')}"/>
+                <idera-cwf-button id="editSCTableButton"  width="115px"
+                        visible="${sqlcm:canAccess()}" disabled="true"
+                        onClick="@command('editSensitiveColumnsTable')"
+                        label="${idera:getLabel('SQLCM.db-props.before-after-data.edit')}"/>
+            </vlayout>
+          </hlayout>
+            <div height="20px"/>
+            <label value="${idera:getLabel('SQLCM.db-props.sensitive-columns.note')}" multiline="true"/>   
+	        <label value="${idera:getLabel('SQLCM.db-props.sensitive-columns.note-additional')}" multiline="true"/>
+	        <label value="${idera:getLabel('SQLCM.db-props.sensitive-columns.note-column')}" multiline="true"/>
+	        <label value="${idera:getLabel('SQLCM.db-props.sensitive-columns.note-dataset')}" multiline="true"/>
+	<div height="15px"/>
+	<div align="right" hflex="1">  
+        <hlayout valign="middle">
+          <idera-cwf-button id="okConfgure" label="${idera:getLabel('SQLCM.Labels.ok')}" onClick="@command('okCommand',comp=sensitiveColumnsConfigureWindow)"/>
+          <idera-cwf-button id="cancelConfgure" label="${idera:getLabel('SQLCM.Labels.cancel')}" onClick="@command('closeDialog',comp=sensitiveColumnsConfigureWindow)"/>
+        </hlayout>
+        </div>
+    </vlayout>
+</idera-cwf-dialog>

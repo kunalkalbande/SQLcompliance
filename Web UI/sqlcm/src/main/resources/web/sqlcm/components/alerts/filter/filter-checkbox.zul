@@ -1,0 +1,3 @@
+<hlayout valign="center" width="315px" >
+  <idera-cwf-checkbox id="filterCheckbox" width="315px" ></idera-cwf-checkbox>
+</hlayout>

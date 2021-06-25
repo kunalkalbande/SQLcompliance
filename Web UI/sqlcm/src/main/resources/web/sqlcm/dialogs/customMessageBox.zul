@@ -1,0 +1,58 @@
+<zk>
+    <idera-cwf-dialog id="titleMessage" apply="com.idera.sqlcm.ui.prompt.CustomMessageBoxDialog"
+        title="@{titleText}">
+      <caption image="@{iconURL}" visible="@{isIconVisible}" sclass="dialog-icon"/>
+        <vlayout>
+           <!--  <label sclass="H3" id="titleMessage" multiline="true" /> -->
+            <label sclass="error-subtitle" id="primaryCause"
+                multiline="true" />
+            <hlayout vflex="min">
+                <grid id="messageGrid" sclass="idera-invisible-grid"
+                    model="@{messageListModel}" vflex="min">
+                    <columns>
+                        <column align="left" />
+                    </columns>
+                    <rows vflex="min">
+                        <row self="@{each='messageEntry'}"
+                            value="@{messageEntry}">
+                            <label value="@{messageEntry}" />
+                        </row>
+                    </rows>
+                </grid>
+            </hlayout>
+            <hlayout vflex="min">
+            	<grid sclass="idera-invisible-grid" vflex="min">
+            		<columns>
+            			<column align="left" />
+            		</columns>
+            		<rows vflex="min">
+            			<row>
+            				<idera-cwf-hyperlink id="hyperLink"
+            					label="@{linkMessage}"/>
+            			</row>
+            		</rows>
+            	</grid>
+            </hlayout>
+        </vlayout>
+        <toolbar align="end" sclass="action-btns-container">
+            <idera-cwf-button
+                autodisable="okButton, yesButton, noButton, cancelButton"
+                id="okButton" label="${idera:getLabel('Messages.ok')}"
+                visible="false" />
+            <idera-cwf-button
+                autodisable="okButton, yesButton, noButton, cancelButton"
+                id="yesButton"
+                label="${idera:getLabel('Labels.UI.yes')}"
+                visible="false" />
+            <idera-cwf-button
+                autodisable="okButton, yesButton, noButton, cancelButton"
+                id="noButton" label="${idera:getLabel('Labels.UI.no')}"
+                visible="false" />
+            <idera-cwf-button
+                autodisable="okButton, yesButton, noButton, cancelButton"
+                id="cancelButton"
+                label="${idera:getLabel('Messages.cancel')}"
+                visible="false" />
+        </toolbar>
+    </idera-cwf-dialog>
+</zk>

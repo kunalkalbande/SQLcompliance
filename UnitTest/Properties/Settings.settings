@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="UnitTest.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CwfHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+    <Setting Name="CwfPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">9292</Value>
+    </Setting>
+    <Setting Name="CwfUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">rtdevpc\administrator</Value>
+    </Setting>
+    <Setting Name="CwfPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">abc1234567</Value>
+    </Setting>
+    <Setting Name="ProductId" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="Days" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

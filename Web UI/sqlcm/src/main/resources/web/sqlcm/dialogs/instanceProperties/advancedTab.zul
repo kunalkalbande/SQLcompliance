@@ -1,0 +1,48 @@
+<zk>
+    <vlayout spacing="20px">
+        <groupbox width="680px" height="290px" >
+            <caption label="${idera:getLabel('Labels.sql-cm.inst-prop-d-advanced-tab-default-db-permissions')}"/>
+            <vlayout>
+                <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-advanced-tab-label-1')}"/>
+                <radiogroup orient="vertical" model="@load(vm.dbPermissionListModelList)">
+                    <template name="model">
+                        <idera-cwf-radio label="@load(each.label)" disabled="${!sqlcm:canAccess()}"/>
+                    </template>
+                </radiogroup>
+            </vlayout>
+        </groupbox>
+
+		<groupbox width="680px" sclass="padding-lr-10" contentStyle="height=300px;overflow:auto">
+			<caption label="${idera:getLabel('Labels.sql-cm.inst-prop-d-advanced-tab-sql-statement-limit')}" />
+			<vlayout spacing="5px">
+				<label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-advanced-tab-label-2')}" />
+				<label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-advanced-tab-label-3')}" />
+				<label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-advanced-tab-label-4')}" />
+
+                
+                <radiogroup orient="vertical">
+                    <idera-cwf-radio onCheck="@command('enableCharacterLimitTextbox', noLimit=true)" selected="@load(!vm.enableCharacterLimitTextbox)"
+                           label="${idera:getLabel('Labels.sql-cm.inst-prop-d-advanced-tab-label-entire-store')}" disabled="${!sqlcm:canAccess()}"/>
+                    <hlayout>
+                        <idera-cwf-radio label="${idera:getLabel('Labels.sql-cm.inst-prop-d-advanced-tab-label-truncate-store-part-1')}"
+                               selected="@load(vm.enableCharacterLimitTextbox)" disabled="${!sqlcm:canAccess()}"
+                               onCheck="@command('enableCharacterLimitTextbox', noLimit=false)"/>
+                        <idera-cwf-textbox id="charactersLimit" type="text" value="@bind(vm.advancedCharactersLimit)"
+                                 readonly="${!sqlcm:canAccess()}" disabled="@load(!vm.enableCharacterLimitTextbox)" width="80px" />
+                        <div style="padding-top:12px;">
+                            <label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-advanced-tab-label-truncate-store-part-2')}" />
+                        </div>
+                    </hlayout>
+					<hlayout>
+					<separator width="38px"></separator>
+						<label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-advanced-tab-label-truncate-sql-report')}" />
+						<idera-cwf-textbox id="charactersSQLReportLimit"
+							type="text" value="@bind(vm.maxReportCharactersLimit)"
+							readonly="${!sqlcm:canAccess()}" disabled="true" width="80px" />
+						<label value="${idera:getLabel('Labels.sql-cm.inst-prop-d-advanced-tab-label-truncate-sql-report-characters')}" />
+					</hlayout>
+                </radiogroup>
+            </vlayout>
+        </groupbox>
+    </vlayout>
+</zk>

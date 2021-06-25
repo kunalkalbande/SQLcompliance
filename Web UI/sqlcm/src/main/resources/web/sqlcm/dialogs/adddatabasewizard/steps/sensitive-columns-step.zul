@@ -1,0 +1,43 @@
+<zk>
+	<div hflex="1" vflex="1" style="vertical-align:middle;" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.adddatabasewizard.steps.SensitiveColumnsStepViewModel')">
+		<hlayout width="510px" vflex="1">
+			<tree id="tDatabases" width="230px" model="@load(step_vm.treeModel)"
+				style="border: 1px solid #9D9D9D;" vflex="1">
+				<treecols sizable="true">
+					<treecol />
+				</treecols>
+				<template name="model">
+					<treeitem>
+						<treerow>
+							<treecell label="@load(each.data.name)" onClick="@command('onTreeItemClick')" maxlength="20" />
+						</treerow>
+					</treeitem>
+				</template>
+			</tree>
+			<listbox id="lbColumns" style="border: 1px solid #9D9D9D;"
+				width="170px" vflex="1" model="@load(step_vm.tableListModel)"
+				multiple="true" checkmark="false">
+				<listhead>
+					<listheader
+						label="${idera:getLabel('SQLCM.Label.add-database-wizard.sensitive-columns.tables')}" />
+				</listhead>
+				<template name="model">
+					<listitem onClick="@command('onListItemClick')">
+						<listcell label="@load(each.fullTableName)" />
+					</listitem>
+				</template>
+			</listbox>
+			<vlayout width="110px" style="padding-left: 10px; padding-top: 10px;">
+				<idera-cwf-button width="100px" id="addTablesButton"
+					
+					label="${idera:getLabel('SQLCM.Label.add-database-wizard.button.add')}"
+					onClick="@command('onAddBtnClick')" />
+				<idera-cwf-button width="100px" id="removeTablesButton"
+					
+					label="${idera:getLabel('SQLCM.Label.add-database-wizard.button.remove')}"
+					onClick="@command('onRemoveBtnClick')" />
+			</vlayout>
+		</hlayout>
+	</div>
+</zk>

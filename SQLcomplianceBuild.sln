@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildUtilities", "Idera\SQLcompliance\Utility\Build\BuildUtilities.csproj", "{14AE8D88-78DD-4DE6-A4F4-F1A42E7DE4CB}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccProjectName0 = SQLcomplianceBuild
+		SccLocalPath0 = .
+		SccProvider0 = MSSCCI:Perforce\u0020SCM
+		CanCheckoutShared = true
+		SolutionUniqueID = {5BE027D8-9922-4205-97E9-BAA1099751BB}
+		SccProjectUniqueName1 = Idera\\SQLcompliance\\Utility\\Build\\BuildUtilities.csproj
+		SccProjectName1 = BuildUtilities
+		SccLocalPath1 = Idera\\SQLcompliance\\Utility\\Build
+		CanCheckoutShared = true
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{14AE8D88-78DD-4DE6-A4F4-F1A42E7DE4CB}.Debug.ActiveCfg = Debug|.NET
+		{14AE8D88-78DD-4DE6-A4F4-F1A42E7DE4CB}.Debug.Build.0 = Debug|.NET
+		{14AE8D88-78DD-4DE6-A4F4-F1A42E7DE4CB}.Release.ActiveCfg = Release|.NET
+		{14AE8D88-78DD-4DE6-A4F4-F1A42E7DE4CB}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

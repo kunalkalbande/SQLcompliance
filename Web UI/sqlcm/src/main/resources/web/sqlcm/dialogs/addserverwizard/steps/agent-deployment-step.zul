@@ -1,0 +1,48 @@
+<zk>
+    <div hflex="1" vflex="1"
+         apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addserverwizard.steps.AgentDeploymentStepViewModel')">
+       <vlayout>
+        <hlayout width="510px" vflex="1">
+            <radiogroup id="rgAgentDeploy" orient="vertical" model="@load(step_vm.deployOptionListModelList)">
+                <template name="model">
+                    <idera-cwf-radio label="@load(each.label)" disabled="@load(each.disabled)" radiogroup="rgAgentDeploy" 
+                    style="padding-bottom: 0px; padding-top: 0px; margin-bottom: 0px; margin-top: 0px;" />
+                </template>
+            </radiogroup>
+         </hlayout>
+			<div style = "margin-bottom:10px;">
+	            <span>
+	            	Deploy Now - 
+	            </span> 
+	            <span>
+	            	Installs the SQL Compliance Agent now. This option requires a connection to be established between the audited SQL Server instance and the Management Console
+	            </span>
+            </div>
+            <div style = "margin-bottom:10px;">
+	            <span>
+	            	Deploy Later - 
+	            </span> 
+	            <span>
+	            	Allows you to install the SQL Compliance Agent using the Management Console at a later time (ie - during off hours or a maintenance window)
+	            </span>
+            </div>              
+            <div style = "margin-bottom:10px;">
+            	<span>
+	            	Deploy Manually - 
+	            </span> 
+	            <span>
+	            	 Allows you to manually install the agent on the system that hosts the SQL Server Instance. This option is required for Virtual SQL Servers and SQL Servers located across a domain trust boundary
+	            </span>
+            </div>
+            <div style = "margin-bottom:10px;" visible="@bind(step_vm.labelVisible)" >
+            	<span>
+	            	Already Deployed -  
+	            </span> 
+	            <span>
+	            	 The SQLcompliance Agent has already been deployed on the computer hosting this SQL Server instance.
+	            </span>
+            </div>
+        </vlayout>
+    </div>
+</zk>

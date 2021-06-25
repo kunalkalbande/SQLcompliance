@@ -1,0 +1,100 @@
+<idera-cwf-dialog id="addPrivilegedUsers" closable="true" border="none" height="650px" width="650px" apply="org.zkoss.bind.BindComposer"
+        style="border-radius: 0" viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.AddPrivilegedUsersViewModel')"
+        title="${idera: getLabel('Labels.sql-cm.add-privileged-users-d.title')}" >
+     <separator height="20px"/>
+    <div sclass="padding-lr-24 padding-top-10">
+        <vlayout>
+            <label value="${idera:getLabel('Labels.sql-cm.add-privileged-users-d.show-lr-from')}"/>
+
+            <idera-cwf-dropdownlist model="@load(vm.permissionTypeListModelList)" width="400px" autodrop="true" readonly="true"
+                      disabled="${!sqlcm:canAccess()}"
+                      onSelect="@command('onSelectPermissionType', selectedItemValue=self.selectedItem.value)">
+                <template name="model">
+                    <comboitem sclass="label" hflex="1" label="@load(each.label)" />
+                </template>
+            </idera-cwf-dropdownlist>
+
+            <div sclass="padding-top-10">
+                <label value="${idera:getLabel('Labels.sql-cm.add-privileged-users-d.available-lr')}"/>
+            </div>
+
+            <hlayout>
+                            <style>
+	        .idera-grid.z-listbox div.z-listbox-body div.z-listcell-cnt{padding:.5rem}
+	        </style>
+                <idera-cwf-listbox sclass="noselect idera-grid z-listbox" id="lbAvailableUserAndRoles" width="400px" height="150px" disabled="${!sqlcm:canAccess()}"
+                         model="@load(vm.availableUsersAndRolesListModel)" rows="5">
+                    <listhead hflex="1">
+                        <listheader width="40px" />
+                        <listheader />
+                    </listhead>
+                    <template name="model">
+                        <listitem sclass="label" hflex="1" onClick="@command('onAvailableListItemClick')">
+                            <listcell hflex="min">
+                                <image src="@load(each) @converter(vm.permissionToImagePathConverter)"/>
+                            </listcell>
+                            <listcell label="@load(each.displayName)" />
+                        </listitem>
+                    </template>
+                </idera-cwf-listbox>
+
+                <idera-cwf-button id="addBtn"  width="80px"
+                        visible="${sqlcm:canAccess()}" onClick="@command('onAddBtnClick')"
+                        label="${idera:getLabel('Labels.sql-cm.add-privileged-users-d.add-button')}"/>
+            </hlayout>
+
+            <hlayout sclass="padding-top-10">
+                <label value="${idera:getLabel('Labels.sql-cm.add-privileged-users-d.add-privileged-users-list')}"/>
+
+                <separator height="8px"/>
+            </hlayout>
+
+            <hlayout>
+                        <style>
+	        .idera-grid.z-listbox div.z-listbox-body div.z-listcell-cnt{padding:.5rem}
+	        </style>
+            
+                <idera-cwf-listbox  sclass="idera-grid z-listbox" id="lbSelectedUserAndRoles" width="400px" height="150px" disabled="${!sqlcm:canAccess()}"
+                         model="@load(vm.selectedUsersAndRolesListModel)" rows="5" onSelect="">
+                    <listhead hflex="1">
+                        <listheader width="30px" />
+                        <listheader />
+                    </listhead>
+                    <template name="model">
+                        <listitem sclass="label" hflex="1" onClick="@command('onSelectedListItemClick')">
+                            <listcell hflex="min">
+                                <image src="@load(each) @converter(vm.permissionToImagePathConverter)"/>
+                            </listcell>
+                            <listcell label="@load(each.displayName)" />
+                        </listitem>
+                    </template>
+                </idera-cwf-listbox>
+
+                <idera-cwf-button id="removeBtn"  width="80px"
+                        visible="${sqlcm:canAccess()}" onClick="@command('onRemoveBtnClick')"
+                        label="${idera:getLabel('Labels.sql-cm.add-privileged-users-d.remove-button')}"/>
+            </hlayout>
+
+            <separator height="8px"/>
+
+            
+                <hlayout width="550px">
+                    <label value="${idera:getLabel('Labels.sql-cm.add-privileged-users-d.note')}"/>
+                </hlayout>
+			<hlayout valign="bottom" >
+			 <div hflex="1"/>
+                <div hflex="min">
+                <idera-cwf-button id="OKButton"  width="85px"
+                        visible="${sqlcm:canAccess()}"
+                        onClick="@command('onBtnOkClick')"
+                        label="${idera:getLabel('Labels.sql-cm.instance-properties-dialog-ok-button')}"/>
+				</div>
+                <div hflex="min">
+                <idera-cwf-button id="cancelButton"  width="85px"
+                        visible="${sqlcm:canAccess()}" onClick="@command('onBtnCancelClick')"
+                        label="${idera:getLabel('Labels.sql-cm.instance-properties-dialog-cancel-button')}"/>
+                 </div>
+            </hlayout>
+        </vlayout>
+    </div>
+</idera-cwf-dialog>

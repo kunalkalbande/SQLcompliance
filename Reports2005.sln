@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Reports2005", "Idera\SQLcompliance\Report\Reports\Supported\Reports2005.rptproj", "{0E822B29-E7C9-4FCB-B633-E14F9BA571AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Production|Default = Production|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E822B29-E7C9-4FCB-B633-E14F9BA571AE}.Debug|Default.ActiveCfg = Debug
+		{0E822B29-E7C9-4FCB-B633-E14F9BA571AE}.Debug|Default.Build.0 = DebugLocal
+		{0E822B29-E7C9-4FCB-B633-E14F9BA571AE}.Debug|Default.Deploy.0 = DebugLocal
+		{0E822B29-E7C9-4FCB-B633-E14F9BA571AE}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{0E822B29-E7C9-4FCB-B633-E14F9BA571AE}.DebugLocal|Default.Build.0 = DebugLocal
+		{0E822B29-E7C9-4FCB-B633-E14F9BA571AE}.DebugLocal|Default.Deploy.0 = DebugLocal
+		{0E822B29-E7C9-4FCB-B633-E14F9BA571AE}.Production|Default.ActiveCfg = Production
+		{0E822B29-E7C9-4FCB-B633-E14F9BA571AE}.Production|Default.Build.0 = Production
+		{0E822B29-E7C9-4FCB-B633-E14F9BA571AE}.Production|Default.Deploy.0 = Production
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

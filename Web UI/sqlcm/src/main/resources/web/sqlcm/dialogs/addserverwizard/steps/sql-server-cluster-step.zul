@@ -1,0 +1,11 @@
+<zk>
+    <div hflex="1" vflex="1"
+         apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addserverwizard.steps.SqlServerClusterStepViewModel')">
+        <hlayout width="510px" vflex="1">
+            <separator height="100px" />
+            <idera-cwf-checkbox checked="@bind(step_vm.serverHostedByCluster)"
+                      label="${idera:getLabel('SQLCM.Label.add-server-wizard.server-cluster.server-hosted-by')}" ></idera-cwf-checkbox>
+        </hlayout>
+    </div>
+</zk>

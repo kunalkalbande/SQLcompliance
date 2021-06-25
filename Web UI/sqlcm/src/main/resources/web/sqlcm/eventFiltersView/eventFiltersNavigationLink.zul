@@ -1,0 +1,21 @@
+<zk>
+  <hlayout>
+  <!-- <div>
+  	<a id="eventFilters"
+  		label="${idera:getLabel('SQLCM.Labels.event-filters')}"
+  		onClick="@command('eventFilters',id=1)"
+  		visible="${sqlcm:canAccess()}" sclass="action-link z-label" />
+  </div>
+  <div>
+  	<label
+  		value="${idera:getLabel('Labels.sql-cm.vertical-separator')}"
+  		sclass="H5 padding-lr-12" />
+  </div>
+  <div>
+  	<a id="eventFiltersRules"
+  		label="${idera:getLabel('SQLCM.Labels.event-filters-rules')}"
+  		onClick="@command('eventFilters',id=2)"
+  		visible="${sqlcm:canAccess()}" sclass="action-link z-label" />
+  </div> -->
+  </hlayout>
+</zk>

@@ -1,0 +1,111 @@
+<zk>
+	<div id="divSelectNew" hflex="1" vflex="1" style="vertical-align:middle;" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.eventFilterWizard.steps.SelectNewEventStepViewModel')">
+		<style>
+		.idera-textbox{
+		margin-left: 0px !important;	
+		} 
+		</style>
+			<vlayout>
+				<label value="${idera:getLabel('SQLCM.Label.specify-name-for-this-filter')}" />
+				<separator height="5px" />
+				<hlayout>
+					<vlayout>
+						<idera-cwf-textbox value="@bind(step_vm.eventFilterName)" maxlength="60" type="text"
+							width="240px" rows="1" id="eventFilterName" style="resize:none" />
+					</vlayout>
+				</hlayout>
+			</vlayout>
+			<separator height="16px" />
+			<vlayout>
+				<label
+					value="${idera:getLabel('SQLCM.Label.description-event-alert-rules')}" />
+				<separator height="5px" />
+				<idera-cwf-textbox type="text" width="492px" maxlength="200" rows="5" height="80px"
+					id="mc_eventFilterDescription" value="@bind(step_vm.eventFilterDescription)"
+					style="resize:none" />
+			</vlayout>
+			<separator height="16px" />
+			<groupbox width="510px" height="245px">
+				<caption label="${idera:getLabel('SQLCM.Label.filter-these-events')}" />
+				<vlayout>
+					<radiogroup id="rgAlertRules" orient="horizontal"
+						onCheck="@command('selectAddEventFilter', radioGroup=rgAlertRules)">
+						<vlayout>
+						<style>.z-hlayout-inner {vertical-align:middle !important}</style>
+							<hlayout hflex="1">
+								<idera-cwf-radio style="margin-left: 20px;" id="ALL_EVENTS"
+									label="${idera:getLabel('SQLCM.Label.all-events')}" radiogroup="rgAlertRules" selected="true" 
+									onCheck="@command('onCheckCertainEvent', target=self, index=0, param1=SelectCategory, lstBoxSub=SelectEventTypeSub, lstBoxMain=SelectEventTypeMain)"/>
+							</hlayout>
+							<hlayout>
+								<div><idera-cwf-radio style="margin-left: 20px;" id="CATEGORY"
+									label="${idera:getLabel('SQLCM.Labels.Category')}" radiogroup="rgAlertRules" 
+									onCheck="@command('onCheckCertainEvent', target=self, index=1, param1=SelectCategory, lstBoxSub =SelectEventTypeSub ,lstBoxMain=SelectEventTypeMain)"/></div>
+								<separator width="78px"/>
+								<div><idera-cwf-dropdownlist mold="default" tabindex="8" id="SelectCategory" value="${idera:getLabel('SQLCM.Labels.dml')}"
+											style = "width:138px;" onSelect="@command('selectEventCategoryType', id=self.selectedItem.id, label=self.selectedItem.label)" disabled="true" readonly="true">
+											<comboitem id="CAT_6"
+												label="${idera:getLabel('SQLCM.Labels.admin')}" value="${idera:getLabel('SQLCM.Labels.admin')}" />
+											<comboitem id="CAT_2" label="${idera:getLabel('SQLCM.Labels.ddl')}"
+												value="${idera:getLabel('SQLCM.Labels.ddl')}" />
+											<comboitem id="CAT_4" label="${idera:getLabel('SQLCM.Labels.dml')}"
+												value="${idera:getLabel('SQLCM.Labels.dml')}"/>
+											<comboitem id="CAT_1"
+												label="${idera:getLabel('SQLCM.Labels.instance-detail.events.login')}"
+												value="${idera:getLabel('SQLCM.Labels.instance-detail.events.login')}" />
+											<comboitem id="CAT_3"
+												label="${idera:getLabel('SQLCM.Labels.security')}" value="${idera:getLabel('SQLCM.Labels.security')}" />
+											<comboitem id="CAT_5"
+												label="${idera:getLabel('SQLCM.Labels.select')}" value="${idera:getLabel('SQLCM.Labels.select')}"/>
+											<comboitem id="CAT_9"
+												label="${idera:getLabel('SQLCM.Labels.user-defined')}"
+												value="${idera:getLabel('SQLCM.Labels.user-defined')}" />
+										</idera-cwf-dropdownlist></div>
+							</hlayout>
+							<hlayout>
+								<div><idera-cwf-radio style="margin-left: 20px;" id="EVENT_TYPE"
+									label="${idera:getLabel('Labels.sql-cm.event-properties-dialog-event-type')}"
+									radiogroup="rgAlertRules" 
+									onCheck="@command('onCheckCertainEvent', target=self,index=2,param1=SelectCategory,lstBoxSub =SelectEventTypeSub ,lstBoxMain=SelectEventTypeMain)" /></div>									
+									<separator width="66px"/>
+									<div><idera-cwf-dropdownlist mold="default" value="${idera:getLabel('SQLCM.Labels.ddl')}" tabindex="8" id="SelectEventTypeSub" style = "width:138px; padding-top:"
+									onSelect="@command('selectEventCategory', id=self.selectedItem.id)" disabled="true" readonly="true">
+									<comboitem id="${idera:getLabel('SQLCM.Labels.admin')}"
+										label="${idera:getLabel('SQLCM.Labels.admin')}"
+										 value="${idera:getLabel('SQLCM.Labels.admin')}"/>
+									<comboitem id="${idera:getLabel('SQLCM.Labels.ddl')}"
+										label="${idera:getLabel('SQLCM.Labels.ddl')}" 
+										value="${idera:getLabel('SQLCM.Labels.ddl')}"/>
+									<comboitem id="${idera:getLabel('SQLCM.Labels.dml')}"
+										label="${idera:getLabel('SQLCM.Labels.dml')}" 
+										value="${idera:getLabel('SQLCM.Labels.dml')}" />
+									<comboitem id="${idera:getLabel('SQLCM.Labels.instance-detail.events.login')}"
+										label="${idera:getLabel('SQLCM.Labels.instance-detail.events.login')}"
+										value="${idera:getLabel('SQLCM.Labels.instance-detail.events.login')}" />
+									<comboitem id="${idera:getLabel('SQLCM.Labels.security')}"
+										label="${idera:getLabel('SQLCM.Labels.security')}" 
+										value="${idera:getLabel('SQLCM.Labels.security')}" />
+									<comboitem id="${idera:getLabel('SQLCM.Labels.select')}"
+										label="${idera:getLabel('SQLCM.Labels.select')}" 
+										value="${idera:getLabel('SQLCM.Labels.select')}" />
+									<comboitem id="${idera:getLabel('SQLCM.Labels.user-defined')}"
+										label="${idera:getLabel('SQLCM.Labels.user-defined')}"
+										value="${idera:getLabel('SQLCM.Labels.user-defined')}" />
+								</idera-cwf-dropdownlist></div>
+								<div>
+								<idera-cwf-dropdownlist autocomplete="true" mold="default" tabindex="9" onSelect="@command('selectCategorySource',id=self.selectedItem.id)"
+								style = "width:140px;" id="SelectEventTypeMain" model="@bind(step_vm.entitiesList)" disabled="true" value="Create index" >
+									<template name="model" var="mymodel">
+										<comboitem label="@bind(mymodel.name)" id = "@bind(mymodel.evtypeid)">
+										</comboitem>
+									</template>
+									</idera-cwf-dropdownlist>
+								</div>
+							</hlayout>
+							</vlayout>
+					</radiogroup>
+				</vlayout>
+			</groupbox>
+	</div>
+</zk>

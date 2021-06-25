@@ -1,0 +1,16 @@
+<grid vflex="1" sclass="idera-invisible-grid">
+<columns>
+    <column width="100px" align="left"/>
+    <column width="180px" align="left"/>
+</columns>
+<rows>
+    <row>
+        <label id="filterDateFrom" sclass="bottom-left-align" hflex="true"/>
+        <datebox id="filterDateValueFrom" format="medium" hflex="true"/>
+    </row>
+    <row>
+        <label id="filterDateTill" sclass="bottom-left-align" hflex="true"/>
+        <datebox id="filterDateValueTill" format="medium" hflex="true"/>
+    </row>
+</rows>
+</grid>

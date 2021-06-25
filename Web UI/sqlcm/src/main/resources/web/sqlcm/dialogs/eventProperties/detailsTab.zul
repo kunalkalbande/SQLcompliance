@@ -1,0 +1,18 @@
+<zk>
+    <vlayout spacing="7px">
+        <idera-cwf-listbox id="detailListbox" model="@load(vm.eventPropertiesMap)" width="698px" height="451px" sclass="idera-grid z-listbox">
+            <listhead>
+                <listheader
+                        label="${idera:getLabel('Labels.sql-cm.event-properties-dialog-property')}"/>
+                <listheader
+                        label="${idera:getLabel('Labels.sql-cm.event-properties-dialog-value')}"/>
+            </listhead>
+            <template name="model">
+                <listitem>
+                    <listcell label="@load(each.key)"/>
+                    <listcell label="@load(each.value)"/>
+                </listitem>
+            </template>
+        </idera-cwf-listbox>
+    </vlayout>
+</zk>

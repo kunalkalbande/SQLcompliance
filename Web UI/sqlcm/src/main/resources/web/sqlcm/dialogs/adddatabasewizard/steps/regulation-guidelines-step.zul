@@ -1,0 +1,29 @@
+<zk>
+	<div hflex="1" vflex="1" style="vertical-align:middle;" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.adddatabasewizard.steps.RegulationGuidelinesStepViewModel')">
+		<vlayout hflex="1" vflex="1">
+			<groupbox width="510px">
+				<caption
+					label="${idera:getLabel('SQLCM.Label.add-database-wizard.reg-guide.guidelines')}" />
+				<hlayout hflex="1" vflex="1" valign="middle" style="vertical-align:middle;">
+					<vlayout vflex="1" width="500px">
+						<grid sclass="idera-invisible-grid" model="@load(step_vm.regulationTypeListModelList)">
+							<columns visible="false">
+								<column width="160px" />
+							</columns>
+							<rows>
+								<template name="model" status="s">
+									<row>
+										<idera-cwf-checkbox value="@load(each)" label="@load(each.name)"
+											onCheck="@command('onCheck', target=self, index=s.index)" >
+										</idera-cwf-checkbox>
+									</row>
+								</template>
+							</rows>
+						</grid>
+					</vlayout>
+				</hlayout>
+			</groupbox>
+		</vlayout>
+	</div>
+</zk>

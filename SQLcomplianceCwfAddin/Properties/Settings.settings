@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SQLcomplianceCwfAddin.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ProductInstance" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SqlComplianceManagerInstance</Value>
+    </Setting>
+    <Setting Name="ProductId" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="IsRegistered" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="RepositoryServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">RUBALWALIA-PC\SQL2012</Value>
+    </Setting>
+    <Setting Name="Repository" Type="System.String" Scope="User">
+      <Value Profile="(Default)">IderaDashboardRepository</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

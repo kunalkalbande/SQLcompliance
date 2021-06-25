@@ -1,0 +1,70 @@
+<zk>
+	<idera-cwf-dialog hflex="1" vflex="1" style="vertical-align:middle;" apply="org.zkoss.bind.BindComposer" closable="true"
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.adddataalertruleswizard.steps.SelectDataFilterStepViewModel')">
+		<vlayout hflex="1" vflex="1">
+			<separator height="16px" />
+			<groupbox width="500px">
+				<caption
+					label="${idera:getLabel('SQLCM.Label.sql-server-objects-alert-rules')}" />
+				<vlayout>
+					<hlayout>
+						<vlayout hflex="1">
+						   <grid id="columnsVisibilityGrid" hflex="1" sclass="idera-invisible-grid">
+							<columns>
+								<column hflex="2" />								
+								<column hflex="2" />
+							</columns>
+							<rows>
+							<row valign="middle">
+							<idera-cwf-checkbox id="chkSQLServer"
+								label="${idera:getLabel('SQLCM.Label.sql-server-alert-rules')}"
+								name="${idera:getLabel('SQLCM.Label.sql-server-alert-rules')}"
+								onCheck="@command('onCheck', target=self, index=0,lbl=specifySQL)" ></idera-cwf-checkbox>
+							<div style ="font-weight: normal">
+								<idera-cwf-hyperlink id="specifySQL" label="${idera:getLabel('SQLCM.Label.specify-sql-server')}"
+									onClick="@command('eventDataAlertRules',id=1)" disabled="true"
+									visible="${sqlcm:canAccess()}"/>
+							</div>
+							</row>
+							<row valign="middle">
+							<idera-cwf-checkbox id="chkDatabase"
+								label="${idera:getLabel('SQLCM.Label.database-name-alert-rules')}"
+								name="${idera:getLabel('SQLCM.Label.database-name-alert-rules')}"
+								onCheck="@command('onCheck', target=self, index=1,lbl=specifyDatabase)" ></idera-cwf-checkbox>
+							<div style ="font-weight: normal">
+								<idera-cwf-hyperlink id="specifyDatabase" label="${idera:getLabel('SQLCM.Label.specified-database')}"
+									onClick="@command('eventDataAlertRules',id=2)" disabled="true"
+									visible="${sqlcm:canAccess()}"/>
+							</div>
+							</row>
+							<row valign="middle">
+							<idera-cwf-checkbox id="chkTable"
+								label="${idera:getLabel('SQLCM.Labels.table-name')}"
+								name="${idera:getLabel('SQLCM.Labels.table-name')}"
+								onCheck="@command('onCheck', target=self, index=2,lbl=specifyTable)" ></idera-cwf-checkbox>
+							<div style ="font-weight: normal">
+								<idera-cwf-hyperlink id="specifyTable" label="${idera:getLabel('SQLCM.Label.specified-objects')}"
+									onClick="@command('eventDataAlertRules',id=3)" disabled="true"
+									visible="${sqlcm:canAccess()}"/>
+							</div>
+							</row>
+							<row valign="middle">
+							<idera-cwf-checkbox id="chkColumn"
+								label="${idera:getLabel('SQLCM.Labels.column-name')}"
+								name="${idera:getLabel('SQLCM.Labels.column-name')}"
+								onCheck="@command('onCheck', target=self, index= 3,lbl=specifyColumn)" ></idera-cwf-checkbox>
+							<div style ="font-weight: normal">
+								<idera-cwf-hyperlink id="specifyColumn" label="${idera:getLabel('SQLCM.Label.specified-column')}"
+									onClick="@command('eventDataAlertRules',id=4)" disabled="true"
+									visible="${sqlcm:canAccess()}"/>
+							</div>
+							</row>
+						  </rows>
+						</grid>	
+						</vlayout>
+					</hlayout>
+				</vlayout>
+			</groupbox>
+		</vlayout>
+	</idera-cwf-dialog>
+</zk>

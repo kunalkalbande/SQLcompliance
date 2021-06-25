@@ -1,0 +1,26 @@
+<zk>
+    <div hflex="1" vflex="1"
+         style="vertical-align:middle;"
+         apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addserverwizard.steps.AlwaysOnAvailabilityGroupStepViewModel')">
+        <hlayout width="510px" vflex="1">
+            <vlayout vflex="1">
+                <idera-cwf-listbox id="lbAvailability" style="border: 1px solid #9D9D9D;" sclass="idera-grid z-listbox"
+                         model="@load(step_vm.availabilityList)" width="505px" vflex="1">
+                    <listhead>
+                        <listheader label="${idera:getLabel('SQLCM.Label.add-server-wizard.always-on.column.database-name')}" />
+                        <listheader label="${idera:getLabel('SQLCM.Label.add-server-wizard.always-on.column.availability-group')}" />
+                        <listheader label="${idera:getLabel('SQLCM.Label.add-server-wizard.always-on.column.replica-server')}" />
+                    </listhead>
+                    <template name="model">
+                        <listitem>
+                            <listcell label="@load(each.databaseName)"/>
+                            <listcell label="@load(each.name)"/>
+                            <listcell label="@load(each.replicaServer)"/>
+                        </listitem>
+                    </template>
+                </idera-cwf-listbox>
+            </vlayout>
+        </hlayout>
+    </div>
+</zk>

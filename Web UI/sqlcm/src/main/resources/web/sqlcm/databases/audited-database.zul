@@ -1,0 +1,296 @@
+<zk>
+	<div vflex="true" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('com.idera.sqlcm.ui.databases.AuditedDatabase')">
+		<vlayout vflex="true" hflex="true" sclass="vertical-overflow">
+			<vlayout sclass="margin-all-4 padding-all-4">
+				<separator height="8px" />
+				<vlayout spacing="16px">
+					<label
+						value="${idera:getUpperCaseLabel('SQLCM.Labels.database-details')}"
+						sclass="H3 padding-r-8 padding-l-8 line-height-18" />
+				</vlayout>
+				<separator sclass="separator-bgcolor" />
+				<separator sclass = "separator-linecolor" style="margin-left:8px"/>
+				<vlayout spacing="16px"
+					sclass="padding-r-8 padding-l-8">
+					<hlayout spacing="10px">
+						<div>
+							<a
+								sclass="link-blue-no-size H3 padding-r-8 line-height-18"
+								label="@load(vm.instance.instance)"
+								onClick="@command('openInstance', instanceId=vm.instance.id)" />
+						</div>
+						<div hflex="1" />
+						<hbox>
+							<div id="configComment" visible="${!sqlcm:getConfigValueForAccessPermittedUsers('databases','showDropdown' )}">
+								<label value="${idera:getLabel('SQLCM.Label.configuration-edit-message')}" />
+							</div>
+							<idera-cwf-dropdownlist mold="default" visible="${sqlcm:getConfigValueForAccessPermittedUsers('databases','showDropdown' )}"
+								id="databaseAction" value="Database Activities" readonly="true"
+								onSelect="@command('choosedetailView',id=self.selectedItem.id,databaseAction=databaseAction)">
+								<comboitem id="editProperties"
+									sclass="action-link z-valign-bottom"
+									label="${idera:getLabel('SQLCM.Labels.edit-properties')}"
+									visible="${sqlcm:getConfigValue('databases','edit' )}" />
+								<comboitem id="changeAuditing"
+									sclass="action-link z-valign-bottom"
+									label="@load(vm.database.enabled eq 'true'
+                                        ?idera:getLabel('SQLCM.Labels.disable-auditing')
+                                        :idera:getLabel('SQLCM.Labels.enable-auditing'))"
+										visible="${sqlcm:getConfigValueForAccessPermittedUsers('databases','changeAudit' )}"
+									value="@load(vm.database.enabled eq 'true'
+                                        ?idera:getLabel('SQLCM.Labels.disable-auditing')
+                                        :idera:getLabel('SQLCM.Labels.enable-auditing'))" /><!-- visible="${sqlcm:canAccess()}" -->
+								<comboitem id="removeDatabase"
+									sclass="action-link z-valign-bottom"
+								
+									visible="${sqlcm:getConfigValueForAccessPermittedUsers('databases','remove' )}"
+									label="${idera:getLabel('SQLCM.Labels.remove-database')}" /> 	<!--visible="${sqlcm:canAccess()}" -->
+								<comboitem id="importAuditSetting"
+									sclass="action-link z-valign-bottom"
+								
+									visible="${sqlcm:getConfigValueForAccessPermittedUsers('databases','import' )}"
+									label="${idera:getLabel('SQLCM.Labels.import-audit-setting')}" /> 	<!-- visible="${sqlcm:canAccess()}"-->
+								<comboitem id="exportAuditSetting"
+									sclass="action-link z-valign-bottom"
+									visible="${sqlcm:canAccess()}"
+									label="${idera:getLabel('SQLCM.Labels.export-audit-setting')}" />
+							</idera-cwf-dropdownlist>
+							<!--  END SQLCm-5.4 -->
+							<!-- Refresh button -->
+							<image
+								src="~./sqlcm/images/refresh-icon.png" height="20px"
+								onClick="@command('refreshEventList')"
+								style="padding-top: 8px">
+							</image>
+
+						</hbox>
+					</hlayout>
+					<!-- SQLCM 5.4 Start -->
+					<timer id="timer" repeats="true"
+						delay="@load(vm.refreshDuration)"
+						onTimer="@command('refreshEventList')" />
+					<!-- SQLCM 5.4 end -->
+					<div>
+						<a
+							sclass="link-blue-no-size H3 padding-r-8 line-height-18"
+							label="@load(vm.database.name)"
+							onClick="@command('openDatabase')" />
+					</div>
+				</vlayout>
+
+			</vlayout>
+
+
+			<separator sclass="separator-bgcolor" />
+			<div hflex="true">
+				<vlayout id="contentLayout" height="290px"
+					hflex="true">
+					<vlayout height="280px"
+						sclass="margin-all-4 padding-lr-16">
+						<hlayout height="280px" hflex="1">
+							<vlayout vflex="1">
+								<label
+									sclass="H4 margin-l-8 padding-l-8"
+									value="${idera:getLabel('SQLCM.Labels.event-distribution')}" />
+								<chart id="pieChart" paneColor="#FFFFFF"
+									width="300px" height="250px"
+									model="@load(vm.activityPieChartModel)"
+									engine="@bind(vm.pieChartEngine)" threeD="@bind(vm.threeD)" />
+							</vlayout>
+							<vlayout vflex="1" hflex="true">
+								<hlayout>
+									<div>
+										<label
+											sclass="H4 margin-l-16 padding-l-16"
+											value="${idera:getLabel('SQLCM.Labels.recent-database-activity')}" />
+									</div>
+									<div hflex="1" />
+									<div>
+										<style>
+											.z-ideraradio-cnt{float:left}
+											.idera-radio
+											input[type=radio]+label::before{
+											margin: 0rem !important;
+											margin-left: 1rem
+											!important; margin-right:
+											.5rem !important; }
+										</style>
+										<radiogroup id="rgInterval"
+											orient="horizontal"
+											onCheck="@command('selectIntervalDays', radioGroup=rgInterval)"
+											model="@load(vm.intervalListModelList)">
+											<template name="model">
+												<idera-cwf-radio
+													id="@load(each.name)" label="@load(each.label)"
+													radiogroup="rgInterval" />
+											</template>
+										</radiogroup>
+									</div>
+								</hlayout>
+
+								<hlayout vflex="1" hflex="1"
+									id="chartContainer">
+									<!-- BEGIN: chartWidth
+										Script below used to send chart container width & create JFreeChart picture.
+										This hack is used because JFreeChart widget does not support width in percentage.
+									-->
+									<attribute name="onCreate">
+	Clients.evalJavaScript("onCreateContainer();");
+</attribute>
+									<script type="text/javascript">
+										function onCreateContainer() {
+										var chartContainerWidget =
+										zk.Widget.$('$chartContainer');
+										var chartContainerWidth =
+										jq(chartContainerWidget.$n()).width();
+										zAu.send(new
+										zk.Event(chartContainerWidget,
+										'onCreateChartContainer',
+										chartContainerWidth)); }
+
+									</script>
+									<!-- END: chartWidth -->
+
+									<chart id="activityChart"
+										paneColor="#FFFFFF" type="time_series" width="1"
+										model="@load(vm.activityChartModel)"
+										engine="@bind(vm.lineChartEngine)"
+										threeD="@bind(vm.threeD)">
+									</chart>
+								</hlayout>
+							</vlayout>
+						</hlayout>
+					</vlayout>
+				</vlayout>
+			</div>
+
+			<vlayout sclass="padding-lr-16" hflex="true">
+
+				<idera-cwf-button
+					label="${idera:getLabel('SQLCM.Labels.recent-events')}"
+					onClick="@command('openDatabaseView')" />
+
+				<div id="containerDiv">
+					<style>
+						tr.z-listfoot td.z-listfooter { padding: 4px
+						10px 0px 8px !important; height: 45px
+						!important; } div.z-listbox-header,
+						div.z-listbox-header tr, div.z-listbox-footer {
+						border: 0; width: 100%; height: 45px;
+						}div.z-listheader-cnt{ padding-top:0px
+						!important; padding-bottom: 0px !important; }
+						div.z-listcell-cnt{ padding-top:0px !important;
+						padding-bottom: 0px !important; }
+						div.z-listbox-body .z-listcell { height: 44px; }
+						.z-paging { border-width: 0 0 0px !important;}
+					</style>
+					<idera-cwf-listbox id="entitiesListBox"
+						sclass="idera-grid z-listbox" vflex="true" hflex="1"
+						model="@load(vm.entitiesModel)" paginal="${listBoxPageId}">
+
+						<listhead id="entitiesListBoxHead">
+							<extlistheader
+								label="${idera:getLabel('SQLCM.Labels.Category')}"
+								tooltiptext="${idera:getLabel('SQLCM.Labels.Category')}"
+								id="categoryColumn" hflex="1" value="Category"
+								sort="auto(category)" />
+							<extlistheader
+								label="${idera:getLabel('SQLCM.Labels.event')}" id="eventColumn"
+								tooltiptext="${idera:getLabel('SQLCM.Labels.event')}" hflex="1"
+								value="EventType" sort="auto(event)" />
+							<extlistheader
+								label="${idera:getLabel('SQLCM.Labels.date')}" id="dateColumn"
+								tooltiptext="${idera:getLabel('SQLCM.Labels.date')}" hflex="1"
+								value="Time" sort="auto(time)" />
+							<extlistheader
+								label="${idera:getLabel('SQLCM.Labels.time')}" id="timeColumn"
+								tooltiptext="${idera:getLabel('SQLCM.Labels.time')}" hflex="1"
+								value="Time" sort="auto(time)" />
+							<extlistheader
+								label="${idera:getLabel('SQLCM.Labels.login')}" id="loginColumn"
+								tooltiptext="${idera:getLabel('SQLCM.Labels.login')}" hflex="1"
+								value="loginName" sort="auto(login)" />
+							<extlistheader
+								label="${idera:getLabel('SQLCM.Labels.target-object')}"
+								tooltiptext="${idera:getLabel('SQLCM.Labels.target-object')}"
+								id="targetObjectColumn" hflex="1" value="targetObject"
+								sort="auto(targetObject)" />
+							<listheader
+								label="${idera:getLabel('SQLCM.Labels.events.options-column')}"
+								tooltiptext="${idera:getLabel('SQLCM.Labels.events.options-column')}"
+								id="options" width="100px"
+								 />
+						</listhead>
+
+						<template name="model" status="s">
+							<listitem>
+								<listcell label="@load(each.category)"
+									tooltiptext="@load(each.category)" />
+								<listcell label="@load(each.event)"
+									tooltiptext="@load(each.event)" />
+								<listcell
+									label="@load(each.time) @converter('com.idera.sqlcm.ui.converter.ShortDateConverter')"
+									tooltiptext="@load(each.time) @converter('com.idera.sqlcm.ui.converter.ShortDateConverter')" />
+								<listcell
+									label="@load(each.time) @converter('com.idera.sqlcm.ui.converter.TimeConverter')"
+									tooltiptext="@load(each.time) @converter('com.idera.sqlcm.ui.converter.TimeConverter')" />
+								<listcell label="@load(each.login)"
+									tooltiptext="@load(each.login)" />
+								<listcell
+									label="@load(each.targetObject)"
+									tooltiptext="@load(each.targetObject)" />
+								<listcell sclass="text-align-center">
+									<div>
+
+										<a
+											id="makeEventActionLink${each.id}" sclass="link action-link"
+											popup="eventActionsMenuPopup${each.id}, position=after_end">
+											<image style="width: 16px; height: 16px;"
+												src="${sqlcm:getImageURLWithoutSize('gray-gear-16x16')}"
+												align="center" />
+										</a>
+										<menupopup
+											id="eventActionsMenuPopup${each.id}">
+											<menuitem
+												label="${idera:getLabel('SQLCM.Labels.event-properties')}"
+												onClick="@command('showEventPropertiesDialog', rowIndex=s.index)" />
+											<menuitem
+												label="${idera:getLabel('SQLCM.Labels.refresh')}"
+												onClick="@command('refreshEventList')" />
+										</menupopup>
+									</div>
+								</listcell>
+							</listitem>
+						</template>
+						<listfoot>
+							<listfooter span="8" align="center">
+								<hbox sclass="hhh_box" align="center">
+									<label value="@load(vm.fileSize)"
+										style="float:left" />
+									<label value="Total items"
+										style="float:left" />
+									<spinner id="listBoxRowsBox"
+										style="text-align:center" width="50px" placeholder="#"
+										maxlength="3" value="@load(vm.pageSize)"
+										onChange="@command('setGridRowsCount')"
+										onOK="@command('setGridRowsCount')"
+										constraint="no empty,no negative, no zero: ${idera:getLabel('Labels.sql-cm-listbox.page-size-error')}" />
+									<label
+										value="${idera:getLabel('Labels.sql-cm-listbox.pagination-items-per-page')}" />
+									<separator width="350px"></separator>
+									<label
+										value="${idera:getLabel('Labels.sql-cm-listbox.showing-page')}" />
+									<paging id="listBoxPageId"
+										pageSize="@load(vm.pageSize)" totalSize="@load(vm.totalSize)"
+										activePage="@save(vm.activePage)"
+										style="border: none; background: transparent;" />
+								</hbox>
+							</listfooter>
+						</listfoot>
+					</idera-cwf-listbox>
+				</div>
+			</vlayout>
+		</vlayout>
+	</div>
+</zk>

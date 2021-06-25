@@ -1,0 +1,25 @@
+<zk>
+    <div hflex="1" vflex="1"
+         apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addserverwizard.steps.SpecifySqlServerStepViewModel')">
+        <vlayout width="580px">
+
+            <hbox align="left" style="vertical-align:middle;">
+                <label style="padding-left: 10px; width: 85px"
+                       value="${idera:getLabel('SQLCM.Label.add-server-wizard.specify-server.sql-server')}"/>
+               
+                <idera-cwf-textbox id="tbServerName" value="@bind(step_vm.serverName)" width="335px" style="margin-left: 10px;"/>
+                <idera-cwf-button width="85px"
+                        label="${idera:getLabel('SQLCM.Label.add-server-wizard.specify-server.sql-browse')}"
+                        onClick="@command('onShowSelectServerListClick')" />
+            </hbox>
+
+            <hlayout valign="top">
+                <label style="padding-left: 10px; width: 85px"
+                       value="${idera:getLabel('SQLCM.Label.add-server-wizard.specify-server.desc')}" />
+                <idera-cwf-textbox id="tbServerDesc" value="@bind(step_vm.serverDesc)" rows="7" height="200px" width="335px" style="resize: none ;background-color:#ffffff"
+                         maxlength="255"/>
+            </hlayout>
+        </vlayout>
+    </div>
+</zk>

@@ -1,0 +1,177 @@
+<zk> 
+	<vlayout spacing="0" vflex="1" sclass="cwf-main-window">
+		<div vflex="1" apply="org.zkoss.bind.BindComposer"
+			viewModel="@id('vm') @init('com.idera.sqlcm.ui.auditReports.AuditReportGridViewModel')">
+			<hlayout vflex="1">
+				<div vflex="1" sclass="light-panel-color-shade"
+					width="320px">
+					<include
+						src="~./sqlcm/auditReportView/auditReportViewSideAction/configurationSideAction.zul"
+						style="overflow: auto" />
+				</div>
+				<vlayout hflex="1" vflex="1" sclass="padding-lr-16">
+					<vlayout>
+						<separator height="16px" />
+						<label 
+							value="${idera:getLabel('SQLCM.Labels.audit-reports.title')}"
+							sclass="H1 padding-r-8"
+							style="font-size: 18px;  font-weight: 600;  font-style: normal;  font-stretch: normal;  text-align: left;  color: #483e2f;  color: var(--greyish-brown);" />
+						<separator sclass="separator-linecolor" />
+						<vlayout spacing="16px">
+							<hlayout height="20px"
+								id="actionLinkAreaHlayout" hflex="1" vflex="1"
+								sclass="padding-t-12">
+								<label
+									value="${idera:getLabel('SQLCM.Labels.audit-reports.configuration.check')}"
+									sclass="H3 padding-t-12"
+									style="font-size: 18px;  font-weight: 600;  font-style: normal;  font-stretch: normal;  text-align: left;  color: #483e2f;  color: var(--greyish-brown);" />
+							</hlayout>
+						</vlayout>
+						<separator height="1px"
+							sclass="separator-bgcolor" />
+					</vlayout>
+					<separator height="8px" />
+						<vlayout spacing="0" vflex="true">
+						<div hflex="1" sclass="text-align-center"
+							visible="false">
+							<label id="errorLabel"
+								sclass="idera-bold-red"
+								value="${idera:getLabel('SQLCM.Labels.failed-to-load-data')}" />
+						</div>
+
+						<div id="containerDiv" hflex="true"
+							vflex="true">
+							<style>
+								tr.z-listfoot td.z-listfooter { padding:
+								4px 10px 0px 8px !important; height:
+								45px !important; } div.z-listbox-header,
+								div.z-listbox-header tr,
+								div.z-listbox-footer { border: 0; width:
+								100%; height: 45px; }
+								div.z-listheader-cnt{ padding-top:0px
+								!important; padding-bottom:0px
+								!important; } div.z-listcell-cnt{
+								padding-top:0px !important;
+								padding-bottom: 0px !important; }
+								div.z-listbox-body .z-listcell { height:
+								44px; } .z-paging { border-width: 0 0
+								0px !important;} .z-listheader-sort-img{
+								position: static; }
+								::-webkit-scrollbar{ width: 0px; }
+							</style>
+							<vlayout
+								children="@load(vm.conditionConfigurationEvents)"
+								vflex="true" hflex="1" style="overflow: auto">
+								<template name="children" var="lb">
+									<hlayout style="padding:10px">
+										<label style="font-weight:bold; padding-right: 30px;"
+											value="@load('Server: '.concat(lb.instance))">
+										</label>
+										
+										<label if="${lb.isDB == 'false'}" style="font-weight:bold"
+											value="@load('Agent Version: '.concat(lb.agentVersion))">
+										</label>
+										<label if="${lb.isDB == 'true'}" style="font-weight:bold"
+											value="@load('Database: '.concat(lb.dataBase))">
+										</label>
+									</hlayout>
+									<idera-cwf-listbox
+										sclass="idera-grid z-listbox"
+										model="@load(lb.rowEntities)">
+										<listhead>
+											<listheader label="" width = "40px"/>
+											<listheader if="${lb.isDB == 'false'}"
+												label="Server Events" width = "600px"/>
+											<listheader if="${lb.isDB == 'true'}"
+												label="Database Events" width = "600px"/>
+											<listheader label="Default Status"/>
+										</listhead>
+										<template name="model"
+											var="rw">
+											<listitem
+											visible = "${rw.isHeader or vm.defaultStatus == 0 or (rw.isSame == 'true' and vm.defaultStatus == 1) or (rw.isSame == 'false' and vm.defaultStatus == 2)}">
+												<listcell style="@load(rw.isHeader eq 'true'?'background-color:#e1dbd0':'')">
+													<checkbox visible="@load(rw.isCheckBox eq 'true' and rw.isHeader eq 'false')" 
+															checked="@load(rw.checked eq 'true')" disabled="true" style="@load(rw.isGreyed eq 'true'?'color: #E1E1E1':'')"></checkbox>
+													<radio visible="@load(rw.isCheckBox eq 'false' and rw.isHeader eq 'false')" 
+															checked="@load(rw.checked eq 'true')" disabled="true" style="@load(rw.isGreyed eq 'true'?'color: #E1E1E1':'')"></radio>
+												</listcell>
+												<listcell style="@load(rw.isHeader eq 'true'?'background-color:#e1dbd0':'')">
+													<label value="@load(rw.name)" style="@load(rw.isHeader eq 'true'?'font-weight: bold':(rw.isGreyed eq 'true'?'color: #E1E1E1':''))">
+													</label>
+												</listcell>
+												<listcell style="@load(rw.isHeader eq 'true'?'background-color:#e1dbd0':'')">
+													<label value="@load(rw.isHeader eq 'true'?'':(rw.isSame eq 'true'?'Same':'Different'))" style="@load(rw.isSame eq 'false'?'color:red':'')"></label>
+												</listcell>
+											</listitem>
+										</template>
+									</idera-cwf-listbox>
+								</template>
+								
+							</vlayout>
+						
+							<idera-cwf-listbox id="entitiesListBox"
+								sclass="idera-grid z-listbox"
+								model="@bind(vm.conditionEventsRegulatoryCompliance)"
+								vflex="true" mold="paging" paginal="${listBoxPageId}" hflex="1"
+								visible="false">
+
+								<listhead>
+									<!-- <extlistheader id="iconColumn" width="32px" /> -->
+									<listheader
+										label="${idera:getLabel('SQLCM.Labels.report-row-count-server-instance-title')}"
+										tooltiptext="${idera:getLabel('SQLCM.Labels.report-row-count-server-instance-title')}"
+										id="server" hflex="3" />
+									<listheader
+										label="${idera:getLabel('SQLCM.Labels.instance-detail.events.database-column')}"
+										tooltiptext="${idera:getLabel('SQLCM.Labels.instance-detail.events.database-column')}"
+										id="database" hflex="2" />
+								</listhead>
+
+								<template name="model" var="mymodel">
+									<listitem>
+										<!-- <listcell label="" /> -->
+										<listcell>
+											<label
+												value="@bind(mymodel.serverName)"
+												tooltiptext="@bind(mymodel.serverName)" />
+										</listcell>
+										<listcell>
+											<label
+												value="@bind(mymodel.databaseName)"
+												tooltiptext="@bind(mymodel.databaseName)" />
+										</listcell>
+									</listitem>
+								</template>
+
+								<listfoot visible="false">
+									<listfooter span="99" align="left"
+										sclass="idera-grid-footer">
+										<hbox align="center">
+											<label
+												value="@load(vm.fileSize)" style="float:left" />
+											<label
+												value="${idera:getLabel('SQLCM.Label.Total_Items')}"
+												style="float:left" />
+											<spinner id="listBoxRowsBox"
+												style="text-align: center" width="50px" placeholder="#"
+												maxlength="3" onChange="@command('setGridRowsCount')"
+												onOK="@command('setGridRowsCount')"
+												constraint="no negative, min 0 max 10000: ${idera:getLabel('Labels.sql-cm-listbox.page-size-error')}" />
+											<label
+												value="${idera:getLabel('Labels.sql-cm-listbox.pagination-items-per-page')}" />
+											<separator width="410px"></separator>
+											<label
+												value="${idera:getLabel('Labels.sql-cm-listbox.showing-page')}" />
+											<paging id="listBoxPageId" />
+										</hbox>
+									</listfooter>
+								</listfoot>
+							</idera-cwf-listbox>
+						</div>
+					</vlayout>
+				</vlayout>
+			</hlayout>
+		</div>
+	</vlayout>
+</zk>

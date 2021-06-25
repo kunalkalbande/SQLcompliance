@@ -1,0 +1,113 @@
+
+  <idera-cwf-dialog height="660px" width="745px" closable="true" border="none" apply="org.zkoss.bind.BindComposer"
+          viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.userColumns.UserColumnsViewModel')"
+          style="border-radius: 0" contentSclass="modal-dialog-window customize-dba-modal" position="center,middle"  id="userColumnsWindow"
+           title="${idera: getLabel('SQLCM.user-columns-dialog.configure-table-auditing')}" > 
+    <attribute name="onBind"><![CDATA[
+      zk.afterMount(function () {
+        zWatch.fireDown('onSize', self);
+      });
+    ]]></attribute>
+    <vlayout id="mainVlayout" height="600px" sclass="wizard-layout" width="745px">
+      <panel id="mainPanel" sclass="margin-all-0 wizard-panel " height="600px" width="745px">
+        <toolbar style="background: white; padding: 12px 8px 0px 30px;">
+         <style>.z-toolbar-start{float:left}</style>
+          <vlayout height="160px">
+            <div hflex="1">
+              <hlayout >
+                <label style="font-size: 16px; color: #483e2f; font-weight: bold;"  value="${idera:getLabel('SQLCM.user-columns-dialog.configure-table-auditing')}"/>
+                <label style="font-size: 16px; color: #483e2f; font-weight: bold;" maxlength="50" value="@load(vm.currentTable.fullTableName)"/>
+              </hlayout>
+            </div>
+            <label id="titleLabel" style="font-size: 16px; color: #483e2f;"
+                   value="${idera:getLabel('SQLCM.user-columns-dialog.title')}"/>
+            <label value="${idera:getLabel('SQLCM.user-columns-dialog.sub-title')}" style="font-size: 16px; color: #483e2f;"/>
+            <vlayout id="rowSelectorVL">
+              <label value="${idera:getLabel('SQLCM.user-columns-dialog.how-many-rows')}" style="font-size: 16px; color: #483e2f;"/>
+              <separator height="5px"></separator>
+              <idera-cwf-dropdownlist id="rowSelectorCB" model="@load(vm.rowsNumberListModelList)" width="170px"
+                        onSelect="@command('onSelectRowNumber', cb=rowSelectorCB)">
+                <template name="model">
+                  <comboitem label="@load(each.label)"/>
+                </template>
+              </idera-cwf-dropdownlist>
+            </vlayout>
+            <separator height="1px"/>
+            <radiogroup id="auditColumnsRG" orient="vertical" onCheck="@command('onCheckAuditColumns', rg=auditColumnsRG)">
+              <idera-cwf-radio label="${idera:getLabel('SQLCM.user-columns-dialog.audit-all-columns')}" radiogroup="auditColumnsRG"
+                     disabled = "@load(vm.dataset)" selected="@load(!vm.currentTable.selectedColumns)" style="font-size: 12pt; float:left;"/>
+              <idera-cwf-radio label="${idera:getLabel('SQLCM.user-columns-dialog.audit-selected-columns')}" radiogroup="auditColumnsRG"
+                     disabled = "@load(vm.dataset)" selected="@load(vm.currentTable.selectedColumns)" style="font-size: 12pt; float:left;"/>
+            </radiogroup>
+          </vlayout>
+        </toolbar>
+        <panelchildren id="mainPanelChildren" sclass="wizard-main-content wizard-content-spacing">
+          <vlayout vflex="1">
+            <hlayout width="680px" vflex="1">
+              <vlayout width="250px" vflex="1">
+                <label value="${idera:getLabel('SQLCM.user-columns-dialog.available-columns')}"/>
+                <idera-cwf-listbox id="lbAvailableTables" sclass="idera-grid z-listbox" style="border: 1px solid #9D9D9D; word-wrap:break-word;" width="235px" vflex="1"
+                         multiple="true" checkmark="false" model="@load(vm.candidateListModelList)" disabled="@load(vm.disableColumnSelect)">
+                  <listhead>
+                    <listheader/>
+                  </listhead>
+                  <template name="model">
+                    <listitem disabled="@load(vm.disableColumnSelect)">
+                      <listcell label="@load(each)"/>
+                    </listitem>
+                  </template>
+                </idera-cwf-listbox>
+              </vlayout>
+              <vlayout width="120px" vflex="1" style="padding-top:60px">
+                <idera-cwf-button id="addButton" onClick="@command('addCommand')"  width="111px"  
+                        label="${idera:getLabel('SQLCM.Label.add-server-wizard.button.add-arrow')}" disabled="@load(vm.disableColumnSelect)"/>
+                 <style>
+                 .transformNone{
+                 	text-transform: none !important;
+                 }
+                 div.idera-invisible-grid{
+					margin-left: 30px !important;
+					margin-right: 30px !important;
+				}
+				.z-cell{
+				width : 300px !important;
+				}
+                 </style>       
+                <idera-cwf-button class="transformNone" id="removeButton" onClick="@command('removeCommand')"  width="111px" 
+                        label="${idera:getLabel('SQLCM.Label.add-server-wizard.button.remove-arrow')}" disabled="@load(vm.disableColumnSelect)"/>
+              </vlayout>
+              <separator width="20px"></separator>
+              <vlayout width="250px" vflex="1">
+                <label value="${idera:getLabel('SQLCM.user-columns-dialog.selected-columns')}"/>
+                <idera-cwf-listbox id="lbSelectedTables" sclass="idera-grid z-listbox" style="border: 1px solid #9D9D9D; word-wrap:break-word;" width="230px" vflex="1"
+                         multiple="true" checkmark="false" model="@load(vm.chooseListModelList)" disabled="@load(vm.disableColumnSelect)">
+                  <listhead>
+                    <listheader/>
+                  </listhead>
+                  <template name="model">
+                    <listitem disabled="@load(vm.disableColumnSelect)">
+                      <listcell label="@load(each)"/>
+                    </listitem>
+                  </template>
+                </idera-cwf-listbox>
+              </vlayout>
+            </hlayout>
+          </vlayout>
+        </panelchildren>
+        <toolbar hflex="1" height="45px" align="center" sclass="wizard-button-toolbar padding-all-8">
+          <hbox hflex="1" pack="stretch,start">
+            <cell hflex="1"/>
+            <cell hflex="min"
+                  sclass="middle-center-align">
+              <hlayout valign="middle">
+                <idera-cwf-button id="okButton" onClick="@command('okCommand')" 
+                        label="${idera:getLabel('SQLCM.Labels.ok')}"/>
+                <idera-cwf-button id="closeButton" onClick="@command('closeCommand')" 
+                        label="${idera:getLabel('SQLCM.Labels.cancel')}" />
+              </hlayout>
+            </cell>
+          </hbox>
+        </toolbar>
+      </panel>
+    </vlayout>
+  </idera-cwf-dialog>

@@ -1,0 +1,165 @@
+<zk>
+	<idera-cwf-dialog hflex="1" vflex="1" style="vertical-align:middle;"
+		apply="org.zkoss.bind.BindComposer" closable="true"
+		viewModel="@id('step_vm') @init('com.idera.sqlcm.ui.dialogs.addalertruleswizard.steps.NewAlertRulesStepViewModel')">
+		<style>
+		.idera-textbox{
+		margin-left: 0px !important;	
+		} 
+		</style>
+		<vlayout vflex="1">
+			<separator height="10px" />
+			<vlayout hflex="1">
+				<!-- <label sclass="wizard-title-layout" id="newAlertRule"
+					value="${idera:getLabel('SQLCM.Label.new-event-alert-rules')}" /> -->
+				<hlayout>
+					<vlayout width="100%">
+						<label
+							value="${idera:getLabel('SQLCM.Label.specify-event-alert-rules')}" />
+						<separator height="5px" />
+						<idera-cwf-textbox id="eventAlertName"
+							maxlength="60" value="${idera:getLabel('SQLCM.Label.new-rule')}"
+							type="text" width="252px" rows="1" style="resize:none;" />
+					</vlayout>
+					<vlayout width="100%">
+						<label style= "margin-left : 0.5rem;"
+							value="${idera:getLabel('SQLCM.Label.specify-alert-rules-level')}" />
+						<separator height="5px" />
+						<hbox hflex="1">
+							<idera-cwf-dropdownlist mold="default" readonly="true"
+								tabindex="8" id="eventAlertRules"
+								onSelect="@command('selectEventSource', id=self.selectedItem.id)"
+								value="${idera:getLabel('SQLCM.Label.medium-alert-rules')}">
+								<comboitem id="LOW"
+									label="${idera:getLabel('SQLCM.Label.low-alert-rules')}"
+									value="${idera:getLabel('SQLCM.Label.low-alert-rules')}" />
+								<comboitem id="MEDIUM"
+									label="${idera:getLabel('SQLCM.Label.medium-alert-rules')}"
+									value="${idera:getLabel('SQLCM.Label.medium-alert-rules')}" />
+								<comboitem id="HIGH"
+									label="${idera:getLabel('SQLCM.Label.high-alert-rules')}"
+									value="${idera:getLabel('SQLCM.Label.high-alert-rules')}" />
+								<comboitem id="SEVERE"
+									label="${idera:getLabel('SQLCM.Label.severe-alert-rules')}"
+									value="${idera:getLabel('SQLCM.Label.severe-alert-rules')}" />
+							</idera-cwf-dropdownlist>
+						</hbox>
+					</vlayout>
+				</hlayout>
+			</vlayout>
+
+			<vlayout>
+				<label
+					value="${idera:getLabel('SQLCM.Label.description-event-alert-rules')}" />
+				<separator height="5px" />
+				<idera-cwf-textbox id="eventAlertDescription"
+					maxlength="100" value="@bind(step_vm.eventAlertDescription)"
+					type="text" width="492px" height="130px" style="resize:none"
+					rows="5" />
+			</vlayout>
+
+			<groupbox width="528px" height="250px">
+				<caption
+					label="${idera:getLabel('SQLCM.Label.select_event_type')}" />
+				<vlayout>
+					<radiogroup id="rgAlertRules" orient="horizontal"
+						style=" line-height: 0rem"
+						onCheck="@command('selectAddEventFilter', radioGroup=rgAlertRules)">
+						<hlayout>
+							<vlayout hflex="1">
+								<idera-cwf-radio
+									id="SECURITY_CHANGES_ALERT_RULES" style="margin-left: 20px;"
+									label="${idera:getLabel('SQLCM.Label.security-changes-add-alert-rules')}"
+									radiogroup="rgAlertRules" selected="true" />
+								<idera-cwf-radio
+									id="ADMINISTRATIVE_ACTIVITY_ALERT_RULES"
+									style="margin-left: 20px;"
+									label="${idera:getLabel('SQLCM.Label.administrative-activity-add-alert-rules')}"
+									radiogroup="rgAlertRules" />
+								<idera-cwf-radio
+									id="LOGIN_ACTIVITY_ALERT_RULES" style="margin-left: 20px;"
+									label="${idera:getLabel('SQLCM.Label.login-activity-add-alert-rules')}"
+									radiogroup="rgAlertRules" />
+								<idera-cwf-radio
+									id="SPECIFIC_EVENT_ALERT_RULES" style="margin-left: 20px;"
+									label="${idera:getLabel('SQLCM.Label.specific-events-add-alert-rules')}"
+									radiogroup="rgAlertRules" />
+								
+							</vlayout>
+							<vlayout hflex="1">
+								<idera-cwf-radio
+									id="DATA_DEFINITION_ALERT_RULES" style="margin-left: 20px;"
+									label="${idera:getLabel('SQLCM.Label.data-definition-add-alert-rules')}"
+									radiogroup="rgAlertRules" />
+								<idera-cwf-radio
+									id="DATA_MANIPULATION_ALERT_RULES" style="margin-left: 20px;"
+									label="${idera:getLabel('SQLCM.Label.data-manipulation-add-alert-rules')}"
+									radiogroup="rgAlertRules" />
+								<idera-cwf-radio
+									id="USER_DEFINED_ACTIVITY_ALERT_RULES"
+									style="margin-left: 20px;"
+									label="${idera:getLabel('SQLCM.Label.user-defined-events-add-alert-rules')}"
+									radiogroup="rgAlertRules" />
+
+								<separator height="5px" />
+
+
+								<hlayout>
+									<vlayout>
+										<hbox>
+											<idera-cwf-dropdownlist
+												tabindex="8" id="SelectEventSub"
+												value="${idera:getLabel('SQLCM.Labels.ddl')}" width="90px"
+												onSelect="@command('selectEventCategoryById', id=self.selectedItem.id)"
+												disabled="true" readonly="true">
+												<comboitem
+													id="CAT_ADMIN"
+													label="${idera:getLabel('SQLCM.Labels.admin')}" tooltiptext="${idera:getLabel('SQLCM.Labels.admin')}"
+													value="${idera:getLabel('SQLCM.Labels.admin')}" />
+												<comboitem id="CAT_DDL"
+													label="${idera:getLabel('SQLCM.Labels.ddl')}" tooltiptext="${idera:getLabel('SQLCM.Labels.ddl')}"
+													value="${idera:getLabel('SQLCM.Labels.ddl')}" />
+												<comboitem id="CAT_DML"
+													label="${idera:getLabel('SQLCM.Labels.dml')}" tooltiptext="${idera:getLabel('SQLCM.Labels.dml')}"
+													value="${idera:getLabel('SQLCM.Labels.dml')}" />
+												<comboitem
+													id="CAT_LOGIN"
+													label="${idera:getLabel('SQLCM.Labels.instance-detail.events.login')}" tooltiptext="${idera:getLabel('SQLCM.Labels.instance-detail.events.login')}"
+													value="${idera:getLabel('SQLCM.Labels.instance-detail.events.login')}" />
+												<comboitem
+													id="CAT_SECURITY"
+													label="${idera:getLabel('SQLCM.Labels.security')}" tooltiptext="${idera:getLabel('SQLCM.Labels.security')}"
+													value="${idera:getLabel('SQLCM.Labels.security')}" />
+												<comboitem
+													id="CAT_SELECT"
+													label="${idera:getLabel('SQLCM.Labels.select')}" tooltiptext="${idera:getLabel('SQLCM.Labels.select')}"
+													value="${idera:getLabel('SQLCM.Labels.select')}" />
+												<comboitem
+													id="CAT_USER_DEFINED"
+													label="${idera:getLabel('SQLCM.Labels.user-defined')}" tooltiptext="${idera:getLabel('SQLCM.Labels.user-defined')}"
+													value="${idera:getLabel('SQLCM.Labels.user-defined')}" />
+											</idera-cwf-dropdownlist>
+											<separator  width="16px" />
+											<idera-cwf-dropdownlist
+												hflex="1" tabindex="9" width="120px"
+												onSelect="@command('selectCategorySource',id=self.selectedItem.id,name=self.selectedItem.label)" 
+												style="max-width:110px;" id="SelectEventMain"  tooltiptext="@load(step_vm.comboToolTip)" 
+												disabled="true" value="Create index">
+												<template
+													name="model">
+													<comboitem 
+														label="${each.name}" id="${each.evtypeid}">
+													</comboitem>
+												</template>
+											</idera-cwf-dropdownlist>
+										</hbox>
+									</vlayout>
+								</hlayout>
+							</vlayout>
+						</hlayout>
+					</radiogroup>
+				</vlayout>
+			</groupbox>
+		</vlayout>
+	</idera-cwf-dialog>
+</zk>

@@ -1,0 +1,123 @@
+<zk>
+    <div id="instancesOverview" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('instOverview') @init('com.idera.sqlcm.ui.dashboard.InstancesOverview')">
+         <!-- SQLCM 5.4 Start -->	<timer id="timer" repeats="true" delay="@load(instOverview.refreshDuration)" onTimer="@command('refreshEvents')"/> <!-- SQLCM 5.4 end -->
+        <vlayout width="355px" style= "background-color:  #e1dcd1;" >
+            <div sclass="margin-lr-4 lnk-container" style="padding-left: 0px">
+                <grid hflex="1" id="environmentGrid"
+                      style = " background-color: #e1dcd1; border:none;">
+                    <auxhead> 
+                        <auxheader sclass="H3"  colspan="2" style= "background-color:  #e1dcd1;color: #483e2f;"
+                                   label="${idera:getUpperCaseLabel('SQLCM.Labels.system-status')}"/>
+                    </auxhead>
+                    <columns>
+                        <!-- <column align="left" hflex="min" sclass="padding-lr-16"/>
+                        <column align="left" hflex="1"/> -->
+                    </columns>
+                    <rows>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                            <div width="32px">
+                                <image style="vertical-align:middle;" src="@bind(instOverview.systemStatusImage)"/>
+                            </div>
+                            <label sclass="font-status"
+                                   value="@bind(instOverview.systemStatusLabel)"/>
+                        </row>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                            <idera-cwf-hyperlink id="registeredSqlServerCountLabel"
+                                   label="${idera:getLabel('SQLCM.Labels.registered-sql-server')}"
+                                   onClick="@command('openAllRegisteredSQLServers')"/>
+                                   <label id="registeredSqlServerCount" sclass="H5"
+                                   value="@bind(instOverview.cmEnvironmentDetails.registeredSqlServerCount)"/>
+                        </row>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">                           
+                            <idera-cwf-hyperlink id="auditedSqlServerCountLabel"
+                                   label="${idera:getLabel('SQLCM.Labels.audited-sql-servers')}"
+                                   onClick="@command('openAllAuditedSQLServers')"/>
+                                   <label id="auditedSqlServerCount" sclass="H5"
+                                   value="@bind(instOverview.cmEnvironmentDetails.auditedSqlServerCount))"/>
+                        </row>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">                        
+                            <idera-cwf-hyperlink id="auditedDatabaseCountLabel"
+                                   label="${idera:getLabel('SQLCM.Labels.audited-database')}"
+                                   onClick="@command('openAllAuditedSQLServers')"/>
+                                    <label id="auditedDatabaseCount" sclass="H5"
+                                   value="@bind(instOverview.cmEnvironmentDetails.auditedDatabaseCount)"/>
+                        </row>
+                    </rows>
+                </grid>
+            </div>
+
+            <separator height="10px"/>
+<separator sclass = "separator-linecolor"/>
+            <!--  Recent Alerts -->
+            <div style="padding-left: 0px">
+                <grid  id="auditConfigration"
+                      style = " background-color: #e1dcd1; border:none;">
+                    <auxhead>
+                        <auxheader sclass="H3"  colspan="2" style= "background-color:  #e1dcd1;color: #483e2f;"
+                                   label="${idera:getUpperCaseLabel('SQLCM.Labels.recent-alerts')}"/>
+                    </auxhead>
+                    <columns>
+                        <!-- <column align="left" hflex="min" sclass="padding-lr-16"/>
+                        <column valign="middle" align="left" hflex="1"/> -->
+                    </columns>
+                    <rows>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                           
+                            <div>
+                                <image style="vertical-align:middle;"
+                                       src="${sqlcm:getImageURLWithoutSize('severe-16x16')}"/>
+                                <idera-cwf-hyperlink
+                                       label="${idera:getLabel('SQLCM.Labels.severe')}"
+                                       onClick="@command('openSevereAlerts')"/>
+                                       
+                            </div>
+                             <label sclass="H4"
+                                   value="@bind(instOverview.cmAuditedInstances.severe)"/>
+                        </row>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                            
+                            <div>
+                                <image style="vertical-align:middle;"
+                                       src="${sqlcm:getImageURLWithoutSize('high-16x16')}"/>
+                                <idera-cwf-hyperlink
+                                       label="${idera:getLabel('SQLCM.Labels.high')}"
+                                       onClick="@command('openHighAlerts')"/>                                     
+                                       
+                            </div>
+                             <label sclass="H4 padding-b-4"
+                                   value="@bind(instOverview.cmAuditedInstances.high)"/>
+                        </row>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                            
+                            <div>
+                                <image style="vertical-align:middle;"
+                                       src="${sqlcm:getImageURLWithoutSize('medium-16x16')}"/>
+                                <idera-cwf-hyperlink
+                                       label="${idera:getLabel('SQLCM.Labels.medium')}"
+                                       onClick="@command('openMediumAlerts')"/>    
+                                       
+                            </div>
+                            <label sclass="H4 padding-b-4"
+                                   value="@bind(instOverview.cmAuditedInstances.medium)"/>
+                        </row>
+                        <row style = " background-color: #e1dcd1; border:none;background:#e1dcd1;">
+                           
+                            <div>
+                                <image style="vertical-align:middle;"
+                                       src="${sqlcm:getImageURLWithoutSize('low-16x16')}"/>
+                                <idera-cwf-hyperlink
+                                       label="${idera:getLabel('SQLCM.Labels.low')}"
+                                       onClick="@command('openLowAlerts')"/>
+                                        
+                            </div>
+                            <label sclass="H4 padding-b-4"
+                                   value="@bind(instOverview.cmAuditedInstances.low)"/>
+                                       
+                        </row>
+                    </rows>
+                </grid>
+            </div>
+        </vlayout>
+    </div>
+</zk>

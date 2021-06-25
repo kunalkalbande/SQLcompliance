@@ -1,0 +1,74 @@
+<idera-cwf-dialog id="exportAlertsDialog" closable="true" border="none" height="570px" width="600px" apply="com.idera.sqlcm.ui.components.alerts.AlertsExportDialog"
+        contentSclass="modal-dialog-window customize-dba-modal" style="border-radius: 0" title="${idera:getLabel('Labels.export-alerts')}">
+       
+
+  <vlayout>
+    <div hflex="1"  height="8px"/>
+   <!--  <hlayout>
+      <div hflex="1" sclass="margin-t-8">
+        <label sclass="modal-dialog-title padding-l-8" value="${idera:getLabel('Labels.export-alerts')}"/>
+      </div>
+      <a id="dialogHelpLink" sclass="modal-dialog-close-link margin-r-8" label="?"/>
+      <a id="closeLink" sclass="modal-dialog-close-link margin-r-8" label="X"/>
+    </hlayout> -->
+    <separator height="24px"/>
+    <label sclass="padding-l-8" value="${idera:getLabel('Labels.select-the-type-of-data-to-export')}"/>
+    <separator height="4px"/>
+  </vlayout>
+
+  <div sclass="padding-tb-0 padding-lr-16">
+    <vlayout>
+      <radiogroup id="alertsRadioGroup">
+        <vlayout>
+          <idera-cwf-radio id="exportSummaryRadio" label="${idera:getLabel('Labels.summary-of-alert-categories')}" selected="true"/>
+          <idera-cwf-radio id="exportDetailedRadio" label="${idera:getLabel('Labels.details-for-all-alerts')}"/>
+          <idera-cwf-radio id="exportSelectedRadio" label="${idera:getLabel('Labels.details-for-selected-categories')}"/>
+        </vlayout>
+      </radiogroup>
+      <div sclass="padding-tb-0 padding-lr-16">
+        <grid id="alertsGrid" sclass="idera-invisible-grid" emptyMessage="${idera:getLabel('Labels.no-results-found')}"
+              model="@{alertsListModel}" height="200px">
+          <columns>
+            <column align="left" hflex="min"/>
+            <column align="left"/>
+          </columns>
+          <rows>
+            <row self="@{each='selectedEntry'}" value="@{selectedEntry}">
+              <idera-cwf-checkbox id="alertCheckedCheckbox" disabled="@{showSelectionGrid}" checked="@{selectedEntry.isSelected}" ></idera-cwf-checkbox>
+              <label value="@{selectedEntry.name}"/>
+            </row>
+          </rows>
+        </grid>
+      </div>
+    </vlayout>
+  </div>
+  <div sclass="padding-lr-8">
+    <vlayout>
+     <!--  <separator height="16px"/> -->
+      <label value="${idera:getLabel('Labels.export-as')}"/>
+
+      <div sclass="padding-tb-0 padding-lr-16">
+        <hlayout>
+          <radiogroup id="exportAsRadioGroup">
+            <hlayout>
+              <idera-cwf-radio id="exportAsPDFRadio" label="${idera:getLabel('Labels.pdf')}" tooltiptext="${idera:getLabel('Labels.pdf')}" selected="true"/>
+              <idera-cwf-radio id="exportAsXLSRadio" label="${idera:getLabel('Labels.xls')}" tooltiptext="${idera:getLabel('Labels.xls')}"/>
+              <idera-cwf-radio id="exportAsXMLRadio" label="${idera:getLabel('Labels.xml')}" tooltiptext="${idera:getLabel('Labels.xml')}"/>
+            </hlayout>
+          </radiogroup>
+        </hlayout>
+      </div>
+      <toolbar hflex="1" height="32px" align="end" sclass=" padding-all-8">
+        <hbox hflex="1" pack="stretch,start">
+          <cell hflex="1"/>
+          <cell hflex="min" sclass="middle-center-align">
+            <hlayout valign="middle">
+              <idera-cwf-button id="exportButton"  label="${idera:getUpperCaseLabel('Labels.export')}" focus="true"/>
+              <idera-cwf-button id="closeButton" label="${idera:getLabel('Labels.sql-cm.select-server-dialog.cancel-button')}"/>
+            </hlayout>
+          </cell>
+        </hbox>
+      </toolbar>
+    </vlayout>
+  </div>
+</idera-cwf-dialog>

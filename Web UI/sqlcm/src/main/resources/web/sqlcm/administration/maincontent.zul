@@ -1,0 +1,70 @@
+<zk>
+    <vlayout spacing="0" height="100%" sclass = "cwf-main-window" >
+        <div vflex="1" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.idera.sqlcm.ui.administration.AdministrationViewModel')">
+            <vlayout sclass="padding-tb-16 padding-lr-24" spacing="10px">
+            	<label value="${idera:getLabel('SQLCM.Labels.administration')}" sclass="H1 padding-r-8" style="font-size: 18px;  font-weight: 600;  font-style: normal;  font-stretch: normal;  text-align: left;  color: #483e2f;  color: var(--greyish-brown);"/>	
+				<separator height="8px" />
+                <separator sclass = "separator-linecolor"/>
+                <separator sclass="separator-bgcolor" />
+            </vlayout>
+            <hlayout vflex="1">
+                <vlayout hflex="1" sclass="padding-lr-24" spacing="5px">
+                
+                	<div id="configComment">
+						<label value="${idera:getLabel('SQLCM.Label.configuration-edit-message')}" style="font-weight:600;"/>
+					</div>
+					<separator height="8px" />
+                    <label value="${idera:getLabel('SQLCM.Labels.administration-user-title')}" style="font-weight:600;" />
+                    <label value="${idera:getLabel('SQLCM.Labels.administration-user-summary')}" multiline="true" style="font-size: 16px !important;" />
+                    <div visible="${sqlcm:getConfigValueForAdmin('administration','manageUsers' )}" >
+                    	<idera-cwf-hyperlink label="${idera:getLabel('SQLCM.Labels.administration-user-link')}" 
+                       	onClick="@command('showManageUsersDialog')"    />
+					</div>
+                    <!-- <separator height="4px" /> -->
+                   <!--   <separator sclass="medium-gray-background side-bar-separator-height" /> -->
+                   <separator sclass="separator-bgcolor" />
+                    <separator height="8px" />
+
+                    <label value="${idera:getLabel('SQLCM.Labels.administration-license-title')}" style="font-weight:600;" />
+                    <label value="${idera:getLabel('SQLCM.Labels.administration-license-summary')}" multiline="true" style="font-size: 16px !important;" />
+                    <div visible="${sqlcm:getConfigValueForAdmin('administration','license' )}" >
+                  		  <idera-cwf-hyperlink label="${idera:getLabel('SQLCM.Labels.administration-license-link')}"
+                       		onClick="@command('showManageLicenseDialog')"  />
+					</div>
+                    <!-- <separator height="4px" /> -->
+                  <!--   <separator sclass="medium-gray-background side-bar-separator-height" /> -->
+                    <separator sclass="separator-bgcolor" />
+                    <separator height="8px" />
+
+                    <label value="${idera:getLabel('SQLCM.Labels.administration-instances-title')}" style="font-weight:600;" />
+                    <label value="${idera:getLabel('SQLCM.Labels.administration-instances-summary')}" multiline="true" style="font-size: 16px !important;" />
+                    <div visible="${sqlcm:getConfigValueForAdmin('administration','manageInstance' )}" >
+                   		 <idera-cwf-hyperlink id="addInstanceLink"  label="${idera:getLabel('SQLCM.Labels.administration-add-instance-link')}"
+                                              	 onClick="@command('openAddInstanceDialog')"  />
+                  
+                    <idera-cwf-hyperlink id="importSqlServerLink"  
+                       label="${idera:getLabel('SQLCM.Labels.administration-import-sql-servers-link')}"
+                       onClick="@command('showImportSQLServersDialog')"  />
+                  
+                    <idera-cwf-hyperlink id="manageSqlServerInstancesLink"  
+                       label="${idera:getLabel('SQLCM.Labels.administration-manage-sql-server-instances-link')}"
+                       onClick="@command('showManageSQLServerInstancesDialog')" />
+                      </div> 
+                       
+                   <!--  <separator height="4px" /> -->
+                   <!--   <separator sclass="medium-gray-background side-bar-separator-height" />-->
+                    <separator sclass="separator-bgcolor" />
+                    <separator height="8px" />
+                    
+                    <label value="${idera:getLabel('SQLCM.Labels.administration-refresh-title')}" style="font-weight:600;" />
+                    <label value="${idera:getLabel('SQLCM.Labels.administration-refresh-summary')}" multiline="true" style="font-size: 16px !important;" />
+                    <idera-cwf-hyperlink id="manageConfigRefreshLink"   
+                       label="${idera:getLabel('SQLCM.Labels.administration-manage-sql-server-refresh-link')}"
+                       onClick="@command('showManageConfigRefresh')" />  
+                                   
+                </vlayout>
+                <vlayout hflex="1" sclass="padding-lr-24" spacing="5px"></vlayout>
+            </hlayout>
+        </div>
+    </vlayout>
+</zk>

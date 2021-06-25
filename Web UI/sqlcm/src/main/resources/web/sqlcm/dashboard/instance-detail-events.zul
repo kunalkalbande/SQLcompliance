@@ -1,0 +1,63 @@
+<zk>
+    <window id="instEventsView" vflex="true" hflex="1" apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('com.idera.sqlcm.ui.dashboard.InstanceEventsViewModel')">
+        <vlayout id="contentLayout" vflex="1" hflex="1">
+            <hlayout sclass="margin-all-4 padding-all-4">
+
+                <hlayout style="float: left;padding-top:15px">
+               
+                    <label sclass="H4"
+                           value="${idera:getLabel('SQLCM.Labels.enterprise-activity')}"/>
+                </hlayout>
+                <div style="float: left;margin-left: 20%;" hflex="true" align="center">
+                <style>
+                .z-ideraradio-cnt{
+                 float:left;
+                }
+                </style>
+                    <radiogroup id="rgInterval" onCheck="@command('selectIntervalDays', radioGroup=rgInterval)" 
+                                model="@load(vm.intervalListModelList)">
+                        <template name="model">
+                            <idera-cwf-radio id="@load(each.name)"  style="color: #473e2e;" label="@load(each.label)" radiogroup="rgInterval"/>
+                        </template>
+                    </radiogroup>
+                </div>
+                <hlayout style="float: right;" sclass="margin-r-8 padding-r-8">
+                    <hlayout sclass="z-valign-bottom">
+                        <idera-cwf-dropdownlist model="@load(vm.categoryListModelList)" width="150px" autodrop="true" readonly="true"
+                                  onSelect="@command('selectCategory')">
+                            <template name="model">
+                                <comboitem sclass="label" hflex="1" label="@load(each.label)" />
+                            </template>
+                        </idera-cwf-dropdownlist>
+                    </hlayout>
+                </hlayout>
+            </hlayout>
+            <separator sclass = "separator-bgcolor"/>
+            <vlayout sclass="margin-all-4 padding-all-4">
+                <hlayout id="chartContainer" sclass="margin-all-4 padding-all-4 lnk-container"
+                         style="padding-right: 20px;">
+                    <!-- BEGIN: chartWidth
+                        Script below used to send chart container width & create JFreeChart picture.
+                        This hack is used because JFreeChart widget does not support width in percentage.
+                    -->
+                    <attribute name="onCreate">
+                        Clients.evalJavaScript("onCreateContainer();");
+                    </attribute>
+                    <script type="text/javascript">
+                        function onCreateContainer() {
+                            var chartContainerWidget = zk.Widget.$('$chartContainer');
+                            var chartContainerWidth = jq(chartContainerWidget.$n()).width();
+                            zAu.send(new zk.Event(chartContainerWidget,
+                                     'onCreateChartContainer', chartContainerWidth));
+                        }
+                    </script>
+                    <chart id="activityChart"
+                           paneColor="#FFFFFF" type="time_series" width="1" model="@load(vm.activityChartModel)"
+                           engine="@bind(vm.engine)" threeD="@bind(vm.threeD)">
+                    </chart>
+                </hlayout>
+            </vlayout>   
+       </vlayout>
+    </window>
+</zk>

@@ -1,0 +1,3 @@
+<hbox width="315px" >
+    <idera-cwf-checkbox id="filterCheckbox" width="315px" hflex="true" ></idera-cwf-checkbox>
+</hbox>

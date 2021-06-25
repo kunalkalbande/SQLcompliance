@@ -1,0 +1,119 @@
+<zk>
+	<vlayout spacing="0" height="100%" sclass="cwf-main-window">
+		<div vflex="1" apply="org.zkoss.bind.BindComposer"
+			viewModel="@id('vm') @init('com.idera.sqlcm.ui.auditReports.AuditReportMainGridViewModel')">
+			<hlayout vflex="1">
+				<vlayout hflex="3" vflex="1" sclass="padding-lr-16">
+					<vlayout>
+						<separator height="16px" />
+						<hlayout spacing="10px" valign="top">
+							<vlayout spacing="10px">
+								<label
+									value="${idera:getLabel('SQLCM.Labels.audit-reports.title')}"
+									sclass="H1 padding-r-8"
+									style="font-size: 18px;  font-weight: 600;  font-style: normal;  font-stretch: normal;  text-align: left;  color: #483e2f;  color: var(--greyish-brown);" />
+								<div id="viewButtonsDiv" />
+							</vlayout>
+						</hlayout>
+						<separator height="8px" />
+						<separator sclass="separator-linecolor" />
+						<separator sclass="separator-bgcolor" />
+					</vlayout>
+					<separator height="8px" />
+					<vlayout>
+						<div align="center">
+							<hlayout>
+								<grid sclass="idera-invisible-grid" width="98%">
+									<columns visible="true">
+										<column hflex="1" />
+										<column hflex="1" />
+										<column hflex="1" />
+										<column hflex="1" />
+									</columns>
+									<rows>
+										<row height="100px">
+											<button hflex="2"
+												image="~./sqlcm/images/Reports_48.png"
+												class="idera-button-primary" id="APPLICATION"
+												style="text-transform: capitalize;"
+												label="${idera:getLabel('SQLCM.Labels.audit-reports.application.title')}"
+												width="15px" height="75px"
+												onClick="@command('openInstance', id=self.id)" />
+											<button hflex="2"
+												image="~./sqlcm/images/Reports_48.png"
+												class="idera-button-primary" id="CONFIGURATION"
+												style="text-transform: capitalize;"
+												label="${idera:getLabel('SQLCM.Labels.audit-reports.configuration.check')}"
+												width="15px" height="75px"
+												onClick="@command('openInstance', id=self.id)" />
+											<button hflex="2"
+												image="~./sqlcm/images/Reports_48.png"
+												class="idera-button-primary" id="DML"
+												style="text-transform: capitalize;"
+												label="${idera:getLabel('SQLCM.Labels.audit-reports.dmlActivity.title')}"
+												width="125px" height="75px"
+												onClick="@command('openInstance',id=self.id)" />
+											<button hflex="2"
+												image="~./sqlcm/images/Reports_48.png"
+												class="idera-button-primary" id="LOGIN_CREATION"
+												style="text-transform: capitalize;"
+												label="${idera:getLabel('SQLCM.Labels.audit-reports.loginCreationHistory.title')}"
+												width="125px" height="75px"
+												onClick="@command('openInstance',id=self.id)" />
+										</row>
+										<row height="100px">
+											<button hflex="2"
+												image="~./sqlcm/images/Reports_48.png"
+												class="idera-button-primary" id="LOGIN_DELETION"
+												style="text-transform: capitalize;"
+												label="${idera:getLabel('SQLCM.Labels.audit-reports.loginDeletionHistory.title')}"
+												width="125px" height="75px"
+												onClick="@command('openInstance',id=self.id)" />
+											<button hflex="2"
+												image="~./sqlcm/images/Reports_48.png"
+												class="idera-button-primary" id="OBJECT_ACTIVITY"
+												style="text-transform: capitalize;"
+												label="${idera:getLabel('SQLCM.Labels.audit-reports.objectActivity.title')}"
+												width="125px" height="75px"
+												onClick="@command('openInstance',id=self.id)" />
+											<button hflex="2"
+												image="~./sqlcm/images/Reports_48.png"
+												class="idera-button-primary" id="PERMISSION"
+												style="text-transform: capitalize;"
+												label="${idera:getLabel('SQLCM.Labels.audit-reports.permissionDeniedActivity.title')}"
+												width="125px" height="75px"
+												onClick="@command('openInstance',id=self.id)" />
+											<button hflex="2"
+												image="~./sqlcm/images/Reports_48.png"
+												class="idera-button-primary" id="REGULATORY_COMPLIANCE"
+												style="text-transform: capitalize;"
+												label="${idera:getLabel('SQLCM.Labels.audit-reports.regulatoryCompliance.title')}"
+												width="125px" height="75px"
+												onClick="@command('openInstance',id=self.id)" />
+										</row>
+										<row height="100px">
+											<button hflex="2"
+												image="~./sqlcm/images/Reports_48.png"
+												class="idera-button-primary" id="ROW_COUNT"
+												style="text-transform: capitalize;"
+												label="${idera:getLabel('SQLCM.Labels.audit-reports.rowCount.title')}"
+												width="125px" height="75px"
+												onClick="@command('openInstance',id=self.id)" />
+											<button hflex="2"
+												image="~./sqlcm/images/Reports_48.png"
+												class="idera-button-primary" id="USER_ACTIVITY"
+												style="text-transform: capitalize;"
+												label="${idera:getLabel('SQLCM.Labels.audit-reports.userActivityHistory.title')}"
+												width="125px" height="75px"
+												onClick="@command('openInstance',id=self.id)" />
+										</row>
+									</rows>
+								</grid>
+							</hlayout>
+						</div>
+					</vlayout>
+				</vlayout>
+			</hlayout>
+		</div>
+	</vlayout>
+</zk>

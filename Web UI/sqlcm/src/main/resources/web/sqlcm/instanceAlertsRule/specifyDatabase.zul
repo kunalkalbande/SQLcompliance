@@ -1,0 +1,114 @@
+<idera-cwf-dialog id="specifyDatabaseWindow" closable="true" border="none"
+	height="620px" width="620px" apply="org.zkoss.bind.BindComposer"
+	style="border-radius: 0" contentSclass="modal-dialog-window margin-all-0 padding-all-0"
+	viewModel="@id('vm') @init('com.idera.sqlcm.ui.instancesAlertsRule.SpecifyDatabaseViewModel')"
+	title="${idera: getLabel('SQLCM.Labels.specified-databases')}" >
+	<div hflex="1" vflex="1" style="vertical-align:middle;">
+		<vlayout><!-- 
+						<hlayout>
+				
+			 <div hflex="min">
+					<a id="dialogHelpLink" sclass="modal-dialog-close-link margin-r-8"
+						label="?" target="_blank" href="@load(vm.help)" />
+				</div>
+			
+			</hlayout> -->
+			<separator height="8px" />
+		</vlayout>
+
+		<!-- <vlayout>
+			<label value="${idera:getLabel('SQLCM.Labels.sql-server-monitored')}"
+				style="margin-left:20px;">
+			</label>
+		</vlayout> -->
+
+		<vlayout vflex="1">
+			<separator height="16px" />
+			<groupbox width="410px" style="margin-left:20px;">
+				<caption
+					label="${idera:getLabel('SQLCM.Labels.match-database-names')}"
+					style="margin-left:20px;" />
+				<vlayout>
+					<radiogroup id="rgAlertRules" orient="horizontal"
+						onCheck="@command('selectAddEventFilter', radioGroup=rgAlertRules)">
+						<hlayout>
+							<vlayout hflex="1">
+								<idera-cwf-radio style="margin-left: 20px;" label="${idera:getLabel('SQLCM.Labels.listed')}"
+									radiogroup="rgAlertRules" selected="true" />
+								<idera-cwf-radio style="margin-left: 20px;"
+									label="${idera:getLabel('SQLCM.Labels.except-those-listed')}"
+									radiogroup="rgAlertRules" />
+							</vlayout>
+						</hlayout>
+					</radiogroup>
+				</vlayout>
+			</groupbox>
+			<separator height="16px" />
+			<vlayout>
+				<hlayout>
+					<vlayout>
+						<label
+							value="${idera:getLabel('SQLCM.Labels.database-name-match')}"
+							style="margin-left:20px;" />
+						<idera-cwf-textbox id="objectNameMatch" type="text" width="410px"
+							rows="1" value="@bind(vm.eventDatabaseName)" style="margin-left:20px !important;" />
+					</vlayout>
+					<vlayout>
+						<div width="100px">
+							<idera-cwf-button id="AddButton" width="85px"
+								visible="${sqlcm:canAccess()}" onClick="@command('addItem')"
+								label="${idera:getLabel('SQLCM.Label.add-database-wizard.button.add')}"
+								style="margin-top:18px;"/>
+						</div>
+					</vlayout>
+				</hlayout>
+			</vlayout>
+			<separator height="8px" />
+			<vlayout>
+				<hlayout>
+					<vlayout>
+						<label value="${idera:getLabel('SQLCM.Labels.database-match')}"
+							style="margin-left:20px;" width="410px"/>
+						<idera-cwf-listbox id="ListObjectMatch" sclass="idera-grid z-listbox" height="150px" onClick="@command('onItemClick')"
+							model="@bind(vm.dataList)" style="margin-left:20px ;" width="410px"
+							rows="4">
+							<template name="model" var="mymodel">
+								<listitem>
+									<listcell>
+										<label value="@bind(mymodel.dataBaseName)" />
+									</listcell>
+								</listitem>
+							</template>
+						</idera-cwf-listbox>
+					</vlayout>
+					<vlayout>
+						<div width="100px">
+							<idera-cwf-button id="RemoveButton" width="85px"
+								 visible="${sqlcm:canAccess()}" onClick="@command('onRemoveBtnClick')"
+								label="${idera:getLabel('SQLCM.Label.add-database-wizard.button.remove')}" 
+								style="margin-top:83px"/>
+						</div>
+					</vlayout>
+				</hlayout>
+			</vlayout>
+			<separator height="8px" />
+
+			<vlayout sclass="padding-lr-24 padding-top-10">
+				<hlayout>
+					<div hflex="1"></div>
+					<div width="100px">
+						<idera-cwf-button id="OKButton" width="85px"
+							visible="${sqlcm:canAccess()}" onClick="@command('submitChoice',comp=specifyDatabaseWindow)"
+							label="${idera:getLabel('SQLCM.Labels.ok')}" />
+
+					</div>
+					<div width="100px">
+						<idera-cwf-button id="cancelButton" width="85px"
+							visible="${sqlcm:canAccess()}" onClick="@command('closeDialog', comp=specifyDatabaseWindow)"
+							label="${idera:getLabel('Labels.sql-cm.instance-properties-dialog-cancel-button')}" />
+					</div>
+				</hlayout>
+			</vlayout>
+		</vlayout>
+	</div>
+</idera-cwf-dialog>

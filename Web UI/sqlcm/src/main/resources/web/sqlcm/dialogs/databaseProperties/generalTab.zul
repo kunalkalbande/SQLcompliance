@@ -1,0 +1,59 @@
+<zk>
+  <vlayout spacing="10px">
+    <groupbox width="900px" closable="false">
+      <caption label="${idera:getLabel('SQLCM.Labels.database')}"/>
+      <grid sclass="idera-invisible-grid">
+        <columns visible="false">
+          <column width="120px" sclass="padding-l-20"/>
+          <column width="500px"/>
+          <column />
+        </columns>
+        <rows>
+          <row>
+            <label value="${idera:getLabel('SQLCM.db-props.general.server-instance')}"/>
+            <idera-cwf-textbox type="text" readonly="true" hflex="1" value="@load(vm.databaseProperties.serverInstance)"/>
+          </row>
+          <row>
+            <label value="${idera:getLabel('SQLCM.db-props.general.database-name')}"/>
+            <idera-cwf-textbox type="text" readonly="true" hflex="1" value="@load(vm.databaseProperties.databaseName)"/>
+          </row>
+          <row>
+            <label value="${idera:getLabel('SQLCM.db-props.general.description')}"/>
+            <idera-cwf-textbox type="text" maxlength="256"  readonly="${!sqlcm:canAccess()}" hflex="1" rows="3" height="80px" 
+            style="resize:none; background-color: #ffffff" value="@bind(vm.databaseProperties.description)"/>
+                     
+          </row>
+        </rows>
+      </grid>
+    </groupbox>
+    <groupbox width="900px" closable="false">
+      <caption label="${idera:getLabel('SQLCM.Labels.status')}"/>
+      <grid sclass="idera-invisible-grid">
+        <columns visible="false">
+          <column width="200px" sclass="padding-l-20"/>
+          <column width="220px"/>
+          <column/>
+        </columns>
+        <rows>
+          <row>
+            <label value="${idera:getLabel('SQLCM.db-props.general.auditing-status')}"/>
+            <idera-cwf-textbox type="text" readonly="true" hflex="1"
+                     value="@load(vm.databaseProperties.auditingEnableStatus) @converter('com.idera.sqlcm.ui.converter.EnabledStateConverter')"/>
+          </row>
+          <row>
+            <label value="${idera:getLabel('SQLCM.db-props.general.date-created')}"/>
+            <idera-cwf-textbox type="text" readonly="true" hflex="1" value="@load(vm.databaseProperties.createdDateTime)"/>
+          </row>
+          <row>
+            <label value="${idera:getLabel('SQLCM.db-props.general.last-modified')}"/>
+            <idera-cwf-textbox type="text" readonly="true" hflex="1" value="@load(vm.databaseProperties.lastModifiedDateTime)"/>
+          </row>
+          <row>
+            <label value="${idera:getLabel('SQLCM.db-props.general.last-change')}"/>
+            <idera-cwf-textbox type="text" readonly="true" hflex="1" value="@load(vm.databaseProperties.lastChangedStatusDateTime)"/>
+          </row>
+        </rows>
+      </grid>
+    </groupbox>
+  </vlayout>
+</zk>

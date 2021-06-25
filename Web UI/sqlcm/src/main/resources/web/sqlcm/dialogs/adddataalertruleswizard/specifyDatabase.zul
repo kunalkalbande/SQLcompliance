@@ -1,0 +1,62 @@
+<idera-cwf-dialog id="specifyDatabase" closable="true" border="none"
+	height="530px" width="420px" apply="org.zkoss.bind.BindComposer"
+	style="border-radius: 0"
+	contentSclass="modal-dialog-window margin-all-0 padding-all-0"
+	viewModel="@id('vm') @init('com.idera.sqlcm.ui.dialogs.adddataalertruleswizard.steps.SpecifyDatabaseViewModel')"
+	title="${idera: getLabel('SQLCM.Labels.datarule.select.db')}">
+	<div hflex="1" vflex="1" style="vertical-align:middle;">
+		<vlayout>
+			<hlayout>
+				<div hflex="1">
+					<vlayout style="margin-left:10px;">
+						<separator height="8px" />
+						<label id="dataDesc"
+							value="${idera:getLabel('SQLCM.Labels.datarule.sensitive.databse')}" />
+					</vlayout>
+				</div>
+			</hlayout>
+			<separator height="8px" />
+		</vlayout>
+		<vlayout>
+			<hlayout width="400px" vflex="1"
+				style="margin-left:10px;">
+				<tree id="tDatabases" width="330px" height="320px"
+					model="@load(vm.treeModel)" sclass="noselect"
+					style="border: 1px solid #9D9D9D;" vflex="1" rows="14">
+					<treecols sizable="true">
+						<treecol />
+					</treecols>
+					<template name="model">
+						<treeitem>
+							<treerow>
+								<treecell
+									onClick="@command('onTreeItemClick')"
+									tooltiptext="@load(each.data.name)">
+									<label value="@load(each.data.name)"
+										maxlength="20" />
+								</treecell>
+							</treerow>
+						</treeitem>
+					</template>
+				</tree>
+			</hlayout>
+		</vlayout>
+		<separator height="10px" />
+		<vlayout sclass="padding-lr-24 padding-top-10">
+			<hlayout>
+				<div hflex="1"></div>
+				<div width="100px">
+					<idera-cwf-button id="OKButton" width="85px"
+						visible="${sqlcm:canAccess()}" onClick="@command('submitChoice')"
+						label="${idera:getLabel('SQLCM.Labels.ok')}" disabled="true" />
+				</div>
+				<div width="100px">
+					<idera-cwf-button id="cancelButton" width="85px"
+						visible="${sqlcm:canAccess()}"
+						onClick="@command('closeDialog', comp=specifyDatabase)"
+						label="${idera:getLabel('Labels.sql-cm.instance-properties-dialog-cancel-button')}" />
+				</div>
+			</hlayout>
+		</vlayout>
+	</div>
+</idera-cwf-dialog>
