@@ -87,6 +87,12 @@ BEGIN
 				SET @queryStr = @queryStr + ' WHERE srvInstance = ' + @serverName + ' AND name = ' + @dbName
 			END
 		END
+		IF(@serverName <> '<ALL>' and @dbName = '<ALL>') 
+		BEGIN
+		   
+		         SET @serverName = "'" + @serverName + "'"
+				 SET @queryStr = @queryStr + ' WHERE srvInstance = ' + @serverName 
+		END
 	END
 
     --Return server/database settings
