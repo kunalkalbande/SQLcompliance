@@ -3807,37 +3807,39 @@ namespace Idera.SQLcompliance.Application.GUI.Controls
 
         private void SetArchiveViewDirty(bool value)
         {
-            if (value == _archiveEventViewDirty || _comboArchiveViews.SelectedItem == null)
-            {
-                return;
-            }
+                //if (value == _archiveEventViewDirty || _comboArchiveViews.SelectedItem == null)
+                //{
+                //    return;
+                //}
+                if (value == _archiveEventViewDirty || _comboArchiveViews.SelectedItem != null)
+                    return;
 
-            _archiveEventViewDirty = value;
-            if (value)
-            {
-                ValueListItem oldItem, newItem;
-                oldItem = (ValueListItem)_comboArchiveViews.SelectedItem;
-                EventViewSettings oldSelection = (EventViewSettings)oldItem.DataValue;
-                EventViewSettings newSelection = oldSelection.Clone();
-                newSelection.Name = "* " + newSelection.Name;
-                newItem = _comboArchiveViews.ValueList.ValueListItems.Add(newSelection, newSelection.Name);
-                _internalUpdate++;
-                _comboArchiveViews.SelectedItem = newItem;
-                _internalUpdate--;
-            }
-            else
-            {
-                if (_comboArchiveViews.ValueList.ValueListItems.Count > 0)
+                _archiveEventViewDirty = value;
+                if (value)
                 {
-                    ValueListItem oldDirtyItem = _comboArchiveViews.ValueList.ValueListItems[0];
-                    EventViewSettings oldDirty = (EventViewSettings)oldDirtyItem.DataValue;
-                    if (oldDirty.Name.StartsWith("*"))
+                    ValueListItem oldItem, newItem;
+                    oldItem = (ValueListItem)_comboArchiveViews.SelectedItem;
+                    EventViewSettings oldSelection = (EventViewSettings)oldItem.DataValue;
+                    EventViewSettings newSelection = oldSelection.Clone();
+                    newSelection.Name = "* " + newSelection.Name;
+                    newItem = _comboArchiveViews.ValueList.ValueListItems.Add(newSelection, newSelection.Name);
+                    _internalUpdate++;
+                    _comboArchiveViews.SelectedItem = newItem;
+                    _internalUpdate--;
+                }
+                else
+                {
+                    if (_comboArchiveViews.ValueList.ValueListItems.Count > 0)
                     {
-                        _comboArchiveViews.ValueList.ValueListItems.RemoveAt(0);
+                        ValueListItem oldDirtyItem = _comboArchiveViews.ValueList.ValueListItems[0];
+                        EventViewSettings oldDirty = (EventViewSettings)oldDirtyItem.DataValue;
+                        if (oldDirty.Name.StartsWith("*"))
+                        {
+                            _comboArchiveViews.ValueList.ValueListItems.RemoveAt(0);
+                        }
                     }
                 }
-            }
-            _btnArchiveSave.SharedProps.Enabled = value;
+                _btnArchiveSave.SharedProps.Enabled = value;
         }
 
         private void Click_ArchiveViewsSaveAs()
