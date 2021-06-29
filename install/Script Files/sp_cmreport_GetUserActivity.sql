@@ -97,6 +97,7 @@ begin
 			targetObject nvarchar(512),
 			startTime datetime,
 			parentName nvarchar(128),
+			serverName nvarchar(128),
 			sqlText nvarchar(MAX)
 			) 
 
@@ -129,7 +130,7 @@ begin
 						 --  'ELSE sessionLoginName ' +
 					  --'END AS loginName, ' +
 					  't1.loginName, ' +  
-					   'targetObject, t1.startTime, t1.parentName'  
+					   'targetObject, t1.startTime, t1.parentName, t1.serverName'  
 
 	   set @fromClause = 'FROM [' + @eventDatabaseName + '].dbo.Events t1 LEFT OUTER JOIN EventTypes t2 ON t1.eventType = t2.evtypeid '
 
@@ -270,7 +271,7 @@ end
                 --       'ELSE sessionLoginName ' +  
                 --  'END AS loginName, ' +
 				't1.loginName, ' +    
-                'targetObject, t1.startTime, t1.parentName'  
+                'targetObject, t1.startTime, t1.parentName, t1.serverName'  
   
    set @fromClause = 'FROM [' + @eventDatabase + '].dbo.Events t1 LEFT OUTER JOIN EventTypes t2 ON t1.eventType = t2.evtypeid '  
   
