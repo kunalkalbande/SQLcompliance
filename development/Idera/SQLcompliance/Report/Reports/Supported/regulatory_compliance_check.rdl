@@ -2118,6 +2118,10 @@ And (Parameters!GDPRServerSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditLogins.Value = 0 And ((Parameters!CISServerSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -2153,6 +2157,10 @@ And (Parameters!GDPRServerSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditLogins.Value = 0 And ((Parameters!DISASTIGServerSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2190,6 +2198,10 @@ And (Parameters!GDPRServerSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditLogins.Value = 0 And ((Parameters!FERPAServerSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -2225,6 +2237,10 @@ And (Parameters!GDPRServerSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditLogins.Value = 0 And ((Parameters!GDPRServerSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2262,6 +2278,10 @@ And (Parameters!GDPRServerSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditLogins.Value = 0 And ((Parameters!HIPAAServerSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -2297,6 +2317,10 @@ And (Parameters!GDPRServerSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditLogins.Value = 0 And ((Parameters!NERCServerSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2334,6 +2358,10 @@ And (Parameters!GDPRServerSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditLogins.Value = 0 And ((Parameters!PCIDSSServerSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -2369,6 +2397,10 @@ And (Parameters!GDPRServerSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditLogins.Value = 0 And ((Parameters!SOXServerSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2464,6 +2496,10 @@ And (Parameters!GDPRServerSettings.Value And 512) = 512)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditLogouts.Value = 0 And ((Parameters!CISServerSettings.Value And 512) = 512),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -2497,6 +2533,10 @@ And (Parameters!GDPRServerSettings.Value And 512) = 512)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditLogouts.Value = 0 And ((Parameters!DISASTIGServerSettings.Value And 512) = 512),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2534,6 +2574,10 @@ And (Parameters!GDPRServerSettings.Value And 512) = 512)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditLogouts.Value = 0 And ((Parameters!FERPAServerSettings.Value And 512) = 512),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -2569,6 +2613,10 @@ And (Parameters!GDPRServerSettings.Value And 512) = 512)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditLogouts.Value = 0 And ((Parameters!GDPRServerSettings.Value And 512) = 512),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2606,6 +2654,10 @@ And (Parameters!GDPRServerSettings.Value And 512) = 512)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditLogouts.Value = 0 And ((Parameters!HIPAAServerSettings.Value And 512) = 512),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -2641,6 +2693,10 @@ And (Parameters!GDPRServerSettings.Value And 512) = 512)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditLogouts.Value = 0 And ((Parameters!NERCServerSettings.Value And 512) = 512),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2678,6 +2734,10 @@ And (Parameters!GDPRServerSettings.Value And 512) = 512)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditLogouts.Value = 0 And ((Parameters!PCIDSSServerSettings.Value And 512) = 512),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -2713,6 +2773,10 @@ And (Parameters!GDPRServerSettings.Value And 512) = 512)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditLogouts.Value = 0 And ((Parameters!SOXServerSettings.Value And 512) = 512),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2808,6 +2872,10 @@ And (Parameters!GDPRServerSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditFailedLogins.Value = 0 And ((Parameters!CISServerSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -2843,6 +2911,10 @@ And (Parameters!GDPRServerSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditFailedLogins.Value = 0 And ((Parameters!DISASTIGServerSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2880,6 +2952,10 @@ And (Parameters!GDPRServerSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditFailedLogins.Value = 0 And ((Parameters!FERPAServerSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -2915,6 +2991,10 @@ And (Parameters!GDPRServerSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditFailedLogins.Value = 0 And ((Parameters!GDPRServerSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -2952,6 +3032,10 @@ And (Parameters!GDPRServerSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditFailedLogins.Value = 0 And ((Parameters!HIPAAServerSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -2987,6 +3071,10 @@ And (Parameters!GDPRServerSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditFailedLogins.Value = 0 And ((Parameters!NERCServerSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3024,6 +3112,10 @@ And (Parameters!GDPRServerSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditFailedLogins.Value = 0 And ((Parameters!PCIDSSServerSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -3059,6 +3151,10 @@ And (Parameters!GDPRServerSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditFailedLogins.Value = 0 And ((Parameters!SOXServerSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3154,6 +3250,10 @@ And (Parameters!GDPRServerSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!CISServerSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -3187,6 +3287,10 @@ And (Parameters!GDPRServerSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!DISASTIGServerSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3224,6 +3328,10 @@ And (Parameters!GDPRServerSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!FERPAServerSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -3259,6 +3367,10 @@ And (Parameters!GDPRServerSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!GDPRServerSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3296,6 +3408,10 @@ And (Parameters!GDPRServerSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!HIPAAServerSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -3331,6 +3447,10 @@ And (Parameters!GDPRServerSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!NERCServerSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3368,6 +3488,10 @@ And (Parameters!GDPRServerSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!PCIDSSServerSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -3403,6 +3527,10 @@ And (Parameters!GDPRServerSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!SOXServerSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3498,6 +3626,10 @@ And (Parameters!GDPRServerSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!CISServerSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -3533,6 +3665,10 @@ And (Parameters!GDPRServerSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!DISASTIGServerSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3570,6 +3706,10 @@ And (Parameters!GDPRServerSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!FERPAServerSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -3605,6 +3745,10 @@ And (Parameters!GDPRServerSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!GDPRServerSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3642,6 +3786,10 @@ And (Parameters!GDPRServerSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!HIPAAServerSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -3677,6 +3825,10 @@ And (Parameters!GDPRServerSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!NERCServerSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3714,6 +3866,10 @@ And (Parameters!GDPRServerSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!PCIDSSServerSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -3749,6 +3905,10 @@ And (Parameters!GDPRServerSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!SOXServerSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3844,6 +4004,10 @@ And (Parameters!GDPRServerSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!CISServerSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -3879,6 +4043,10 @@ And (Parameters!GDPRServerSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!DISASTIGServerSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3916,6 +4084,10 @@ And (Parameters!GDPRServerSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!FERPAServerSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -3951,6 +4123,10 @@ And (Parameters!GDPRServerSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!GDPRServerSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -3988,6 +4164,10 @@ And (Parameters!GDPRServerSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!HIPAAServerSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -4023,6 +4203,10 @@ And (Parameters!GDPRServerSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!NERCServerSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -4060,6 +4244,10 @@ And (Parameters!GDPRServerSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!PCIDSSServerSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -4095,6 +4283,10 @@ And (Parameters!GDPRServerSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!SOXServerSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -4190,6 +4382,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditUDE.Value = 0 And ((Parameters!CISServerSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -4225,6 +4421,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditUDE.Value = 0 And ((Parameters!DISASTIGServerSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -4262,6 +4462,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditUDE.Value = 0 And ((Parameters!FERPAServerSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -4297,6 +4501,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditUDE.Value = 0 And ((Parameters!GDPRServerSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -4334,6 +4542,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditUDE.Value = 0 And ((Parameters!HIPAAServerSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -4369,6 +4581,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditUDE.Value = 0 And ((Parameters!NERCServerSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -4406,6 +4622,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditUDE.Value = 0 And ((Parameters!PCIDSSServerSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -4441,6 +4661,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditUDE.Value = 0 And ((Parameters!SOXServerSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -4832,6 +5056,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -4864,6 +5092,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontFamily>MS UI Gothic</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -4900,6 +5132,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -4934,6 +5170,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontFamily>MS UI Gothic</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -4970,6 +5210,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -5004,6 +5248,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontFamily>MS UI Gothic</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -5040,6 +5288,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -5074,6 +5326,10 @@ And (Parameters!GDPRServerSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontFamily>MS UI Gothic</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -5169,6 +5425,10 @@ And (Parameters!GDPRServerSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 0 And ((Parameters!CISServerSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -5204,6 +5464,10 @@ And (Parameters!GDPRServerSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 0 And ((Parameters!DISASTIGServerSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -5241,6 +5505,10 @@ And (Parameters!GDPRServerSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 0 And ((Parameters!FERPAServerSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -5276,6 +5544,10 @@ And (Parameters!GDPRServerSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 0 And ((Parameters!GDPRServerSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -5313,6 +5585,10 @@ And (Parameters!GDPRServerSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 0 And ((Parameters!HIPAAServerSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -5348,6 +5624,10 @@ And (Parameters!GDPRServerSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 0 And ((Parameters!NERCServerSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -5385,6 +5665,10 @@ And (Parameters!GDPRServerSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 0 And ((Parameters!PCIDSSServerSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -5420,6 +5704,10 @@ And (Parameters!GDPRServerSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 0 And ((Parameters!SOXServerSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -5515,6 +5803,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 2 And ((Parameters!CISServerSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -5550,6 +5842,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 2 And ((Parameters!DISASTIGServerSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -5587,6 +5883,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 2 And ((Parameters!FERPAServerSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -5622,6 +5922,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 2 And ((Parameters!GDPRServerSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -5659,6 +5963,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 2 And ((Parameters!HIPAAServerSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -5694,6 +6002,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 2 And ((Parameters!NERCServerSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -5731,6 +6043,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 2 And ((Parameters!PCIDSSServerSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -5766,6 +6082,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditAccessCheck.Value &lt;&gt; 2 And ((Parameters!SOXServerSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -6155,6 +6475,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -6189,6 +6513,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontFamily>FreeMono</FontFamily>
                                 <FontSize>16pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -6225,6 +6553,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -6259,6 +6591,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontFamily>FreeMono</FontFamily>
                                 <FontSize>16pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -6295,6 +6631,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -6329,6 +6669,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontFamily>FreeMono</FontFamily>
                                 <FontSize>16pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -6365,6 +6709,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -6399,6 +6747,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontFamily>FreeMono</FontFamily>
                                 <FontSize>16pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -6472,6 +6824,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -6506,6 +6862,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontFamily>FreeMono</FontFamily>
                                 <FontSize>16pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -6542,6 +6902,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -6576,6 +6940,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontFamily>FreeMono</FontFamily>
                                 <FontSize>16pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -6612,6 +6980,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -6646,6 +7018,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontFamily>FreeMono</FontFamily>
                                 <FontSize>16pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -6682,6 +7058,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -6716,6 +7096,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontFamily>FreeMono</FontFamily>
                                 <FontSize>16pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -6789,6 +7173,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -6823,6 +7211,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontFamily>FreeMono</FontFamily>
                                 <FontSize>16pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -6859,6 +7251,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -6893,6 +7289,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontFamily>FreeMono</FontFamily>
                                 <FontSize>16pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -6929,6 +7329,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -6963,6 +7367,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontFamily>FreeMono</FontFamily>
                                 <FontSize>16pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -6999,6 +7407,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -7033,6 +7445,10 @@ And (Parameters!GDPRServerSettings.Value And 128) = 128)),"Red","Black")</Color>
                                 <FontFamily>FreeMono</FontFamily>
                                 <FontSize>16pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -9568,6 +9984,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!CISDatabaseSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -9603,6 +10023,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!DISASTIGDatabaseSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -9640,6 +10064,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!FERPADatabaseSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -9675,6 +10103,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!GDPRDatabaseSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -9712,6 +10144,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!HIPAADatabaseSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -9747,6 +10183,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!NERCDatabaseSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -9784,6 +10224,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!PCIDSSDatabaseSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -9819,6 +10263,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 1) = 1)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditSecurity.Value = 0 And ((Parameters!SOXDatabaseSettings.Value And 1) = 1),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -9914,6 +10362,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!CISDatabaseSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -9949,6 +10401,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!DISASTIGDatabaseSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -9986,6 +10442,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!FERPADatabaseSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -10021,6 +10481,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!GDPRDatabaseSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -10058,6 +10522,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!HIPAADatabaseSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -10093,6 +10561,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!NERCDatabaseSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -10130,6 +10602,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!PCIDSSDatabaseSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -10165,6 +10641,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 4) = 4)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditAdmin.Value = 0 And ((Parameters!SOXDatabaseSettings.Value And 4) = 4),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -10260,6 +10740,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!CISDatabaseSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -10295,6 +10779,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!DISASTIGDatabaseSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -10332,6 +10820,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!FERPADatabaseSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -10367,6 +10859,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!GDPRDatabaseSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -10404,6 +10900,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!HIPAADatabaseSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -10439,6 +10939,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!NERCDatabaseSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -10476,6 +10980,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!PCIDSSDatabaseSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -10511,6 +11019,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 2) = 2)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditDDL.Value = 0 And ((Parameters!SOXDatabaseSettings.Value And 2) = 2),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -10606,6 +11118,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditDML.Value = 0 And ((Parameters!CISDatabaseSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -10641,6 +11157,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditDML.Value = 0 And ((Parameters!DISASTIGDatabaseSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -10678,6 +11198,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditDML.Value = 0 And ((Parameters!FERPADatabaseSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -10713,6 +11237,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditDML.Value = 0 And ((Parameters!GDPRDatabaseSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -10750,6 +11278,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditDML.Value = 0 And ((Parameters!HIPAADatabaseSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -10785,6 +11317,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditDML.Value = 0 And ((Parameters!NERCDatabaseSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -10822,6 +11358,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditDML.Value = 0 And ((Parameters!PCIDSSDatabaseSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -10857,6 +11397,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 8) = 8)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditDML.Value = 0 And ((Parameters!SOXDatabaseSettings.Value And 8) = 8),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -10952,6 +11496,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditSELECT.Value = 0 And ((Parameters!CISDatabaseSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -10987,6 +11535,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditSELECT.Value = 0 And ((Parameters!DISASTIGDatabaseSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -11024,6 +11576,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditSELECT.Value = 0 And ((Parameters!FERPADatabaseSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -11059,6 +11615,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditSELECT.Value = 0 And ((Parameters!GDPRDatabaseSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -11096,6 +11656,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditSELECT.Value = 0 And ((Parameters!HIPAADatabaseSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -11131,6 +11695,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditSELECT.Value = 0 And ((Parameters!NERCDatabaseSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -11168,6 +11736,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditSELECT.Value = 0 And ((Parameters!PCIDSSDatabaseSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -11203,6 +11775,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditSELECT.Value = 0 And ((Parameters!SOXDatabaseSettings.Value And 16) = 16),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -11614,6 +12190,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -11650,6 +12230,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontFamily>MS UI Gothic</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -11688,6 +12272,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -11724,6 +12312,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontFamily>MS UI Gothic</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -11762,6 +12354,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -11798,6 +12394,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontFamily>MS UI Gothic</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -11836,6 +12436,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -11872,6 +12476,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 16) = 16)),"Red","Black")</Color>
                                 <FontFamily>MS UI Gothic</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -11969,6 +12577,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 0 And ((Parameters!CISDatabaseSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -12004,6 +12616,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 0 And ((Parameters!DISASTIGDatabaseSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -12041,6 +12657,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 0 And ((Parameters!FERPADatabaseSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -12076,6 +12696,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 0 And ((Parameters!GDPRDatabaseSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -12113,6 +12737,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 0 And ((Parameters!HIPAADatabaseSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -12148,6 +12776,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 0 And ((Parameters!NERCDatabaseSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -12185,6 +12817,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 0 And ((Parameters!PCIDSSDatabaseSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -12220,6 +12856,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 32) = 32)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 0 And ((Parameters!SOXDatabaseSettings.Value And 32) = 32),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -12315,6 +12955,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 2 And ((Parameters!CISDatabaseSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -12348,6 +12992,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 2 And ((Parameters!DISASTIGDatabaseSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -12385,6 +13033,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 2 And ((Parameters!FERPADatabaseSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -12420,6 +13072,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 2 And ((Parameters!GDPRDatabaseSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -12457,6 +13113,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 2 And ((Parameters!HIPAADatabaseSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -12492,6 +13152,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 2 And ((Parameters!NERCDatabaseSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -12529,6 +13193,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 2 And ((Parameters!PCIDSSDatabaseSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -12564,6 +13232,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 64) = 64)),"Red","Black")</Color>
                                 <FontSize>16pt</FontSize>
                                 <Color>=IIF(Fields!auditFailures.Value &lt;&gt; 2 And ((Parameters!SOXDatabaseSettings.Value And 64) = 64),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -12995,6 +13667,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 128) = 128)),"Red","Black")</Colo
                                 <Color>=IIF(Fields!auditCaptureSQL.Value = 0 And ((Parameters!CISDatabaseSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -13030,6 +13706,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 128) = 128)),"Red","Black")</Colo
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditCaptureSQL.Value = 0 And ((Parameters!DISASTIGDatabaseSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -13067,6 +13747,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 128) = 128)),"Red","Black")</Colo
                                 <Color>=IIF(Fields!auditCaptureSQL.Value = 0 And ((Parameters!FERPADatabaseSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -13102,6 +13786,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 128) = 128)),"Red","Black")</Colo
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditCaptureSQL.Value = 0 And ((Parameters!GDPRDatabaseSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -13139,6 +13827,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 128) = 128)),"Red","Black")</Colo
                                 <Color>=IIF(Fields!auditCaptureSQL.Value = 0 And ((Parameters!HIPAADatabaseSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -13174,6 +13866,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 128) = 128)),"Red","Black")</Colo
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditCaptureSQL.Value = 0 And ((Parameters!NERCDatabaseSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -13211,6 +13907,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 128) = 128)),"Red","Black")</Colo
                                 <Color>=IIF(Fields!auditCaptureSQL.Value = 0 And ((Parameters!PCIDSSDatabaseSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -13246,6 +13946,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 128) = 128)),"Red","Black")</Colo
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditCaptureSQL.Value = 0 And ((Parameters!SOXDatabaseSettings.Value And 128) = 128),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -13341,6 +14045,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <Color>=IIF(Fields!auditCaptureTrans.Value = 0 And ((Parameters!CISDatabaseSettings.Value And 256) = 256),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -13376,6 +14084,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditCaptureTrans.Value = 0 And ((Parameters!DISASTIGDatabaseSettings.Value And 256) = 256),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -13413,6 +14125,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <Color>=IIF(Fields!auditCaptureTrans.Value = 0 And ((Parameters!FERPADatabaseSettings.Value And 256) = 256),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -13448,6 +14164,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditCaptureTrans.Value = 0 And ((Parameters!GDPRDatabaseSettings.Value And 256) = 256),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -13485,6 +14205,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <Color>=IIF(Fields!auditCaptureTrans.Value = 0 And ((Parameters!HIPAADatabaseSettings.Value And 256) = 256),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -13520,6 +14244,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditCaptureTrans.Value = 0 And ((Parameters!NERCDatabaseSettings.Value And 256) = 256),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -13557,6 +14285,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <Color>=IIF(Fields!auditCaptureTrans.Value = 0 And ((Parameters!PCIDSSDatabaseSettings.Value And 256) = 256),"Red","Black")</Color>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -13592,6 +14324,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <FontSize>12pt</FontSize>
                                 <Color>=IIF(Fields!auditCaptureTrans.Value = 0 And ((Parameters!SOXDatabaseSettings.Value And 256) = 256),"Red","Black")</Color>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -13667,6 +14403,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -13703,6 +14443,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <FontFamily>MS UI Gothic</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -13741,6 +14485,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -13777,6 +14525,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <FontFamily>MS UI Gothic</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -13815,6 +14567,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -13851,6 +14607,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <FontFamily>MS UI Gothic</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -13889,6 +14649,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <FontSize>12pt</FontSize>
                               </Style>
                             </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
+                            </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
@@ -13925,6 +14689,10 @@ And (Parameters!GDPRDatabaseSettings.Value And 256) = 256)),"Red","Black")</Colo
                                 <FontFamily>MS UI Gothic</FontFamily>
                                 <FontSize>12pt</FontSize>
                               </Style>
+                            </TextRun>
+							 <TextRun>
+                                <Value></Value>
+                                <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
