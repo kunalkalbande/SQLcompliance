@@ -1445,7 +1445,7 @@ Parameters!AuditSettings.Value = 14, "Capture SQL statements for DDL and Securit
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Regulatory Guidelines In Compliance With</Value>
+                              <Value>Current Settings are Same as the Regulatory Guidelines Applied</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -9277,7 +9277,7 @@ OR
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Regulatory Guidelines In Compliance With</Value>
+                              <Value>Current Settings are Same as the Regulatory Guidelines Applied</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
