@@ -300,6 +300,7 @@ namespace Idera.SQLcompliance.Application.GUI.Forms
             // 
             // listReports
             // 
+            this.listReports.CheckOnClick = true;
             this.listReports.Location = new System.Drawing.Point(6, 22);
             this.listReports.Name = "listReports";
             this.listReports.Size = new System.Drawing.Size(380, 259);
