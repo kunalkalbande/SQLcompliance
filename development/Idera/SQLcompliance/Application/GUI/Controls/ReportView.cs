@@ -696,7 +696,14 @@ namespace Idera.SQLcompliance.Application.GUI.Controls
 
             CMReportParameter param;
             ParameterUIElement element;
-
+            //added new code for SQLCM-6276
+            param = new CMReportParameter
+            {
+                Name = "fromConsole",
+                ValueType = typeof(bool),
+            };
+            param.DefaultValue = true;
+            _supportedParameters.Add(param.Name, param);
             param = new CMReportParameter
             {
                 Name = "eventDatabase",
@@ -2496,7 +2503,7 @@ namespace Idera.SQLcompliance.Application.GUI.Controls
                     e.Cancel = true;
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 Cursor = Cursors.Default;
                 _mainForm.UseWaitCursor = false;
