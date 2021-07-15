@@ -525,6 +525,34 @@ namespace Idera.SQLcompliance.Core.Cwf
                         CwfToken = registryCwfToken.ToString();
                     }
                 }
+                if (string.IsNullOrEmpty(CwfUrl) || string.IsNullOrEmpty(CwfToken))
+                {
+                    var sqlBuilder = new StringBuilder();
+                    sqlBuilder.AppendLine(" SELECT [CwfUrl]");
+                    sqlBuilder.AppendLine("       ,[CwfToken]");
+                    sqlBuilder.AppendLine(" FROM [SQLcompliance]..[Cwf]");
+
+                    var repository = new Repository();
+
+
+                    repository.OpenConnection();
+                    using (var command = repository.connection.CreateCommand())
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.CommandText = sqlBuilder.ToString();
+
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                CwfUrl = reader.GetString(0);
+                                CwfToken = reader.GetString(1);
+                            }
+                        }
+                    }
+                    repository.CloseConnection();
+
+                }
             }
             catch (Exception ex)
             {

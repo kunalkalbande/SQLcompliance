@@ -2287,7 +2287,7 @@ namespace SQLcomplianceCwfAddin.Helpers
             }
 
             RegulatoryComplianceRowData row17 = new RegulatoryComplianceRowData();
-            row17.FieldName = "Regulatory Guidelines In Compliance With";
+            row17.FieldName = "Current Settings are Same as the Regulatory Guidelines Applied";
             row17.IsHeader = false;
             row17.FieldType = (int)FieldType.Text;
             row17.IsFieldNameRed = false;
@@ -2743,7 +2743,7 @@ namespace SQLcomplianceCwfAddin.Helpers
             }
 
             RegulatoryComplianceRowData row15 = new RegulatoryComplianceRowData();
-            row15.FieldName = "Regulatory Guidelines In Compliance With";
+            row15.FieldName = "Current Settings are Same as the Regulatory Guidelines Applied";
             row15.IsHeader = false;
             row15.FieldType = (int)FieldType.Text;
             row15.IsFieldNameRed = false;

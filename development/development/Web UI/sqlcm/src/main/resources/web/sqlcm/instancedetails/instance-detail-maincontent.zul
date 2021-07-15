@@ -1,3 +1,0 @@
-<zk self="@define(maincontent)">
-	<include src="instancedetails/instance-detal-events.zul" />
-</zk>

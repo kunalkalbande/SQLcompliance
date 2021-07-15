@@ -14,10 +14,11 @@ GO
 if exists (select * from dbo.sysobjects where name = N'sp_cmreport_GetIntegrityCheck' and xtype='P')
 drop procedure [sp_cmreport_GetIntegrityCheck]
 GO
-CREATE procedure sp_cmreport_GetIntegrityCheck (  
+CREATE procedure [dbo].[sp_cmreport_GetIntegrityCheck] (  
 	@eventDatabase nvarchar(256),   
 	@databaseName nvarchar(256) = NULL,   
-	@loginName nvarchar(MAX) = NULL,   
+	@loginName nvarchar(MAX) = NULL, 
+	@fromConsole bit=0,
 	@startDate datetime, 
 	@endDate datetime,
 	@StartTimeofDay nvarchar (1) = NULL,
@@ -153,9 +154,28 @@ if (@eventDatabase = '<ALL>')
 					end
 				else
 					begin
+					-- Added new code for SQLCM-6276
+					if(@fromConsole=0)
+					begin
+					declare @c  int,@c1 int,@loginname1 nvarchar(max)
+					set @loginName1=@loginName
+					Exec [sp_cmreport_GetAllLogins_Count]  @eventDatabaseName,@c output
+					SELECT @c1=SUM(len(@loginName1) - len(replace(@loginName1, ',', '')) +1) 
+					if(@c=@c1)
+					begin
+						set @whereClause = @whereClause
+						end
+						else
+						begin
+						set @whereClause = @whereClause + ' AND UPPER(loginName) IN (' + @loginName + ')'
+						end
+					end
+					else
+					begin
 						-- Changing the filter mechanism due to request on SQLCM - 6136 and SQLCM - 6137
 						--set @whereClause = @whereClause + ' AND ((sessionLoginName IS NULL OR DATALENGTH(sessionLoginName) = 0) AND UPPER(loginName) IN (' + @loginName + ') OR (sessionLoginName IS NOT NULL OR DATALENGTH(sessionLoginName) > 0) AND UPPER(sessionLoginName) IN (' + @loginName + '))'
 						set @whereClause = @whereClause + ' AND UPPER(loginName) IN (' + @loginName + ')'
+						end
 					end
 			end
 
@@ -357,10 +377,6 @@ if (@eventDatabase = '<ALL>')
   
  EXEC(@stmt)  
  end
-GO
-SET QUOTED_IDENTIFIER OFF 
-GO
-SET ANSI_NULLS ON 
 GO
 
 -- no more needed in SQLcm 4.5

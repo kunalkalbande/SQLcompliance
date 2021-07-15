@@ -1,4 +1,0 @@
-<hbox>
-	<idera-cwf-textbox id="filterTextValue" style="background: #ffffff; width: 180px"/>
-	<image id="filterTextImg" style="padding: 2px 0px"/>
-</hbox>

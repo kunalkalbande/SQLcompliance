@@ -1,8 +1,0 @@
-<zk self="@define(maincontent)">
-	<window border="none" hflex="1" vflex="1" class="window class">
-		<vlayout hflex="1" vflex="1">
-                <include
-                        src="auditReportView/audit-report-application.zul" />			
-		</vlayout>
-	</window>
-</zk>
