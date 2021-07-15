@@ -329,7 +329,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!startTime.Value.ToLocalTime</Value>
+								<Value>=Format(Fields!startTime.Value.ToLocalTime, "MM/dd/yyyy hh:mm:ss")</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                               </Style>
