@@ -2103,6 +2103,7 @@ namespace Idera.SQLcompliance.Application.GUI.Controls
 
         private void LoadLogins(CMReportParameter param, string eventDatabaseName)
         {
+            CMReportParameter param1 = new CMReportParameter();
             using (SqlConnection conn = Globals.Repository.GetPooledConnection())
             {
                 using (SqlCommand cmd = new SqlCommand("sp_cmreport_GetAllLogins", conn))
@@ -2125,11 +2126,23 @@ namespace Idera.SQLcompliance.Application.GUI.Controls
                         while (reader.Read())
                         {
                             string loginName = reader.GetString(0);
+                            var chars = "~`>!?;:|{}[]@#$%^*()+=\"";
                             if (loginName != "" && loginName != null)
                             {
-                                param.AddListItem(loginName, loginName);
+                                if (chars.Any(x => loginName.StartsWith(x.ToString()))) //(loginName.StartsWith() || loginName.StartsWith("*") || loginName.StartsWith("{") || loginName.StartsWith("["))
+                                {
+                                    param1.AddListItem(loginName, loginName);
+                                }
+                                else
+                                {
+                                    param.AddListItem(loginName, loginName);
+                                }
                             }
                         }
+                    }
+                    foreach (var item in param1.ValueItems)
+                    {
+                        param.AddListItem(item.Value.ToString(),item.Value.ToString());
                     }
                 }
             }
