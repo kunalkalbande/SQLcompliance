@@ -183,9 +183,12 @@ namespace Idera.SQLcompliance.Application.GUI
                                                                   "Do you wish to continue with the removal of this SQL Server instance?";
       public static string Error_RemoveEventsServerProblem  = "An error occurred trying to remove the SQL Server instance: {0} and its associated audit data.\n\n" + 
                                                             "Error:\n\n{1}";
-      
-      // Agent Activation Errors
-      public static string Title_DeployAgent           = "Deploy SQLcompliance Agent";
+
+        public static string Info_Privileged_UserExists = "The Privileged User you are trying to register has already been set up in the {0} or already added in the list.";
+
+
+        // Agent Activation Errors
+        public static string Title_DeployAgent           = "Deploy SQLcompliance Agent";
       public static string Error_DeployUpdateNowFailed = "Activation of the SQLcompliance Agent for this instance failed. The SQLcompliance Agent for the computer hosting the instance is already installed " +
                                                            "but is not responding to the activation attempt. Check to make sure that the SQLcompliance Agent " +
                                                            "is installed and running.";

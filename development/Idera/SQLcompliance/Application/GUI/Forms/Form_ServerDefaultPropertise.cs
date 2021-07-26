@@ -1113,16 +1113,17 @@ namespace Idera.SQLcompliance.Application.GUI.Forms
 
         private void btnAddPriv_Click(object sender, EventArgs e)
         {
-            if (!txtBxPrivilegedUser.Text.Equals(""))
+            if (!txtBxPrivilegedUser.Text.Trim().Equals(""))
             {
-                if (!CheckDuplicatePrivilegedUser(txtBxPrivilegedUser.Text)) //if login/role not exist then add
+                string sTxtBxPrivilegedUser = txtBxPrivilegedUser.Text.Trim();
+                if (!CheckDuplicatePrivilegedUser(sTxtBxPrivilegedUser)) //if login/role not exist then add
                 {
                     //start sqlcm -5719
                     lstPrivilegedUsers.BeginUpdate();
                     lstPrivilegedUsers.SelectedItems.Clear();
                     //end sqlcm - 5719
-                    ListViewItem item = new ListViewItem(txtBxPrivilegedUser.Text);
-                    item.Name = txtBxPrivilegedUser.Text;
+                    ListViewItem item = new ListViewItem(sTxtBxPrivilegedUser);
+                    item.Name = sTxtBxPrivilegedUser;
                     if (cmbBxPrivilegedUser.SelectedIndex == 1)
                         item.ImageIndex = (int)AppIcons.Img16.WindowsUser;
                     else
@@ -1140,6 +1141,10 @@ namespace Idera.SQLcompliance.Application.GUI.Forms
                     //start sqlcm 5.6 - 5719
                     lstPrivilegedUsers.EndUpdate();
                     //end sqlcm 5.6 - 5719
+                }
+                else
+                {
+                    MessageBox.Show(String.Format(UIConstants.Info_Privileged_UserExists, "Server Default Settings"), "Information:", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -1740,43 +1745,47 @@ namespace Idera.SQLcompliance.Application.GUI.Forms
 
 
         }
+
+
+
         private bool CheckDuplicatePrivilegedUser(String text)
         {
-            if (!lstPrivilegedUsers.Items.ContainsKey(text))//if login or role doesn't exist
-                return false;//no need to check further
-            else
+            //if (lstPrivilegedUsers.Items.ContainsKey(text))//if login or role doesn't exist
+            //    return false;//no need to check further
+            //else
+            //{
+            //}
+            text = text.Trim().ToLower();
+            if (cmbBxPrivilegedUser.SelectedIndex == 1) // SelectedIndex = 1  =>  it is Login
             {
-                if (cmbBxPrivilegedUser.SelectedIndex == 1) // SelectedIndex = 1  =>  it is Login
+                foreach (ListViewItem item in lstPrivilegedUsers.Items)
                 {
-                    foreach (ListViewItem item in lstPrivilegedUsers.Items)
+                    if (item.ImageIndex == (int)AppIcons.Img16.WindowsUser)
                     {
-                        if (item.ImageIndex == (int)AppIcons.Img16.WindowsUser)
+                        if (item.Text.Trim().ToLower().Equals(text))
                         {
-                            if (item.Text.Equals(text))
-                            {
-                                return true;
-                            }
+                            return true;
                         }
                     }
                 }
-                else // SelectedIndex != 1 (actually it should be 0) => it is role
-                {
-                    foreach (ListViewItem item in lstPrivilegedUsers.Items)
-                    {
-                        if (item.ImageIndex == (int)AppIcons.Img16.Role)
-                        {
-                            if (item.Text.Equals(text))
-                            {
-                                return true;
-                            }
-                        }
-                    }
-                }
-                return false;
             }
-
-
+            else // SelectedIndex != 1 (actually it should be 0) => it is role
+            {
+                foreach (ListViewItem item in lstPrivilegedUsers.Items)
+                {
+                    if (item.ImageIndex == (int)AppIcons.Img16.Role)
+                    {
+                        if (item.Text.Trim().ToLower().Equals(text))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
         }
+
+
         private void Click_btnRemoveTrustedUser(object sender, EventArgs e)
         {
             if (lstTrustedUsers.SelectedItems.Count == 0)

@@ -956,6 +956,7 @@ namespace Idera.SQLcompliance.Application.GUI.Forms
         }
         private bool CheckDuplicatePrivilegedUser(String text)
         {
+            text = text.Trim().ToLower();
             UserList serverPrivilegedUsers = new UserList(serverPrivilegedUserList);
 
             if (comboBox2.SelectedIndex == 1) // SelectedIndex = 1  =>  it is Login
@@ -964,7 +965,7 @@ namespace Idera.SQLcompliance.Application.GUI.Forms
                 {
                     if (item.ImageIndex == (int)AppIcons.Img16.WindowsUser)
                     {
-                        if (item.Text.Equals(text))
+                        if (item.Text.Trim().ToLower().Equals(text))
                         {
                             return true;
                         }
@@ -973,7 +974,7 @@ namespace Idera.SQLcompliance.Application.GUI.Forms
 
                 foreach (var login in serverPrivilegedUsers.Logins)
                 {
-                    if (login.Name.Equals(text))
+                    if (login.Name.Trim().ToLower().Equals(text))
                     {
                         return true;
                     }
@@ -985,7 +986,7 @@ namespace Idera.SQLcompliance.Application.GUI.Forms
                 {
                     if (item.ImageIndex == (int)AppIcons.Img16.Role)
                     {
-                        if (item.Text.Equals(text))
+                        if (item.Text.Trim().ToLower().Equals(text))
                         {
                             return true;
                         }
@@ -994,7 +995,7 @@ namespace Idera.SQLcompliance.Application.GUI.Forms
 
                 foreach (var role in serverPrivilegedUsers.ServerRoles)
                 {
-                    if (role.Name.Equals(text))
+                    if (role.Name.Trim().ToLower().Equals(text))
                     {
                         return true;
                     }
@@ -1325,16 +1326,17 @@ namespace Idera.SQLcompliance.Application.GUI.Forms
 
         private void btnAddPriv_Click(object sender, EventArgs e)
         {
-            if (!textBox2.Text.Equals(""))
+            if (!textBox2.Text.Trim().Equals(""))
             {
-                if (!CheckDuplicatePrivilegedUser(textBox2.Text)) //if login/role not exist then add
+                string sTextBox2Text = textBox2.Text;
+                if (!CheckDuplicatePrivilegedUser(sTextBox2Text)) //if login/role not exist then add
                 {
                     //start sqlcm 5.6 - 5719
                     lstPrivilegedUsers.BeginUpdate();
                     lstPrivilegedUsers.SelectedItems.Clear();
                     //end sqlcm 5.6 - 5719
-                    ListViewItem item = new ListViewItem(textBox2.Text);
-                    item.Name = textBox2.Text;
+                    ListViewItem item = new ListViewItem(sTextBox2Text);
+                    item.Name = sTextBox2Text;
                     if (comboBox2.SelectedIndex == 1)
                         item.ImageIndex = (int)AppIcons.Img16.WindowsUser;
                     else
@@ -1350,6 +1352,10 @@ namespace Idera.SQLcompliance.Application.GUI.Forms
                     //start sqlcm 5.6 - 5719
                     lstPrivilegedUsers.EndUpdate();
                     //end sqlcm 5.6 - 5719
+                }
+                else
+                {
+                    MessageBox.Show(String.Format(UIConstants.Info_Privileged_UserExists, "Database Default Settings"), "Information:", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
