@@ -282,6 +282,7 @@ namespace Idera.SQLcompliance.Core.TraceProcessing
                     jobInfo.traceCategory == (int)TraceCategory.SensitiveColumnwithSelect) &&
                     jobInfo.traceLevel == (int)TraceLevel.Table)
                 {
+                    
                     ProcessSensitiveColumnTrace();
                     return;
                 }
@@ -8420,48 +8421,62 @@ namespace Idera.SQLcompliance.Core.TraceProcessing
                 tableConfigs = columnTablesConfig[GetRowInt32(row, ndxDatabaseId)].
                                         FindAll(x => x.Name.ToLower().Split(',').Contains(GetRowString(row, ndxParentName).ToLower() + "." + GetRowString(row, ndxObjectName).ToLower()));
 
-            
-            //Get the Sensitive columns for the table in this event, if they exist.  If they don't exist, this table
-            // was not being audited for sensitive columns
-            if (tableConfigs == null)
+            if (TraceFilter.RowMatchesEventFilter(this, row) || tableConfigs == null)
             {
-                //If it is a sensitive column only trace, quit.  Otherwise, it is 
-                // sensitive column and select so there is no parsing to do.  Just 
-                //check the event filter and quit
-                if (jobInfo.traceCategory == (int)TraceCategory.SensitiveColumn)
-                    return false;
-                else
+                if (!CreateCalculatedColumns(row) && RowMatchesExcludeFilter(row))
                 {
-                    // process the select event
-                    // check filter?
-                    if (TraceFilter.RowMatchesEventFilter(this, row))
-                    {
-                        if (CreateCalculatedColumns(row) && !RowMatchesExcludeFilter(row))
-                        {
-                            IncrementTraceEventCount(GetRowInt32(row, ndxEventClass), 1);
-
-                            // if we are here, then this must be a valid event; unmark deletion flag
-                            row[ndxDeleteme] = 0;
-                            retval = true;
-                        }
-                        else // event is deleted by the exclude filter
-                        {
-                            IncrementTraceEventCount(GetRowInt32(row, ndxEventClass), 2);
-                            jobInfo.eventsDeleted++;
-                        }
-                    }
-                    else // event is filtered out
-                    {
-                        IncrementTraceEventCount(GetRowInt32(row, ndxEventClass), 3);
-                        jobInfo.eventsFilteredOut++;
-                    }
+                    IncrementTraceEventCount(GetRowInt32(row, ndxEventClass), 2);
+                    jobInfo.eventsDeleted++;
 
                     if (!retval)
                         AddEventFilteredStats(GetRowDateTime(row, ndxStartTime));
 
                     return retval;
                 }
+                    //Get the Sensitive columns for the table in this event, if they exist.  If they don't exist, this table
+                    // was not being audited for sensitive columns
+                    if (tableConfigs == null)
+                {
+                    //If it is a sensitive column only trace, quit.  Otherwise, it is 
+                    // sensitive column and select so there is no parsing to do.  Just 
+                    //check the event filter and quit
+                    if (jobInfo.traceCategory == (int)TraceCategory.SensitiveColumn)
+                        return false;
+                    else
+                    {
+                        // process the select event
+                        // check filter?
+                        if (TraceFilter.RowMatchesEventFilter(this, row))
+                        {
+                            if (CreateCalculatedColumns(row) && !RowMatchesExcludeFilter(row))
+                            {
+                                IncrementTraceEventCount(GetRowInt32(row, ndxEventClass), 1);
+
+                                // if we are here, then this must be a valid event; unmark deletion flag
+                                row[ndxDeleteme] = 0;
+                                retval = true;
+                            }
+                            else // event is deleted by the exclude filter
+                            {
+                                IncrementTraceEventCount(GetRowInt32(row, ndxEventClass), 2);
+                                jobInfo.eventsDeleted++;
+                            }
+                        }
+                        else // event is filtered out
+                        {
+                            IncrementTraceEventCount(GetRowInt32(row, ndxEventClass), 3);
+                            jobInfo.eventsFilteredOut++;
+                        }
+
+                        if (!retval)
+                            AddEventFilteredStats(GetRowDateTime(row, ndxStartTime));
+
+                        return retval;
+                    }
+                }
+
             }
+
             LoadRow(row);
 
             int indexIndividual = tableConfigs.FindIndex(x => x.Type.ToUpper() == "INDIVIDUAL"
