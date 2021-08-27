@@ -10,117 +10,117 @@ using Idera.SQLcompliance.Core.Security;
 
 namespace Idera.SQLcompliance.Cluster
 {
-	/// <summary>
-	/// Summary description for Form_Add.
-	/// </summary>
-	public class Form_Add : System.Windows.Forms.Form
-	{
-		#region Window Properties	
-		private System.Windows.Forms.Panel panelButtons;
-		private System.Windows.Forms.Button btnCancel;
-		private System.Windows.Forms.Button btnFinish;
-		private System.Windows.Forms.Button btnNext;
-		private System.Windows.Forms.Button btnBack;
-		private System.Windows.Forms.Panel panelLeft;
-		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.Panel panelAgentTrace;
-		private System.Windows.Forms.Panel panel7;
-		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.TextBox txtTriggerAssemblyDirectory;
-		private System.Windows.Forms.Label labeAgentTraceDescription;
-		private System.Windows.Forms.Label labelAgentTraceTitle;
-		private System.Windows.Forms.Panel panelAgentService;
-		private System.Windows.Forms.Panel panelAgentProperties;
-		private System.Windows.Forms.Label label15;
-		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textServicePasswordConfirm;
-		private System.Windows.Forms.TextBox textServicePassword;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox textServiceAccount;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label labelAgentDescription;
-		private System.Windows.Forms.Label labelAgentTitle;
-		private System.Windows.Forms.Panel panelGeneralProperties;
-		private System.Windows.Forms.Button btnBrowse;
-		private System.Windows.Forms.TextBox textSQLServer;
-		private System.Windows.Forms.Label labelSQLServer;
-		private System.Windows.Forms.Label lblGeneralDescription;
-		private System.Windows.Forms.Label lblGeneralTitle;
-		private System.Windows.Forms.Panel panelSummary;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Panel panel4;
-		private System.Windows.Forms.Label lblInstance;
-		private System.Windows.Forms.Label label11;
-		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.Panel panel2;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Panel panelCollectionServer;
-		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.Label label16;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Panel panelGeneral;
-		private System.Windows.Forms.TextBox txtCollectionServer;
-      private System.Windows.Forms.Panel panelAgentTrigger;
-      private System.Windows.Forms.Panel panel3;
-      private System.Windows.Forms.Label label12;
-      private System.Windows.Forms.Label label17;
-      private System.Windows.Forms.Label label18;
-      private System.Windows.Forms.TextBox txtTraceDirectory;
-      private System.Windows.Forms.Label label19;
-      private System.Windows.Forms.Label label20;
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.Container components = null;
-		#endregion
+    /// <summary>
+    /// Summary description for Form_Add.
+    /// </summary>
+    public class Form_Add : System.Windows.Forms.Form
+    {
+        #region Window Properties	
+        private System.Windows.Forms.Panel panelButtons;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnFinish;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Panel panelLeft;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelAgentTrace;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtTriggerAssemblyDirectory;
+        private System.Windows.Forms.Label labeAgentTraceDescription;
+        private System.Windows.Forms.Label labelAgentTraceTitle;
+        private System.Windows.Forms.Panel panelAgentService;
+        private System.Windows.Forms.Panel panelAgentProperties;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textServicePasswordConfirm;
+        private System.Windows.Forms.TextBox textServicePassword;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textServiceAccount;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelAgentDescription;
+        private System.Windows.Forms.Label labelAgentTitle;
+        private System.Windows.Forms.Panel panelGeneralProperties;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.TextBox textSQLServer;
+        private System.Windows.Forms.Label labelSQLServer;
+        private System.Windows.Forms.Label lblGeneralDescription;
+        private System.Windows.Forms.Label lblGeneralTitle;
+        private System.Windows.Forms.Panel panelSummary;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblInstance;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panelCollectionServer;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panelGeneral;
+        private System.Windows.Forms.TextBox txtCollectionServer;
+        private System.Windows.Forms.Panel panelAgentTrigger;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtTraceDirectory;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.Container components = null;
+        #endregion
 
-		public Form_Add()
-		{
-			//
-			// Required for Windows Form Designer support
-			//
-			InitializeComponent();
+        public Form_Add()
+        {
+            //
+            // Required for Windows Form Designer support
+            //
+            InitializeComponent();
 
-			//
-			// TODO: Add any constructor code after InitializeComponent call
-			//
-			this.panelGeneral.Enabled = false;
-			this.panelCollectionServer.Enabled = false;
-			this.panelAgentService.Enabled = false;
-			this.panelAgentTrace.Enabled = false;
-         this.panelAgentTrigger.Enabled = false;
-			this.panelSummary.Enabled = false;
-         
-			currentPage = pageGeneral;
-			SetCurrentPage();
-		}
+            //
+            // TODO: Add any constructor code after InitializeComponent call
+            //
+            this.panelGeneral.Enabled = false;
+            this.panelCollectionServer.Enabled = false;
+            this.panelAgentService.Enabled = false;
+            this.panelAgentTrace.Enabled = false;
+            this.panelAgentTrigger.Enabled = false;
+            this.panelSummary.Enabled = false;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		protected override void Dispose( bool disposing )
-		{
-			if( disposing )
-			{
-				if(components != null)
-				{
-					components.Dispose();
-				}
-			}
-			base.Dispose( disposing );
-		}
+            currentPage = pageGeneral;
+            SetCurrentPage();
+        }
 
-		#region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Add));
             this.panelButtons = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -480,7 +480,7 @@ namespace Idera.SQLcompliance.Cluster
             // textServicePasswordConfirm
             // 
             this.textServicePasswordConfirm.Location = new System.Drawing.Point(156, 69);
-            this.textServicePasswordConfirm.MaxLength = 64;
+            this.textServicePasswordConfirm.MaxLength = 255;
             this.textServicePasswordConfirm.Name = "textServicePasswordConfirm";
             this.textServicePasswordConfirm.PasswordChar = '*';
             this.textServicePasswordConfirm.Size = new System.Drawing.Size(224, 20);
@@ -489,7 +489,7 @@ namespace Idera.SQLcompliance.Cluster
             // textServicePassword
             // 
             this.textServicePassword.Location = new System.Drawing.Point(156, 45);
-            this.textServicePassword.MaxLength = 64;
+            this.textServicePassword.MaxLength = 255;
             this.textServicePassword.Name = "textServicePassword";
             this.textServicePassword.PasswordChar = '*';
             this.textServicePassword.Size = new System.Drawing.Size(224, 20);
@@ -789,604 +789,606 @@ namespace Idera.SQLcompliance.Cluster
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
-      }
-		#endregion
+        }
+        #endregion
 
-		#region General Properties
+        #region General Properties
 
-		private string m_instance ;
-		private string m_computer ;
+        private string m_instance;
+        private string m_computer;
         private string instanceName;
         private int? instancePort;
         private string instanceWithPort;
         private const string COMMA_CHARACTER = ",";
 
-		public VirtualServer VirtualServer
-		{
-			get 
-			{
-				VirtualServer retVal = new VirtualServer() ;
+        public VirtualServer VirtualServer
+        {
+            get
+            {
+                VirtualServer retVal = new VirtualServer();
 
-				retVal.ServerName = m_computer ;
-				retVal.InstanceName = m_instance ;
-				retVal.CollectionServer = this.txtCollectionServer.Text ;
-				retVal.ServiceUsername = this.textServiceAccount.Text ;
-				retVal.ServicePassword = this.textServicePassword.Text ;
-				retVal.TraceDirectory = this.txtTraceDirectory.Text ;
+                retVal.ServerName = m_computer;
+                retVal.InstanceName = m_instance;
+                retVal.CollectionServer = this.txtCollectionServer.Text;
+                retVal.ServiceUsername = this.textServiceAccount.Text;
+                retVal.ServicePassword = this.textServicePassword.Text;
+                retVal.TraceDirectory = this.txtTraceDirectory.Text;
                 retVal.TriggerAssemblyDirectory = this.txtTriggerAssemblyDirectory.Text;
                 retVal.InstancePort = instancePort;
                 retVal.InstanceWithPort = instanceWithPort;
-				return retVal ;
-			}
-		}
-      
-		#endregion
+                return retVal;
+            }
+        }
 
-		#region Page Navigation
-      
-		//--------------------------------------------------------------------
-		// btnNext_Click - Next button; move forward a page in the wizard
-		//--------------------------------------------------------------------
-		private void btnNext_Click(object sender, System.EventArgs e)
-		{
-			this.Cursor = Cursors.WaitCursor ;
-			if ( ValidatePage( currentPage ) )
-			{
-				ChangeWizardPage ( WizardAction.Next );
-			}
-			this.Cursor = Cursors.Default ;
-		}
+        #endregion
 
-		//--------------------------------------------------------------------
-		// btnBack_Click - Back button; move back a page in the wizard
-		//--------------------------------------------------------------------
-		private void btnBack_Click(object sender, System.EventArgs e)
-		{
-			ChangeWizardPage( WizardAction.Prev );
-		}
-      
+        #region Page Navigation
 
-		//--------------------------------
-		// Wizard State Machine Constants
-		//--------------------------------
-		int numPages    = 6;
-		int currentPage = pageGeneral;
-		Panel currentPanel = null;
-		enum WizardAction
-		{
-			Next = 0,
-				Prev = 1
-				};
-	   
-		private const int pageGeneral              = 0;
-		private const int pageCollectionServer     = 1;
-		private const int pageAgentService         = 2;
-		private const int pageAgentTrace           = 3;
-      private const int pageAgentTrigger         = 4;
-		private const int pageSummary              = 5;
+        //--------------------------------------------------------------------
+        // btnNext_Click - Next button; move forward a page in the wizard
+        //--------------------------------------------------------------------
+        private void btnNext_Click(object sender, System.EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            if (ValidatePage(currentPage))
+            {
+                ChangeWizardPage(WizardAction.Next);
+            }
+            this.Cursor = Cursors.Default;
+        }
 
-		//--------------------------------------------------------------------
-		// ChangeWizardPage - Move forward or backwards in the wizard
-		//--------------------------------------------------------------------
-		private void ChangeWizardPage( WizardAction direction )
-		{
-			// Change Page
-			if ( direction == WizardAction.Next )
-			{
-				if ( currentPage < (numPages-1) )
-				{
-					currentPage ++;
-				}
-			}
-			else // Prev
-			{
-				if ( currentPage > 0 )
-				{
-					currentPage --;
-				}
-			}
-         
-			SetCurrentPage();
-		}
-      
-		//--------------------------------------------------------------------
-		// SetCurrentPage - Make sure the current page is visible and buttons 
-		//                  are enabled/disabled appropriately
-		//--------------------------------------------------------------------
-		private void SetCurrentPage()
-		{
-			Panel oldPanel = currentPanel;
-            
-			if ( currentPage == pageGeneral )
-			{
-				currentPanel = this.panelGeneral;
-				SetButtonState( false,   /* back   */
-					( textSQLServer.Text.Trim() != "" ),    /* next   */
-					false ); /* finish */
-			}
-			else if ( currentPage == pageCollectionServer )
-			{
-				currentPanel = this.panelCollectionServer;
-				SetButtonState( true,   /* back   */
-					( txtCollectionServer.Text.Trim() != "" ),    /* next  */
-					false ); /* finish */
-			}
-			else if ( currentPage == pageAgentService )
-			{
-				currentPanel = this.panelAgentService;
-				SetButtonState( true,   /* back   */
-					( textServiceAccount.Text.Trim() != "" ),    /* next  */
-					false); /* finish */
-			}
-			else if ( currentPage == pageAgentTrace )
-			{
-				currentPanel = this.panelAgentTrace;
-				SetButtonState( true,   /* back   */
-					( txtTraceDirectory.Text.Trim() != "" ),    /* next  */
-					false); /* finish */
-			}
-         else if (currentPage == pageAgentTrigger)
-         {
-            currentPanel = this.panelAgentTrigger;
-            SetButtonState(true, //back
-               (txtTriggerAssemblyDirectory.Text.Trim() != ""), 
-               false); //finish
-         }
-         else if (currentPage == pageSummary)
-         {
-            currentPanel = this.panelSummary;
-            lblInstance.Text = textSQLServer.Text;
-            SetButtonState(true,   /* back   */
-               false,  /* next   */
-               true); /* finish */
-         }
-         else
-         {
-            //internal error
-         }
+        //--------------------------------------------------------------------
+        // btnBack_Click - Back button; move back a page in the wizard
+        //--------------------------------------------------------------------
+        private void btnBack_Click(object sender, System.EventArgs e)
+        {
+            ChangeWizardPage(WizardAction.Prev);
+        }
 
-			if ( (currentPanel != null) && (currentPanel!=oldPanel) )
-			{  
-				if ( oldPanel != null )
-					oldPanel.Enabled = false;
-         
-				currentPanel.Enabled = true;       
-				currentPanel.BringToFront();
-            
-				// set focus
-				if ( currentPage == pageGeneral )
-				{
-					textSQLServer.Focus();
-				}
-				else if ( currentPage == pageCollectionServer )
-				{
-					txtCollectionServer.Focus();
-				}
-				else if ( currentPage == pageAgentService )
-				{
-					textServiceAccount.Focus();
-				}
-				else if ( currentPage == pageAgentTrace )
-				{
-					txtTraceDirectory.Focus();
-				}
+
+        //--------------------------------
+        // Wizard State Machine Constants
+        //--------------------------------
+        int numPages = 6;
+        int currentPage = pageGeneral;
+        Panel currentPanel = null;
+        enum WizardAction
+        {
+            Next = 0,
+            Prev = 1
+        };
+
+        private const int pageGeneral = 0;
+        private const int pageCollectionServer = 1;
+        private const int pageAgentService = 2;
+        private const int pageAgentTrace = 3;
+        private const int pageAgentTrigger = 4;
+        private const int pageSummary = 5;
+
+        //--------------------------------------------------------------------
+        // ChangeWizardPage - Move forward or backwards in the wizard
+        //--------------------------------------------------------------------
+        private void ChangeWizardPage(WizardAction direction)
+        {
+            // Change Page
+            if (direction == WizardAction.Next)
+            {
+                if (currentPage < (numPages - 1))
+                {
+                    currentPage++;
+                }
+            }
+            else // Prev
+            {
+                if (currentPage > 0)
+                {
+                    currentPage--;
+                }
+            }
+
+            SetCurrentPage();
+        }
+
+        //--------------------------------------------------------------------
+        // SetCurrentPage - Make sure the current page is visible and buttons 
+        //                  are enabled/disabled appropriately
+        //--------------------------------------------------------------------
+        private void SetCurrentPage()
+        {
+            Panel oldPanel = currentPanel;
+
+            if (currentPage == pageGeneral)
+            {
+                currentPanel = this.panelGeneral;
+                SetButtonState(false,   /* back   */
+                    (textSQLServer.Text.Trim() != ""),    /* next   */
+                    false); /* finish */
+            }
+            else if (currentPage == pageCollectionServer)
+            {
+                currentPanel = this.panelCollectionServer;
+                SetButtonState(true,   /* back   */
+                    (txtCollectionServer.Text.Trim() != ""),    /* next  */
+                    false); /* finish */
+            }
+            else if (currentPage == pageAgentService)
+            {
+                currentPanel = this.panelAgentService;
+                SetButtonState(true,   /* back   */
+                    (textServiceAccount.Text.Trim() != ""),    /* next  */
+                    false); /* finish */
+            }
+            else if (currentPage == pageAgentTrace)
+            {
+                currentPanel = this.panelAgentTrace;
+                SetButtonState(true,   /* back   */
+                    (txtTraceDirectory.Text.Trim() != ""),    /* next  */
+                    false); /* finish */
+            }
             else if (currentPage == pageAgentTrigger)
             {
-               txtTriggerAssemblyDirectory.Focus();
+                currentPanel = this.panelAgentTrigger;
+                SetButtonState(true, //back
+                   (txtTriggerAssemblyDirectory.Text.Trim() != ""),
+                   false); //finish
             }
             else if (currentPage == pageSummary)
             {
-               btnFinish.Focus();
+                currentPanel = this.panelSummary;
+                lblInstance.Text = textSQLServer.Text;
+                SetButtonState(true,   /* back   */
+                   false,  /* next   */
+                   true); /* finish */
             }
-			}
-         
-			if ( btnNext.Enabled )
-			{
-				this.AcceptButton = btnNext;
-			}
-			else if ( btnFinish.Enabled )
-			{
-				this.AcceptButton = btnFinish;
-			}
-		}
-      
-		//--------------------------------------------------------------------
-		// SetButtonState - Set back,next, finish enabled state
-		//--------------------------------------------------------------------
-		private void SetButtonState( bool back, bool next, bool finish )
-		{
-			btnBack.Enabled   = back;
-			btnNext.Enabled   = next;
-			btnFinish.Enabled = finish;
-		}
-      
-		#endregion
+            else
+            {
+                //internal error
+            }
 
-		#region Validation Methods
+            if ((currentPanel != null) && (currentPanel != oldPanel))
+            {
+                if (oldPanel != null)
+                    oldPanel.Enabled = false;
 
-		//--------------------------------------------------------------------
-		// ValidatePage - Simple validation done as users switches pages with
-		//                back and next. More extensive validation is done
-		//                after Finish is pressed.
-		//--------------------------------------------------------------------
-		private bool
-			ValidatePage(
-			int               page
-			)
-		{
-			if ( page == pageGeneral )
-			{
-				// validate server name
-				if ( ! ValidateServerName() )
-				{
-					MessageBox.Show(this, Constants.Error_InvalidServerName, this.Text);
-					return false;
-				}
-				else
-				{
-					if(IsServerInstalled())
-					{
-						MessageBox.Show(this, Constants.Error_ServerAlreadyInstalled, this.Text);
-						return false;
-					}
-					else
-					{
-					   bool connectionFailed = false;
-					   
-					   //make sure SQL Server is clustered
-						try
-						{
-                            if(!VSInstaller.IsClustered(instanceName))
-							{
-								if(MessageBox.Show(this, Constants.Error_ServerNotClusteredYesNo, this.Text, MessageBoxButtons.YesNo) == DialogResult.No)
-								{
-									return false ;
-								}
-							}
-						}
-						catch(Exception e)
-						{
-						   connectionFailed = true;
-							if(MessageBox.Show(this, String.Format("{0} {1}", e.Message, Constants.Error_UnableToContactServerYesNo), this.Text, MessageBoxButtons.YesNo) == DialogResult.No)
-							{
-								return false ;
-							}
-						}
-						
-						// make sure SQL Server/OS combo is supported
-						if ( ! connectionFailed )
-						{
-						   try
-						   {
-                        if ( ! VSInstaller.ValidateSqlServerOSCombo( instanceName ) )
+                currentPanel.Enabled = true;
+                currentPanel.BringToFront();
+
+                // set focus
+                if (currentPage == pageGeneral)
+                {
+                    textSQLServer.Focus();
+                }
+                else if (currentPage == pageCollectionServer)
+                {
+                    txtCollectionServer.Focus();
+                }
+                else if (currentPage == pageAgentService)
+                {
+                    textServiceAccount.Focus();
+                }
+                else if (currentPage == pageAgentTrace)
+                {
+                    txtTraceDirectory.Focus();
+                }
+                else if (currentPage == pageAgentTrigger)
+                {
+                    txtTriggerAssemblyDirectory.Focus();
+                }
+                else if (currentPage == pageSummary)
+                {
+                    btnFinish.Focus();
+                }
+            }
+
+            if (btnNext.Enabled)
+            {
+                this.AcceptButton = btnNext;
+            }
+            else if (btnFinish.Enabled)
+            {
+                this.AcceptButton = btnFinish;
+            }
+        }
+
+        //--------------------------------------------------------------------
+        // SetButtonState - Set back,next, finish enabled state
+        //--------------------------------------------------------------------
+        private void SetButtonState(bool back, bool next, bool finish)
+        {
+            btnBack.Enabled = back;
+            btnNext.Enabled = next;
+            btnFinish.Enabled = finish;
+        }
+
+        #endregion
+
+        #region Validation Methods
+
+        //--------------------------------------------------------------------
+        // ValidatePage - Simple validation done as users switches pages with
+        //                back and next. More extensive validation is done
+        //                after Finish is pressed.
+        //--------------------------------------------------------------------
+        private bool
+            ValidatePage(
+            int page
+            )
+        {
+            if (page == pageGeneral)
+            {
+                // validate server name
+                if (!ValidateServerName())
+                {
+                    MessageBox.Show(this, Constants.Error_InvalidServerName, this.Text);
+                    return false;
+                }
+                else
+                {
+                    if (IsServerInstalled())
+                    {
+                        MessageBox.Show(this, Constants.Error_ServerAlreadyInstalled, this.Text);
+                        return false;
+                    }
+                    else
+                    {
+                        bool connectionFailed = false;
+
+                        //make sure SQL Server is clustered
+                        try
                         {
-						         DialogResult choice = MessageBox.Show( this,
-						                                                Constants.Error_ServerOSComboNotSupported,
-						                                                this.Text,
-						                                                MessageBoxButtons.YesNo );
-						         if ( choice == DialogResult.No )
-						         {
-						            return false;
-						         }
+                            if (!VSInstaller.IsClustered(instanceName))
+                            {
+                                if (MessageBox.Show(this, Constants.Error_ServerNotClusteredYesNo, this.Text, MessageBoxButtons.YesNo) == DialogResult.No)
+                                {
+                                    return false;
+                                }
+                            }
                         }
-						   }
-						   catch(Exception e)
-						   {
-							   if(MessageBox.Show( this,
-							                       String.Format("{0} {1}", e.Message, Constants.Error_UnableToContactServerYesNo),
-							                       this.Text,
-							                       MessageBoxButtons.YesNo) == DialogResult.No)
-							   {
-								   return false ;
-							   }
-						   }
-                  }
-					}
-				}
+                        catch (Exception e)
+                        {
+                            connectionFailed = true;
+                            if (MessageBox.Show(this, String.Format("{0} {1}", e.Message, Constants.Error_UnableToContactServerYesNo), this.Text, MessageBoxButtons.YesNo) == DialogResult.No)
+                            {
+                                return false;
+                            }
+                        }
 
-				// Check for duplicates               
-				// TODO: see if server is already registered
-				//       compare against existing registered instances
-				//       compare virtual server since you can only have one 
-				//       instance per virtual server
-			}
-         
-			if ( page == pageCollectionServer ) // collectionserver
-			{
-				// check for non blank - valid comptuer name
-				if(!IsValidComputerName(txtCollectionServer.Text))
-				{
-					MessageBox.Show(this, Constants.Error_InvalidCollectionServerName, this.Text);
-					return false;
-				}
-			}
+                        // make sure SQL Server/OS combo is supported
+                        if (!connectionFailed)
+                        {
+                            try
+                            {
+                                if (!VSInstaller.ValidateSqlServerOSCombo(instanceName))
+                                {
+                                    DialogResult choice = MessageBox.Show(this,
+                                                                           Constants.Error_ServerOSComboNotSupported,
+                                                                           this.Text,
+                                                                           MessageBoxButtons.YesNo);
+                                    if (choice == DialogResult.No)
+                                    {
+                                        return false;
+                                    }
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                if (MessageBox.Show(this,
+                                                    String.Format("{0} {1}", e.Message, Constants.Error_UnableToContactServerYesNo),
+                                                    this.Text,
+                                                    MessageBoxButtons.YesNo) == DialogResult.No)
+                                {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                }
 
-			if ( page == pageAgentService )  // agent service account
-			{
-				if ( ! ValidateAccountName() )
-				{
-					MessageBox.Show(this, Constants.Error_InvalidServiceAccountName, this.Text);
-					return false;
-				}
-               
-				if ( textServicePassword.Text != textServicePasswordConfirm.Text )
-				{
-					MessageBox.Show(this, Constants.Error_MismatchedPasswords, this.Text);
-					return false;
-				}
-            
-				if(InstallUtil.VerifyPassword(textServiceAccount.Text, textServicePassword.Text) != 0)
-				{
-					MessageBox.Show(this, Constants.Error_InvalidDomainCredentials, this.Text) ;
-					return false ;
-				}
-				
-				// grant logon as service right
-				int retval = InstallUtil.GiveLogonAsServicePriv ( textServiceAccount.Text ); 	
-            if ( retval != 0 )
-            {
-					MessageBox.Show( this,
-					                 String.Format("Unable to grant 'Logon as Service' right to {0}.\r\nError code: {1}",
-					                               textServiceAccount.Text,
-					                               retval ),
-					                 this.Text) ;
-               return false;					                 
-            }                                         				
-			}
-         
-			if ( page == pageAgentTrace ) // trace directory
-			{
-				if ( ! ValidatePath( txtTraceDirectory.Text ) )
-				{
-					MessageBox.Show(this, Constants.Error_InvalidTraceDirectory, this.Text);
-					return false;
-				}
-			}
-
-         if (page == pageAgentTrigger)
-         {
-            if (!ValidatePath(txtTriggerAssemblyDirectory.Text))
-            {
-               MessageBox.Show(this, Constants.Error_InvalidAssemblyDirectory, this.Text);
-               return false;
+                // Check for duplicates               
+                // TODO: see if server is already registered
+                //       compare against existing registered instances
+                //       compare virtual server since you can only have one 
+                //       instance per virtual server
             }
-         }
-			return true;
-		}
-      
-		//--------------------------------------------------------------------
-		// ValidateServerName
-		//
-		//     Check server form
-		//     Set member variables: m_computer and m_instance
-		//
-		//     Cases
-		//     ----------------------------------------
-		//     xxxxx   - computer="xxxx",  instance = xxxx
-		//     .       - computer="",  instance = local
-		//     ./xxxx  - computer="",  instance = xxxx
-		//     (local) - computer="",  instance = local
-		//     hhh/zzz - computer=hhh, instance = zzzz
-		//
-		//  Note: For cluster support the name must contain virtual server
-		//        and instance
-		//--------------------------------------------------------------------
-		private bool ValidateServerName()
-		{
-			string localhost = "(LOCAL)";
 
-            string server = GetServerFromSqlServerConnectionString(textSQLServer.Text).Trim().ToUpper();            
+            if (page == pageCollectionServer) // collectionserver
+            {
+                // check for non blank - valid comptuer name
+                if (!IsValidComputerName(txtCollectionServer.Text))
+                {
+                    MessageBox.Show(this, Constants.Error_InvalidCollectionServerName, this.Text);
+                    return false;
+                }
+            }
+
+            if (page == pageAgentService)  // agent service account
+            {
+                if (!ValidateAccountName())
+                {
+                    MessageBox.Show(this, Constants.Error_InvalidServiceAccountName, this.Text);
+                    return false;
+                }
+
+                if (textServicePassword.Text != textServicePasswordConfirm.Text)
+                {
+                    MessageBox.Show(this, Constants.Error_MismatchedPasswords, this.Text);
+                    return false;
+                }
+
+                if (InstallUtil.VerifyPassword(textServiceAccount.Text, textServicePassword.Text) != 0)
+                {
+                    MessageBox.Show(this, Constants.Error_InvalidDomainCredentials, this.Text);
+                    return false;
+                }
+
+                // grant logon as service right
+                int retval = InstallUtil.GiveLogonAsServicePriv(textServiceAccount.Text);
+                if (retval != 0)
+                {
+                    MessageBox.Show(this,
+                                     String.Format("Unable to grant 'Logon as Service' right to {0}.\r\nError code: {1}",
+                                                   textServiceAccount.Text,
+                                                   retval),
+                                     this.Text);
+                    return false;
+                }
+            }
+
+            if (page == pageAgentTrace) // trace directory
+            {
+                if (!ValidatePath(txtTraceDirectory.Text))
+                {
+                    MessageBox.Show(this, Constants.Error_InvalidTraceDirectory, this.Text);
+                    return false;
+                }
+            }
+
+            if (page == pageAgentTrigger)
+            {
+                if (!ValidatePath(txtTriggerAssemblyDirectory.Text))
+                {
+                    MessageBox.Show(this, Constants.Error_InvalidAssemblyDirectory, this.Text);
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        //--------------------------------------------------------------------
+        // ValidateServerName
+        //
+        //     Check server form
+        //     Set member variables: m_computer and m_instance
+        //
+        //     Cases
+        //     ----------------------------------------
+        //     xxxxx   - computer="xxxx",  instance = xxxx
+        //     .       - computer="",  instance = local
+        //     ./xxxx  - computer="",  instance = xxxx
+        //     (local) - computer="",  instance = local
+        //     hhh/zzz - computer=hhh, instance = zzzz
+        //
+        //  Note: For cluster support the name must contain virtual server
+        //        and instance
+        //--------------------------------------------------------------------
+        private bool ValidateServerName()
+        {
+            string localhost = "(LOCAL)";
+
+            string server = GetServerFromSqlServerConnectionString(textSQLServer.Text).Trim().ToUpper();
             if (textSQLServer.Text.IndexOf(',') != -1)
-            { instancePort = GetPortFromSqlServerConnectionString(textSQLServer.Text);
-            instanceWithPort = string.Join(",", server, instancePort); }                        
+            {
+                instancePort = GetPortFromSqlServerConnectionString(textSQLServer.Text);
+                instanceWithPort = string.Join(",", server, instancePort);
+            }
             if (instancePort != null) { instanceName = string.Join(",", server, instancePort); }
             else { instanceName = server; }
-			textSQLServer.Text = server;
-         
-			int pos = server.IndexOf(@"\");
-			if ( pos == - 1)
-			{
-				m_computer = server ;
-				m_instance = "" ;
-			}
-			else if ( pos == 0)
-			{
-				return false;
-			}
-			else // pos > 0; we have xxx/yyy
-			{
-				m_computer = server.Substring(0,pos);
-				m_instance = server.Substring(pos+1);
-			}
-			if (m_computer == "." || m_computer == localhost)
-			{
-				return false;
-			}
+            textSQLServer.Text = server;
 
-			if(!IsValidComputerName(m_computer))
-				return false ;
-         
-			// if we got here, instance name is at least a valid format          
-			return true;
-		}
+            int pos = server.IndexOf(@"\");
+            if (pos == -1)
+            {
+                m_computer = server;
+                m_instance = "";
+            }
+            else if (pos == 0)
+            {
+                return false;
+            }
+            else // pos > 0; we have xxx/yyy
+            {
+                m_computer = server.Substring(0, pos);
+                m_instance = server.Substring(pos + 1);
+            }
+            if (m_computer == "." || m_computer == localhost)
+            {
+                return false;
+            }
 
-		/// <summary>
-		/// Verify that the supplied instance name is not already installed
-		/// </summary>
-		/// <returns></returns>
-		private bool IsServerInstalled()
-		{
-			VirtualServer server = new VirtualServer() ;
-			server.ServerName = m_computer ;
-			server.InstanceName = m_instance ;
-			return VSInstaller.VirtualServerInstalled(server) ;
-		}
+            if (!IsValidComputerName(m_computer))
+                return false;
 
-		private bool IsValidComputerName(string name)
-		{
-			return IsValidDnsName(name) || IsValidNetBiosName(name) ;
-		}
+            // if we got here, instance name is at least a valid format          
+            return true;
+        }
 
-		/// <summary>
-		/// http://support.microsoft.com/kb/q188997/
-		/// </summary>
-		/// <param name="name"></param>
-		/// <returns></returns>
-		private bool IsValidNetBiosName(string name)
-		{
-			if(name == null || name.Length == 0 || name.Length > 15)
-				return false ;
+        /// <summary>
+        /// Verify that the supplied instance name is not already installed
+        /// </summary>
+        /// <returns></returns>
+        private bool IsServerInstalled()
+        {
+            VirtualServer server = new VirtualServer();
+            server.ServerName = m_computer;
+            server.InstanceName = m_instance;
+            return VSInstaller.VirtualServerInstalled(server);
+        }
 
-			foreach(char c in name.ToCharArray())
-			{
-				if(!(Char.IsLetterOrDigit(c) ||
-					c == '!' || c == '@' ||
-					c == '#' || c == '$' ||
-					c == '%' || c == '^' ||
-					c == '&' || c == '(' ||
-					c == ')' || c == '-' ||
-					c == '_' || c == '\'' ||
-					c == '{' || c == '}' ||
-					c == '.' || c == '~'))
-					return false ;
-			}
-			return true; 
-		}
+        private bool IsValidComputerName(string name)
+        {
+            return IsValidDnsName(name) || IsValidNetBiosName(name);
+        }
 
-		private bool IsValidDnsName(string name)
-		{
-			if(name == null || name.Length == 0)
-				return false ;
+        /// <summary>
+        /// http://support.microsoft.com/kb/q188997/
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        private bool IsValidNetBiosName(string name)
+        {
+            if (name == null || name.Length == 0 || name.Length > 15)
+                return false;
 
-			foreach(char c in name.ToCharArray())
-			{
-				if(!(Char.IsLetterOrDigit(c) ||
-					c == '-' || c == '.'))
-					return false ;
-			}
-			return true; 
-		}
-      
-      
-		//--------------------------------------------------------------------
-		// ValidateAccountName
-		//
-		// simple validation
-		// -----------------
-		// form domain\account
-		// neither domain or account can be blank
-		//--------------------------------------------------------------------
-		private bool ValidateAccountName()
-		{
-			string domain = "";
-			string account = "";
-         
-			string tmp = textServiceAccount.Text.Trim();
-         
-			int pos = tmp.IndexOf(@"\");
-			if ( pos <= 0 )
-			{
-				return false;
-			}
-			else
-			{
-				domain  = tmp.Substring(0,pos);
-				account = tmp.Substring(pos+1);
-            
-				if ((domain == "") || (account == "" ))
-					return false;
-			}
-         
-			return true;
-		}
-      
-		//--------------------------------------------------------------------
-		// Validate Path
-		//--------------------------------------------------------------------
-		private bool
-			ValidatePath(
-			string      filepath
-			)
-		{
-			// make sure defined and a local path
-			if ( filepath.Length<3) return false;
-			if(filepath.Length > 180) return false ;
-			if ( filepath[1] != ':' ) return false;
-			if ( filepath[2] != '\\' ) return false;
-			if(filepath.IndexOf("..") != -1) return false ;
-		   
-			try
-			{
-				if ( ! Path.IsPathRooted(filepath) )
-					return false;
+            foreach (char c in name.ToCharArray())
+            {
+                if (!(Char.IsLetterOrDigit(c) ||
+                    c == '!' || c == '@' ||
+                    c == '#' || c == '$' ||
+                    c == '%' || c == '^' ||
+                    c == '&' || c == '(' ||
+                    c == ')' || c == '-' ||
+                    c == '_' || c == '\'' ||
+                    c == '{' || c == '}' ||
+                    c == '.' || c == '~'))
+                    return false;
+            }
+            return true;
+        }
 
-            //This will check for aall invalid filename characters.
-            Path.GetFullPath(filepath);
-			}
-			catch (Exception)
-			{
-				return false;
-			}
-			return true;
-		}
-      
-		#endregion
+        private bool IsValidDnsName(string name)
+        {
+            if (name == null || name.Length == 0)
+                return false;
 
-		private void textServiceAccount_TextChanged(object sender, System.EventArgs e)
-		{
-			btnNext.Enabled = textServiceAccount.Text.Trim() != "";
-			if ( btnNext.Enabled )
-			{
-				this.AcceptButton = btnNext;
-			}
-		}
+            foreach (char c in name.ToCharArray())
+            {
+                if (!(Char.IsLetterOrDigit(c) ||
+                    c == '-' || c == '.'))
+                    return false;
+            }
+            return true;
+        }
 
-		private void txtTraceDirectory_TextChanged(object sender, System.EventArgs e)
-		{
-         btnNext.Enabled = txtTraceDirectory.Text.Trim() != "";
-			if ( btnNext.Enabled )
-			{
-				this.AcceptButton = btnNext;
-			}
-		}
 
-      private void txtTriggerAssebmlyDirectory_TextChanged(object sender, System.EventArgs e)
-      {
-         btnNext.Enabled = txtTriggerAssemblyDirectory.Text.Trim() != "";
-         if (btnNext.Enabled)
-         {
-            this.AcceptButton = btnNext;
-         }
-      }
+        //--------------------------------------------------------------------
+        // ValidateAccountName
+        //
+        // simple validation
+        // -----------------
+        // form domain\account
+        // neither domain or account can be blank
+        //--------------------------------------------------------------------
+        private bool ValidateAccountName()
+        {
+            string domain = "";
+            string account = "";
 
-		private void txtCollectionServer_TextChanged(object sender, System.EventArgs e)
-		{
-			btnNext.Enabled = txtCollectionServer.Text.Trim() != "";
-			if ( btnNext.Enabled )
-			{
-				this.AcceptButton = btnNext;
-			}
-		}
+            string tmp = textServiceAccount.Text.Trim();
 
-		private void textSQLServer_TextChanged(object sender, System.EventArgs e)
-		{
-			btnNext.Enabled = textSQLServer.Text.Trim() != "";
-			if ( btnNext.Enabled )
-			{
-				this.AcceptButton = btnNext;
-			}
-		}
+            int pos = tmp.IndexOf(@"\");
+            if (pos <= 0)
+            {
+                return false;
+            }
+            else
+            {
+                domain = tmp.Substring(0, pos);
+                account = tmp.Substring(pos + 1);
 
-		private void btnCancel_Click(object sender, System.EventArgs e)
-		{
-			this.Close();
-		}
+                if ((domain == "") || (account == ""))
+                    return false;
+            }
+
+            return true;
+        }
+
+        //--------------------------------------------------------------------
+        // Validate Path
+        //--------------------------------------------------------------------
+        private bool
+            ValidatePath(
+            string filepath
+            )
+        {
+            // make sure defined and a local path
+            if (filepath.Length < 3) return false;
+            if (filepath.Length > 180) return false;
+            if (filepath[1] != ':') return false;
+            if (filepath[2] != '\\') return false;
+            if (filepath.IndexOf("..") != -1) return false;
+
+            try
+            {
+                if (!Path.IsPathRooted(filepath))
+                    return false;
+
+                //This will check for aall invalid filename characters.
+                Path.GetFullPath(filepath);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        #endregion
+
+        private void textServiceAccount_TextChanged(object sender, System.EventArgs e)
+        {
+            btnNext.Enabled = textServiceAccount.Text.Trim() != "";
+            if (btnNext.Enabled)
+            {
+                this.AcceptButton = btnNext;
+            }
+        }
+
+        private void txtTraceDirectory_TextChanged(object sender, System.EventArgs e)
+        {
+            btnNext.Enabled = txtTraceDirectory.Text.Trim() != "";
+            if (btnNext.Enabled)
+            {
+                this.AcceptButton = btnNext;
+            }
+        }
+
+        private void txtTriggerAssebmlyDirectory_TextChanged(object sender, System.EventArgs e)
+        {
+            btnNext.Enabled = txtTriggerAssemblyDirectory.Text.Trim() != "";
+            if (btnNext.Enabled)
+            {
+                this.AcceptButton = btnNext;
+            }
+        }
+
+        private void txtCollectionServer_TextChanged(object sender, System.EventArgs e)
+        {
+            btnNext.Enabled = txtCollectionServer.Text.Trim() != "";
+            if (btnNext.Enabled)
+            {
+                this.AcceptButton = btnNext;
+            }
+        }
+
+        private void textSQLServer_TextChanged(object sender, System.EventArgs e)
+        {
+            btnNext.Enabled = textSQLServer.Text.Trim() != "";
+            if (btnNext.Enabled)
+            {
+                this.AcceptButton = btnNext;
+            }
+        }
+
+        private void btnCancel_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+        }
 
         private string GetServerFromSqlServerConnectionString(string sqlServerConnectionString)
         {
             string server = GetStringTillCharacter(sqlServerConnectionString, COMMA_CHARACTER);
             return server.Trim().ToUpper();
-        }        
+        }
 
         private int? GetPortFromSqlServerConnectionString(string sqlServerConnectionString)
         {
@@ -1421,103 +1423,103 @@ namespace Idera.SQLcompliance.Cluster
 
             return text;
         }
-      
-		#region Finish and Save
 
-		//--------------------------------------------------------------------
-		// btnFinishClick - Validate input and then create the new
-		//                  registered SQL Server
-		//--------------------------------------------------------------------
-		private void btnFinish_Click(object sender, System.EventArgs e)
-		{
-			this.Cursor = Cursors.WaitCursor ;
-			// Validate Data
-			for ( int i=0; i<numPages; i++ )
-			{
-				if ( ! ValidatePage(i) )
-				{
-					currentPage = i;
-					SetCurrentPage();
-					return;
-				}
-			}
-			this.Cursor = Cursors.Default ;
-         
-			// Save
+        #region Finish and Save
 
-			//m_instance = textSQLServer.Text;
-         
-			this.DialogResult = DialogResult.OK;
-			this.Close();
-		}
-		#endregion	
-
-      //--------------------------------------------------------------------
-      // btnBrowse_Click - Browse for SQL Servers on the network to select
-      //                   one for registration
-      //--------------------------------------------------------------------
-      private void btnBrowse_Click(object sender, System.EventArgs e)
-      {
-         
-         try
-         {
-			 Form_SQLServerBrowse dlg = new Form_SQLServerBrowse();
-			 
-			 if ( DialogResult.OK == dlg.ShowDialog() )
+        //--------------------------------------------------------------------
+        // btnFinishClick - Validate input and then create the new
+        //                  registered SQL Server
+        //--------------------------------------------------------------------
+        private void btnFinish_Click(object sender, System.EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            // Validate Data
+            for (int i = 0; i < numPages; i++)
             {
-                textSQLServer.Text = dlg.SelectedServer.ToString();   
+                if (!ValidatePage(i))
+                {
+                    currentPage = i;
+                    SetCurrentPage();
+                    return;
+                }
             }
-         }
-         catch (Exception ex )
-         {
-			   MessageBox.Show( this,
-			                    String.Format( Constants.Error_DMOLoadServers, ex.Message ),
-			                    this.Text,
-			                    MessageBoxButtons.OK,
-			                    MessageBoxIcon.Error );
-         }
-      }
+            this.Cursor = Cursors.Default;
 
-      private void Form_Add_HelpRequested(object sender, System.Windows.Forms.HelpEventArgs hlpevent)
-      {
-         string topic = "" ;
+            // Save
 
-         switch(currentPage)
-         {
-            case 0:
-               topic = HelpAlias.CLUSTERHELP_Form_General ;
-               break ;
-            case 1:
-               topic = HelpAlias.CLUSTERHELP_Form_CollectionServer ;
-               break ;
-            case 2:
-               topic = HelpAlias.CLUSTERHELP_Form_AgentServiceAccount ;
-               break ;
-            case 3:
-               topic = HelpAlias.CLUSTERHELP_Form_TraceDirectory ;
-               break ;
-            case 4:
-               topic = HelpAlias.CLUSTERHELP_FORM_AssemblyDirectory;
-               break;
-            case 5:
-               topic = HelpAlias.CLUSTERHELP_Form_Summary ;
-               break ;
-         }
-         if(topic.Length > 0)
-         {
-            HelpAlias.ShowHelp(this, topic) ;
-            hlpevent.Handled = true ;
-         }
-         /*
-         if ( inHelpRequested ) return;
-         inHelpRequested = true;
-         Cursor = Cursors.WaitCursor;
-         
-         Help.ShowHelp( this, Constants.Help_ClusterHelpFile );
-         
-         Cursor = Cursors.Default;
-         inHelpRequested = false;*/
-      }
+            //m_instance = textSQLServer.Text;
 
-	}
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+        #endregion
+
+        //--------------------------------------------------------------------
+        // btnBrowse_Click - Browse for SQL Servers on the network to select
+        //                   one for registration
+        //--------------------------------------------------------------------
+        private void btnBrowse_Click(object sender, System.EventArgs e)
+        {
+
+            try
+            {
+                Form_SQLServerBrowse dlg = new Form_SQLServerBrowse();
+
+                if (DialogResult.OK == dlg.ShowDialog())
+                {
+                    textSQLServer.Text = dlg.SelectedServer.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this,
+                                 String.Format(Constants.Error_DMOLoadServers, ex.Message),
+                                 this.Text,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+            }
+        }
+
+        private void Form_Add_HelpRequested(object sender, System.Windows.Forms.HelpEventArgs hlpevent)
+        {
+            string topic = "";
+
+            switch (currentPage)
+            {
+                case 0:
+                    topic = HelpAlias.CLUSTERHELP_Form_General;
+                    break;
+                case 1:
+                    topic = HelpAlias.CLUSTERHELP_Form_CollectionServer;
+                    break;
+                case 2:
+                    topic = HelpAlias.CLUSTERHELP_Form_AgentServiceAccount;
+                    break;
+                case 3:
+                    topic = HelpAlias.CLUSTERHELP_Form_TraceDirectory;
+                    break;
+                case 4:
+                    topic = HelpAlias.CLUSTERHELP_FORM_AssemblyDirectory;
+                    break;
+                case 5:
+                    topic = HelpAlias.CLUSTERHELP_Form_Summary;
+                    break;
+            }
+            if (topic.Length > 0)
+            {
+                HelpAlias.ShowHelp(this, topic);
+                hlpevent.Handled = true;
+            }
+            /*
+            if ( inHelpRequested ) return;
+            inHelpRequested = true;
+            Cursor = Cursors.WaitCursor;
+
+            Help.ShowHelp( this, Constants.Help_ClusterHelpFile );
+
+            Cursor = Cursors.Default;
+            inHelpRequested = false;*/
+        }
+
+    }
 }

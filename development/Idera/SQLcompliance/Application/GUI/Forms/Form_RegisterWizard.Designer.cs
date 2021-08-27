@@ -857,7 +857,7 @@ namespace Idera.SQLcompliance.Application.GUI.Forms
             // textServicePasswordConfirm
             // 
             this.textServicePasswordConfirm.Location = new System.Drawing.Point(156, 69);
-            this.textServicePasswordConfirm.MaxLength = 64;
+            this.textServicePasswordConfirm.MaxLength = 255;
             this.textServicePasswordConfirm.Name = "textServicePasswordConfirm";
             this.textServicePasswordConfirm.PasswordChar = '*';
             this.textServicePasswordConfirm.Size = new System.Drawing.Size(224, 20);
@@ -866,7 +866,7 @@ namespace Idera.SQLcompliance.Application.GUI.Forms
             // textServicePassword
             // 
             this.textServicePassword.Location = new System.Drawing.Point(156, 45);
-            this.textServicePassword.MaxLength = 64;
+            this.textServicePassword.MaxLength = 255;
             this.textServicePassword.Name = "textServicePassword";
             this.textServicePassword.PasswordChar = '*';
             this.textServicePassword.Size = new System.Drawing.Size(224, 20);
